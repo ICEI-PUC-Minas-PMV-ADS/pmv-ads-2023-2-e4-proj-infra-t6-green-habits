@@ -2,25 +2,17 @@
 
 <span style="color:red">Pré-requisitos: <a href="1-Documentação de Contexto.md"> Documentação de Contexto</a></span>
 
-Definição do problema e ideia de solução a partir da perspectiva do usuário. É composta pela definição do  diagrama de personas, histórias de usuários, requisitos funcionais e não funcionais além das restrições do projeto.
-
-Apresente uma visão geral do que será abordado nesta parte do documento, enumerando as técnicas e/ou ferramentas utilizadas para realizar a especificações do projeto
 
 ## Personas
 
-Pedro Paulo tem 26 anos, é arquiteto recém-formado e autônomo. Pensa em se desenvolver profissionalmente através de um mestrado fora do país, pois adora viajar, é solteiro e sempre quis fazer um intercâmbio. Está buscando uma agência que o ajude a encontrar universidades na Europa que aceitem alunos estrangeiros.
+![Maria Júlia é uma mulher em seus 30 anos, trabalha 6 horas por dia, 5 dias por semana, como consultora em uma agência publicitária e possui um pequeno negócio, que gerencia remotamente de sua casa. Ela quer ser mais sustentável, mas acha difícil encontrar tempo e motivação. O objetivo de Maria Júlia é acrescentar em sua rotina hábitos sustentáveis, especificamente hábitos voltados para a redução do consumo de plástico e economia de energia. Como frustração, Maria Júlia considera o excesso de informações que consome sobre o tema sustentabilidade, mas não sente que essa quantidade a ajuda a colocar em prática o que almeja.](img/personas/mj.png)
 
-Enumere e detalhe as personas da sua solução. Para tanto, baseie-se tanto nos documentos disponibilizados na disciplina e/ou nos seguintes links:
+![Lucas é um estudante de Geologia apaixonado por questões ambientais. Com seus 22 anos, ele quer inspirar os outros, de forma abrangente, e mostrar que as ações individuais importam. O objetivo de Lucas é criar desafios e metas ambiciosas na aplicação, desafiando-se a liderar iniciativas de sustentabilidade em sua comunidade e a compartilhar seu progresso online para incentivar seus colegas a participar. Muitas pessoas ao seu redor não estão demonstrando o mesmo nível de comprometimento ou preocupação com o meio ambiente, o que pode ser frustrante. Assim sendo, o ato de compartilhar seus hábitos pode contribuir para essa mudança no nível de comprometimento de seus pares.](img/personas/ls.png)
 
-> **Links Úteis**:
-> - [Rock Content](https://rockcontent.com/blog/personas/)
-> - [Hotmart](https://blog.hotmart.com/pt-br/como-criar-persona-negocio/)
-> - [O que é persona?](https://resultadosdigitais.com.br/blog/persona-o-que-e/)
-> - [Persona x Público-alvo](https://flammo.com.br/blog/persona-e-publico-alvo-qual-a-diferenca/)
-> - [Mapa de Empatia](https://resultadosdigitais.com.br/blog/mapa-da-empatia/)
-> - [Mapa de Stalkeholders](https://www.racecomunicacao.com.br/blog/como-fazer-o-mapeamento-de-stakeholders/)
->
-Lembre-se que você deve ser enumerar e descrever precisamente e personalizada todos os clientes ideais que sua solução almeja.
+![Ana tem 39 anos, é formada em Direito, é mãe de dois filhos e busca criar um ambiente saudável e consciente para sua família. Ela deseja ensinar hábitos sustentáveis desde cedo. No entanto, percebe que há uma dificuldade em manter a motivação e o engajamento constante de todos os membros da família nos desafios e hábitos sustentáveis ao longo do tempo. Seu objetivo seria usar a aplicação para criar desafios que envolvem toda a família, como reduzir o desperdício de alimentos ou usar menos plástico, de forma efetiva, sem que todos percam o foco. Ela estabelece metas mensuráveis para que seus filhos possam aprender sobre responsabilidade ambiental.](img/personas/as.png)
+
+![Bruno, 27 anos, é um jovem desenvolvedor de sistemas que vive na cidade de Florianópolis e prefere usar transporte público ou bicicleta para reduzir sua pegada de carbono. Ele busca maneiras de aprimorar seu estilo de vida sustentável. Assim sendo, pode sentir uma dificuldade em encontrar maneiras criativas e envolventes de manter sua motivação e compromisso com hábitos sustentáveis ao longo do tempo. Bruno, nesse sentido, deseja criar desafios que se concentram na sua rotina de transporte sustentável, como aumentar a frequência de uso da bicicleta, reduzir viagens de carro, entre outros.](img/personas/bs.png)
+
 
 ## Histórias de Usuários
 
@@ -33,12 +25,6 @@ Com base na análise das personas forma identificadas as seguintes histórias de
 
 Apresente aqui as histórias de usuário que são relevantes para o projeto de sua solução. As Histórias de Usuário consistem em uma ferramenta poderosa para a compreensão e elicitação dos requisitos funcionais e não funcionais da sua aplicação. Se possível, agrupe as histórias de usuário por contexto, para facilitar consultas recorrentes à essa parte do documento.
 
-> **Links Úteis**:
-> - [Histórias de usuários com exemplos e template](https://www.atlassian.com/br/agile/project-management/user-stories)
-> - [Como escrever boas histórias de usuário (User Stories)](https://medium.com/vertice/como-escrever-boas-users-stories-hist%C3%B3rias-de-usu%C3%A1rios-b29c75043fac)
-> - [User Stories: requisitos que humanos entendem](https://www.luiztools.com.br/post/user-stories-descricao-de-requisitos-que-humanos-entendem/)
-> - [Histórias de Usuários: mais exemplos](https://www.reqview.com/doc/user-stories-example.html)
-> - [9 Common User Story Mistakes](https://airfocus.com/blog/user-story-mistakes/)
 
 ## Modelagem do Processo de Negócio 
 
@@ -79,30 +65,28 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 
 |ID    | Descrição do Requisito  | Prioridade |
 |------|-----------------------------------------|----|
-|RF-001| Permitir que o usuário cadastre tarefas | ALTA | 
-|RF-002| Emitir um relatório de tarefas no mês   | MÉDIA |
+|RF-001| O sistema deve permitir que os usuários se registrem com um nome de usuário e senha | ALTA | 
+|RF-002| Os usuários autenticados devem poder criar novos hábitos sustentáveis  | ALTA |
+|RF-003| Os usuários devem ter a capacidade de visualizar e editar hábitos existentes  | ALTA |
+|RF-004| Os usuários devem poder excluir hábitos que não desejam mais acompanhar   | ALTA |
+|RF-005| O sistema deve exibir uma lista de hábitos sustentáveis existentes para os usuários   | ALTA |
+|RF-006| Os usuários devem poder definir metas pessoais para a quantidade de hábitos sustentáveis que desejam completar em um período específico   | ALTA |
+|RF-007| Os hábitos sustentáveis devem ser categorizados com base em atributos como nome, descrição e categoria   | MÉDIA |
+|RF-008| Os usuários devem poder filtrar os hábitos por categorias específicas  | MÉDIA |
+
 
 ### Requisitos não Funcionais
 
 |ID     | Descrição do Requisito  |Prioridade |
 |-------|-------------------------|----|
-|RNF-001| O sistema deve ser responsivo para rodar em um dispositivos móvel | MÉDIA | 
-|RNF-002| Deve processar requisições do usuário em no máximo 3s |  BAIXA | 
+|RNF-001| A aplicação deve ser acessível, de acordo com as métricas da extensão Lighthouse | ALTA | 
+|RNF-002| A interface de usuário da aplicação deve ser documentada usando o Storybook, facilitando o entendimento dos componentes e fluxos |  ALTA | 
+|RNF-003| O frontend web deve ser desenvolvido usando o framework Next.js |  ALTA | 
+|RNF-004| O frontend móvel deve ser desenvolvido usando o framework React Native, permitindo a criação de aplicativos para iOS e Android a partir de um único código-base |  ALTA | 
+|RNF-005| O backend da aplicação será desenvolvido em Typescript |  ALTA | 
+|RNF-006| O banco de dados utilizado será o MongoDB, um banco de dados NoSQL orientado a documentos |  ALTA | 
+|RNF-007| A aplicação deve ser otimizada para ter um desempenho rápido e responsivo |  ALTA | 
 
-Com base nas Histórias de Usuário, enumere os requisitos da sua solução. Classifique esses requisitos em dois grupos:
-
-- [Requisitos Funcionais
- (RF)](https://pt.wikipedia.org/wiki/Requisito_funcional):
- correspondem a uma funcionalidade que deve estar presente na
-  plataforma (ex: cadastro de usuário).
-- [Requisitos Não Funcionais
-  (RNF)](https://pt.wikipedia.org/wiki/Requisito_n%C3%A3o_funcional):
-  correspondem a uma característica técnica, seja de usabilidade,
-  desempenho, confiabilidade, segurança ou outro (ex: suporte a
-  dispositivos iOS e Android).
-Lembre-se que cada requisito deve corresponder à uma e somente uma
-característica alvo da sua solução. Além disso, certifique-se de que
-todos os aspectos capturados nas Histórias de Usuário foram cobertos.
 
 ## Restrições
 
@@ -111,13 +95,8 @@ O projeto está restrito pelos itens apresentados na tabela a seguir.
 |ID| Restrição                                             |
 |--|-------------------------------------------------------|
 |01| O projeto deverá ser entregue até o final do semestre |
-|02| Não pode ser desenvolvido um módulo de backend        |
+|02| Proibida a terceirização de desenvolvimento do sistema em sua totalidade ou de módulos isolados     |
 
-Enumere as restrições à sua solução. Lembre-se de que as restrições geralmente limitam a solução candidata.
-
-> **Links Úteis**:
-> - [O que são Requisitos Funcionais e Requisitos Não Funcionais?](https://codificar.com.br/requisitos-funcionais-nao-funcionais/)
-> - [O que são requisitos funcionais e requisitos não funcionais?](https://analisederequisitos.com.br/requisitos-funcionais-e-requisitos-nao-funcionais-o-que-sao/)
 
 ## Diagrama de Casos de Uso
 
@@ -165,9 +144,3 @@ O gráfico de Gantt ou diagrama de Gantt também é uma ferramenta visual utiliz
 O gerenciamento adequado de tarefas contribuirá para que o projeto alcance altos níveis de produtividade. Por isso, é fundamental que ocorra a gestão de tarefas e de pessoas, de modo que os times envolvidos no projeto possam ser facilmente gerenciados. 
 
 ![Simple Project Timeline](img/02-project-timeline.png)
-
-## Gestão de Orçamento
-
-O processo de determinar o orçamento do projeto é uma tarefa que depende, além dos produtos (saídas) dos processos anteriores do gerenciamento de custos, também de produtos oferecidos por outros processos de gerenciamento, como o escopo e o tempo.
-
-![Orçamento](img/02-orcamento.png)
