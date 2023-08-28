@@ -20,10 +20,13 @@ Com base na análise das personas forma identificadas as seguintes histórias de
 
 |EU COMO... `PERSONA`| QUERO/PRECISO ... `FUNCIONALIDADE` |PARA ... `MOTIVO/VALOR`                 |
 |--------------------|------------------------------------|----------------------------------------|
-|Usuário do sistema  | Registrar minhas tarefas           | Não esquecer de fazê-las               |
-|Administrador       | Alterar permissões                 | Permitir que possam administrar contas |
-
-Apresente aqui as histórias de usuário que são relevantes para o projeto de sua solução. As Histórias de Usuário consistem em uma ferramenta poderosa para a compreensão e elicitação dos requisitos funcionais e não funcionais da sua aplicação. Se possível, agrupe as histórias de usuário por contexto, para facilitar consultas recorrentes à essa parte do documento.
+| Eu, Maria Júlia, como consultora e empresária remota | quero ter informações filtradas e relevantes, sem excesso de detalhes	| para evitar sobrecarga de informações e tomar ações mais eficazes |
+| Eu, Maria Júlia, sinto dificuldade em encontrar tempo e motivação | e preciso acompanhar um plano de ação personalizado e adaptável	 | para alcançar metas sustentáveis de maneira realista e motivadora |
+| Eu, Lucas, como estudante de Geologia	| quero criar desafios e metas ambiciosas para liderar iniciativas de sustentabilidade	| para inspirar e motivar outras pessoas a agirem pelo meio ambiente |
+| Eu, Lucas, desejando impactar a comunidade	| quero verificar o progresso das metas e desafios	| para manter-me responsável pelo meu próprio comprometimento |
+| Eu, Ana, como mãe de dois filhos | quero criar desafios sustentáveis envolvendo toda a família	| para fomentar hábitos sustentáveis desde cedo e manter o engajamento |
+| Eu, Ana, buscando ambiente saudável	| preciso estabelecer metas mensuráveis e práticas	| para ensinar responsabilidade ambiental aos filhos de forma eficaz |
+| Eu, Bruno, como desenvolvedor	| quero criar desafios que incentivem meu estilo de vida sustentáve	| para encontrar maneiras criativas de manter o compromisso com a sustentabilidade |
 
 
 ## Modelagem do Processo de Negócio 
