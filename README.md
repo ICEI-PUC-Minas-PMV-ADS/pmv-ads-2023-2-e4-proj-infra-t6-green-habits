@@ -1,23 +1,21 @@
 # TÍTULO DO PROJETO
 
-`CURSO`
+`Análise e Desenvolvimento de Sistemas`
 
-`DISCIPLINA`
-
-`SEMESTRE`
+`Projeto: Desenvolvimento de uma Aplicação Distribuída`
 
 Descrever resumidamente, em um ou dois parágrafos, o projeto que está sendo desenvolvido.
 
 ## Integrantes
 
-* Nome completo do aluno 1
-* Nome completo do aluno 2
-* Nome completo do aluno 3
-* Nome completo do aluno 4
+* Jaynne Polyana Nunes
+* Kelly Cesário de Oliveira
+* Mariana Marcela Mercier de Oliveira
+* Pedro Henrique Caetano Soares
 
 ## Orientador
 
-* Nome completo do professor 1
+* Pedro Felipe Alves de Oliveira
 
 ## Instruções de utilização
 
