@@ -37,9 +37,34 @@ Entregar um arquivo banco.sql contendo os scripts de criação das tabelas do ba
 
 ## Tecnologias Utilizadas
 
-Descreva aqui qual(is) tecnologias você vai usar para resolver o seu problema, ou seja, implementar a sua solução. Liste todas as tecnologias envolvidas, linguagens a serem utilizadas, serviços web, frameworks, bibliotecas, IDEs de desenvolvimento, e ferramentas.
+- Base de dados: MongoDB
+- Linguagem: Typescript (backend e frontend)
+- Backend: Express.js, Mongoose
+- Frontend (web): React, Next.js, Storybook
+- Frontend (mobile): React Native
 
-Apresente também uma figura explicando como as tecnologias estão relacionadas ou como uma interação do usuário com o sistema vai ser conduzida, por onde ela passa até retornar uma resposta ao usuário.
+O backend armazenará os dados em um banco NoSQL (MongoDB) baseado em nuvem (Atlas). As principais entidades da aplicação serão os usuários e hábitos, que serão estruturados da seguinte forma:
+
+### Estrutura da base de dados
+
+A API terá como principais rotas:
+- POST /users/
+  - Rota que cria novos usuários a partir de email, nome e senha
+  
+- POST /users/{id}/habits
+  - Rota que adiciona um hábito a lista de hábitos do usuário
+
+- DELETE /users/{id}/habits/{id}
+  - Rota que deleta um hábito do usuário
+
+- GET /users/{id}/habits/
+  - Rota que lista os hábitos do usuário
+
+- UPDATE /users/{id}/habits/{id}
+  - Rota que atualiza informações de um hábito do usuário
+ 
+### Diagrama de Fluxo UML
+
 
 ## Hospedagem
 
