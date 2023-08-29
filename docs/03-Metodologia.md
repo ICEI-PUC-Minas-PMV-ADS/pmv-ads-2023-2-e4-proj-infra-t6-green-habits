@@ -54,11 +54,10 @@ O grupo optou por implementar o framework Scrum como metodologia de gerenciament
 
 As ferramentas empregadas no projeto são:
 
-- VS Code
+- [VS Code](https://code.visualstudio.com/)
 - Whatsapp como ferramentas de comunicação
-- Figma
-- Extensão Lighthouse
-- Storybook
+- [Figma](https://www.figma.com/)
+- [Extensão Lighthouse](https://chrome.google.com/webstore/detail/lighthouse/blipmdconlkpinefehnmjammfjpmpbjk?hl=pt-BR)
+- [Storybook](https://storybook.js.org/)
 
 As ferramentas selecionadas para o projeto foram escolhidas com base na sua capacidade de aprimorar a eficiência, colaboração e qualidade geral do processo de desenvolvimento. O uso do VS Code como ambiente de desenvolvimento oferece uma plataforma robusta para codificação e depuração, proporcionando um ambiente familiar e altamente personalizável para a equipe. O Whatsapp, como ferramenta de comunicação, permite uma troca rápida e direta de informações entre os membros da equipe, promovendo a agilidade e o compartilhamento de atualizações. O Figma foi escolhido para design devido à sua colaboração em tempo real e recursos de prototipagem, simplificando o processo de design iterativo. A extensão Lighthouse foi incorporada para avaliação da qualidade e desempenho da aplicação, contribuindo para a entrega de uma experiência de usuário otimizada. Além disso, a utilização do Storybook agiliza o desenvolvimento de componentes independentes, incentivando uma abordagem centrada no usuário e melhorando a reutilização de elementos visuais em todo o projeto, além de otimizar testes unitários envolvendo acessibilidade e escalabilidade.
-Liste quais ferramentas foram empregadas no desenvolvimento do projeto, justificando a escolha delas, sempre que possível.
