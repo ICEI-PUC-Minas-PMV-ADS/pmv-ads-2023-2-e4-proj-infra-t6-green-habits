@@ -1,19 +1,11 @@
 # Arquitetura da Solução
 
-<span style="color:red">Pré-requisitos: <a href="3-Projeto de Interface.md"> Projeto de Interface</a></span>
-
-Definição de como o software é estruturado em termos dos componentes que fazem parte da solução e do ambiente de hospedagem da aplicação.
-
-![Arquitetura da Solução](img/02-mob-arch.png)
+A arquitetura da aplicação consistirá em duas plataformas distintas: uma interface front-end construída usando as tecnologias React e Next.js para a web e uma aplicação mobile desenvolvida com React Native. Ambas as plataformas se conectarão a um único backend, que é uma API responsável por executar as operações básicas de um CRUD (Create, Read, Update, Delete) em dados de usuários e seus hábitos. Esta API será implementada de modo a permitir que os usuários criem, leiam, excluam e editem seus hábitos pessoais. Tanto o backend quanto o front-end serão hospedados na plataforma Fly.io, garantindo escalabilidade e alta disponibilidade para a aplicação, além de simplificar o processo de implantação e manutenção da infraestrutura. Essa arquitetura modular e escalável permitirá que os usuários acessem a aplicação de forma eficiente tanto na web quanto em dispositivos móveis, mantendo uma experiência de usuário consistente em ambas as plataformas.
 
 ## Diagrama de Classes
 
-O diagrama de classes ilustra graficamente como será a estrutura do software, e como cada uma das classes da sua estrutura estarão interligadas. Essas classes servem de modelo para materializar os objetos que executarão na memória.
+![image](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e4-proj-infra-t6-green-habits/assets/103083123/d0b56bd1-d83e-4a2a-90a7-0d16f63fcc57)
 
-As referências abaixo irão auxiliá-lo na geração do artefato “Diagrama de Classes”.
-
-> - [Diagramas de Classes - Documentação da IBM](https://www.ibm.com/docs/pt-br/rational-soft-arch/9.6.1?topic=diagrams-class)
-> - [O que é um diagrama de classe UML? | Lucidchart](https://www.lucidchart.com/pages/pt/o-que-e-diagrama-de-classe-uml)
 
 ## Modelo ER
 
@@ -48,19 +40,19 @@ O backend armazenará os dados em um banco NoSQL (MongoDB) baseado em nuvem (Atl
 ### Estrutura da base de dados
 
 A API terá como principais rotas:
-- POST /users/
+- `POST /users/`
   - Rota que cria novos usuários a partir de email, nome e senha
   
-- POST /users/{id}/habits
+- `POST /users/{id}/habits`
   - Rota que adiciona um hábito a lista de hábitos do usuário
 
-- DELETE /users/{id}/habits/{id}
+- `DELETE /users/{id}/habits/{id}`
   - Rota que deleta um hábito do usuário
 
-- GET /users/{id}/habits/
+- `GET /users/{id}/habits/`
   - Rota que lista os hábitos do usuário
 
-- UPDATE /users/{id}/habits/{id}
+- `UPDATE /users/{id}/habits/{id}`
   - Rota que atualiza informações de um hábito do usuário
  
 ### Diagrama de Fluxo UML
