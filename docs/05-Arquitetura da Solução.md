@@ -65,15 +65,9 @@ Por utilizarmos o MongoDB para a base de dados, o esquema dos dados não utiliza
 
 
 ## Hospedagem
+A hospedagem dessa aplicação seguirá uma abordagem moderna e escalável. Tanto o front-end desenvolvido com React e Next.js quanto o aplicativo mobile criado com React Native serão hospedados na mesma plataforma, que é o Fly.io. Esta escolha permite centralizar a infraestrutura e simplificar a implantação, facilitando a manutenção e escalabilidade da aplicação.
 
-Explique como a hospedagem e o lançamento da plataforma foi feita.
-
-> **Links Úteis**:
->
-> - [Website com GitHub Pages](https://pages.github.com/)
-> - [Programação colaborativa com Repl.it](https://repl.it/)
-> - [Getting Started with Heroku](https://devcenter.heroku.com/start)
-> - [Publicando Seu Site No Heroku](http://pythonclub.com.br/publicando-seu-hello-world-no-heroku.html)
+O backend da aplicação, uma API responsável pelo CRUD de usuários e hábitos, também será hospedado no Fly.io. Essa escolha proporciona um ambiente altamente disponível e eficiente para o processamento das requisições da API, garantindo que os usuários possam criar, ler, excluir e editar seus hábitos de forma rápida e confiável. O uso do Fly.io oferece flexibilidade na configuração de recursos e dimensionamento sob demanda, o que é essencial para acomodar potenciais picos de tráfego e garantir uma experiência consistente aos usuários. Em resumo, a hospedagem no Fly.io proporcionará um ambiente robusto e ágil para todas as partes da aplicação, permitindo um funcionamento eficaz em ambas as plataformas front-end e mobile.
 
 ## Qualidade de Software
 
