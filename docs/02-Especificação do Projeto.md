@@ -74,8 +74,12 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 |RF-004| Os usuários devem poder excluir hábitos que não desejam mais acompanhar   | ALTA |
 |RF-005| O sistema deve exibir uma lista de hábitos sustentáveis existentes para os usuários   | ALTA |
 |RF-006| Os usuários devem poder definir metas pessoais para a quantidade de hábitos sustentáveis que desejam completar em um período específico   | ALTA |
-|RF-007| Os hábitos sustentáveis devem ser categorizados com base em atributos como nome, descrição e categoria   | MÉDIA |
-|RF-008| Os usuários devem poder filtrar os hábitos por categorias específicas  | MÉDIA |
+|RF-007| Os usuários devem poder visualizar o progresso alcançado em cada meta definida | ALTA |
+|RF-008| Os hábitos sustentáveis devem ser categorizados com base em atributos como nome, descrição e categoria   | MÉDIA |
+|RF-009| Os usuários devem poder filtrar os hábitos por categorias específicas  | MÉDIA |
+|RF-010| O sistema deve verificar diariamente se uma meta já foi cumprida naquele dia antes de mostrá-la ao usuário | MÉDIA |
+|RF-011| Os usuários devem poder alterar os hábitos existentes, mudando atributos como categoria, descriçãoo e título | MÉDIA |
+|RF-012| O sistema deve realizar o pareamento entre metas e hábitos, tornando cada meta relacionada a um hábito | BAIXA |
 
 
 ### Requisitos não Funcionais
