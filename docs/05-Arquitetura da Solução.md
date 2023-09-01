@@ -4,6 +4,23 @@ A arquitetura da aplicação consistirá em duas plataformas distintas: uma inte
 
 Esta API será implementada de modo a permitir que os usuários criem, leiam, excluam e editem seus hábitos pessoais. Tanto o backend quanto o front-end serão hospedados na plataforma Fly.io, garantindo escalabilidade e alta disponibilidade para a aplicação, além de simplificar o processo de implantação e manutenção da infraestrutura. Essa arquitetura modular e escalável permitirá que os usuários acessem a aplicação de forma eficiente tanto na web quanto em dispositivos móveis, mantendo uma experiência de usuário consistente em ambas as plataformas.
 
+A API terá como principais rotas:
+- `POST /users/`
+  - Rota que cria novos usuários a partir de email, nome e senha
+  
+- `POST /users/{id}/habits`
+  - Rota que adiciona um hábito a lista de hábitos do usuário
+
+- `DELETE /users/{id}/habits/{id}`
+  - Rota que deleta um hábito do usuário
+
+- `GET /users/{id}/habits/`
+  - Rota que lista os hábitos do usuário
+
+- `UPDATE /users/{id}/habits/{id}`
+  - Rota que atualiza informações de um hábito do usuário
+ 
+
 ## Diagrama de Classes
 
 ![image](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e4-proj-infra-t6-green-habits/assets/103083123/d0b56bd1-d83e-4a2a-90a7-0d16f63fcc57)
@@ -40,23 +57,10 @@ Entregar um arquivo banco.sql contendo os scripts de criação das tabelas do ba
 O backend armazenará os dados em um banco NoSQL (MongoDB) baseado em nuvem (Atlas). As principais entidades da aplicação serão os usuários e hábitos, que serão estruturados da seguinte forma:
 
 ### Estrutura da base de dados
+Por utilizarmos o MongoDB para a base de dados, o esquema dos dados não utiliza de artefatos como chaves primárias e estrangeiras, fazendo com que a aplicação seja flexível ao salvar dados de maneira não-relacional.
+![image](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e4-proj-infra-t6-green-habits/assets/103083123/7a300dcb-6eb0-4e45-8987-034035841e6d)
 
-A API terá como principais rotas:
-- `POST /users/`
-  - Rota que cria novos usuários a partir de email, nome e senha
-  
-- `POST /users/{id}/habits`
-  - Rota que adiciona um hábito a lista de hábitos do usuário
 
-- `DELETE /users/{id}/habits/{id}`
-  - Rota que deleta um hábito do usuário
-
-- `GET /users/{id}/habits/`
-  - Rota que lista os hábitos do usuário
-
-- `UPDATE /users/{id}/habits/{id}`
-  - Rota que atualiza informações de um hábito do usuário
- 
 ### Diagrama de Fluxo UML
 
 
