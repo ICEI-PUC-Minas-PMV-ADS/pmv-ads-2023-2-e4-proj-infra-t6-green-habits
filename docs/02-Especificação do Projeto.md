@@ -53,12 +53,14 @@ Apresente aqui o nome e as oportunidades de melhorias para o processo 2. Em segu
 
 ## Indicadores de Desempenho
 
-Apresente aqui os principais indicadores de desempenho e algumas metas para o processo. Atenção: as informações necessárias para gerar os indicadores devem estar contempladas no diagrama de classe. Colocar no mínimo 5 indicadores. 
+| Indicador              | Objetivos                                         | Descrição                                                  | Cálculo                                   | Fonte de Dados                                 | Perspectiva          |
+|------------------------|--------------------------------------------------|------------------------------------------------------------|-------------------------------------------|------------------------------------------------|----------------------|
+| Taxa de Registro       | Medir a eficácia do processo de registro de usuários | Avaliar a taxa de sucesso no registro de usuários       | (Número de registros bem-sucedidos / Total de tentativas de registro) * 100 | Logs de registro de usuário                  | Interna               |
+| Taxa de Criação de Hábitos Sustentáveis | Avaliar a adoção de hábitos sustentáveis pelos usuários | Acompanhar a criação de novos hábitos sustentáveis     | (Número de hábitos sustentáveis criados / Número total de usuários autenticados) * 100 | Registro de hábitos sustentáveis             | Interna               |
+| Taxa de Cumprimento de Metas | Medir o sucesso dos usuários em alcançar suas metas pessoais | Avaliar o progresso em relação às metas definidas     | (Número de metas alcançadas / Número total de metas definidas) * 100 | Registro de progresso das metas           | Interna               |
+| Taxa de Edição de Hábitos | Avaliar a interação dos usuários com os hábitos existentes | Medir a frequência de edição de hábitos existentes    | (Número de hábitos editados / Número total de hábitos existentes) * 100 | Registro de atividade de edição de hábitos | Interna               |
+| Taxa de Cumprimento Semanal de Metas | Medir o cumprimento semanal das metas estabelecidas | Avaliar o quão regularmente os usuários cumprem suas metas semanalmente | (Número de metas cumpridas semanalmente / Número total de metas definidas para a semana) * 100 | Registro de progresso das metas           | Interna               |
 
-Usar o seguinte modelo: 
-
-![Indicadores de Desempenho](img/02-indic-desemp.png)
-Obs.: todas as informações para gerar os indicadores devem estar no diagrama de classe a ser apresentado a posteriori. 
 
 ## Requisitos
 
