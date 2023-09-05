@@ -30,7 +30,11 @@ etiquetas:
 - `bug`: uma funcionalidade encontra-se com problemas
 - `enhancement`: uma funcionalidade precisa ser melhorada
 - `feature`: uma nova funcionalidade precisa ser introduzida
-- `review`: revisão da documentação e/ou da funcionalidade
+- `review`: revisão ou teste da documentação e/ou da funcionalidade
+- `data`: catálogo e população do banco de dados
+- `design`: elaboração de templates e componentes com foco na experiência do usuário
+- `frontend development`: desenvolvimento frontend
+- `backend development`: desenvolvimento backend
 
 
 ## Gerenciamento de Projeto
