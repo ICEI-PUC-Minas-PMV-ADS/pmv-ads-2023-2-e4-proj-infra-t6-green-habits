@@ -55,7 +55,7 @@ O grupo optou por implementar o framework Scrum como metodologia de gerenciament
 As ferramentas empregadas no projeto são:
 
 - [VS Code](https://code.visualstudio.com/)
-- Whatsapp como ferramentas de comunicação
+- Whatsapp como ferramenta de comunicação
 - [Figma](https://www.figma.com/)
 - [Extensão Lighthouse](https://chrome.google.com/webstore/detail/lighthouse/blipmdconlkpinefehnmjammfjpmpbjk?hl=pt-BR)
 - [Storybook](https://storybook.js.org/)
