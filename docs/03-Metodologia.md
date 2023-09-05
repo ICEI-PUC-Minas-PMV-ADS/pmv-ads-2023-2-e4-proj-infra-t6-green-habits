@@ -30,6 +30,7 @@ etiquetas:
 - `bug`: uma funcionalidade encontra-se com problemas
 - `enhancement`: uma funcionalidade precisa ser melhorada
 - `feature`: uma nova funcionalidade precisa ser introduzida
+- `review`: revisão da documentação e/ou da funcionalidade
 
 
 ## Gerenciamento de Projeto
