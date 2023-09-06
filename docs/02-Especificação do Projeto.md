@@ -143,8 +143,8 @@ A matriz deve contemplar todos os elementos relevantes que fazem parte do sistem
 ![Cronograma 3](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e4-proj-infra-t6-green-habits/assets/103225086/3962588c-65a6-4e91-a6c3-1564551b6175)
 
 Utilizando o Project do GitHub, junta-se o cronograma e a divisão de tarefas da equipe.
-![RoadMap foto](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e4-proj-infra-t6-green-habits/assets/103225086/ea940f75-745e-4147-9a13-776320ee7855)
-<video src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e4-proj-infra-t6-green-habits/assets/103225086/828ed4ec-896d-45b3-8063-d3d046ed36a4">
+
+https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e4-proj-infra-t6-green-habits/assets/103225086/1d7a11f6-eeab-4cfc-ae8b-dda277e895f2
 
 
 
@@ -152,7 +152,8 @@ Utilizando o Project do GitHub, junta-se o cronograma e a divisão de tarefas da
 
 O gerenciamento da equipe é realizado pelo Kanban dentro do próprio GitHub, utilizando a ferramenta Projects. Atrvés dessa ferramenta, as tarefas são designadas para cada colaborador da equipe, cada uma com um prazo limite.
 
-![Quadro kanban](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e4-proj-infra-t6-green-habits/assets/103225086/f23a5b2e-b7ea-4dc5-80cb-5c7dc196842d)
+https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e4-proj-infra-t6-green-habits/assets/103225086/74832524-a58c-4bb5-bc94-3acccf9d8989
+
 ![Gráfico Evolução](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e4-proj-infra-t6-green-habits/assets/103225086/92f1eb03-69fb-415b-a874-56aec131017f)
 
 ## Gerenciamento de Custos
