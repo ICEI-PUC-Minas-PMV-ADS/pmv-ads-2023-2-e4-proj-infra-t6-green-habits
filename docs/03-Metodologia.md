@@ -46,7 +46,7 @@ Apresente a divisão de papéis entre os membros do grupo.
 Exemplificação: A equipe utiliza metodologias ágeis, tendo escolhido o Scrum como base para definição do processo de desenvolvimento. A equipe está organizada da seguinte maneira:
 
 - Scrum Master: Kelly Cesário de Oliveira;
-- Product Owner: Pedro Felipe Alves de Oliveira;
+- Product Owner: Pedro Guimaraes Santos;
 - Equipe de Desenvolvimento: Jaynne Nunes, Kelly Cesário de Oliveira, Leonardo Xavier, Mariana Marcela Mercier de Oliveira, Pedro Guimaraes Santos e Pedro Henrique Caetano Soares;
 - Equipe de Design: Kelly Cesário de Oliveira.
 
