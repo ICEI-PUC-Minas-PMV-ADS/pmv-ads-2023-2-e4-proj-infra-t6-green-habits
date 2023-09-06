@@ -150,7 +150,7 @@ Utilizando o Project do GitHub, junta-se o cronograma e a divisão de tarefas da
 
 O gerenciamento da equipe é realizado pelo Kanban dentro do próprio GitHub, utilizando a ferramenta Projects. Atrvés dessa ferramenta, as tarefas são designadas para cada colaborador da equipe, cada uma com um prazo limite.
 
-![Quadro de tarefas](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e4-proj-infra-t6-green-habits/assets/103225086/09b02ec8-26a9-4db2-9be2-543439a4ef70)
+![Quadro de Progresso](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e4-proj-infra-t6-green-habits/assets/103225086/201e3caf-c70b-4f83-92e4-73e7d5009161)
 ![Gráfico Evolução](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e4-proj-infra-t6-green-habits/assets/103225086/92f1eb03-69fb-415b-a874-56aec131017f)
 
 ## Gerenciamento de Custos
