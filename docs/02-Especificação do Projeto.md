@@ -144,6 +144,8 @@ A matriz deve contemplar todos os elementos relevantes que fazem parte do sistem
 
 Utilizando o Project do GitHub, junta-se o cronograma e a divisão de tarefas da equipe.
 ![RoadMap foto](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e4-proj-infra-t6-green-habits/assets/103225086/ea940f75-745e-4147-9a13-776320ee7855)
+<video src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e4-proj-infra-t6-green-habits/assets/103225086/828ed4ec-896d-45b3-8063-d3d046ed36a4">
+
 
 
 ## Gerenciamento de Equipe
