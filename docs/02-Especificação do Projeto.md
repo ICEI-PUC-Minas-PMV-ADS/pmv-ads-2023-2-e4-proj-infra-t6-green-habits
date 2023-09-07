@@ -71,17 +71,18 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 |ID    | Descrição do Requisito  | Prioridade |
 |------|-----------------------------------------|----|
 |RF-001| O sistema deve permitir que os usuários se registrem com um nome de usuário e senha | ALTA | 
-|RF-002| Os usuários autenticados devem poder criar novos hábitos sustentáveis  | ALTA |
-|RF-003| Os usuários devem ter a capacidade de visualizar e editar hábitos existentes  | ALTA |
-|RF-004| Os usuários devem poder excluir hábitos que não desejam mais acompanhar   | ALTA |
-|RF-005| O sistema deve exibir uma lista de hábitos sustentáveis existentes para os usuários   | ALTA |
-|RF-006| Os usuários devem poder definir metas pessoais para a quantidade de hábitos sustentáveis que desejam completar em um período específico   | ALTA |
-|RF-007| Os usuários devem poder visualizar o progresso alcançado em cada meta definida | ALTA |
-|RF-008| Os hábitos sustentáveis devem ser categorizados com base em atributos como nome, descrição e categoria   | MÉDIA |
-|RF-009| Os usuários devem poder filtrar os hábitos por categorias específicas  | MÉDIA |
-|RF-010| O sistema deve verificar diariamente se uma meta já foi cumprida naquele dia antes de mostrá-la ao usuário | MÉDIA |
-|RF-011| Os usuários devem poder alterar os hábitos existentes, mudando atributos como categoria, descriçãoo e título | MÉDIA |
-|RF-012| O sistema deve realizar o pareamento entre metas e hábitos, tornando cada meta relacionada a um hábito | BAIXA |
+|RF-002 | Os usuários autenticados devem poder gerenciar seus hábitos sustentáveis, o que inclui a criação de novos hábitos, a visualização e edição de hábitos existentes, bem como a exclusão de hábitos indesejados | ALTA |
+|RF-003| O sistema deve exibir uma lista de hábitos sustentáveis existentes para os usuários | ALTA |
+|RF-004| Os usuários devem poder definir metas pessoais para a quantidade de hábitos sustentáveis que desejam completar em um período específico | ALTA |
+|RF-005| Os usuários devem poder visualizar o progresso alcançado em cada meta definida | ALTA |
+|RF-006| Os hábitos sustentáveis devem ser categorizados com base em atributos como nome, descrição e categoria   | MÉDIA |
+|RF-007| Os usuários devem poder filtrar os hábitos por categorias específicas  | MÉDIA |
+|RF-008| Os usuários devem poder alterar os hábitos existentes, mudando atributos como categoria, descrição e título | MÉDIA |
+|RF-009| O sistema deve realizar uma verificação diária para determinar se uma meta já foi alcançada  | MÉDIA |
+|RF-010| O sistema deve realizar o pareamento entre metas e hábitos, tornando cada meta relacionada a pelo menos um hábito | MÉDIA |
+|RF-011| O sistema deve exibir um ranking de categorias de hábitos sustentáveis com base no número de hábitos concluídos pelos usuários | BAIXA |
+|RF-012| Os usuários devem acessar um ranking pessoal que mostre suas categorias de hábitos mais e menos ativas | BAIXA |
+|RF-013| Com base no ranking pessoal, o sistema deve sugerir o foco em categorias menos exploradas para incentivar a diversificação dos hábitos sustentáveis dos usuários | BAIXA |
 
 
 ### Requisitos não Funcionais
