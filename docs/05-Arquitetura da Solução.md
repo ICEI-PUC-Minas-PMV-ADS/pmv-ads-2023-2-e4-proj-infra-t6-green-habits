@@ -28,23 +28,79 @@ A API terá como principais rotas:
 
 ## Modelo ER
 
-O Modelo ER representa através de um diagrama como as entidades (coisas, objetos) se relacionam entre si na aplicação interativa.]
+![diagrama ER](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e4-proj-infra-t6-green-habits/assets/103083123/59cde570-24d0-4289-849c-d0375e046384)
 
-As referências abaixo irão auxiliá-lo na geração do artefato “Modelo ER”.
-
-> - [Como fazer um diagrama entidade relacionamento | Lucidchart](https://www.lucidchart.com/pages/pt/como-fazer-um-diagrama-entidade-relacionamento)
 
 ## Esquema Relacional
 
-O Esquema Relacional corresponde à representação dos dados em tabelas juntamente com as restrições de integridade e chave primária.
- 
-As referências abaixo irão auxiliá-lo na geração do artefato “Esquema Relacional”.
+![image](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e4-proj-infra-t6-green-habits/assets/103083123/6a92bc4e-2d10-4321-8a31-0d9edba631e4)
 
-> - [Criando um modelo relacional - Documentação da IBM](https://www.ibm.com/docs/pt-br/cognos-analytics/10.2.2?topic=designer-creating-relational-model)
 
 ## Modelo Físico
+Como o projeto usará um banco não relacional, mostraremos os models (definições dos documentos no MongoDB):
+`user.ts`
+```ts
+import mongoose, { Document, Schema } from 'mongoose';
+import { Habit, HabitSchema } from './habit';
 
-Entregar um arquivo banco.sql contendo os scripts de criação das tabelas do banco de dados. Este arquivo deverá ser incluído dentro da pasta src\bd.
+interface User extends Document {
+    id: string;
+    name: string;
+    email: string;
+    password: string;
+    habits: Habit[];
+}
+
+const UserSchema = new Schema<User>({
+    id: { type: String, required: true, unique: true },
+    name: { type: String, required: true },
+    email: { type: String, required: true, unique: true },
+    password: { type: String, required: true },
+    habits: [HabitSchema],
+});
+
+const UserModel = mongoose.model<User>('User', UserSchema);
+
+export default UserModel;
+
+```
+
+`habit.ts`
+```ts
+import mongoose, { Document } from 'mongoose';
+
+export enum Category {
+    AMBIENTAL = "Meio ambiente",
+    HEALTH = "Saúde",
+    SOCIAL = "Social",
+    FINANCE = "Financeiro"
+}
+
+export interface Habit extends Document {
+  id: string;
+  title: string;
+  description: string;
+  category: Category;
+  created_at: Date;
+  deleted_at?: Date;
+  target_streak?: number;
+  days_checked?: Date[];
+}
+
+export const HabitSchema = new mongoose.Schema<Habit>({
+  id: { type: String, required: true, unique: true },
+  title: { type: String, required: true },
+  description: { type: String, required: true },
+  category: { type: String, required: true },
+  created_at: { type: Date, required: true },
+  deleted_at: { type: Date },
+  target_streak: { type: Number },
+  days_checked: [{ type: Date }],
+});
+
+export const HabitModel = mongoose.model<Habit>('Habit', HabitSchema);
+
+```
 
 ## Tecnologias Utilizadas
 
@@ -62,7 +118,7 @@ Por utilizarmos o MongoDB para a base de dados, o esquema dos dados não utiliza
 
 
 ### Diagrama de Fluxo UML
-
+![image](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e4-proj-infra-t6-green-habits/assets/103083123/c4f8e9b5-79ac-41da-8136-319adcaf54f2)
 
 ## Hospedagem
 A hospedagem dessa aplicação seguirá uma abordagem moderna e escalável. Tanto o front-end desenvolvido com React e Next.js quanto o aplicativo mobile criado com React Native serão hospedados na mesma plataforma, que é o Fly.io. Esta escolha permite centralizar a infraestrutura e simplificar a implantação, facilitando a manutenção e escalabilidade da aplicação.
