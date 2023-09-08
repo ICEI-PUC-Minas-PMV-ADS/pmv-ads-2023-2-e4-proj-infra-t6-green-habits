@@ -53,12 +53,14 @@ Apresente aqui o nome e as oportunidades de melhorias para o processo 2. Em segu
 
 ## Indicadores de Desempenho
 
-Apresente aqui os principais indicadores de desempenho e algumas metas para o processo. Atenção: as informações necessárias para gerar os indicadores devem estar contempladas no diagrama de classe. Colocar no mínimo 5 indicadores. 
+| Indicador              | Objetivos                                         | Descrição                                                  | Cálculo                                   | Fonte de Dados                                 | Perspectiva          |
+|------------------------|--------------------------------------------------|------------------------------------------------------------|-------------------------------------------|------------------------------------------------|----------------------|
+| Taxa de Registro       | Medir a eficácia do processo de registro de usuários | Avaliar a taxa de sucesso no registro de usuários       | (Número de registros bem-sucedidos / Total de tentativas de registro) * 100 | Logs de registro de usuário                  | Interna               |
+| Taxa de Criação de Hábitos Sustentáveis | Avaliar a adoção de hábitos sustentáveis pelos usuários | Acompanhar a criação de novos hábitos sustentáveis     | (Número de hábitos sustentáveis criados / Número total de usuários autenticados) * 100 | Registro de hábitos sustentáveis             | Interna               |
+| Taxa de Cumprimento de Metas | Medir o sucesso dos usuários em alcançar suas metas pessoais | Avaliar o progresso em relação às metas definidas     | (Número de metas alcançadas / Número total de metas definidas) * 100 | Registro de progresso das metas           | Interna               |
+| Taxa de Edição de Hábitos | Avaliar a interação dos usuários com os hábitos existentes | Medir a frequência de edição de hábitos existentes    | (Número de hábitos editados / Número total de hábitos existentes) * 100 | Registro de atividade de edição de hábitos | Interna               |
+| Taxa de Cumprimento Semanal de Metas | Medir o cumprimento semanal das metas estabelecidas | Avaliar o quão regularmente os usuários cumprem suas metas semanalmente | (Número de metas cumpridas semanalmente / Número total de metas definidas para a semana) * 100 | Registro de progresso das metas           | Interna               |
 
-Usar o seguinte modelo: 
-
-![Indicadores de Desempenho](img/02-indic-desemp.png)
-Obs.: todas as informações para gerar os indicadores devem estar no diagrama de classe a ser apresentado a posteriori. 
 
 ## Requisitos
 
@@ -69,13 +71,18 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 |ID    | Descrição do Requisito  | Prioridade |
 |------|-----------------------------------------|----|
 |RF-001| O sistema deve permitir que os usuários se registrem com um nome de usuário e senha | ALTA | 
-|RF-002| Os usuários autenticados devem poder criar novos hábitos sustentáveis  | ALTA |
-|RF-003| Os usuários devem ter a capacidade de visualizar e editar hábitos existentes  | ALTA |
-|RF-004| Os usuários devem poder excluir hábitos que não desejam mais acompanhar   | ALTA |
-|RF-005| O sistema deve exibir uma lista de hábitos sustentáveis existentes para os usuários   | ALTA |
-|RF-006| Os usuários devem poder definir metas pessoais para a quantidade de hábitos sustentáveis que desejam completar em um período específico   | ALTA |
-|RF-007| Os hábitos sustentáveis devem ser categorizados com base em atributos como nome, descrição e categoria   | MÉDIA |
-|RF-008| Os usuários devem poder filtrar os hábitos por categorias específicas  | MÉDIA |
+|RF-002 | Os usuários autenticados devem poder gerenciar seus hábitos sustentáveis, o que inclui a criação de novos hábitos, a visualização e edição de hábitos existentes, bem como a exclusão de hábitos indesejados | ALTA |
+|RF-003| O sistema deve exibir uma lista de hábitos sustentáveis existentes para os usuários | ALTA |
+|RF-004| Os usuários devem poder definir metas pessoais para a quantidade de hábitos sustentáveis que desejam completar em um período específico | ALTA |
+|RF-005| Os usuários devem poder visualizar o progresso alcançado em cada meta definida | ALTA |
+|RF-006| Os hábitos sustentáveis devem ser categorizados com base em atributos como nome, descrição e categoria   | MÉDIA |
+|RF-007| Os usuários devem poder filtrar os hábitos por categorias específicas  | MÉDIA |
+|RF-008| Os usuários devem poder alterar os hábitos existentes, mudando atributos como categoria, descrição e título | MÉDIA |
+|RF-009| O sistema deve realizar uma verificação diária para determinar se uma meta já foi alcançada  | MÉDIA |
+|RF-010| O sistema deve realizar o pareamento entre metas e hábitos, tornando cada meta relacionada a pelo menos um hábito | MÉDIA |
+|RF-011| O sistema deve exibir um ranking de categorias de hábitos sustentáveis com base no número de hábitos concluídos pelos usuários | BAIXA |
+|RF-012| Os usuários devem acessar um ranking pessoal que mostre suas categorias de hábitos mais e menos ativas | BAIXA |
+|RF-013| Com base no ranking pessoal, o sistema deve sugerir o foco em categorias menos exploradas para incentivar a diversificação dos hábitos sustentáveis dos usuários | BAIXA |
 
 
 ### Requisitos não Funcionais
@@ -103,9 +110,7 @@ O projeto está restrito pelos itens apresentados na tabela a seguir.
 
 ## Diagrama de Casos de Uso
 
-O diagrama de casos de uso é o próximo passo após a elicitação de requisitos, que utiliza um modelo gráfico e uma tabela com as descrições sucintas dos casos de uso e dos atores. Ele contempla a fronteira do sistema e o detalhamento dos requisitos funcionais com a indicação dos atores, casos de uso e seus relacionamentos. 
-
-As referências abaixo irão auxiliá-lo na geração do artefato “Diagrama de Casos de Uso”.
+(img/Casos-de-Uso.jpg)
 
 > **Links Úteis**:
 > - [Criando Casos de Uso](https://www.ibm.com/docs/pt-br/elm/6.0?topic=requirements-creating-use-cases)
@@ -130,20 +135,29 @@ A matriz deve contemplar todos os elementos relevantes que fazem parte do sistem
 
 # Gerenciamento de Projeto
 
-De acordo com o PMBoK v6 as dez áreas que constituem os pilares para gerenciar projetos, e que caracterizam a multidisciplinaridade envolvida, são: Integração, Escopo, Cronograma (Tempo), Custos, Qualidade, Recursos, Comunicações, Riscos, Aquisições, Partes Interessadas. Para desenvolver projetos um profissional deve se preocupar em gerenciar todas essas dez áreas. Elas se complementam e se relacionam, de tal forma que não se deve apenas examinar uma área de forma estanque. É preciso considerar, por exemplo, que as áreas de Escopo, Cronograma e Custos estão muito relacionadas. Assim, se eu amplio o escopo de um projeto eu posso afetar seu cronograma e seus custos.
-
 ## Gerenciamento de Tempo
 
-Com diagramas bem organizados que permitem gerenciar o tempo nos projetos, o gerente de projetos agenda e coordena tarefas dentro de um projeto para estimar o tempo necessário de conclusão.
+![Cronograma 1](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e4-proj-infra-t6-green-habits/assets/103225086/55555bae-98d1-4559-a75a-ac2b4e92f9a1)
+![Cronograma 2](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e4-proj-infra-t6-green-habits/assets/103225086/d67c33d0-4fe6-4fd4-82e6-2286c879991c)
+![Cronograma 3](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e4-proj-infra-t6-green-habits/assets/103225086/3962588c-65a6-4e91-a6c3-1564551b6175)
 
-![Diagrama de rede simplificado notação francesa (método francês)](img/02-diagrama-rede-simplificado.png)
+Utilizando o Project do GitHub, junta-se o cronograma e a divisão de tarefas da equipe.
 
-O gráfico de Gantt ou diagrama de Gantt também é uma ferramenta visual utilizada para controlar e gerenciar o cronograma de atividades de um projeto. Com ele, é possível listar tudo que precisa ser feito para colocar o projeto em prática, dividir em atividades e estimar o tempo necessário para executá-las.
+https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e4-proj-infra-t6-green-habits/assets/103225086/1d7a11f6-eeab-4cfc-ae8b-dda277e895f2
 
-![Gráfico de Gantt](img/02-grafico-gantt.png)
+
 
 ## Gerenciamento de Equipe
 
-O gerenciamento adequado de tarefas contribuirá para que o projeto alcance altos níveis de produtividade. Por isso, é fundamental que ocorra a gestão de tarefas e de pessoas, de modo que os times envolvidos no projeto possam ser facilmente gerenciados. 
+O gerenciamento da equipe é realizado pelo Kanban dentro do próprio GitHub, utilizando a ferramenta Projects. Atrvés dessa ferramenta, as tarefas são designadas para cada colaborador da equipe, cada uma com um prazo limite.
 
-![Simple Project Timeline](img/02-project-timeline.png)
+https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e4-proj-infra-t6-green-habits/assets/103225086/74832524-a58c-4bb5-bc94-3acccf9d8989
+
+![Gráfico Evolução](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e4-proj-infra-t6-green-habits/assets/103225086/92f1eb03-69fb-415b-a874-56aec131017f)
+
+## Gerenciamento de Custos
+
+![Custos](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e4-proj-infra-t6-green-habits/assets/103225086/0a9fcea9-b4e3-4cd8-8cc1-88c8aadbe772)
+
+
+

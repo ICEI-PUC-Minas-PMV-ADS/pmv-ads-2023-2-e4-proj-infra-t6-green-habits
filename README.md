@@ -11,7 +11,9 @@
 
 * Jaynne Polyana Nunes
 * Kelly Cesário de Oliveira
+* Leonardo Xavier
 * Mariana Marcela Mercier de Oliveira
+* Pedro Guimaraes Santos
 * Pedro Henrique Caetano Soares
 
 ## Orientador

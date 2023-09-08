@@ -30,6 +30,11 @@ etiquetas:
 - `bug`: uma funcionalidade encontra-se com problemas
 - `enhancement`: uma funcionalidade precisa ser melhorada
 - `feature`: uma nova funcionalidade precisa ser introduzida
+- `review`: revisão ou teste da documentação e/ou da funcionalidade
+- `data`: catálogo e população do banco de dados
+- `design`: elaboração de templates e componentes com foco na experiência do usuário
+- `frontend development`: desenvolvimento frontend
+- `backend development`: desenvolvimento backend
 
 
 ## Gerenciamento de Projeto
@@ -40,9 +45,9 @@ Apresente a divisão de papéis entre os membros do grupo.
 
 Exemplificação: A equipe utiliza metodologias ágeis, tendo escolhido o Scrum como base para definição do processo de desenvolvimento. A equipe está organizada da seguinte maneira:
 
-- Scrum Master: Jaynne Nunes, Kelly Cesário de Oliveira, Mariana Marcela Mercier de Oliveira e Pedro Henrique Caetano Soares;
-- Product Owner: Pedro Felipe Alves de Oliveira;
-- Equipe de Desenvolvimento: Jaynne Nunes, Kelly Cesário de Oliveira, Mariana Marcela Mercier de Oliveira e Pedro Henrique Caetano Soares;
+- Scrum Master: Kelly Cesário de Oliveira;
+- Product Owner: Pedro Guimaraes Santos;
+- Equipe de Desenvolvimento: Jaynne Nunes, Kelly Cesário de Oliveira, Leonardo Xavier, Mariana Marcela Mercier de Oliveira, Pedro Guimaraes Santos e Pedro Henrique Caetano Soares;
 - Equipe de Design: Kelly Cesário de Oliveira.
 
 
@@ -55,7 +60,7 @@ O grupo optou por implementar o framework Scrum como metodologia de gerenciament
 As ferramentas empregadas no projeto são:
 
 - [VS Code](https://code.visualstudio.com/)
-- Whatsapp como ferramentas de comunicação
+- Whatsapp como ferramenta de comunicação
 - [Figma](https://www.figma.com/)
 - [Extensão Lighthouse](https://chrome.google.com/webstore/detail/lighthouse/blipmdconlkpinefehnmjammfjpmpbjk?hl=pt-BR)
 - [Storybook](https://storybook.js.org/)
