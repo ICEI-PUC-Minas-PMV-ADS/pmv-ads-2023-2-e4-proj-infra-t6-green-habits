@@ -19,8 +19,12 @@ A API terá como principais rotas:
 
 - `UPDATE /users/{id}/habits/{id}`
   - Rota que atualiza informações de um hábito do usuário
- 
 
+| Arquitetura Distribuída |
+|:---:|
+| <video src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e4-proj-infra-t6-green-habits/assets/81396458/d636484a-75bc-4145-862e-65d8b4ab91a2">   |
+
+  
 ## Diagrama de Classes
 
 ![image](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e4-proj-infra-t6-green-habits/assets/103083123/d0b56bd1-d83e-4a2a-90a7-0d16f63fcc57)
