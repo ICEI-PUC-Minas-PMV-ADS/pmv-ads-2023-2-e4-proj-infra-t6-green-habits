@@ -121,16 +121,10 @@ O projeto está restrito pelos itens apresentados na tabela a seguir.
 
 # Matriz de Rastreabilidade
 
-A matriz de rastreabilidade é uma ferramenta usada para facilitar a visualização dos relacionamento entre requisitos e outros artefatos ou objetos, permitindo a rastreabilidade entre os requisitos e os objetivos de negócio. 
+Conforme os requisitos levantados, foi rastreado o peso que cada um deles possui sobre os demais. Desta forma, pode-se visualizar o que cada requisito está influenciando sobre as funcionalidades que serão desenvolvidas. Assim, podemos entender o impacto de qualquer mudança nos requisitos do sistema.
 
-A matriz deve contemplar todos os elementos relevantes que fazem parte do sistema, conforme a figura meramente ilustrativa apresentada a seguir.
+![image](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e4-proj-infra-t6-green-habits/assets/80483432/f7b08625-5c69-4c26-bcf3-8561ae69798c)
 
-![Exemplo de matriz de rastreabilidade](img/02-matriz-rastreabilidade.png)
-
-> **Links Úteis**:
-> - [Artigo Engenharia de Software 13 - Rastreabilidade](https://www.devmedia.com.br/artigo-engenharia-de-software-13-rastreabilidade/12822/)
-> - [Verificação da rastreabilidade de requisitos usando a integração do IBM Rational RequisitePro e do IBM ClearQuest Test Manager](https://developer.ibm.com/br/tutorials/requirementstraceabilityverificationusingrrpandcctm/)
-> - [IBM Engineering Lifecycle Optimization – Publishing](https://www.ibm.com/br-pt/products/engineering-lifecycle-optimization/publishing/)
 
 
 # Gerenciamento de Projeto
