@@ -7,6 +7,7 @@
 À medida que a sociedade reconhece cada vez mais a importância das práticas sustentáveis para a preservação ambiental, a lacuna entre o entendimento teórico da sustentabilidade e sua aplicação prática se torna evidente. Embora haja uma crescente conscientização sobre a necessidade de adotar hábitos mais ecológicos, muitas pessoas enfrentam obstáculos ao transformar esse reconhecimento em ações concretas. A aplicação "Green Habits" surge como uma solução prática ao oferecer desafios baseados em sugestões pré-definidas, permitindo que os usuários estabeleçam metas para incorporar práticas ecológicas em suas rotinas diárias, promovendo um estilo de vida mais responsável e consciente.
 
 
+
 ## Integrantes
 
 * Jaynne Polyana Nunes
