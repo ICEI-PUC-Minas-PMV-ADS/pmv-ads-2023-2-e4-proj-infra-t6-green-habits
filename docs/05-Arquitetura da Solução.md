@@ -22,7 +22,7 @@ A API terá como principais rotas:
 
 | Arquitetura Distribuída |
 |:---:|
-| <video src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e4-proj-infra-t6-green-habits/assets/81396458/d636484a-75bc-4145-862e-65d8b4ab91a2">   |
+| <video src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e4-proj-infra-t6-green-habits/assets/81396458/d833a314-d0c9-40e0-bb77-675012530827">   |
 
   
 ## Diagrama de Classes
