@@ -17,7 +17,7 @@ A API terá como principais rotas:
 - `GET /users/{id}/habits/`
   - Rota que lista os hábitos do usuário
 
-- `GET /users/{id}/habits/{id}`
+- `UPDATE /users/{id}/habits/{id}`
   - Rota que atualiza informações de um hábito do usuário
 
 | Arquitetura Distribuída |
