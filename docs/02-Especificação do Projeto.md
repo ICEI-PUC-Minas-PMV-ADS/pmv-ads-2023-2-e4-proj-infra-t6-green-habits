@@ -26,7 +26,7 @@ Com base na análise das personas forma identificadas as seguintes histórias de
 | Eu, Lucas, desejando impactar a comunidade	| quero verificar o progresso das metas e desafios	| para manter-me responsável pelo meu próprio comprometimento |
 | Eu, Ana, como mãe de dois filhos | quero criar desafios sustentáveis envolvendo toda a família	| para fomentar hábitos sustentáveis desde cedo e manter o engajamento |
 | Eu, Ana, buscando ambiente saudável	| preciso estabelecer metas mensuráveis e práticas	| para ensinar responsabilidade ambiental aos filhos de forma eficaz |
-| Eu, Bruno, como desenvolvedor	| quero criar desafios que incentivem meu estilo de vida sustentáve	| para encontrar maneiras criativas de manter o compromisso com a sustentabilidade |
+| Eu, Bruno, como desenvolvedor	| quero criar desafios que incentivem meu estilo de vida sustentável	| para encontrar maneiras criativas de manter o compromisso com a sustentabilidade |
 
 
 ## Modelagem do Processo de Negócio 
