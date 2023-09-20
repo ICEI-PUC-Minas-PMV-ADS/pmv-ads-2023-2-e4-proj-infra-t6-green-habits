@@ -7,6 +7,9 @@ Esta API será implementada de modo a permitir que os usuários criem, leiam, ex
 A API terá como principais rotas:
 - `POST /users/`
   - Rota que cria novos usuários a partir de email, nome e senha
+
+- `POST /users/login`
+  - Rota que loga usuarios a partir de login e senha, retornando um JWT
   
 - `POST /users/{id}/habits`
   - Rota que adiciona um hábito a lista de hábitos do usuário
