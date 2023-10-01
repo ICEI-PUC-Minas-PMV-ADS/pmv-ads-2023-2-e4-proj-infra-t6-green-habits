@@ -119,6 +119,23 @@ export const HabitModel = mongoose.model<Habit>('Habit', HabitSchema);
 
 O backend armazenará os dados em um banco NoSQL (MongoDB) baseado em nuvem (Atlas). As principais entidades da aplicação serão os usuários e hábitos, que serão estruturados da seguinte forma:
 
+### Banco de Dados
+
+O Banco de Dados MongoDB foi criado através da plataforma "MongoDB Atlas", que é um serviço de banco de dados gerenciado oferecido pela MongoDB, Inc. É uma plataforma de banco de dados como serviço (DBaaS) baseada na nuvem que facilita a criação, implantação e gerenciamento de bancos de dados MongoDB sem a necessidade de configurar e manter a infraestrutura de servidor subjacente. Para a aplicação do Green Habits, a infraestrutura do cluster utiliza a nuvem da AWS, contando com 3 nós de replicação na região de Virgínia:
+
+![Banco de Dados](img/bd.png)
+
+Inicialmente, foram criadas as collections de users e habits. A collection de habits foi populada com um conjunto de dados amostrais de 50 documentos do tipo JSON. Os hábitos adicionados pertencem às seguintes categorias:
+
+- Consumo Sustentável
+- Energia
+- Reciclagem
+- Água
+- Transporte
+- Alimentação
+- Conservação
+- Conscientização
+
 ### Estrutura da base de dados
 Por utilizarmos o MongoDB para a base de dados, o esquema dos dados não utiliza de artefatos como chaves primárias e estrangeiras, fazendo com que a aplicação seja flexível ao salvar dados de maneira não-relacional.
 ![image](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e4-proj-infra-t6-green-habits/assets/103083123/7a300dcb-6eb0-4e45-8987-034035841e6d)
