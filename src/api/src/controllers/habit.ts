@@ -14,7 +14,7 @@ const createUserHabit = async (request: Request, response: Response, next: NextF
         const { userId } = request.params;
         const { title, description, targetStreak } = request.body as NewHabitRequest;
         if (!title || !description) {
-            return response.status(400).send("Dados inválidos.");
+            return response.status(400).json({ error: "Dados inválidos" });
         }
 
         const user = await UserModel.findById(userId);

@@ -10,7 +10,7 @@ interface CreateUserRequest {
 const createUser = async (request: Request, response: Response, next: NextFunction) => {
   const { name, email, password } = request.body as CreateUserRequest;
   if (!name || !email || !password) {
-    return response.status(400).send("Dados inválidos.");
+    return response.status(400).json({ error: "Dados inválidos" });
   }
   try {
     const user = new UserModel({ name, email, password, habits: [] });
@@ -19,7 +19,10 @@ const createUser = async (request: Request, response: Response, next: NextFuncti
     response.status(201).json(newUser);
   } catch (error) {
     console.error(error);
-    response.status(500).json({ error: 'Something went wrong' });
+    if (error.code === 11000) {
+      return response.status(400).json({ error: 'Email ja cadastrado' })
+    }
+    response.status(500).json({ error: 'Erro interno' });
   }
 };
 
