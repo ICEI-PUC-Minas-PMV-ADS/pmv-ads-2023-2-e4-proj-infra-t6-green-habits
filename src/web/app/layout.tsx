@@ -1,4 +1,5 @@
 import { Sprites } from '@/components/ions/Sprites'
+import { Footer } from '@/components/molecules/Footer'
 import '@/styles/main.scss'
 import type { Metadata } from 'next'
 import { Poppins } from 'next/font/google'
@@ -28,6 +29,7 @@ export default function RootLayout({
       <body className={poppins.className}>
         {children}
         <Sprites />
+        <Footer />
       </body>
     </html>
   )
