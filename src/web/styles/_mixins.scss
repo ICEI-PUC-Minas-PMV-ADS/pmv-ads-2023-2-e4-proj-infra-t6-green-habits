@@ -15,6 +15,18 @@
   }
 }
 
+@mixin largeText() {
+  font-size: 3.6rem;
+  font-weight: 300;
+  line-height: 120%;
+  font-style: normal;
+  color: $gray;
+
+  @include screen-size('desktop') {
+    line-height: 190%;
+  }
+}
+
 @mixin colors() {
   &--black {
     color: $black;
@@ -60,6 +72,16 @@
 
   &--center {
     text-align: center;
+  }
+}
+
+@mixin weight() {
+  &--600 {
+    font-weight: 600;
+  }
+
+  &--700 {
+    font-weight: 700;
   }
 }
 
