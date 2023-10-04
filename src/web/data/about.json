@@ -1,0 +1,22 @@
+[
+  {
+    "icon": "tree",
+    "frameTitle": "Missão",
+    "frameText": "Estamos empenhados em liderar a transição para um estilo de vida sustentável"
+  },
+  {
+    "icon": "tulip",
+    "frameTitle": "Inovação",
+    "frameText": "Buscamos constantemente maneiras inovadoras de tornar os hábitos cotidianos mais ecológicos"
+  },
+  {
+    "icon": "recycle",
+    "frameTitle": "Comunidade",
+    "frameText": "Unimos pessoas em uma comunidade, compartilhando ideias e recursos para promover um estilo de vida consciente"
+  },
+  {
+    "icon": "repeat",
+    "frameTitle": "Transparência",
+    "frameText": "Baseamos nossas ações na transparência para que nossas práticas sigam os mais altos padrões éticos e ambientais"
+  }
+]
