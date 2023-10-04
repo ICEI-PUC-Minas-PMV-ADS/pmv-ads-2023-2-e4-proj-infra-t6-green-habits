@@ -1,5 +1,5 @@
 .tag {
-  width: -webkit-fill-available;
+  width: fit-content;
   background-color: $dark-green;
   color: $white;
   font-style: normal;
@@ -7,4 +7,6 @@
   line-height: normal;
   font-size: 2rem;
   text-align: center;
+  padding: 0 5rem;
+  border-radius: 0.8rem;
 }

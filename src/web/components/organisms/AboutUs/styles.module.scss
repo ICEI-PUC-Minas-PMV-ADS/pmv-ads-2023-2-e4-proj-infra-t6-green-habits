@@ -1,0 +1,23 @@
+.about {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+
+  @include screen-size('desktop') {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  &__heading {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  &__container {
+    @include screen-size('desktop') {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}
