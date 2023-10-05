@@ -14,6 +14,7 @@ interface ButtonProps {
   target?: string
   type?: string
   size?: string
+  aria?: string
 }
 
 export const Button = ({
@@ -27,6 +28,7 @@ export const Button = ({
   onClick,
   target,
   size,
+  aria,
 }: ButtonProps) => {
   const classList = [
     styles.button,
@@ -39,7 +41,7 @@ export const Button = ({
   return (
     <>
       {isButton ? (
-        <button onClick={onClick} className={classList}>
+        <button onClick={onClick} className={classList} aria-label={aria}>
           {label}
           {hasIcon && <Icon icon={icon} />}
         </button>

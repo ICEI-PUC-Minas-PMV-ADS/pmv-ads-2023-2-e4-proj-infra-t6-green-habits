@@ -6,6 +6,8 @@
   @include screen-size('desktop') {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    max-width: 120rem;
   }
 
   &__heading {
@@ -18,6 +20,7 @@
     @include screen-size('desktop') {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
     }
   }
 }

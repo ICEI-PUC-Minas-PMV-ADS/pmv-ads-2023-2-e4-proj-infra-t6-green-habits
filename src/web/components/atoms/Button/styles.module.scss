@@ -1,10 +1,14 @@
 .button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
   border-radius: 0.8rem;
 
   &--primary {
     @include button();
     background-color: $dark-green;
+    border: 0.2rem solid $dark-green;
 
     &:hover,
     &:focus {
@@ -16,17 +20,19 @@
     @include button();
     background-color: $gray;
     border: 0.2rem solid $white;
-
+    
     &:hover,
     &:focus {
       border: 0.2rem solid $dark-green;
       color: $dark-green;
+      fill: $dark-green;
     }
   }
 
   &--tertiary {
     @include button();
     background-color: $orange;
+    border: 0.2rem solid $orange;
 
     &:hover,
     &:focus {
