@@ -1,0 +1,37 @@
+.download {
+  background-color: $dark-green;
+  color: $white;
+  padding: 5.5rem;
+
+  @include screen-size('tablet') {
+    padding: 11rem 15rem;
+  }
+
+  @include screen-size('desktop') {
+    padding: 11rem 30rem;
+  }
+
+
+  &__button {
+    background-color: transparent;
+    &:hover,
+    &:focus {
+      color: $lime-green;
+      border: 0.2rem solid $light-green;
+    }
+  }
+  &__container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 2.6rem;
+
+    @include screen-size('tablet') {
+      flex-direction: row;
+      gap: 2.5rem;
+    }
+
+    @include screen-size('desktop') {
+    }
+  }
+}
