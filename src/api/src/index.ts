@@ -1,14 +1,12 @@
 import express from 'express';
-import dotenv from 'dotenv';
 import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
 import userHabitRoutes from './routers/user';
-dotenv.config();
+import { loginUser } from './controllers/auth';
+import { MONGODB_URI } from './config/envs';
 
 const app = express();
 app.use(bodyParser.json());
-
-const { MONGODB_URI } = process.env;
 
 mongoose.connect(MONGODB_URI!)
   .then(() => {
@@ -20,6 +18,8 @@ mongoose.connect(MONGODB_URI!)
 
 app.use(express.json());
 app.use('/user', userHabitRoutes());
+app.post('/login', loginUser);
+
 
 app.use((err, req, res, next) => {
   console.error(err.stack);
