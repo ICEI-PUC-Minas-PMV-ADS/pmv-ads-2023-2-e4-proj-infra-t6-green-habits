@@ -5,22 +5,22 @@ A arquitetura da aplicação consistirá em duas plataformas distintas: uma inte
 Esta API será implementada de modo a permitir que os usuários criem, leiam, excluam e editem seus hábitos pessoais. Tanto o backend quanto o front-end serão hospedados na plataforma Fly.io, garantindo escalabilidade e alta disponibilidade para a aplicação, além de simplificar o processo de implantação e manutenção da infraestrutura. Essa arquitetura modular e escalável permitirá que os usuários acessem a aplicação de forma eficiente tanto na web quanto em dispositivos móveis, mantendo uma experiência de usuário consistente em ambas as plataformas.
 
 A API terá como principais rotas:
-- `POST /users/`
+- `POST /user/`
   - Rota que cria novos usuários a partir de email, nome e senha
 
-- `POST /users/login`
+- `POST /login`
   - Rota que loga usuarios a partir de login e senha, retornando um JWT
   
-- `POST /users/{id}/habits`
+- `POST /habit/`
   - Rota que adiciona um hábito a lista de hábitos do usuário
 
-- `DELETE /users/{id}/habits/{id}`
+- `DELETE /habit/{id}`
   - Rota que deleta um hábito do usuário
 
-- `GET /users/{id}/habits/`
+- `GET /habitt/`
   - Rota que lista os hábitos do usuário
 
-- `UPDATE /users/{id}/habits/{id}`
+- `UPDATE /habit/{id}`
   - Rota que atualiza informações de um hábito do usuário
 
 | Arquitetura Distribuída |
