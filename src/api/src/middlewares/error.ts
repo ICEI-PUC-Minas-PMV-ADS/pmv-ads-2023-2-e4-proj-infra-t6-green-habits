@@ -9,12 +9,11 @@ export const errorMiddleware = async (error, request, response, next) => {
 		message = error.reason;
 	}
 
-	if (process.env.NODE_ENV === 'dev' && !(error instanceof AppError)) {
-		console.log(error);
-	}
-
-	return response.status(status).json({
+	let formattedError = {
 		status: status,
 		data: message,
-	});
+	}
+
+	console.log("Error: ", formattedError);
+	return response.status(status).json(formattedError);
 };

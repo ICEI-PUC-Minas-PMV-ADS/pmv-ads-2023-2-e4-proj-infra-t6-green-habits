@@ -1,7 +1,7 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
-import habitRoutes from './routers/user';
+import habitRoutes from './routers/habit';
 import { loginUser } from './controllers/auth';
 import { MONGODB_URI } from './config/envs';
 import { createUser } from './controllers/user';

@@ -3,7 +3,8 @@ export enum ErrorReason {
     USER_NOT_LOGGED_IN = "Usuário não logado",
     LOGIN_FAILED = "Email ou senha incorretos",
     NONEXISTENT_USER = "Usuário não encontrado",
-    NONEXISTENT_HABIT = "Hábito não encontrado"
+    NONEXISTENT_HABIT = "Hábito não encontrado",
+    BAD_REQUEST = "Dados inválidos. Verifique os campos enviados"
 }
 
 export enum ErrorStatusCodes {

@@ -23,10 +23,11 @@ export const authMiddleware = async (request: Request, response: Response, next)
             }
 
             response.locals.user = user;
-            next();
+            return next();
         }
+        throw new AppError(ErrorReason.USER_NOT_LOGGED_IN, ErrorStatusCodes.UNAUTHORIZED)
     }
     catch (error) {
-        console.log(error)
+        next(error)
     }
 }
