@@ -17,7 +17,7 @@ A API terá como principais rotas:
 - `DELETE /habit/{id}`
   - Rota que deleta um hábito do usuário
 
-- `GET /habitt/`
+- `GET /habit/`
   - Rota que lista os hábitos do usuário
 
 - `UPDATE /habit/{id}`
