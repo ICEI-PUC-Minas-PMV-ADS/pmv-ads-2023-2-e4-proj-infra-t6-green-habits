@@ -1,17 +1,15 @@
 import express from 'express';
-import { createUser } from '../controllers/user';
-import { createUserHabit, deleteUserHabit, getUserHabits, getUserHabit } from '../controllers/habit';
+import { createHabit, deleteHabit, getHabits, getHabit } from '../controllers/habit';
 
-const userHabitRoutes = () => {
+const habitRoutes = () => {
     const userRouter = express.Router();
 
-    userRouter.post('/', createUser);
-    userRouter.post('/:userId/habits', createUserHabit);
-    userRouter.get('/:userId/habits', getUserHabits);
-    userRouter.get('/:userId/habits/:habitId', getUserHabit);
-    userRouter.delete('/:userId/habits/:habitId', deleteUserHabit);
+    userRouter.post('/', createHabit);
+    userRouter.get('/', getHabits);
+    userRouter.get('/:habitId', getHabit);
+    userRouter.delete('/:habitId', deleteHabit);
 
     return userRouter;
 }
 
-export default userHabitRoutes;
+export default habitRoutes;

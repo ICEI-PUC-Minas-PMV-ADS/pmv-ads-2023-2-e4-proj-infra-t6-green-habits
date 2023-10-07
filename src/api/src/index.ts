@@ -1,9 +1,12 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
-import userHabitRoutes from './routers/user';
+import habitRoutes from './routers/user';
 import { loginUser } from './controllers/auth';
 import { MONGODB_URI } from './config/envs';
+import { createUser } from './controllers/user';
+import { authMiddleware } from './middlewares/auth';
+import { errorMiddleware } from './middlewares/error';
 
 const app = express();
 app.use(bodyParser.json());
@@ -17,8 +20,11 @@ mongoose.connect(MONGODB_URI!)
   });
 
 app.use(express.json());
-app.use('/user', userHabitRoutes());
+app.post('/user', createUser);
 app.post('/login', loginUser);
+app.use(authMiddleware);
+app.use('/habit', habitRoutes());
+app.use(errorMiddleware);
 
 
 app.use((err, req, res, next) => {

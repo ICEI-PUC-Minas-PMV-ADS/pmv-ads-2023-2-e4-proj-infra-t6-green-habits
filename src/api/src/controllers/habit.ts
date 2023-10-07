@@ -9,15 +9,16 @@ interface NewHabitRequest {
     targetStreak?: number;
 }
 
-const createUserHabit = async (request: Request, response: Response, next: NextFunction) => {
+const createHabit = async (request: Request, response: Response, next: NextFunction) => {
     try {
-        const { userId } = request.params;
+        const { id } = response.locals.user;
+        
         const { title, description, targetStreak } = request.body as NewHabitRequest;
         if (!title || !description) {
             return response.status(400).json({ error: "Dados inválidos" });
         }
 
-        const user = await UserModel.findById(userId);
+        const user = await UserModel.findById(id);
 
         if (!user) {
             return response.status(404).json({ error: 'Usuario nao encontrado' });
@@ -37,11 +38,12 @@ const createUserHabit = async (request: Request, response: Response, next: NextF
     }
 };
 
-const deleteUserHabit = async (request: Request, response: Response, next: NextFunction) => {
+const deleteHabit = async (request: Request, response: Response, next: NextFunction) => {
     try {
-        const { userId, habitId } = request.params;
+        const { id } = response.locals.user;
+        const { habitId } = request.params;
 
-        const user = await UserModel.findById(userId);
+        const user = await UserModel.findById(id);
 
         if (!user) {
             return response.status(404).json({ error: 'Usuario nao encontrado' });
@@ -67,10 +69,10 @@ const deleteUserHabit = async (request: Request, response: Response, next: NextF
 };
 
 
-const getUserHabits = async (request: Request, response: Response, next: NextFunction) => {
+const getHabits = async (request: Request, response: Response, next: NextFunction) => {
     try {
-        const { userId } = request.params;
-        const user = await UserModel.findById(userId);
+        const { id } = response.locals.user;
+        const user = await UserModel.findById(id);
 
         if (!user) {
             return response.status(404).json({ error: 'Usuario nao encontrado' });
@@ -83,10 +85,11 @@ const getUserHabits = async (request: Request, response: Response, next: NextFun
     }
 }
 
-const getUserHabit = async (request: Request, response: Response, next: NextFunction) => {
+const getHabit = async (request: Request, response: Response, next: NextFunction) => {
     try {
-        const { userId, habitId } = request.params;
-        const user = await UserModel.findById(userId);
+        const { id } = response.locals.user;
+        const { habitId } = request.params;
+        const user = await UserModel.findById(id);
 
         if (!user) {
             return response.status(404).json({ error: 'Usuario nao encontrado' });
@@ -105,4 +108,4 @@ const getUserHabit = async (request: Request, response: Response, next: NextFunc
     }
 }
 
-export { createUserHabit, deleteUserHabit, getUserHabits, getUserHabit }
+export { createHabit, deleteHabit, getHabits, getHabit }
