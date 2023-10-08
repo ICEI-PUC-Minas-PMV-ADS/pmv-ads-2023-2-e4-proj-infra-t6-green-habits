@@ -1,5 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
 import UserModel from "../models/user";
+import { ErrorReason, ErrorStatusCodes } from '../types/error';
+import { AppError } from '../error';
 
 interface CreateUserRequest {
   name: String;
@@ -10,19 +12,20 @@ interface CreateUserRequest {
 const createUser = async (request: Request, response: Response, next: NextFunction) => {
   const { name, email, password } = request.body as CreateUserRequest;
   if (!name || !email || !password) {
-    return response.status(400).json({ error: "Dados inválidos" });
+    throw new AppError(ErrorReason.BAD_REQUEST, ErrorStatusCodes.BAD_REQUEST);
   }
   try {
     const user = new UserModel({ name, email, password, habits: [] });
     let newUser = await user.save();
 
-    response.status(201).json(newUser);
+    return response.status(201).json(newUser);
   } catch (error) {
     console.error(error);
     if (error.code === 11000) {
-      return response.status(400).json({ error: 'Email ja cadastrado' })
+      let duplicateError = new AppError(ErrorReason.BAD_REQUEST, ErrorStatusCodes.BAD_REQUEST);
+      return next(duplicateError)
     }
-    response.status(500).json({ error: 'Erro interno' });
+    next(error)
   }
 };
 

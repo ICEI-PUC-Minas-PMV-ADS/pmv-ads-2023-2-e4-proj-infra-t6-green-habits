@@ -4,7 +4,8 @@ export enum ErrorReason {
     LOGIN_FAILED = "Email ou senha incorretos",
     NONEXISTENT_USER = "Usuário não encontrado",
     NONEXISTENT_HABIT = "Hábito não encontrado",
-    BAD_REQUEST = "Dados inválidos. Verifique os campos enviados"
+    BAD_REQUEST = "Dados inválidos. Verifique os campos enviados",
+    DUPLICATE_EMAIL = "Este email já foi cadastrado por outro usuário."
 }
 
 export enum ErrorStatusCodes {

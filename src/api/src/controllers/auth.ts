@@ -16,6 +16,7 @@ const loginUser = async (request: Request, response: Response, next: NextFunctio
     }
     try {
         const user = await UserModel.findOne({ email });
+        
         const userPassword = user?.password;
         if (!user || userPassword !== password) {
             throw new AppError(ErrorReason.LOGIN_FAILED, ErrorStatusCodes.BAD_REQUEST)

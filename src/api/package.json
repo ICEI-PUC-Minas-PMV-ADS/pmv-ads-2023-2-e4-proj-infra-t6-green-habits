@@ -212,13 +212,20 @@
   },
   "scripts": {
     "start": "ts-node-dev --respawn --transpile-only --exit-child src/index.ts",
-    "build": "tsc . -p"
+    "build": "tsc . -p",
+    "test": "jest"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@babel/preset-env": "^7.22.20",
+    "@babel/preset-typescript": "^7.23.0",
     "@types/express": "^4.17.17",
-    "@types/jsonwebtoken": "^9.0.3"
+    "@types/jest": "^29.5.5",
+    "@types/jsonwebtoken": "^9.0.3",
+    "@types/mocha": "^10.0.2",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.1.1"
   }
 }
