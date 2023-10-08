@@ -11,12 +11,12 @@ interface LoginRequest {
 
 const loginUser = async (request: Request, response: Response, next: NextFunction) => {
     const { email, password } = request.body as LoginRequest;
-    if (!email || !password) {
-        throw new AppError(ErrorReason.BAD_REQUEST, ErrorStatusCodes.BAD_REQUEST)
-    }
     try {
+        if (!email || !password) {
+            throw new AppError(ErrorReason.BAD_REQUEST, ErrorStatusCodes.BAD_REQUEST)
+        }
         const user = await UserModel.findOne({ email });
-        
+
         const userPassword = user?.password;
         if (!user || userPassword !== password) {
             throw new AppError(ErrorReason.LOGIN_FAILED, ErrorStatusCodes.BAD_REQUEST)

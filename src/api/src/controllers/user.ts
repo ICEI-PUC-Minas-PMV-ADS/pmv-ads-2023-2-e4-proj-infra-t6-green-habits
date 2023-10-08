@@ -22,7 +22,7 @@ const createUser = async (request: Request, response: Response, next: NextFuncti
   } catch (error) {
     console.error(error);
     if (error.code === 11000) {
-      let duplicateError = new AppError(ErrorReason.BAD_REQUEST, ErrorStatusCodes.BAD_REQUEST);
+      let duplicateError = new AppError(ErrorReason.DUPLICATE_EMAIL, ErrorStatusCodes.BAD_REQUEST);
       return next(duplicateError)
     }
     next(error)
