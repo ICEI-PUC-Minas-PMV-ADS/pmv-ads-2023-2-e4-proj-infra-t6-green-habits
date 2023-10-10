@@ -8,7 +8,7 @@ import styles from './styles.module.scss'
 
 export const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 1280)
+  const [isDesktop, setIsDesktop] = useState(false)
   const [activeItem, setActiveItem] = useState('')
 
   const toggleMenu = () => {
@@ -17,20 +17,22 @@ export const Navigation = () => {
 
   useEffect(() => {
     const handleResize = () => {
-      const newIsDesktop = window.innerWidth >= 1280
-      setIsDesktop(newIsDesktop)
+      setIsDesktop(window.innerWidth >= 1280)
 
-      if (isMenuOpen && !newIsDesktop) {
+      if (isMenuOpen && !isDesktop) {
         setIsMenuOpen(false)
       }
     }
 
-    window.addEventListener('resize', handleResize)
+    if (typeof window !== 'undefined') {
+      setIsDesktop(window.innerWidth >= 1280)
+      window.addEventListener('resize', handleResize)
 
-    return () => {
-      window.removeEventListener('resize', handleResize)
+      return () => {
+        window.removeEventListener('resize', handleResize)
+      }
     }
-  }, [isMenuOpen])
+  }, [isMenuOpen, isDesktop])
 
   return (
     <nav
@@ -38,7 +40,7 @@ export const Navigation = () => {
         isMenuOpen ? styles.navigation__open : ''
       }`}
     >
-      <Icon icon='leaf' fill='#398278' />
+      {!isMenuOpen && <Icon icon='leaf' fill='#398278' />}
       <ul
         className={`${styles.navigation__menu} ${
           isDesktop
@@ -56,15 +58,16 @@ export const Navigation = () => {
             hasIcon={item.hasIcon}
             color={item.color}
             weight={activeItem ? '600' : '300'}
+            onCloseMenu={() => setIsMenuOpen(false)}
           />
         ))}
-          <Button
-            label='Contato'
-            level='primary'
-            isButton={false}
-            href='/contact'
-            className={styles.navigation__button}
-          />
+        <Button
+          label='Contato'
+          level='primary'
+          isButton={false}
+          href='/contact'
+          className={styles.navigation__button}
+        />
       </ul>
       {!isDesktop && (
         <button

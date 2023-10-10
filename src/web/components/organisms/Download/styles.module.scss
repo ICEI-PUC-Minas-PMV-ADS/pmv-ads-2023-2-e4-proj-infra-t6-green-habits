@@ -7,14 +7,13 @@
     padding: 11rem 15rem;
   }
 
-
   &__button {
     background-color: transparent !important;
     max-width: 34rem;
     &:hover,
     &:focus {
-      color: $lime-green;
-      border: 0.2rem solid $light-green;
+      color: $white !important;
+      border: 0.2rem solid $light-green !important;
     }
   }
 

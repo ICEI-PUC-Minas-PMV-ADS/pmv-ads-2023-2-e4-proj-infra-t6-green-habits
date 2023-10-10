@@ -33,7 +33,7 @@ export const Banner = ({ image }: BannerProps) => {
     <section className={styles.banner}>
       <div className={styles.banner__image} style={background}>
         <div className={styles.banner__container}>
-          <Tag category={currentInfo.category} />
+          <Tag category={currentInfo.category} backgroundColor='dark-green'/>
           <p className={styles.banner__text}>{currentInfo.text}</p>
           <Image
             src={'/line.png'}

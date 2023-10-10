@@ -5,7 +5,7 @@
 
   @include screen-size('desktop') {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, auto);
     align-items: center;
   }
 
@@ -16,6 +16,9 @@
   }
 
   &__container {
+    display: grid;
+    gap: 4rem;
+
     @include screen-size('desktop') {
       display: grid;
       grid-template-columns: repeat(2, 1fr);

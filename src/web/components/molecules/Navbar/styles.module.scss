@@ -9,9 +9,10 @@
   }
 
   &__open {
-    display: grid;
-    grid-template-columns: repeat(2, auto);
-    grid-template-rows: repeat(2, auto);
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column-reverse;
+    height: 100vh;
 
     @include screen-size('desktop') {
       display: none;

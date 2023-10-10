@@ -9,7 +9,7 @@ export const AboutUs = () => {
   return (
     <section className={styles.about}>
       <div className={styles.about__heading}>
-        <Heading level='1' align='left' children='Sobre nós' color='black' />
+        <Heading level='3' align='left' children='Sobre nós' color='black' />
         <Text
           align='left'
           children='Nosso compromisso com um mundo sustentável'
