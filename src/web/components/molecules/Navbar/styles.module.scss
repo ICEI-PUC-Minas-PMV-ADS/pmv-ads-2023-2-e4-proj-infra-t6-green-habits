@@ -1,0 +1,52 @@
+.navigation {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+
+  @include screen-size('desktop') {
+    gap: 6rem;
+  }
+
+  &__open {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    grid-template-rows: repeat(2, auto);
+
+    @include screen-size('desktop') {
+      display: none;
+    }
+  }
+
+  &__menu {
+    grid-area: 2 / 1 / 3 / 3;
+    align-content: center;
+    justify-items: center;
+    gap: 2rem;
+    margin-top: 3rem;
+
+    @include screen-size('desktop') {
+      grid-area: 1 / 2 / 2 / 3;
+      margin-top: 0;
+    }
+
+    &--desktop {
+      display: flex;
+      width: -webkit-fill-available;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    &--open {
+      display: grid;
+    }
+
+    &--closed {
+      display: none;
+    }
+  }
+
+  &__button {
+    max-width: 34rem;
+  }
+}
