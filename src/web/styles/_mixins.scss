@@ -16,14 +16,20 @@
 }
 
 @mixin largeText() {
-  font-size: 3.6rem;
+  font-size: 2rem;
   font-weight: 300;
   line-height: 120%;
   font-style: normal;
   color: $gray;
 
+  @include screen-size('tablet') {
+    font-size: 2.8rem;
+    line-height: 155%;
+  }
+
   @include screen-size('desktop') {
     line-height: 190%;
+    font-size: 3.6rem;
   }
 }
 
