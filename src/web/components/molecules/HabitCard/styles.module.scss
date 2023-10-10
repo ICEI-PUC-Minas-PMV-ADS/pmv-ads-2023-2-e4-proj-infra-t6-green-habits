@@ -1,0 +1,31 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 2rem 1.8rem 4rem 0;
+  width: 34rem;
+  height: 47.6rem;
+  background: center/cover no-repeat;
+  transition: all 0.7s ease-in-out;
+
+  &__content, &__button {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  &__title {
+    @include cardTitle();
+    padding-left: 1.8rem;
+  }
+
+  &__text {
+    @include cardText();
+  }
+}
+
+.hovered {
+  display: flex;
+  flex-direction: column;
+  background-color: $gray;
+  padding-left: 1.8rem;
+}

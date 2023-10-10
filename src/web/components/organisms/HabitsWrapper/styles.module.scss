@@ -1,0 +1,56 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 1.8rem 4rem;
+  gap: 4rem;
+
+  @include screen-size('tablet') {
+    align-items: flex-start;
+    align-content: center;
+    flex-wrap: wrap;
+  }
+
+  @include screen-size('desktop') {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr;
+    align-items: center;
+    max-width: 144rem;
+    margin: 0 auto;
+    padding-inline: 10.9rem;
+  }
+
+  &__heading {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+
+    @include screen-size('tablet') {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  &__buttonMobile {
+    max-width: 72rem;
+    @include screen-size('desktop') {
+      display: none;
+    }
+  }
+
+  &__buttonDesktop {
+    display: none;
+    @include screen-size('desktop') {
+      display: block;
+      max-width: 34rem;
+    }
+  }
+}
