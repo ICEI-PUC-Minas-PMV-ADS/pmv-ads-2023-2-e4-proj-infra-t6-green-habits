@@ -4,12 +4,22 @@
   justify-content: center;
   grid-template-columns: repeat(2, auto);
   gap: 1rem;
-  color: $dark-green;
-  fill: $dark-green;
   font-size: 1.6rem;
   cursor: pointer;
 
   @include screen-size('desktop') {
     font-size: 2.4rem;
   }
+
+  &:hover {
+    font-weight: 700;
+  }
+
+  @include colors();
+
+  @include align();
+
+  @include fill();
+
+  @include weight();
 }
