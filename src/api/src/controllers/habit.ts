@@ -1,6 +1,8 @@
+import { AppError } from '../error';
 import { Category, HabitModel } from '../models/habit';
 import UserModel from '../models/user';
 import { Request, Response, NextFunction } from 'express';
+import { ErrorReason, ErrorStatusCodes } from '../types/error';
 
 interface NewHabitRequest {
     title: string;
@@ -9,18 +11,19 @@ interface NewHabitRequest {
     targetStreak?: number;
 }
 
-const createUserHabit = async (request: Request, response: Response, next: NextFunction) => {
+const createHabit = async (request: Request, response: Response, next: NextFunction) => {
     try {
-        const { userId } = request.params;
+        const { id } = response.locals.user;
+        
         const { title, description, targetStreak } = request.body as NewHabitRequest;
         if (!title || !description) {
-            return response.status(400).json({ error: "Dados inválidos" });
+            throw new AppError(ErrorReason.BAD_REQUEST, ErrorStatusCodes.BAD_REQUEST)
         }
 
-        const user = await UserModel.findById(userId);
+        const user = await UserModel.findById(id);
 
         if (!user) {
-            return response.status(404).json({ error: 'Usuario nao encontrado' });
+            throw new AppError(ErrorReason.NONEXISTENT_USER, ErrorStatusCodes.NOT_FOUND)
         }
 
         let createdAt = new Date();
@@ -32,25 +35,25 @@ const createUserHabit = async (request: Request, response: Response, next: NextF
 
         return response.status(201).json(newHabit);
     } catch (error) {
-        console.error(error);
-        response.status(500).json({ error: 'Erro interno' });
+        next(error)
     }
 };
 
-const deleteUserHabit = async (request: Request, response: Response, next: NextFunction) => {
+const deleteHabit = async (request: Request, response: Response, next: NextFunction) => {
     try {
-        const { userId, habitId } = request.params;
+        const { id } = response.locals.user;
+        const { habitId } = request.params;
 
-        const user = await UserModel.findById(userId);
+        const user = await UserModel.findById(id);
 
         if (!user) {
-            return response.status(404).json({ error: 'Usuario nao encontrado' });
+            throw new AppError(ErrorReason.NONEXISTENT_USER, ErrorStatusCodes.NOT_FOUND)
         }
 
         const habitToBeRemoved = user.habits.find(habit => habit._id.toString() === habitId);
 
         if (!habitToBeRemoved) {
-            return response.status(404).json({ error: 'Habito nao encontrado' });
+            throw new AppError(ErrorReason.NONEXISTENT_HABIT, ErrorStatusCodes.NOT_FOUND)
         }
 
         let updatedUserHabits = user.habits.filter(habit => habit !== habitToBeRemoved);
@@ -61,48 +64,46 @@ const deleteUserHabit = async (request: Request, response: Response, next: NextF
 
         return response.status(200).json({});
     } catch (error) {
-        console.error(error);
-        response.status(500).json({ error: 'Erro interno' });
+        next(error)
     }
 };
 
 
-const getUserHabits = async (request: Request, response: Response, next: NextFunction) => {
+const getHabits = async (request: Request, response: Response, next: NextFunction) => {
     try {
-        const { userId } = request.params;
-        const user = await UserModel.findById(userId);
+        const { id } = response.locals.user;
+        const user = await UserModel.findById(id);
 
         if (!user) {
-            return response.status(404).json({ error: 'Usuario nao encontrado' });
+            throw new AppError(ErrorReason.NONEXISTENT_USER, ErrorStatusCodes.NOT_FOUND)
         }
 
         return response.status(200).json(user.habits);
     } catch (error) {
-        console.error(error);
-        response.status(500).json({ error: 'Erro interno' });
+        next(error)
     }
 }
 
-const getUserHabit = async (request: Request, response: Response, next: NextFunction) => {
+const getHabit = async (request: Request, response: Response, next: NextFunction) => {
     try {
-        const { userId, habitId } = request.params;
-        const user = await UserModel.findById(userId);
+        const { id } = response.locals.user;
+        const { habitId } = request.params;
+        const user = await UserModel.findById(id);
 
         if (!user) {
-            return response.status(404).json({ error: 'Usuario nao encontrado' });
+            throw new AppError(ErrorReason.NONEXISTENT_USER, ErrorStatusCodes.NOT_FOUND)
         }
 
         const habit = user.habits.find(habit => habit._id.toString() === habitId);
 
         if (!habit) {
-            return response.status(404).json({ error: 'Habito nao encontrado' });
+            throw new AppError(ErrorReason.NONEXISTENT_HABIT, ErrorStatusCodes.NOT_FOUND)
         }
 
         return response.status(200).json(habit);
     } catch (error) {
-        console.error(error);
-        response.status(500).json({ error: 'Erro interno' });
+        next(error)
     }
 }
 
-export { createUserHabit, deleteUserHabit, getUserHabits, getUserHabit }
+export { createHabit, deleteHabit, getHabits, getHabit }
