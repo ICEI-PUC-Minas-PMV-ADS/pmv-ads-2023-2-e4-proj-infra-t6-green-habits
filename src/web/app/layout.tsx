@@ -28,8 +28,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang='pt'>
-      <body className={`${poppins.className} ${styles.layout}`}>
-        <Header />
+      <body className={poppins.className}>
+        <section className={styles.layout}>
+          <Header />
+        </section>
         {children}
         <Sprites />
         <Footer />

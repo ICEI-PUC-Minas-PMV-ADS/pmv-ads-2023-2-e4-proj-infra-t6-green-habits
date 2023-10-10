@@ -1,6 +1,8 @@
+import styles from './styles.module.scss'
+
 export default function Goals() {
     return (
-      <main>
+      <main className={styles.goals}>
       </main>
     )
   }
