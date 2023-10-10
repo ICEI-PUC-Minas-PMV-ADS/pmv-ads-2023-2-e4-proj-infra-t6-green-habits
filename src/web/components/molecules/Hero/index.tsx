@@ -39,7 +39,13 @@ export const Hero = ({ image }: HeroProps) => {
           children='Descubra o poder da sustentabilidade em pequenos hábitos diários'
           color='black'
         />
-        <Button href='/habits' label='Meus hábitos' level='primary' className={styles.hero__button} />
+        <Button
+          href='/habits'
+          label='Meus hábitos'
+          level='primary'
+          className={styles.hero__button}
+          isButton={false}
+        />
       </article>
       <Image
         src={image}
