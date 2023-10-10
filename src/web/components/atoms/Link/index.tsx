@@ -7,17 +7,44 @@ interface LinkItemProps {
   children?: string
   hasIcon?: boolean
   icon?: string
+  align?: string
+  color?: string
+  fill?: string
+  weight?: string
 }
-export const LinkItem = ({ href, children, hasIcon, icon }: LinkItemProps) => {
+export const LinkItem = ({
+  href,
+  children,
+  hasIcon,
+  icon,
+  align,
+  color,
+  fill,
+  weight,
+}: LinkItemProps) => {
+  const classList = [
+    styles.link,
+    styles[`link--${align}`],
+    styles[`link--${color}`],
+    styles[`link--${fill}`],
+    styles[`link--${weight}`],
+  ].join(' ')
+
   return (
-    <li className={styles.link}>
+    <li className={classList}>
       {hasIcon ? (
         <>
-          <Link href={href}> {children} </Link>
+          <Link href={href}>
+            {' '}
+            {children}{' '}
+          </Link>
           <Icon icon={icon} />
         </>
       ) : (
-        <Link href={href}> {children} </Link>
+        <Link href={href}>
+          {' '}
+          {children}{' '}
+        </Link>
       )}
     </li>
   )
