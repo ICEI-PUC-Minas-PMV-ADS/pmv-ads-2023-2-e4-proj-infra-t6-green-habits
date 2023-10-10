@@ -7,31 +7,28 @@
     padding: 11rem 15rem;
   }
 
-  @include screen-size('desktop') {
-    padding: 11rem 30rem;
-  }
-
 
   &__button {
-    background-color: transparent;
+    background-color: transparent !important;
+    max-width: 34rem;
     &:hover,
     &:focus {
       color: $lime-green;
       border: 0.2rem solid $light-green;
     }
   }
+
   &__container {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     gap: 1.5rem;
     margin-top: 2.6rem;
 
     @include screen-size('tablet') {
       flex-direction: row;
       gap: 2.5rem;
-    }
-
-    @include screen-size('desktop') {
     }
   }
 }
