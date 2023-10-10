@@ -15,6 +15,7 @@ interface ButtonProps {
   type?: string
   size?: string
   aria?: string
+  children?: React.ReactNode;
 }
 
 export const Button = ({

@@ -1,0 +1,29 @@
+.modal {
+    display: flex;
+    justify-content: center;
+    border: 1px solid $black;
+    border-radius: 8px;
+    margin: 20px auto auto 24px;
+    width: 375px;
+    height: 572px;
+
+    .modal_x_button {
+        display: flex;
+        justify-content: flex-end;
+        margin: 15px 0 auto auto;
+    }
+
+    .modal_buttons {
+        margin-top: 15px;
+    }
+
+    .modal_inner {
+        width: 340px;
+        height: fit-content;
+    }
+
+    .input_field {
+
+        padding: 6rem;
+    }
+}
