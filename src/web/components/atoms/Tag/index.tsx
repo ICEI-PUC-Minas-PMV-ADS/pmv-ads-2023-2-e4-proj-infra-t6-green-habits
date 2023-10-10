@@ -1,7 +1,7 @@
 import styles from './styles.module.scss'
 
 interface TagProps {
-  category: string
+  category?: string
 }
 
 export const Tag = ({ category }: TagProps) => {
