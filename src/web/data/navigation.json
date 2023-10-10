@@ -1,0 +1,23 @@
+[
+  {
+    "href": "/",
+    "children": "Página inicial",
+    "hasIcon": false,
+    "color": "black",
+    "weight": ""
+  },
+  {
+    "href": "/habits",
+    "children": "Hábitos sustentáveis",
+    "hasIcon": false,
+    "color": "black",
+    "weight": ""
+  },
+  {
+    "href": "/goals",
+    "children": "Metas",
+    "hasIcon": false,
+    "color": "black",
+    "weight": ""
+  }
+]
