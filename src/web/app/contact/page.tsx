@@ -1,8 +1,9 @@
+import { AboutUs } from '@/components/organisms/AboutUs'
+
 export default function Contact() {
-    return (
-      <main>
-        <h1>Hello</h1>
-      </main>
-    )
-  }
-  
+  return (
+    <main>
+      <AboutUs />
+    </main>
+  )
+}

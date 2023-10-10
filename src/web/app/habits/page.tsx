@@ -1,8 +1,9 @@
+import { Banner } from '@/components/organisms/Banner'
+
 export default function Habits() {
-    return (
-      <main>
-        <h1>Hello</h1>
-      </main>
-    )
-  }
-  
+  return (
+    <main>
+      <Banner image='/banner.png' />
+    </main>
+  )
+}

@@ -1,8 +1,10 @@
 import { Sprites } from '@/components/ions/Sprites'
 import { Footer } from '@/components/molecules/Footer'
+import { Header } from '@/components/organisms/Header'
 import '@/styles/main.scss'
 import type { Metadata } from 'next'
 import { Poppins } from 'next/font/google'
+import styles from './layout.module.scss'
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -26,7 +28,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang='pt'>
-      <body className={poppins.className}>
+      <body className={`${poppins.className} ${styles.layout}`}>
+        <Header />
         {children}
         <Sprites />
         <Footer />
