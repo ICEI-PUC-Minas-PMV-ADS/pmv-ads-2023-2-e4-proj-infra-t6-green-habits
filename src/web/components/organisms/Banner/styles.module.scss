@@ -1,32 +1,46 @@
 .banner {
-  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   &__image {
     display: flex;
     flex-direction: column;
-    height: 63.5rem;
     background: center/cover no-repeat;
-    padding: 6.4rem 1.8rem 0;
-    @include screen-size('desktop') {
-      padding: 20.4rem 11rem 0;
-    }
+    width: 100vw;
   }
 
-  &__heading {
+  &__container {
     display: flex;
     flex-direction: column;
     gap: 6rem;
-    max-width: 27rem;
-    margin-bottom: 6rem;
+    margin: 0 auto;
+    max-width: 144rem;
+    padding: 6rem 1.8rem;
     @include largeText();
 
     @include screen-size('desktop') {
-      max-width: 60.6rem;
+      padding: 6rem 10.9rem;
     }
   }
 
+  &__text {
+    background-color: $light-gray;
+    border-radius: 5rem 0 5rem 0;
+    opacity: 0.8;
+    padding: 4rem;
+  }
+
   &__line {
-    width: 34.365px;
-    height: 1px;
+    width: 3.4rem;
+    height: 0.1rem;
+  }
+
+  &__controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 6rem;
   }
 }
