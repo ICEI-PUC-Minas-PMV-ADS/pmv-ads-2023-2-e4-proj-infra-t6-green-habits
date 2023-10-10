@@ -11,6 +11,7 @@ interface LinkItemProps {
   color?: string
   fill?: string
   weight?: string
+  onCloseMenu?: () => void
 }
 export const LinkItem = ({
   href,
@@ -21,6 +22,7 @@ export const LinkItem = ({
   color,
   fill,
   weight,
+  onCloseMenu,
 }: LinkItemProps) => {
   const classList = [
     styles.link,
@@ -30,18 +32,24 @@ export const LinkItem = ({
     styles[`link--${weight}`],
   ].join(' ')
 
+  const handleClick = () => {
+    if (typeof onCloseMenu === 'function') {
+      onCloseMenu()
+    }
+  }
+
   return (
     <li className={classList}>
       {hasIcon ? (
         <>
-          <Link href={href}>
+          <Link href={href} onClick={handleClick}>
             {' '}
             {children}{' '}
           </Link>
           <Icon icon={icon} />
         </>
       ) : (
-        <Link href={href}>
+        <Link href={href} onClick={handleClick}>
           {' '}
           {children}{' '}
         </Link>
