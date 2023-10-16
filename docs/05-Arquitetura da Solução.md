@@ -49,9 +49,13 @@ A API terá como principais rotas:
 - `UPDATE /habit/{id}`
   - Rota que atualiza informações de um hábito do usuário
   - 
-    Exemplo de request:
-        ```json
-        ```
+    Exemplo de corpo da request:
+```json
+{
+    "title": "titulo 123 teste",
+    "description": "descricao3456"
+}
+```
 
 | Arquitetura Distribuída |
 |:---:|
