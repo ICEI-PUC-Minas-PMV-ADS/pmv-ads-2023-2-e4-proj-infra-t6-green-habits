@@ -7,12 +7,37 @@ Esta API será implementada de modo a permitir que os usuários criem, leiam, ex
 A API terá como principais rotas:
 - `POST /user/`
   - Rota que cria novos usuários a partir de email, nome e senha
+    
+    Exemplo de corpo da request:
+```json
+{
+    "name": "joao",
+    "email": "joao@123test.com",
+    "password": "teste"
+}
+```
 
 - `POST /login`
   - Rota que loga usuarios a partir de login e senha, retornando um JWT
+    
+    Exemplo de corpo da request:
+```json
+{
+      "email": "joao@123test.com",
+      "password": "teste"
+}
+  ```
   
 - `POST /habit/`
   - Rota que adiciona um hábito a lista de hábitos do usuário
+    
+    Exemplo de corpo da request:
+```json
+{
+    "title": "titulo 123 teste",
+    "description": "descricao3456"
+}
+```
 
 - `DELETE /habit/{id}`
   - Rota que deleta um hábito do usuário
@@ -20,8 +45,13 @@ A API terá como principais rotas:
 - `GET /habit/`
   - Rota que lista os hábitos do usuário
 
+
 - `UPDATE /habit/{id}`
   - Rota que atualiza informações de um hábito do usuário
+  - 
+    Exemplo de request:
+        ```json
+        ```
 
 | Arquitetura Distribuída |
 |:---:|
