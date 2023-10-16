@@ -11,6 +11,13 @@ interface NewHabitRequest {
     targetStreak?: number;
 }
 
+interface UpdateHabitRequest {
+    title?: string;
+    description?: string;
+    category?: Category;
+    targetStreak?: number;
+}
+
 const createHabit = async (request: Request, response: Response, next: NextFunction) => {
     try {
         const { id } = response.locals.user;
@@ -106,4 +113,40 @@ const getHabit = async (request: Request, response: Response, next: NextFunction
     }
 }
 
-export { createHabit, deleteHabit, getHabits, getHabit }
+const updateHabit = async (request: Request, response: Response, next: NextFunction) => {
+    try {
+        const { id } = response.locals.user;
+        const { habitId } = request.params;
+        const user = await UserModel.findById(id);
+
+        const { title, description, targetStreak, category } = request.body as UpdateHabitRequest;
+
+        if (!user) {
+            throw new AppError(ErrorReason.NONEXISTENT_USER, ErrorStatusCodes.NOT_FOUND)
+        }
+
+        const habit = user.habits.find(habit => habit._id.toString() === habitId);
+
+        if (!habit) {
+            throw new AppError(ErrorReason.NONEXISTENT_HABIT, ErrorStatusCodes.NOT_FOUND)
+        }
+
+        if (title) habit.title = title;
+        if (description) habit.description = description;
+        if (category) habit.category = category;
+        if (targetStreak) habit.targetStreak = targetStreak;
+
+        const updatedHabit = await HabitModel.findByIdAndUpdate(
+            habitId,
+            { $set: habit },
+            { new: true }
+        );
+
+        return response.status(200).json(updatedHabit);
+    }
+    catch (error) {
+        next(error)
+    }
+}
+
+export { createHabit, deleteHabit, getHabits, getHabit, updateHabit }

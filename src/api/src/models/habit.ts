@@ -14,7 +14,6 @@ export interface Habit extends Document {
   description: string;
   category: Category;
   createdAt: Date;
-  deletedAt?: Date;
   targetStreak?: number;
   daysChecked?: Date[];
 }

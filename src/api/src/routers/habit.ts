@@ -1,5 +1,5 @@
 import express from 'express';
-import { createHabit, deleteHabit, getHabits, getHabit } from '../controllers/habit';
+import { createHabit, deleteHabit, getHabits, getHabit, updateHabit } from '../controllers/habit';
 
 const habitRoutes = () => {
     const userRouter = express.Router();
@@ -8,6 +8,7 @@ const habitRoutes = () => {
     userRouter.get('/', getHabits);
     userRouter.get('/:habitId', getHabit);
     userRouter.delete('/:habitId', deleteHabit);
+    userRouter.patch('/:habitId', updateHabit);
 
     return userRouter;
 }
