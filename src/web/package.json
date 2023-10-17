@@ -22,7 +22,8 @@
     "react-dom": "18.2.0",
     "react-hook-form": "^7.47.0",
     "sass": "^1.68.0",
-    "typescript": "5.2.2"
+    "typescript": "5.2.2",
+    "uuid": "^9.0.1"
   },
   "devDependencies": {
     "@storybook/addon-essentials": "^7.4.5",
@@ -33,6 +34,7 @@
     "@storybook/nextjs": "^7.4.5",
     "@storybook/react": "^7.4.5",
     "@storybook/testing-library": "^0.2.1",
+    "@types/uuid": "^9.0.5",
     "storybook": "^7.4.5"
   }
 }
