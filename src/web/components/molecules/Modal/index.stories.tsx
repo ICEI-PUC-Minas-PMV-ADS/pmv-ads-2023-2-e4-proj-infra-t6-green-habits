@@ -1,6 +1,6 @@
-import type { Meta, StoryObj } from '@storybook/react'
-import  Modal  from './index'
 import { Sprites } from '@/components/ions/Sprites'
+import type { Meta, StoryObj } from '@storybook/react'
+import { Modal } from './index'
 
 const modal = {
   title: 'Molecules/Modal',
@@ -13,10 +13,10 @@ const modal = {
     (Story) => {
       return (
         <div>
-        <Sprites />
-        <Story>
-          <Modal />
-        </Story> 
+          <Sprites />
+          <Story>
+            <Modal />
+          </Story>
         </div>
       )
     },

@@ -1,29 +1,32 @@
 .modal {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 37.5rem;
+  border: 0.1rem solid $black;
+  border-radius: 0.8rem;
+  padding: 0 1.8rem;
+
+  @include screen-size('desktop') {
+    width: 73.6rem;
+  }
+
+  &__closeButton {
     display: flex;
-    justify-content: center;
-    border: 1px solid $black;
-    border-radius: 8px;
-    margin: 20px auto auto 24px;
-    width: 375px;
-    height: 572px;
+    justify-content: flex-end;
+    margin: 4rem 0 1.5rem;
+  }
 
-    .modal_x_button {
-        display: flex;
-        justify-content: flex-end;
-        margin: 15px 0 auto auto;
+  &__interaction {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    margin: 4rem 0;
+
+    @include screen-size('desktop') {
+      flex-direction: row;
+      gap: 2rem;
+
     }
-
-    .modal_buttons {
-        margin-top: 15px;
-    }
-
-    .modal_inner {
-        width: 340px;
-        height: fit-content;
-    }
-
-    .input_field {
-
-        padding: 6rem;
-    }
+  }
 }

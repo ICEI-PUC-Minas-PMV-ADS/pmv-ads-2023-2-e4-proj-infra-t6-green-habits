@@ -7,13 +7,18 @@ const input = {
   component: Input,
   tags: ['autodocs'],
   args: {
+    icon: 'tulip',
     id: 'email',
+    isTextarea: true,
     label: 'Email',
-    placeholder: 'bloody.mary@hell.com',
+    placeholder: 'green.habits@mail.com',
     type: 'email',
   },
   argTypes: {
-    
+    icon: {
+      control: { type: 'select' },
+      options: ['pencil', 'tulip'],
+    },
     id: {
       table: {
         disable: true,
@@ -30,6 +35,11 @@ const input = {
       },
     },
     error: {
+      table: {
+        disable: true,
+      },
+    },
+    validation: {
       table: {
         disable: true,
       },
@@ -61,8 +71,4 @@ export default input
 
 type Story = StoryObj<typeof input>
 
-export const Default: Story = {
-  parameters: {
-    backgrounds: { default: 'dark-mode' },
-  },
-} as Meta<typeof Input>
+export const Default: Story = {} as Meta<typeof Input>

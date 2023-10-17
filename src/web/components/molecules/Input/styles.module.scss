@@ -1,37 +1,50 @@
 .input {
-    display: flex;
-    gap: 2rem;
-    margin: 2rem 0;
-    padding: 2rem;
-    border-radius: 0.8rem;
-    border: 2px solid $black;
-    background-color: $white;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin: 2rem 0;
+  padding: 2rem;
+  border-radius: 0.8rem;
+  border: 0.2rem solid $dark-green;
+  @include text();
+  @include backgroundColor();
+
+  &:focus-visible,
+  &:checked,
+  &:focus,
+  &:focus-within {
+    outline: 0.3rem solid $green;
+    border: none;
+  }
+
+  &__label {
     @include text();
-  
-    &:focus-visible,
-    &:checked,
-    &:focus,
-    &:focus-within {
-      outline: 3px solid $black;
-      border: none;
+  }
+
+  &__field {
+    width: 100%;
+    outline: none;
+    overflow: hidden;
+    @include colors();
+
+    &::placeholder {
+      @include colors()
     }
-  
-    &__label {
-      @include text();
-      &::selection {
-        background-color: $black;
-        color: $white;
-      }
-    }
-  
-    &__field {
-      width: 100%;
-      outline: none;
-    }
-  
-    &__validation {
-      display: flex;
-      font-weight: 700;
-      color: $black
+
+    &::file-selector-button {
+      font-weight: bold;
+      color: $dark-green;
+      padding: 1rem;
+      border: 0.1rem solid $dark-green;
+      border-radius: 0.8rem;
+      background-color: transparent;
+      margin-right: 2rem;
     }
   }
+
+  &__validation {
+    display: flex;
+    font-weight: 700;
+    color: $light-green;
+  }
+}
