@@ -1,0 +1,7 @@
+.register {
+  &__header {
+    @include layout();
+    padding-top: 0 !important;
+    gap: 0 !important;
+  }
+}

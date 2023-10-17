@@ -1,9 +1,11 @@
+'use client'
 import { Sprites } from '@/components/ions/Sprites'
 import { Footer } from '@/components/molecules/Footer'
 import { Header } from '@/components/organisms/Header'
 import '@/styles/main.scss'
 import type { Metadata } from 'next'
 import { Poppins } from 'next/font/google'
+import { usePathname } from 'next/navigation'
 import styles from './layout.module.scss'
 
 const poppins = Poppins({
@@ -21,17 +23,23 @@ export const metadata: Metadata = {
   },
 }
 
-export default function RootLayout({
-  children,
-}: {
+interface RootLayoutProps {
   children: React.ReactNode
-}) {
+}
+
+export default function RootLayout({ children }: RootLayoutProps) {
+  const pathname = usePathname()
+
+  const shouldRenderHeader = pathname !== '/login' && pathname !== '/register'
+
   return (
     <html lang='pt'>
       <body className={poppins.className}>
-        <section className={styles.layout}>
-          <Header />
-        </section>
+        {shouldRenderHeader && (
+          <section className={styles.layout}>
+            <Header />
+          </section>
+        )}
         {children}
         <Sprites />
         <Footer />

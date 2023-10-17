@@ -1,7 +1,7 @@
 import { Banner } from '@/components/organisms/Banner'
 import { DownloadBanner } from '@/components/organisms/Download'
-import styles from './homepage.module.scss'
 import { HabitsWrapper } from '@/components/organisms/HabitsWrapper'
+import styles from './homepage.module.scss'
 
 export default function Home() {
   return (
