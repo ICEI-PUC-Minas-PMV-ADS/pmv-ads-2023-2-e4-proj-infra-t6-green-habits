@@ -131,7 +131,6 @@
   font-weight: 700;
   line-height: normal;
   transition: all 0.3s ease;
-  text-transform: capitalize;
 }
 
 @mixin fill() {
@@ -168,12 +167,32 @@
   }
 }
 
-@mixin backgroundColor {
+@mixin backgroundColor() {
   &--dark-green {
     background-color: $dark-green;
   }
 
   &--green {
     background-color: $green;
+  }
+
+  &--white {
+    background-color: $white;
+  }
+  
+  &--gray {
+    background-color: $gray;
+  }
+}
+
+@mixin layout() {
+  display: grid;
+  padding: 4rem 1.8rem;
+  gap: 4rem;
+
+  @include screen-size('desktop') {
+    margin: 0 auto;
+    max-width: 144rem;
+    padding: 4rem 10.9rem;
   }
 }
