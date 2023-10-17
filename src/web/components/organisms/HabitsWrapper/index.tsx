@@ -1,10 +1,20 @@
+'use client'
+
 import { Button } from '@/components/atoms/Button'
 import { Heading } from '@/components/atoms/Heading'
 import { Text } from '@/components/atoms/Text'
 import { HabitCard } from '@/components/molecules/HabitCard'
+import { usePathname } from 'next/navigation'
 import styles from './styles.module.scss'
 
 export const HabitsWrapper = () => {
+  const habitsData: string | any[] = [
+    /* armazenar a lista de hábitos do banco aqui */
+  ]
+  const initialItemsData = habitsData.slice(0, 2)
+  const additionalItemsData = habitsData.slice(2)
+  const pathname = usePathname()
+
   return (
     <section className={styles.wrapper}>
       <div className={styles.wrapper__heading}>
@@ -16,18 +26,51 @@ export const HabitsWrapper = () => {
         />
         <Button
           className={styles.wrapper__buttonDesktop}
-          label='Criar meta'
+          label='Meus hábitos'
           level='primary'
+          isButton={false}
+          href='/habits'
         />
       </div>
-      <div className={styles.wrapper__container}>
+
+      <div className={styles.wrapper__initialItems}>
+        {/* {initialItemsData.map((item, index) => (
+          <HabitCard
+            key={index}
+            image={item.image}
+            title={item.title}
+            description={item.description}
+            category={item.description}
+          />
+        ))} */}
         <HabitCard image='/card.png' />
         <HabitCard image='/card.png' />
       </div>
+
+      {pathname !== '/' && (
+        <div className={styles.wrapper__additionalItems}>
+          {/* {additionalItemsData.map((item, index) => (
+            <HabitCard
+              key={index}
+              image={item.image}
+              title={item.title}
+              description={item.description}
+              category={item.description}
+            />
+          ))} */}
+          <HabitCard image='/card.png' />
+          <HabitCard image='/card.png' />
+          <HabitCard image='/card.png' />
+          <HabitCard image='/card.png' />
+        </div>
+      )}
+
       <Button
         className={styles.wrapper__buttonMobile}
-        label='Criar meta'
+        label='Meus hábitos'
         level='primary'
+        isButton={false}
+        href='/habits'
       />
     </section>
   )

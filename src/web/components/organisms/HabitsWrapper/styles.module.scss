@@ -4,7 +4,7 @@
   justify-content: center;
   align-items: center;
   padding: 0 1.8rem 4rem;
-  gap: 4rem;
+  gap: 2rem;
 
   @include screen-size('tablet') {
     align-items: flex-start;
@@ -14,28 +14,64 @@
 
   @include screen-size('desktop') {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: 1fr;
+    grid-template-columns: repeat(3, 1fr);
     align-items: center;
     max-width: 144rem;
     margin: 0 auto;
-    padding-inline: 10.9rem;
+    padding-inline: 19rem;
+  }
+
+  @include screen-size('desktop-lg') {
+    gap: 4rem;
+    padding-inline: 16rem;
   }
 
   &__heading {
     display: flex;
     flex-direction: column;
     gap: 4rem;
+
+    @include screen-size('desktop') {
+      grid-area: 1 / 1 / 2 / 2;
+    }
   }
 
-  &__container {
+  &__initialItems {
     display: flex;
     flex-direction: column;
-    gap: 4rem;
+    gap: 2rem;
 
     @include screen-size('tablet') {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include screen-size('desktop') {
+      grid-area: 1 / 2 / 2 / 4;
+    }
+
+    @include screen-size('desktop-lg') {
+      gap: 4rem;
+    }
+  }
+
+  &__additionalItems {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    @include screen-size('tablet') {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include screen-size('desktop') {
+      grid-template-columns: repeat(3, 1fr);
+      grid-area: 2 / 1 / 3 / 4;
+    }
+
+    @include screen-size('desktop-lg') {
+      gap: 4rem;
     }
   }
 
@@ -49,7 +85,7 @@
   &__buttonDesktop {
     display: none;
     @include screen-size('desktop') {
-      display: block;
+      display: flex;
       max-width: 34rem;
     }
   }

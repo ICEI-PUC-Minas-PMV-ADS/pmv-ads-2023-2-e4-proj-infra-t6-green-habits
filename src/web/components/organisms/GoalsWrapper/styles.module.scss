@@ -1,0 +1,34 @@
+.goals {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+  &__textContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    margin: 2rem 0 4rem;
+
+    @include screen-size('desktop') {
+      display: grid;
+      grid-template-columns: repeat(2, auto);
+      gap: 0;
+    }
+  }
+  &__container {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+
+    @include screen-size('tablet') {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include screen-size('desktop') {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}
+
+

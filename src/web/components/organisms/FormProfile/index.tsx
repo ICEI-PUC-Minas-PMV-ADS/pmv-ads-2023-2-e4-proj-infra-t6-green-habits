@@ -21,7 +21,7 @@ export const FormProfile = () => {
         children='Altere ou exclua seu perfil nesta página'
         color='black'
       />
-      <form className={styles.formProfile}>
+      <form className={styles.formProfile__form}>
         {formProfile.map((item, index) => (
           <Input
             key={index}

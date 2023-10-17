@@ -60,7 +60,6 @@ export const HabitCard = ({
         </div>
         <p className={styles.card__text}>{description}</p>
         <Button label='Adicionar hábito' level='primary' />
-        <Button label='Criar meta relacionada' level='secondary' />
       </>
     ) : null
 
@@ -69,20 +68,22 @@ export const HabitCard = ({
   }
 
   return (
-    <article
-      className={`${styles.card} ${
-        isHovered || isTabFocused ? styles.hovered : ''
-      }`}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-      onKeyDown={handleKeyDown}
-      onFocus={() => setIsTabFocused(true)}
-      onBlur={() => setIsTabFocused(false)}
-      style={background}
-      tabIndex={0}
-    >
-      {renderTitle()}
-      {renderContent()}
-    </article>
+    <>
+      <article
+        className={`${styles.card} ${
+          isHovered || isTabFocused ? styles.hovered : ''
+        }`}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+        onKeyDown={handleKeyDown}
+        onFocus={() => setIsTabFocused(true)}
+        onBlur={() => setIsTabFocused(false)}
+        style={background}
+        tabIndex={0}
+      >
+        {renderTitle()}
+        {renderContent()}
+      </article>
+    </>
   )
 }

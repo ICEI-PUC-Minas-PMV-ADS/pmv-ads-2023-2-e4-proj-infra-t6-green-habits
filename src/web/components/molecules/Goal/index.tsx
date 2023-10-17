@@ -1,26 +1,22 @@
 'use client'
 
-import { Button } from '@/components/atoms/Button'
-import { useState } from 'react'
-import styles from './styles.module.scss'
+import { Button } from '@/components/atoms/Button';
+import styles from './styles.module.scss';
 
 interface GoalProps {
-  goal?: string
+  goal: string;
+  onToggle: () => void;
+  isChecked: boolean;
 }
 
-export const Goal = ({ goal }: GoalProps) => {
-  const [isChecked, setIsChecked] = useState(false)
-
-  const handleCheckboxChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setIsChecked(event.target.checked)
-  }
-
+export const Goal = ({ goal, onToggle, isChecked }: GoalProps) => {
   return (
     <label className={styles.goal} htmlFor={goal}>
       <input
         type='checkbox'
         className={styles.goal__input}
-        onChange={handleCheckboxChange}
+        onChange={onToggle}
+        checked={isChecked}
         id={goal}
       />
       <p className={styles.goal__container}>
@@ -33,5 +29,5 @@ export const Goal = ({ goal }: GoalProps) => {
         className={styles.goal__button}
       />
     </label>
-  )
-}
+  );
+};
