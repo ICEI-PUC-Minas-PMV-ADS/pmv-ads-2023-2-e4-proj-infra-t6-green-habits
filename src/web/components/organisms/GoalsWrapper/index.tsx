@@ -14,11 +14,27 @@ export const GoalsWrapper = () => {
   const [isModalOpen, setModalOpen] = useState(false)
 
   const [goals, setGoals] = useState([
-    { id: generateUniqueId(), goal: 'Objetivo 1', isChecked: false },
-    { id: generateUniqueId(), goal: 'Objetivo 2', isChecked: false },
-    { id: generateUniqueId(), goal: 'Objetivo 3', isChecked: false },
-    { id: generateUniqueId(), goal: 'Objetivo 4', isChecked: false },
-    { id: generateUniqueId(), goal: 'Objetivo 5', isChecked: false },
+    {
+      id: generateUniqueId(),
+      goal: 'Reduzir o Desperdício de Alimentos',
+      isChecked: false,
+    },
+    {
+      id: generateUniqueId(),
+      goal: 'Diminuir o Uso de Plásticos Descartáveis',
+      isChecked: false,
+    },
+    { id: generateUniqueId(), goal: 'Economizar Energia', isChecked: false },
+    {
+      id: generateUniqueId(),
+      goal: 'Priorizar o Transporte Sustentável',
+      isChecked: false,
+    },
+    {
+      id: generateUniqueId(),
+      goal: 'Apoiar Produtos Sustentáveis e Locais',
+      isChecked: false,
+    },
   ])
 
   const toggleGoal = (goalId: string) => {
