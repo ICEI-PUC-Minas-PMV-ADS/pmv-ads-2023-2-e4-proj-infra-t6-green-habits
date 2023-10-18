@@ -75,6 +75,7 @@ export const HabitsWrapper = () => {
           href={pathname === '/' ? '/habits' : '/contact'}
         />
       </section>
+
       {pathname !== '/' && (
         <section className={styles.myHabits}>
           <Heading
