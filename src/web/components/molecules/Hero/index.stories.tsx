@@ -1,27 +1,37 @@
 import { Sprites } from '@/components/ions/Sprites'
 import type { Meta, StoryObj } from '@storybook/react'
-import { AboutUs } from '.'
+import { Hero } from './index'
 
-const aboutUs = {
-  title: 'Organisms/AboutUs',
-  component: AboutUs,
+const hero = {
+  title: 'Molecules/Hero',
+  component: Hero,
   tags: ['autodocs'],
   parameters: {
     layout: 'centered',
   },
+  args: {
+    image: '/bg.png'
+  },
+  argTypes: {
+    image: {
+      table: {
+        disabled: true,
+      },
+    },
+  },
   decorators: [
     (Story) => {
       return (
-        <div style={{maxWidth: 1440}}>
+        <div>
           <Sprites />
           <Story />
         </div>
       )
     },
   ],
-} satisfies Meta<typeof AboutUs>
+} satisfies Meta<typeof Hero>
 
-export default aboutUs
+export default hero
 
-type Story = StoryObj<typeof aboutUs>
+type Story = StoryObj<typeof hero>
 export const Primary: Story = {}

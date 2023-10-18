@@ -1,10 +1,10 @@
 import { Sprites } from '@/components/ions/Sprites'
 import type { Meta, StoryObj } from '@storybook/react'
-import { AboutUs } from '.'
+import { FormLogin } from './index'
 
-const aboutUs = {
-  title: 'Organisms/AboutUs',
-  component: AboutUs,
+const formLogin = {
+  component: FormLogin,
+  title: 'Organisms/FormLogin',
   tags: ['autodocs'],
   parameters: {
     layout: 'centered',
@@ -12,16 +12,16 @@ const aboutUs = {
   decorators: [
     (Story) => {
       return (
-        <div style={{maxWidth: 1440}}>
+        <div>
           <Sprites />
           <Story />
         </div>
       )
     },
   ],
-} satisfies Meta<typeof AboutUs>
+} satisfies Meta<typeof FormLogin>
 
-export default aboutUs
+export default formLogin
 
-type Story = StoryObj<typeof aboutUs>
+type Story = StoryObj<typeof formLogin>
 export const Primary: Story = {}

@@ -16,26 +16,27 @@ export const HabitsWrapper = () => {
   const pathname = usePathname()
 
   return (
-    <section className={styles.wrapper} id='habitsWrapper'>
-      <div className={styles.wrapper__heading}>
-        <Heading align='left' children='Hábitos' color='black' level='2' />
-        <Text
-          align='left'
-          children='Confira nossa seleção de hábitos para o seu dia a dia'
-          color='black'
-        />
+    <>
+      <section className={styles.wrapper} id='habitsWrapper'>
+        <div className={styles.wrapper__heading}>
+          <Heading align='left' children='Hábitos' color='black' level='2' />
+          <Text
+            align='left'
+            children='Confira nossa seleção de hábitos para o seu dia a dia'
+            color='black'
+          />
 
-        <Button
-          className={styles.wrapper__buttonDesktop}
-          label={pathname === '/' ? 'Meus hábitos' : 'Contato'}
-          level='primary'
-          isButton={false}
-          href={pathname === '/' ? '/habits' : '/contact'}
-        />
-      </div>
+          <Button
+            className={styles.wrapper__buttonDesktop}
+            label={pathname === '/' ? 'Meus hábitos' : 'Contato'}
+            level='primary'
+            isButton={false}
+            href={pathname === '/' ? '/habits' : '/contact'}
+          />
+        </div>
 
-      <div className={styles.wrapper__initialItems}>
-        {/* {initialItemsData.map((item, index) => (
+        <div className={styles.wrapper__initialItems}>
+          {/* {initialItemsData.map((item, index) => (
           <HabitCard
             key={index}
             image={item.image}
@@ -44,13 +45,13 @@ export const HabitsWrapper = () => {
             category={item.description}
           />
         ))} */}
-        <HabitCard image='/card.png' />
-        <HabitCard image='/card.png' />
-      </div>
+          <HabitCard image='/card.png' />
+          <HabitCard image='/card.png' />
+        </div>
 
-      {pathname !== '/' && (
-        <div className={styles.wrapper__additionalItems}>
-          {/* {additionalItemsData.map((item, index) => (
+        {pathname !== '/' && (
+          <div className={styles.wrapper__additionalItems}>
+            {/* {additionalItemsData.map((item, index) => (
             <HabitCard
               key={index}
               image={item.image}
@@ -59,20 +60,38 @@ export const HabitsWrapper = () => {
               category={item.description}
             />
           ))} */}
-          <HabitCard image='/card.png' />
-          <HabitCard image='/card.png' />
-          <HabitCard image='/card.png' />
-          <HabitCard image='/card.png' />
-        </div>
-      )}
+            <HabitCard image='/card.png' />
+            <HabitCard image='/card.png' />
+            <HabitCard image='/card.png' />
+            <HabitCard image='/card.png' />
+          </div>
+        )}
 
-      <Button
-        className={styles.wrapper__buttonMobile}
-        label={pathname === '/' ? 'Meus hábitos' : 'Contato'}
-        level='primary'
-        isButton={false}
-        href={pathname === '/' ? '/habits' : '/contact'}
-      />
-    </section>
+        <Button
+          className={styles.wrapper__buttonMobile}
+          label={pathname === '/' ? 'Meus hábitos' : 'Contato'}
+          level='primary'
+          isButton={false}
+          href={pathname === '/' ? '/habits' : '/contact'}
+        />
+      </section>
+      {pathname !== '/' && (
+        <section className={styles.myHabits}>
+          <Heading
+            align='center'
+            children='Meus hábitos'
+            color='black'
+            level='3'
+          />
+
+          <div className={styles.myHabits__container}>
+            <HabitCard image='/card.png' />
+            <HabitCard image='/card.png' />
+            <HabitCard image='/card.png' />
+            <HabitCard image='/card.png' />
+          </div>
+        </section>
+      )}
+    </>
   )
 }

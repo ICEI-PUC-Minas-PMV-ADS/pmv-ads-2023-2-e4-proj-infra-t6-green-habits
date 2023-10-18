@@ -1,10 +1,10 @@
 import { Sprites } from '@/components/ions/Sprites'
 import type { Meta, StoryObj } from '@storybook/react'
-import { AboutUs } from '.'
+import { GoalsWrapper } from './index'
 
-const aboutUs = {
-  title: 'Organisms/AboutUs',
-  component: AboutUs,
+const goalsWrapper = {
+  component: GoalsWrapper,
+  title: 'Organisms/GoalsWrapper',
   tags: ['autodocs'],
   parameters: {
     layout: 'centered',
@@ -12,16 +12,16 @@ const aboutUs = {
   decorators: [
     (Story) => {
       return (
-        <div style={{maxWidth: 1440}}>
+        <div>
           <Sprites />
           <Story />
         </div>
       )
     },
   ],
-} satisfies Meta<typeof AboutUs>
+} satisfies Meta<typeof GoalsWrapper>
 
-export default aboutUs
+export default goalsWrapper
 
-type Story = StoryObj<typeof aboutUs>
+type Story = StoryObj<typeof goalsWrapper>
 export const Primary: Story = {}

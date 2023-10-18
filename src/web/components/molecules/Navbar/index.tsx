@@ -61,13 +61,15 @@ export const Navigation = () => {
             onCloseMenu={() => setIsMenuOpen(false)}
           />
         ))}
-        <Button
-          label='Contato'
-          level='primary'
-          isButton={false}
-          href='/contact'
-          className={styles.navigation__button}
-        />
+        <li className={styles.navigation__button}>
+          <Button
+            label='Contato'
+            level='primary'
+            isButton={false}
+            href='/contact'
+            className={styles.navigation__button}
+          />
+        </li>
       </ul>
       {!isDesktop && (
         <button

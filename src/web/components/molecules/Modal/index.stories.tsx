@@ -9,14 +9,19 @@ const modal = {
   parameters: {
     layout: 'centered',
   },
+  argTypes: {
+    onClose: {
+      table: {
+        disable: true,
+      },
+    },
+  },
   decorators: [
     (Story) => {
       return (
         <div>
           <Sprites />
-          <Story>
-            <Modal />
-          </Story>
+          <Story />
         </div>
       )
     },

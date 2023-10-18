@@ -40,7 +40,7 @@ export const HabitCard = ({
     isHovered || isTabFocused ? null : (
       <>
         <div className={styles.card__content}>
-          <Tag category={category} backgroundColor='green' />
+          <Tag category={category} backgroundColor='dark-green' />
         </div>
         <p className={styles.card__title}>{title}</p>
       </>

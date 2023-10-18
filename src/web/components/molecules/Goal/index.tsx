@@ -1,12 +1,12 @@
 'use client'
 
-import { Button } from '@/components/atoms/Button';
-import styles from './styles.module.scss';
+import { Button } from '@/components/atoms/Button'
+import styles from './styles.module.scss'
 
 interface GoalProps {
-  goal: string;
-  onToggle: () => void;
-  isChecked: boolean;
+  goal: string
+  onToggle: () => void
+  isChecked: boolean
 }
 
 export const Goal = ({ goal, onToggle, isChecked }: GoalProps) => {
@@ -27,7 +27,8 @@ export const Goal = ({ goal, onToggle, isChecked }: GoalProps) => {
         icon={isChecked ? 'trash' : 'pencil'}
         size='small'
         className={styles.goal__button}
+        aria={isChecked ? 'Apagar meta' : 'Editar meta'}
       />
     </label>
-  );
-};
+  )
+}

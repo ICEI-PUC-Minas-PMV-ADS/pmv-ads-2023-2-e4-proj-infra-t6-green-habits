@@ -12,7 +12,7 @@ const header = {
   decorators: [
     (Story) => {
       return (
-        <div>
+        <div style={{maxWidth: 1440}}>
           <Sprites />
           <Story />
         </div>
