@@ -16,7 +16,7 @@ export const HabitsWrapper = () => {
   const pathname = usePathname()
 
   return (
-    <section className={styles.wrapper}>
+    <section className={styles.wrapper} id='habitsWrapper'>
       <div className={styles.wrapper__heading}>
         <Heading align='left' children='Hábitos' color='black' level='2' />
         <Text
@@ -24,12 +24,13 @@ export const HabitsWrapper = () => {
           children='Confira nossa seleção de hábitos para o seu dia a dia'
           color='black'
         />
+
         <Button
           className={styles.wrapper__buttonDesktop}
-          label='Meus hábitos'
+          label={pathname === '/' ? 'Meus hábitos' : 'Contato'}
           level='primary'
           isButton={false}
-          href='/habits'
+          href={pathname === '/' ? '/habits' : '/contact'}
         />
       </div>
 
@@ -67,10 +68,10 @@ export const HabitsWrapper = () => {
 
       <Button
         className={styles.wrapper__buttonMobile}
-        label='Meus hábitos'
+        label={pathname === '/' ? 'Meus hábitos' : 'Contato'}
         level='primary'
         isButton={false}
-        href='/habits'
+        href={pathname === '/' ? '/habits' : '/contact'}
       />
     </section>
   )

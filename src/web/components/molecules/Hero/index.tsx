@@ -4,6 +4,7 @@ import { Text } from '@/components/atoms/Text'
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
 import styles from './styles.module.scss'
+import { usePathname } from 'next/navigation'
 
 interface HeroProps {
   image: string
@@ -11,6 +12,7 @@ interface HeroProps {
 
 export const Hero = ({ image }: HeroProps) => {
   const [windowWidth, setWindowWidth] = useState<number>(0)
+  const pathname = usePathname()
 
   useEffect(() => {
     const handleResize = () => {
@@ -40,7 +42,7 @@ export const Hero = ({ image }: HeroProps) => {
           color='black'
         />
         <Button
-          href='/habits'
+          href={pathname === '/habits' ? '#habitsWrapper' : '/habits'}
           label='Meus hábitos'
           level='primary'
           className={styles.hero__button}
