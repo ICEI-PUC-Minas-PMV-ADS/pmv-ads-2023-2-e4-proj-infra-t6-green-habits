@@ -49,7 +49,7 @@ export const Button = ({
           {hasIcon && <Icon icon={icon} />}
         </button>
       ) : (
-        <Link href={href || ''} target={target} className={classList} role={role}>
+        <Link href={href || ''} target={target} className={classList} role={role} onClick={onClick}>
           {label}
           {hasIcon && <Icon icon={icon} />}
         </Link>

@@ -3,6 +3,7 @@ import { Button } from '@/components/atoms/Button'
 import { Icon } from '@/components/atoms/Icon'
 import { LinkItem } from '@/components/atoms/Link'
 import navigation from '@/data/navigation.json'
+import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import styles from './styles.module.scss'
 
@@ -40,7 +41,12 @@ export const Navigation = () => {
         isMenuOpen ? styles.navigation__open : ''
       }`}
     >
-      {!isMenuOpen && <Icon icon='leaf' fill='#398278' />}
+      {!isMenuOpen && (
+        <Link href='/' aria-label='Página inicial' className={styles.navigation__icon}>
+          <Icon icon='leaf' fill='#398278' />{' '}
+        </Link>
+      )}
+
       <ul
         className={`${styles.navigation__menu} ${
           isDesktop
@@ -68,6 +74,7 @@ export const Navigation = () => {
             isButton={false}
             href='/contact'
             className={styles.navigation__button}
+            onClick={() => setIsMenuOpen(false)}
           />
         </li>
       </ul>

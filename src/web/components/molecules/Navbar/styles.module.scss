@@ -50,4 +50,16 @@
   &__button {
     width: 34rem;
   }
+
+  &__icon {
+    &:hover {
+      > svg {
+        fill: $green;
+      }
+    }
+  }
+
+  &__toggle {
+    @extend .navigation__icon;
+  }
 }
