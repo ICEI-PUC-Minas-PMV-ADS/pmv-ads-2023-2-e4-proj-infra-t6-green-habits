@@ -2,6 +2,7 @@ import { Request, Response, NextFunction } from 'express';
 import UserModel from "../models/user";
 import { ErrorReason, ErrorStatusCodes } from '../types/error';
 import { AppError } from '../error';
+import { signJWT } from '../auth';
 
 interface CreateUserRequest {
   name: String;
@@ -17,8 +18,9 @@ const createUser = async (request: Request, response: Response, next: NextFuncti
   try {
     const user = new UserModel({ name, email, password, habits: [] });
     let newUser = await user.save();
+    const token = signJWT({ userId: newUser.id });
 
-    return response.status(201).json(newUser);
+    return response.status(201).json({ user: newUser, token });
   } catch (error) {
     console.error(error);
     if (error.code === 11000) {
