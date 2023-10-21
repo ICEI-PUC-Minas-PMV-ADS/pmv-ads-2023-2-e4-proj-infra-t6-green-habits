@@ -46,7 +46,7 @@ A API terá como principais rotas:
   - Rota que lista os hábitos do usuário
 
 
-- `UPDATE /habit/{id}`
+- `PATCH /habit/{id}`
   - Rota que atualiza informações de um hábito do usuário
   - 
     Exemplo de corpo da request:
