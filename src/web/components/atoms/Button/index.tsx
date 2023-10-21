@@ -17,6 +17,7 @@ interface ButtonProps {
   aria?: string
   role?: string
   children?: React.ReactNode;
+  tabIndex?: number
 }
 
 export const Button = ({
@@ -31,7 +32,8 @@ export const Button = ({
   target,
   size,
   aria,
-  role
+  role,
+  tabIndex
 }: ButtonProps) => {
   const classList = [
     styles.button,
@@ -44,7 +46,7 @@ export const Button = ({
   return (
     <>
       {isButton ? (
-        <button onClick={onClick} className={classList} aria-label={aria} role={role}>
+        <button onClick={onClick} className={classList} aria-label={aria} role={role} tabIndex={tabIndex}>
           {label}
           {hasIcon && <Icon icon={icon} />}
         </button>

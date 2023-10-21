@@ -6,11 +6,11 @@ import { Button } from '../../atoms/Button/index'
 
 import styles from './styles.module.scss'
 
-interface ModalProps {
+interface GoalModalProps {
   onClose: () => void
 }
 
-export const Modal = ({ onClose }: ModalProps) => {
+export const GoalModal = ({ onClose }: GoalModalProps) => {
   useEffect(() => {
     const handleKeyPress = (event: KeyboardEvent) => {
       if (event.key === 'Escape') {

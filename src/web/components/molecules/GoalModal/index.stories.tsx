@@ -1,10 +1,10 @@
 import { Sprites } from '@/components/ions/Sprites'
 import type { Meta, StoryObj } from '@storybook/react'
-import { Modal } from './index'
+import { GoalModal } from './index'
 
 const modal = {
   title: 'Molecules/Modal',
-  component: Modal,
+  component: GoalModal,
   tags: ['autodocs'],
   parameters: {
     layout: 'centered',
@@ -26,7 +26,7 @@ const modal = {
       )
     },
   ],
-} satisfies Meta<typeof Modal>
+} satisfies Meta<typeof GoalModal>
 
 export default modal
 
