@@ -4,16 +4,47 @@ import { Button } from '@/components/atoms/Button'
 import { Heading } from '@/components/atoms/Heading'
 import { Text } from '@/components/atoms/Text'
 import { HabitCard } from '@/components/molecules/HabitCard'
+import axios from 'axios'
 import { usePathname } from 'next/navigation'
+import { useEffect, useState } from 'react'
 import styles from './styles.module.scss'
 
+export interface Habit {
+  habitId: string
+  image?: string
+  title?: string
+  description?: string
+  category?: string
+}
+
 export const HabitsWrapper = () => {
-  const habitsData: string | any[] = [
-    /* armazenar a lista de hábitos do banco aqui */
-  ]
-  const initialItemsData = habitsData.slice(0, 2)
-  const additionalItemsData = habitsData.slice(2)
+  const [userHabits, setUserHabits] = useState<Habit[]>([])
   const pathname = usePathname()
+
+  useEffect(() => {
+    async function fetchUserHabits() {
+      try {
+        const token =
+          ''
+
+        const response = await axios.get(
+          'https://habit-tracker-api.fly.dev/habit',
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        )
+
+        const newHabitData: Habit[] = response.data
+        setUserHabits(newHabitData)
+      } catch (error) {
+        console.log('Erro ao buscar hábitos: ', error)
+      }
+    }
+
+    fetchUserHabits()
+  }, [])
 
   return (
     <>
@@ -35,45 +66,32 @@ export const HabitsWrapper = () => {
           />
         </div>
 
+        {/* Renderização dos hábitos
         <div className={styles.wrapper__initialItems}>
-          {/* {initialItemsData.map((item, index) => (
-          <HabitCard
-            key={index}
-            image={item.image}
-            title={item.title}
-            description={item.description}
-            category={item.description}
-          />
-        ))} */}
-          <HabitCard image='/card.png' />
-          <HabitCard image='/card.png' />
+          {habitsData.slice(0, 2).map((item, index) => (
+            <HabitCard
+              key={index}
+              image='/card.png'
+              title={item.title}
+              description={item.description}
+              category={item.category}
+            />
+          ))}
         </div>
 
         {pathname !== '/' && (
           <div className={styles.wrapper__additionalItems}>
-            {/* {additionalItemsData.map((item, index) => (
-            <HabitCard
-              key={index}
-              image={item.image}
-              title={item.title}
-              description={item.description}
-              category={item.description}
-            />
-          ))} */}
-            <HabitCard image='/card.png' />
-            <HabitCard image='/card.png' />
-            <HabitCard image='/card.png' />
-            <HabitCard image='/card.png' />
+            {habitsData.slice(2).map((item, index) => (
+              <HabitCard
+                key={index}
+                image='/card.png'
+                title={item.title}
+                description={item.description}
+                category={item.category}
+              />
+            ))}
           </div>
-        )}
-
-        <Button
-          className={styles.wrapper__buttonMobile}
-          label={pathname === '/' ? 'Meus hábitos' : 'Contato'}
-          level='primary'
-          isButton={false}
-          href={pathname === '/' ? '/habits' : '/contact'}
-        />
+        )} */}
       </section>
 
       {pathname !== '/' && (
@@ -86,10 +104,16 @@ export const HabitsWrapper = () => {
           />
 
           <div className={styles.myHabits__container}>
-            <HabitCard image='/card.png' />
-            <HabitCard image='/card.png' />
-            <HabitCard image='/card.png' />
-            <HabitCard image='/card.png' />
+            {userHabits.map((item, index) => (
+              <HabitCard
+                key={index}
+                image='/card.png'
+                title={item.title}
+                description={item.description}
+                category={item.category}
+                habitId={item.habitId}
+              />
+            ))}
           </div>
         </section>
       )}
