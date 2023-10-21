@@ -1,6 +1,8 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
+import cors from 'cors';
+
 import habitRoutes from './routers/habit';
 import { loginUser } from './controllers/auth';
 import { MONGODB_URI } from './config/envs';
@@ -9,6 +11,8 @@ import { authMiddleware } from './middlewares/auth';
 import { errorMiddleware } from './middlewares/error';
 
 const app = express();
+
+app.use(cors());
 app.use(bodyParser.json());
 
 mongoose.connect(MONGODB_URI!)
