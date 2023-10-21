@@ -5,6 +5,7 @@ import Image from 'next/image'
 import { useEffect, useState } from 'react'
 import styles from './styles.module.scss'
 import { usePathname } from 'next/navigation'
+import { getAllHabits } from '@/app/controllers/user'
 
 interface HeroProps {
   image: string
@@ -47,6 +48,7 @@ export const Hero = ({ image }: HeroProps) => {
           level='primary'
           className={styles.hero__button}
           isButton={false}
+          onClick={() => getAllHabits("eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NTE5YjIyYTkyMjZjNGVhMmI3YWUyYzkiLCJpYXQiOjE2OTc0OTQ2MzF9.kg0cuPhQk3rinSMFh5ETZ5cOc7ifdHR8ZioDbebL1tOqSseIN2_672e0Jh8ZSN7Npavgn2fnPmzviEC-K99PHg")}
         />
       </article>
       <Image

@@ -9,6 +9,9 @@ const nextConfig = {
   images: {
     domains: ['images.ctfassets.net'],
   },
+  env: {
+    NEXT_PUBLIC_API_HOST: process.env.NEXT_PUBLIC_API_HOST
+  }
 }
 
 module.exports = nextConfig
