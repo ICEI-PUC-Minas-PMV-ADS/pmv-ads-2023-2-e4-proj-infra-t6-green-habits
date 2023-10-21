@@ -4,7 +4,7 @@ import { Button } from '@/components/atoms/Button'
 import { Heading } from '@/components/atoms/Heading'
 import { Text } from '@/components/atoms/Text'
 import { Goal } from '@/components/molecules/Goal'
-import { Modal } from '@/components/molecules/Modal'
+import { GoalModal } from '@/components/molecules/GoalModal'
 import { useState } from 'react'
 import { v4 as uuidv4 } from 'uuid'
 import styles from './styles.module.scss'
@@ -70,7 +70,7 @@ export const GoalsWrapper = () => {
             level='primary'
             onClick={handleOpenModal}
           />
-          {isModalOpen && <Modal onClose={handleCloseModal} />}
+          {isModalOpen && <GoalModal onClose={handleCloseModal} />}
         </div>
 
         <div className={styles.goals__container}>
