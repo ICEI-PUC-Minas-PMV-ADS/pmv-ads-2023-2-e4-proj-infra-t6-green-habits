@@ -60,15 +60,18 @@ export const GoalsWrapper = () => {
       <section className={styles.goals}>
         <Heading align='center' children='Metas' color='black' level='2' />
         <div className={styles.goals__textContainer}>
-          <Text
-            align='left'
-            children='Nossa rota para a sustentabilidade: suas metas no Green Habits'
-            color='black'
-          />
+          <div className={styles.goals__text}>
+            <Text
+              align='left'
+              children='Nossa rota para a sustentabilidade: suas metas no Green Habits'
+              color='black'
+            />
+          </div>
           <Button
             label='Criar meta'
             level='primary'
             onClick={handleOpenModal}
+            className={styles.goals__button}
           />
           {isModalOpen && <GoalModal onClose={handleCloseModal} />}
         </div>
