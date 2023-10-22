@@ -60,6 +60,13 @@ select {
   background: transparent;
 }
 
+input:-webkit-autofill,
+textarea:-webkit-autofill,
+select:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 1000px #242525 inset !important;
+  -webkit-text-fill-color: #fdffff !important;
+}
+
 input[type='text'],
 input[type='password'],
 input[type='email'],
