@@ -1,21 +1,24 @@
 'use client'
 
+import {
+  LoginUserPayload,
+  loginUser as loginUserApi,
+} from '@/app/services/controllers/user'
 import { Button } from '@/components/atoms/Button'
 import { Input } from '@/components/molecules/Input'
 import formLogin from '@/data/formLogin.json'
-import styles from './styles.module.scss'
 import { useEffect, useState } from 'react'
-import { LoginUserPayload, loginUser as loginUserApi } from '@/app/controllers/user'
+import styles from './styles.module.scss'
 
 export const FormLogin = () => {
-  let [email, setEmail] = useState<string>('');
-  let [password, setPassword] = useState<string>('');
+  let [email, setEmail] = useState<string>('')
+  let [password, setPassword] = useState<string>('')
 
   useEffect(() => {
-    console.log("email:", email);
-    console.log("password:", password);
-  }, [email, password]);
-  
+    console.log('email:', email)
+    console.log('password:', password)
+  }, [email, password])
+
   return (
     <form className={styles.formLogin}>
       {formLogin.map((item, index) => (
@@ -28,11 +31,11 @@ export const FormLogin = () => {
           icon={item.icon}
           validation={item.validation}
           onChange={(e) => {
-            let currentValue = e.target.value;
-            if (item.id === "email") {
-              setEmail(currentValue);
+            let currentValue = e.target.value
+            if (item.id === 'email') {
+              setEmail(currentValue)
             }
-            if (item.id === "password") {
+            if (item.id === 'password') {
               setPassword(currentValue)
             }
           }}
@@ -42,7 +45,12 @@ export const FormLogin = () => {
       ))}
 
       <div className={styles.formLogin__buttons}>
-        <Button isButton label='Entrar' level='primary' onClick={async () => await loginUser(email, password)}/>
+        <Button
+          isButton
+          label='Entrar'
+          level='primary'
+          onClick={async () => await loginUser(email, password)}
+        />
         <Button isButton label='Esqueci a senha' level='tertiary' />
       </div>
     </form>
@@ -50,9 +58,9 @@ export const FormLogin = () => {
 }
 
 const loginUser = async (email: string, password: string) => {
-  const payload: LoginUserPayload = { email, password };
+  const payload: LoginUserPayload = { email, password }
   try {
-    const token = await loginUserApi(payload);
+    const token = await loginUserApi(payload)
     console.log(token)
   } catch (error) {
     console.log(error)

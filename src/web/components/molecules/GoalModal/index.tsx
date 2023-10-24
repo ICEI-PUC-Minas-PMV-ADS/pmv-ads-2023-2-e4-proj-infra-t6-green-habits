@@ -2,7 +2,7 @@
 import { Icon } from '@/components/atoms/Icon'
 import { Input } from '@/components/molecules/Input'
 import { useEffect } from 'react'
-import { Button } from '../../atoms/Button/index'
+import { Button } from '@/components/atoms/Button'
 
 import styles from './styles.module.scss'
 
@@ -58,7 +58,7 @@ export const GoalModal = ({ onClose }: GoalModalProps) => {
       />
 
       <div className={styles.modal__interaction}>
-        <Button label='Adicionar Meta' level='primary' />
+        <Button label='Adicionar meta' level='primary' />
         <Button label='Fechar' level='tertiary' onClick={onClose} />
       </div>
     </div>
