@@ -73,7 +73,11 @@ export const GoalsWrapper = () => {
             onClick={handleOpenModal}
             className={styles.goals__button}
           />
-          {isModalOpen && <GoalModal onClose={handleCloseModal} />}
+          {isModalOpen && (
+            <div className={styles.goals__modal}>
+              <GoalModal onClose={handleCloseModal} />
+            </div>
+          )}
         </div>
 
         <div className={styles.goals__container}>

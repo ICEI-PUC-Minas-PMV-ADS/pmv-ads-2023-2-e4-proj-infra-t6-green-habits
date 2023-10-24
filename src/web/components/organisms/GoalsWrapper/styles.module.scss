@@ -43,4 +43,10 @@
       grid-area: 1 / 1 / 2 / 3;
     }
   }
+
+  &__modal {
+    @include screen-size('desktop') {
+      grid-area: 2/1/2/3;
+    }
+  }
 }
