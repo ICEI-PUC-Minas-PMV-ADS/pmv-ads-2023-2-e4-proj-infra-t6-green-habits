@@ -31,14 +31,5 @@
     "validation": {
       "required": "Senha inválida."
     }
-  },
-  {
-    "id": "file",
-    "label": "Incluir nova foto de perfil",
-    "placeholder": "",
-    "type": "file",
-    "icon": "plus",
-    "isTextarea": false,
-    "validation": ""
   }
 ]

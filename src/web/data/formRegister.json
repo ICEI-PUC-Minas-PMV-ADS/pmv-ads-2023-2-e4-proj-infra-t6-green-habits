@@ -31,14 +31,5 @@
     "validation": {
       "required": "Você se esqueceu de criar uma senha."
     }
-  },
-  {
-    "id": "file",
-    "label": "Incluir foto de perfil",
-    "placeholder": "",
-    "type": "file",
-    "icon": "plus",
-    "isTextarea": false,
-    "validation": ""
   }
 ]
