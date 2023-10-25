@@ -7,6 +7,7 @@ import { Text } from '@/components/atoms/Text'
 import { Input } from '@/components/molecules/Input'
 import formContact from '@/data/formContact.json'
 // import { useForm as useFormFormspree } from '@formspree/react'
+import { FeedBackModal } from '@/components/molecules/FeedbackModal'
 import { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import styles from './styles.module.scss'
@@ -34,6 +35,16 @@ export const FormContactUs = () => {
       },
     })
   }, [registerReactHookForm])
+
+  const handleModalOpen = () => {
+    setModalVisible(true)
+    // resetReactHookForm()
+  }
+
+  const handleModalClose = () => {
+    setModalVisible(false)
+    // resetReactHookForm()
+  }
   return (
     <section className={styles.contact}>
       <Heading align='center' children='Fale conosco' color='black' level='2' />
@@ -76,9 +87,21 @@ export const FormContactUs = () => {
             />
           </div>
         ))}
-        <Button isButton label='Enviar' level='primary' />
+        <Button
+          isButton
+          label='Enviar'
+          level='primary'
+          onClick={handleModalOpen}
+        />
       </form>
-      {/* {state.succeeded && <p>all clear</p>} */}
+      {isModalVisible && (
+        <FeedBackModal
+          success={true}
+          error={false}
+          text='Formulário enviado com sucesso.'
+        />
+      )}
+      {/* {state.succeeded && <FeedBackModal success={true} error={false} text='Formulário enviado com sucesso.'/> */}
     </section>
   )
 }
