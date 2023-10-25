@@ -8,7 +8,9 @@ export default function Profile() {
       <section className={styles.profile__form}>
         <FormProfile />
       </section>
-      <Banner image='/banner.png' />
+      <section className={styles.profile__banner}>
+        <Banner image='/banner.png' />
+      </section>
     </main>
   )
 }

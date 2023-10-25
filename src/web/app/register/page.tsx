@@ -12,7 +12,9 @@ export default function Register() {
         <HeroUnlogged />
         <FormRegister />
       </section>
-      <Banner image='/banner.png' />
+      <section className={styles.register__banner}>
+        <Banner image='/banner.png' />
+      </section>
     </main>
   )
 }
