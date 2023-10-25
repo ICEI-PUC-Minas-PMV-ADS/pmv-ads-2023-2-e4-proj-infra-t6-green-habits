@@ -28,7 +28,7 @@
     @include colors();
 
     &::placeholder {
-      @include colors()
+      @include colors();
     }
 
     &::file-selector-button {
@@ -45,6 +45,7 @@
   &__validation {
     display: flex;
     font-weight: 700;
-    color: $light-green;
+    color: $green;
+    margin-top: 0.5rem;
   }
 }
