@@ -32,10 +32,6 @@
     @include screen-size('desktop') {
       grid-area: 1 / 1 / 2 / 2;
     }
-
-    @include screen-size('desktop-lg') {
-      width: 100%;
-    }
   }
 
   &__initialItems {
