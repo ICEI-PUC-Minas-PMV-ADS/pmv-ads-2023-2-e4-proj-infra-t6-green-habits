@@ -3,21 +3,24 @@
     "href": "/",
     "children": "Página inicial",
     "hasIcon": false,
-    "color": "black",
-    "weight": ""
+    "color": "black"
   },
   {
     "href": "/habits",
-    "children": "Hábitos sustentáveis",
+    "children": "Hábitos",
     "hasIcon": false,
-    "color": "black",
-    "weight": ""
+    "color": "black"
   },
   {
     "href": "/goals",
     "children": "Metas",
     "hasIcon": false,
-    "color": "black",
-    "weight": ""
+    "color": "black"
+  },
+  {
+    "href": "/profile",
+    "children": "Perfil",
+    "hasIcon": false,
+    "color": "black"
   }
 ]
