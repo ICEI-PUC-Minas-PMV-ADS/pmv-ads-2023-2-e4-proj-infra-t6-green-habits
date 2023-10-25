@@ -215,7 +215,7 @@
 
 @mixin layout() {
   display: grid;
-  padding: 4rem 1.8rem;
+  padding: 4rem 1.8rem 0;
   gap: 4rem;
 
   @include screen-size('desktop') {
