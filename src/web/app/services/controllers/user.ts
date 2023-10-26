@@ -1,4 +1,4 @@
-import axios, { AxiosError } from 'axios';
+import axios from 'axios';
 axios.defaults.timeout = 30000;
 
 const instance = axios.create({
