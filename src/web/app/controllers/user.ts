@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios, { AxiosError } from 'axios';
 axios.defaults.timeout = 30000;
 
 const instance = axios.create({
@@ -9,6 +9,11 @@ interface RequestOptions {
     headers: {
         Authorization?: string;
     };
+}
+
+interface ApiResponse {
+    status: number;
+    data: string;
 }
 
 interface CreateUserPayload {
@@ -31,10 +36,9 @@ const getAllHabits = async (token?: string) => {
     try {
         let options = formatHeader(token);
         const { data } = await instance.get(`/habit/`, options);
-        console.log(data)
     } catch (error) {
-        throw error;
-    }   
+        console.log(error)
+    }
 }
 
 const deleteHabitById = async (habitId: string, token?: string) => {
@@ -43,16 +47,19 @@ const deleteHabitById = async (habitId: string, token?: string) => {
         const { data } = await instance.delete(`/habit/${habitId}`, options);
         console.log(data)
     } catch (error) {
-        throw error;
+        console.log(error)
     }
 }
 
 async function loginUser(payload: LoginUserPayload) {
     try {
-        const { data } = await instance.post("/login", payload);
-        console.log(data)
+        const { data: { token } } = await instance.post<{ token: string }>("/login", payload);
+        localStorage.setItem("token", token);
     } catch (error) {
-        console.log(error)
+        const err = error as AxiosError;
+        let res = err.response?.data as ApiResponse;
+        alert(res.data);
+        console.log(res)
     }
 }
 
