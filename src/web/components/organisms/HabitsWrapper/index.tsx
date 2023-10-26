@@ -10,6 +10,8 @@ import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import styles from './styles.module.scss'
 
+import habits from '@/data/habits.json'
+
 export interface Habit {
   habitId: string
   image?: string
@@ -43,8 +45,7 @@ export const HabitsWrapper = () => {
   useEffect(() => {
     async function fetchUserHabits() {
       try {
-        const token =
-          ''
+        const token = ''
 
         const response = await axios.get(
           'https://habit-tracker-api.fly.dev/habit',
@@ -104,30 +105,33 @@ export const HabitsWrapper = () => {
             />
           </div>
         )}
-
-        <div className={styles.wrapper__initialItems}>
-          {/* {habitsData.slice(0, 2).map((item, index) => (
-            <HabitCard
-              key={index}
-              image='/card.png'
-              title={item.title}
-              description={item.description}
-              category={item.category}
-            />
-          ))} */}
-        </div>
-
         {pathname !== '/' && (
-          <div className={styles.wrapper__additionalItems}>
-            {/* {habitsData.slice(2).map((item, index) => (
+          <div className={styles.wrapper__initialItems}>
+            {habits.slice(0, 2).map((item, index) => (
               <HabitCard
                 key={index}
                 image='/card.png'
                 title={item.title}
                 description={item.description}
                 category={item.category}
+                habitId={item._id}
               />
-            ))} */}
+            ))}
+          </div>
+        )}
+
+        {pathname !== '/' && (
+          <div className={styles.wrapper__additionalItems}>
+            {habits.slice(2).map((item, index) => (
+              <HabitCard
+                key={index}
+                image='/card.png'
+                title={item.title}
+                description={item.description}
+                category={item.category}
+                habitId={item._id}
+              />
+            ))}
           </div>
         )}
 

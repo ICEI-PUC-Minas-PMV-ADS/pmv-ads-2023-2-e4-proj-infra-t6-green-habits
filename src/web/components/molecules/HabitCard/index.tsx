@@ -13,7 +13,7 @@ export interface CardProps {
   title?: string
   description?: string
   category?: string
-  habitId: string
+  habitId: string | { $oid: string }
   onDelete?: (habitId: string) => void
   token?: string | undefined
 }
@@ -67,16 +67,18 @@ export const HabitCard = ({
   const handleEditModalClose = async (updatedHabit: CardProps) => {
     const updatedToken = ''
 
+    const habitIdAsString = typeof habitId === 'string' ? habitId : habitId.$oid
+
     try {
       const response = await updateHabitInDatabase(
         updatedHabit,
-        habitId,
+        habitIdAsString,
         updatedToken
       )
 
       if (response.status === 200) {
         if (onDelete) {
-          onDelete(habitId)
+          onDelete(habitIdAsString)
         }
       } else {
         console.error('Erro ao atualizar hábito.')
@@ -88,7 +90,9 @@ export const HabitCard = ({
 
   const handleDeleteClick = () => {
     const deleteToken = ''
-    deleteHabitFromDatabase(habitId, deleteToken)
+    const habitIdAsString = typeof habitId === 'string' ? habitId : habitId.$oid
+
+    deleteHabitFromDatabase(habitIdAsString, deleteToken)
   }
 
   const renderTitle = () =>
