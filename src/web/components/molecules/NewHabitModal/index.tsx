@@ -1,16 +1,16 @@
 'use client'
+
 import { Icon } from '@/components/atoms/Icon'
 import { Input } from '@/components/molecules/Input'
 import { useEffect } from 'react'
 import { Button } from '@/components/atoms/Button'
-
 import styles from './styles.module.scss'
 
-interface GoalModalProps {
+interface NewHabitModalProps {
   onClose: () => void
 }
 
-export const GoalModal = ({ onClose }: GoalModalProps) => {
+export const NewHabitModal = ({ onClose }: NewHabitModalProps) => {
   useEffect(() => {
     const handleKeyPress = (event: KeyboardEvent) => {
       if (event.key === 'Escape') {
@@ -47,9 +47,9 @@ export const GoalModal = ({ onClose }: GoalModalProps) => {
       </div>
 
       <Input
-        label='Qual é a sua meta?'
-        id='meta'
-        placeholder='Reciclar uma vez ao mês'
+        label='Qual hábito você quer adotar?'
+        id='habit'
+        placeholder='Ir para o trabalho de bicicleta'
         type='text'
         icon='pencil'
         isTextarea
@@ -58,7 +58,7 @@ export const GoalModal = ({ onClose }: GoalModalProps) => {
       />
 
       <div className={styles.modal__interaction}>
-        <Button label='Adicionar meta' level='primary' />
+        <Button label='Adotar hábito' level='primary' />
         <Button label='Fechar' level='tertiary' onClick={onClose} />
       </div>
     </div>

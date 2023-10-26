@@ -3,6 +3,7 @@
 import { Button } from '@/components/atoms/Button'
 import { Tag } from '@/components/atoms/Tag'
 import axios from 'axios'
+import { usePathname } from 'next/navigation'
 import { useState } from 'react'
 import { HabitModal } from '../HabitModal'
 import styles from './styles.module.scss'
@@ -26,6 +27,7 @@ export const HabitCard = ({
   onDelete,
   token,
 }: CardProps) => {
+  const pathname = usePathname()
   const [isHovered, setIsHovered] = useState(false)
   const [isTabFocused, setIsTabFocused] = useState(false)
   const [isEditModalVisible, setEditModalVisible] = useState(false)
@@ -63,8 +65,7 @@ export const HabitCard = ({
   }
 
   const handleEditModalClose = async (updatedHabit: CardProps) => {
-    const updatedToken =
-      ''
+    const updatedToken = ''
 
     try {
       const response = await updateHabitInDatabase(
@@ -86,8 +87,7 @@ export const HabitCard = ({
   }
 
   const handleDeleteClick = () => {
-    const deleteToken =
-      ''
+    const deleteToken = ''
     deleteHabitFromDatabase(habitId, deleteToken)
   }
 
@@ -102,6 +102,19 @@ export const HabitCard = ({
     )
 
   const renderContent = () => {
+    if (pathname === '/' || pathname === '/goals') {
+      return isHovered || isTabFocused ? (
+        <div className={styles.card__hoverButton}>
+          <Button
+            label='Veja todos os hábitos'
+            level='primary'
+            href='/habits'
+            isButton={false}
+          />
+        </div>
+      ) : null
+    }
+
     return isHovered || isTabFocused ? (
       <>
         <div className={styles.card__button}>
@@ -118,24 +131,61 @@ export const HabitCard = ({
         <p className={styles.card__text}>{editedHabit.description}</p>
 
         <Button
-          label='Adicionar Hábito'
+          label='Adicionar hábito'
           level='primary'
           hasIcon
           icon='check-01'
         />
         <Button
-          label='Remover Hábito'
+          label='Remover hábito'
           level='tertiary'
           hasIcon
           icon='trash'
           onClick={handleDeleteClick}
+          className={styles.card__removeHabit}
         />
       </>
     ) : null
   }
 
+  function removeAccentsAndSpaces(text: string | undefined) {
+    if (!text) {
+      return ''
+    }
+    return text
+      .toLowerCase()
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .replace(/\s/g, '')
+  }
+
+  function getImageForCategory(category: string | undefined): string {
+    if (category) {
+      const normalizedCategory = removeAccentsAndSpaces(category)
+      const categoryImages: Record<string, string> = {
+        consumosustentavel: './cards/consumosustentavel.png',
+        energia: './cards/energia.png',
+        reciclagem: './cards/reciclagem.png',
+        agua: './cards/agua.png',
+        transporte: './cards/transporte.png',
+        alimentacao: './cards/alimentacao.png',
+        conservacao: './cards/conservacao.png',
+        conscientizacao: './cards/conscientizacao.png',
+      }
+
+      if (categoryImages.hasOwnProperty(normalizedCategory)) {
+        return categoryImages[normalizedCategory]
+      }
+    }
+
+    return './cards/default.png'
+  }
+
   const background = {
-    backgroundImage: isHovered || isTabFocused ? 'none' : `url(${image})`,
+    backgroundImage:
+      isHovered || isTabFocused
+        ? 'none'
+        : `url(${getImageForCategory(removeAccentsAndSpaces(category))})`,
   }
 
   return (

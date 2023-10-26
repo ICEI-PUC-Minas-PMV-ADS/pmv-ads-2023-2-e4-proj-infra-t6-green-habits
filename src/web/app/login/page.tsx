@@ -12,8 +12,9 @@ export default function Login() {
         <HeroUnlogged />
         <FormLogin />
       </section>
-      <section></section>
-      <Banner image='/banner.png' />
+      <section className={styles.login__banner}>
+        <Banner image='/banner.png' />
+      </section>
     </main>
   )
 }

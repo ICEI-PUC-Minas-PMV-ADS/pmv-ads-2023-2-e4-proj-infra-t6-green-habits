@@ -14,7 +14,6 @@
     "@formspree/react": "^2.5.1",
     "@storybook/addon-a11y": "^7.4.5",
     "@storybook/addon-styling-webpack": "^0.0.4",
-    "@types/node": "20.6.0",
     "@types/react": "18.2.21",
     "@types/react-dom": "18.2.7",
     "axios": "^1.5.1",
@@ -35,6 +34,7 @@
     "@storybook/nextjs": "^7.4.5",
     "@storybook/react": "^7.4.5",
     "@storybook/testing-library": "^0.2.1",
+    "@types/node": "^20.8.9",
     "@types/uuid": "^9.0.5",
     "storybook": "^7.4.5"
   }

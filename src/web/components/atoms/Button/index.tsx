@@ -10,7 +10,7 @@ interface ButtonProps {
   hasIcon?: boolean
   label?: string
   level?: string
-  onClick?: () => void
+  onClick?: (e: React.MouseEvent<HTMLButtonElement> | React.MouseEvent<HTMLAnchorElement>) => void;
   target?: string
   type?: string
   size?: string

@@ -27,8 +27,8 @@ export const Ranking = () => {
         </div>
 
         <div className={styles.ranking__cardsContainer}>
-          <HabitCard image='/card.png' />
-          <HabitCard image='/card.png' />
+          <HabitCard image='/cards/default.png' habitId={''} />
+          <HabitCard image='/cards/default.png' habitId={''} />
         </div>
       </article>
 
@@ -51,8 +51,8 @@ export const Ranking = () => {
         </div>
 
         <div className={styles.ranking__cardsContainer}>
-          <HabitCard image='/card.png' />
-          <HabitCard image='/card.png' />
+          <HabitCard image='/cards/default.png' habitId={''} />
+          <HabitCard image='/cards/default.png' habitId={''} />
         </div>
       </article>
     </section>

@@ -1,6 +1,6 @@
 import { Sprites } from '@/components/ions/Sprites'
 import type { Meta, StoryObj } from '@storybook/react'
-import { HabitCard } from '.'
+import { HabitCard } from './index'
 
 const card = {
   title: 'Molecules/Card',
@@ -14,7 +14,10 @@ const card = {
     category: 'Ecologia',
     description:
       'A prática envolve reutilizar materiais descartados de maneiras inovadoras, como transformar garrafas plásticas em vasos para plantas ou criar acessórios a partir de tecidos reciclados. ',
-    image: '/card.png',
+    image: '/cards/default.png',
+    habitId: '',
+    onDelete: () => {},
+    token: ''
   },
   argTypes: {
     image: {

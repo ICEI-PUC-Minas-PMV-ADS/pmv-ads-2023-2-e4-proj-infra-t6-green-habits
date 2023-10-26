@@ -3,11 +3,29 @@
 import { Button } from '@/components/atoms/Button'
 import { Heading } from '@/components/atoms/Heading'
 import { Text } from '@/components/atoms/Text'
+import { FeedBackModal } from '@/components/molecules/FeedbackModal'
 import { Input } from '@/components/molecules/Input'
 import formProfile from '@/data/formProfile.json'
+import { useRouter } from 'next/navigation'
+import { useState } from 'react'
 import styles from './styles.module.scss'
 
 export const FormProfile = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false)
+  const [editSuccess, setEditSuccess] = useState(false)
+  const [editError, setEditError] = useState(false)
+  const router = useRouter()
+
+  const handleSaveClick = async () => {
+    try {
+      setEditSuccess(true)
+      router.push('/')
+    } catch (error) {
+      setEditError(true)
+    } finally {
+      setIsModalOpen(true)
+    }
+  }
   return (
     <section className={styles.formProfile}>
       <Heading
@@ -42,7 +60,14 @@ export const FormProfile = () => {
             level='primary'
             hasIcon
             icon='check-01'
+            onClick={handleSaveClick}
           />
+          {isModalOpen && editSuccess && (
+            <FeedBackModal success={true} error={false} text='Alterações salvas com sucesso' />
+          )}
+          {isModalOpen && editError && (
+            <FeedBackModal success={false} error={true} text='Error' />
+          )}
           <Button
             isButton
             label='Excluir conta'
@@ -50,6 +75,12 @@ export const FormProfile = () => {
             hasIcon
             icon='trash'
           />
+          {isModalOpen && editSuccess && (
+            <FeedBackModal success={true} error={false} text='Sua conta foi excluída com sucesso' />
+          )}
+          {isModalOpen && editError && (
+            <FeedBackModal success={false} error={true} text='Error' />
+          )}
         </div>
       </form>
     </section>

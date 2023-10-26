@@ -5,7 +5,6 @@ import Image from 'next/image'
 import { useEffect, useState } from 'react'
 import styles from './styles.module.scss'
 import { usePathname } from 'next/navigation'
-import { getAllHabits } from '@/app/controllers/user'
 
 interface HeroProps {
   image: string
