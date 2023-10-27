@@ -3,7 +3,7 @@
 import { Button } from '@/components/atoms/Button'
 import { Icon } from '@/components/atoms/Icon'
 import { Input } from '@/components/molecules/Input'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { v4 as uuidv4 } from 'uuid'
 import styles from './styles.module.scss'
 
@@ -20,6 +20,8 @@ interface GoalModalProps {
 
 export const GoalModal = ({ onClose, addNewGoal }: GoalModalProps) => {
   const [newGoalText, setNewGoalText] = useState('')
+  const inputRef = useRef(null)
+
   const generateUniqueId = () => uuidv4()
 
   useEffect(() => {
@@ -60,9 +62,13 @@ export const GoalModal = ({ onClose, addNewGoal }: GoalModalProps) => {
       }
       addNewGoal(newGoal)
       onClose()
+      if (inputRef.current === document.activeElement) {
+        setNewGoalText('')
+      } else {
+        onClose()
+      }
     }
   }
-
   return (
     <div className={styles.modal}>
       <div className={styles.modal__closeButton} onClick={onClose}>
@@ -79,14 +85,18 @@ export const GoalModal = ({ onClose, addNewGoal }: GoalModalProps) => {
         backgroundColor='white'
         color='black'
         value={newGoalText}
-        onChange={(e) => setNewGoalText(e.target.value)}
+        onChange={(e) => {
+          setNewGoalText(e.target.value)
+        }}
       />
 
       <div className={styles.modal__interaction}>
         <Button
           label='Adicionar meta'
           level='primary'
-          onClick={handleAddGoal}
+          onClick={() => {
+            handleAddGoal()
+          }}
         />
         <Button label='Fechar' level='tertiary' onClick={onClose} />
       </div>

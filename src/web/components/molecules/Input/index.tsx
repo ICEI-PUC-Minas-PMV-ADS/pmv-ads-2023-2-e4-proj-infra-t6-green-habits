@@ -111,6 +111,7 @@ export const Input = forwardRef(
               id={id}
               placeholder={placeholder}
               ref={ref as Ref<HTMLTextAreaElement>}
+              onChange={onChange}
               {...rest}
             />
           ) : (
