@@ -9,7 +9,6 @@ import axios from 'axios'
 import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import styles from './styles.module.scss'
-
 import habits from '@/data/habits.json'
 
 export interface Habit {
@@ -25,6 +24,7 @@ export const HabitsWrapper = () => {
   const [isMobileModalOpen, setMobileModalOpen] = useState(false)
   const [isDesktopModalOpen, setDesktopModalOpen] = useState(false)
   const pathname = usePathname()
+  const isButton = pathname === '/' ? false : true
 
   const handleOpenMobileModal = () => {
     setMobileModalOpen(true)
@@ -81,8 +81,9 @@ export const HabitsWrapper = () => {
             className={styles.wrapper__buttonDesktop}
             label={pathname === '/' ? 'Meus hábitos' : 'Novo hábito'}
             level='primary'
-            isButton={pathname === '/' ? true : false}
-            onClick={handleOpenDesktopModal}
+            isButton={isButton}
+            onClick={isButton ? handleOpenDesktopModal : undefined}
+            href='/habits'
           />
           {isDesktopModalOpen && (
             <NewHabitModal onClose={handleCloseDesktopModal} />
@@ -139,8 +140,8 @@ export const HabitsWrapper = () => {
           className={styles.wrapper__buttonMobile}
           label={pathname === '/' ? 'Meus hábitos' : 'Novo hábito'}
           level='primary'
-          isButton={pathname === '/' ? true : false}
-          onClick={handleOpenMobileModal}
+          isButton={isButton}
+          onClick={isButton ? handleOpenMobileModal : undefined}
         />
         {isMobileModalOpen && (
           <div className={styles.goals__modal}>
