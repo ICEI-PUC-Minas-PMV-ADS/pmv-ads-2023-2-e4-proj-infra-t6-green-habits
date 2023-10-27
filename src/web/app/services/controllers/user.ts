@@ -36,8 +36,9 @@ const getAllHabits = async (token?: string) => {
   try {
     let options = formatHeader(token);
     const { data } = await instance.get(`/habit/`, options);
+    return data
   } catch (error) {
-    console.log(error)
+    throw error
   }
 }
 

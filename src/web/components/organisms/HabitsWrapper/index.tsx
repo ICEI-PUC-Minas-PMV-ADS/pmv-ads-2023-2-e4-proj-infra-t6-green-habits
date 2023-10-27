@@ -11,6 +11,7 @@ import { useEffect, useState } from 'react'
 import styles from './styles.module.scss'
 
 import habits from '@/data/habits.json'
+import { getAllHabits } from '@/app/services/controllers/user'
 
 export interface Habit {
   habitId: string
@@ -20,7 +21,8 @@ export interface Habit {
   category?: string
 }
 
-export const HabitsWrapper = () => {
+export const HabitsWrapper = ({ token }: { token: string }) => {
+  console.log("habit wrapper", token)
   const [userHabits, setUserHabits] = useState<Habit[]>([])
   const [isMobileModalOpen, setMobileModalOpen] = useState(false)
   const [isDesktopModalOpen, setDesktopModalOpen] = useState(false)
@@ -45,19 +47,8 @@ export const HabitsWrapper = () => {
   useEffect(() => {
     async function fetchUserHabits() {
       try {
-        const token = ''
-
-        const response = await axios.get(
-          'https://habit-tracker-api.fly.dev/habit',
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          }
-        )
-
-        const newHabitData: Habit[] = response.data
-        setUserHabits(newHabitData)
+        const habits = await getAllHabits(token);
+        console.log(habits)
       } catch (error) {
         console.log('Erro ao buscar hábitos: ', error)
       }
