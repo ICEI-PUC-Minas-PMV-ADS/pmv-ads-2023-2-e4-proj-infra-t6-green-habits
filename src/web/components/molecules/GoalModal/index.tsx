@@ -1,16 +1,27 @@
 'use client'
+
+import { Button } from '@/components/atoms/Button'
 import { Icon } from '@/components/atoms/Icon'
 import { Input } from '@/components/molecules/Input'
-import { useEffect } from 'react'
-import { Button } from '@/components/atoms/Button'
-
+import { useEffect, useState } from 'react'
+import { v4 as uuidv4 } from 'uuid'
 import styles from './styles.module.scss'
+
+interface Goal {
+  id: string
+  goal: string
+  isChecked: boolean
+}
 
 interface GoalModalProps {
   onClose: () => void
+  addNewGoal: (newGoal: Goal) => void
 }
 
-export const GoalModal = ({ onClose }: GoalModalProps) => {
+export const GoalModal = ({ onClose, addNewGoal }: GoalModalProps) => {
+  const [newGoalText, setNewGoalText] = useState('')
+  const generateUniqueId = () => uuidv4()
+
   useEffect(() => {
     const handleKeyPress = (event: KeyboardEvent) => {
       if (event.key === 'Escape') {
@@ -40,6 +51,18 @@ export const GoalModal = ({ onClose }: GoalModalProps) => {
     }
   }, [onClose])
 
+  const handleAddGoal = () => {
+    if (newGoalText.trim() !== '') {
+      const newGoal = {
+        id: generateUniqueId(),
+        goal: newGoalText,
+        isChecked: false,
+      }
+      addNewGoal(newGoal)
+      onClose()
+    }
+  }
+
   return (
     <div className={styles.modal}>
       <div className={styles.modal__closeButton} onClick={onClose}>
@@ -55,10 +78,16 @@ export const GoalModal = ({ onClose }: GoalModalProps) => {
         isTextarea
         backgroundColor='white'
         color='black'
+        value={newGoalText}
+        onChange={(e) => setNewGoalText(e.target.value)}
       />
 
       <div className={styles.modal__interaction}>
-        <Button label='Adicionar meta' level='primary' />
+        <Button
+          label='Adicionar meta'
+          level='primary'
+          onClick={handleAddGoal}
+        />
         <Button label='Fechar' level='tertiary' onClick={onClose} />
       </div>
     </div>

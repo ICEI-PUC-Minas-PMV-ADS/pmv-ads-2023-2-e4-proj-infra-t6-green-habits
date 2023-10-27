@@ -9,6 +9,7 @@ interface GoalProps {
   onToggle: () => void
   isChecked: boolean
   onUpdateGoal: (goalId: string, newGoal: string) => void
+  onDeleteGoal: () => void
   id: string
 }
 
@@ -17,6 +18,7 @@ export const Goal = ({
   onToggle,
   isChecked,
   onUpdateGoal,
+  onDeleteGoal,
   id,
 }: GoalProps) => {
   const [isEditing, setIsEditing] = useState(false)
@@ -38,31 +40,30 @@ export const Goal = ({
   const handleEditClick = () => {
     setIsEditing(true)
   }
-  
+
   const handleSaveClick = () => {
     setTimeout(() => {
-      setIsEditing(false);
-  
+      setIsEditing(false)
+
       try {
-        const storedEditedGoal = localStorage.getItem('editedGoal');
-        const parsedGoals = storedEditedGoal ? JSON.parse(storedEditedGoal) : [];
-  
+        const storedEditedGoal = localStorage.getItem('editedGoal')
+        const parsedGoals = storedEditedGoal ? JSON.parse(storedEditedGoal) : []
+
         const updatedGoals = parsedGoals.map((g: { id: string }) => {
           if (g.id === id) {
-            return { ...g, goal: editedGoal };
+            return { ...g, goal: editedGoal }
           }
-          return g;
-        });
-  
-        localStorage.setItem('editedGoal', JSON.stringify(updatedGoals));
-        onUpdateGoal(id, editedGoal);
+          return g
+        })
+
+        localStorage.setItem('editedGoal', JSON.stringify(updatedGoals))
+        onUpdateGoal(id, editedGoal)
       } catch (error) {
-        console.error('Error updating goals in localStorage:', error);
+        console.error('Error updating goals in localStorage:', error)
       }
-    }, 1000);
-  };
-  
-  
+    }, 1000)
+  }
+
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setEditedGoal(event.target.value)
   }
@@ -100,11 +101,11 @@ export const Goal = ({
       ) : (
         <Button
           hasIcon={true}
-          icon='pencil'
+          icon={isChecked ? 'trash' : 'pencil'}
           size='small'
           className={styles.goal__button}
-          onClick={handleEditClick}
-          aria='Editar meta'
+          onClick={isChecked ? onDeleteGoal : handleEditClick} // Altere aqui para chamar onDeleteGoal
+          aria={isChecked ? ' Apagar meta' : 'Editar meta'}
         />
       )}
     </label>
