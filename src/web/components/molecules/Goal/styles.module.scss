@@ -64,4 +64,9 @@
     width: 3rem !important;
     height: 3rem !important;
   }
+
+  &__editing {
+    @extend .goal__container, .goal__text;
+    width: -webkit-fill-available;
+  }
 }
