@@ -12,8 +12,14 @@ interface AuthProps {
 
 export const Auth = ({ children, token }: AuthProps) => {
   const router = useRouter()
+  const isLocalStorageAvailable = typeof window !== 'undefined'
   const [userHabits, setUserHabits] = useState<Habit[]>([])
-  const userToken = localStorage.getItem('token')
+
+  let userToken: string | null = null
+
+  if (isLocalStorageAvailable) {
+    userToken = localStorage.getItem('token')
+  }
 
   useEffect(() => {
     async function fetchUserHabits() {
@@ -32,10 +38,12 @@ export const Auth = ({ children, token }: AuthProps) => {
   }, [token])
 
   useEffect(() => {
-    if (!token || !userToken) {
+    const isPageReload = performance.navigation.type === 1;
+    if (typeof window !== 'undefined' && !isPageReload && !token && !userToken) {
       router.push('/login');
     }
-  }, [token, userToken]);
+  }, [token, userToken, router]);
+ 
 
   return children
 }
