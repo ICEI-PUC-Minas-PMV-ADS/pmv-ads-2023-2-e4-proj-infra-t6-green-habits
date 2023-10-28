@@ -207,3 +207,23 @@ A tabela seguinte expõe os recursos do sistema para o projeto de teste e desenv
 | Implementar Teste |  |  |
 | Executar Teste|  |  |
 | Avaliar Teste |  |  | 
+
+## Lighthouse
+
+O Lighthouse é uma ferramenta de código aberto desenvolvida pelo Google para avaliar e melhorar o desempenho, acessibilidade, boas práticas, SEO (Search Engine Optimization) e a experiência do usuário de um site da web. Ele é amplamente utilizado por desenvolvedores e profissionais de marketing digital para analisar a qualidade e o desempenho de um site, bem como para identificar áreas que precisam de otimização.
+
+O Lighthouse opera como uma extensão do navegador ou como uma CLI (Command Line Interface), permitindo que os usuários avaliem sites diretamente em seus navegadores. Quando uma avaliação é executada, o Lighthouse analisa várias métricas e critérios importantes. Vamos abordar brevemente cada um deles:
+
+Desempenho: O Lighthouse mede o desempenho do site, incluindo o tempo de carregamento da página, a eficiência do uso de recursos, a compressão de imagens, o carregamento assíncrono de recursos e outros fatores que afetam a velocidade de carregamento.
+
+Acessibilidade: Essa métrica avalia a acessibilidade do site para pessoas com deficiências. Ela verifica se o site segue as diretrizes de acessibilidade, como as estabelecidas pelas Diretrizes de Acessibilidade para Conteúdo da Web (WCAG).
+
+Boas Práticas: O Lighthouse avalia se o site segue as melhores práticas de desenvolvimento web. Isso inclui a utilização de HTTPS, a definição de tamanhos de fontes legíveis, a correta utilização de tags HTML, entre outros.
+
+SEO (Search Engine Optimization): Essa métrica avalia o quão bem o site está otimizado para mecanismos de busca. O Lighthouse verifica se as tags de título, meta descrições, cabeçalhos e outros elementos são configurados corretamente.
+
+Experiência do Usuário (UX): O Lighthouse também avalia a experiência do usuário, levando em consideração fatores como a interatividade da página, o uso de boas práticas de design e a responsividade do site em diferentes dispositivos.
+
+Após a análise, o Lighthouse gera um relatório com pontuações e sugestões específicas para melhorar o site com base nos critérios mencionados. As pontuações são normalmente divididas em categorias, permitindo que os desenvolvedores identifiquem áreas que precisam de atenção e melhoria.
+
+Em resumo, o Lighthouse é uma ferramenta abrangente que fornece uma visão detalhada do desempenho e da qualidade de um site da web, com o objetivo de ajudar os desenvolvedores e profissionais de marketing a otimizá-lo para proporcionar a melhor experiência possível aos usuários e melhorar seu posicionamento nos mecanismos de busca.
