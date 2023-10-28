@@ -7,26 +7,37 @@ import formRegister from '@/data/formRegister.json'
 import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 import styles from './styles.module.scss'
+import { ApiResponse, RegisterUserPayload, registerUser } from '@/services/controllers/user'
+import { AxiosError } from 'axios'
 
 export const FormRegister = () => {
+  let [email, setEmail] = useState<string>('')
+  let [password, setPassword] = useState<string>('')
+  let [name, setName] = useState<string>('')
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [registerSuccess, setRegisterSuccess] = useState(false)
-  const [registerError, setRegisterError] = useState(false)
+  const [registerError, setRegisterError] = useState<string | null>(null)
   const router = useRouter()
 
-  const handleSaveClick = async () => {
+  const handleRegisterSubmit = async (name: string, email: string, password: string) => {
+    const payload: RegisterUserPayload = { name, email, password }
     try {
-      setRegisterSuccess(true);
-      router.push('/');
+      await registerUser(payload)
+      setRegisterSuccess(true)
+      router.push('/habits')
     } catch (error) {
-      setRegisterError(true);
+      const err = error as AxiosError
+      const res = err.response?.data as ApiResponse<string>
+      const errorMessage = `Ocorreu um erro durante o cadastro: ${res.data}`
+      setRegisterError(errorMessage)
+      console.log(res)
     } finally {
-      setIsModalOpen(true);
+      setIsModalOpen(true)
     }
   }
- 
+
   return (
-    <form className={styles.formRegister}>
+    <form className={styles.formRegister} onSubmit={(e) => e.preventDefault()}>
       {formRegister.map((item, index) => (
         <Input
           key={index}
@@ -37,6 +48,18 @@ export const FormRegister = () => {
           icon={item.icon}
           backgroundColor='gray'
           color='white'
+          onChange={(e) => {
+            let currentValue = e.target.value
+            if (item.id === 'name') {
+              setName(currentValue)
+            }
+            if (item.id === 'email') {
+              setEmail(currentValue)
+            }
+            if (item.id === 'password') {
+              setPassword(currentValue)
+            }
+          }}
         />
       ))}
 
@@ -47,7 +70,7 @@ export const FormRegister = () => {
           level='primary'
           hasIcon
           icon='check-01'
-          onClick={handleSaveClick}
+          onClick={async () => await handleRegisterSubmit(name, email, password)}
         />
         <Button isButton label='Cancelar' level='tertiary' />
       </div>
@@ -55,7 +78,7 @@ export const FormRegister = () => {
         <FeedBackModal success={true} error={false} text='Damos as boas-vindas ao Green Habits' />
       )}
       {isModalOpen && registerError && (
-        <FeedBackModal success={false} error={true} text='Error' />
+        <FeedBackModal success={false} error={true} text={registerError} />
       )}
     </form>
   )
