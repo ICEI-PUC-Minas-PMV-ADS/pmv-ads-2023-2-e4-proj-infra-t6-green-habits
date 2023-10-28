@@ -34,7 +34,6 @@ export const GoalsWrapper: React.FC = () => {
         console.error('Error parsing stored goals:', error)
       }
     } else {
-      // Se não houver metas no armazenamento local, inicialize com algumas metas padrão
       const initialGoals = [
         {
           id: uuidv4(),
