@@ -13,6 +13,7 @@ interface AuthProps {
 export const Auth = ({ children, token }: AuthProps) => {
   const router = useRouter()
   const [userHabits, setUserHabits] = useState<Habit[]>([])
+  const userToken = localStorage.getItem('token')
 
   useEffect(() => {
     async function fetchUserHabits() {
@@ -31,10 +32,10 @@ export const Auth = ({ children, token }: AuthProps) => {
   }, [token])
 
   useEffect(() => {
-    if (!token) {
-      router.push('/')
+    if (!token || !userToken) {
+      router.push('/login');
     }
-  }, [token])
+  }, [token, userToken]);
 
   return children
 }
