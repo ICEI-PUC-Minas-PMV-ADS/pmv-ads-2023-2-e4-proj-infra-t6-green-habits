@@ -6,8 +6,9 @@ import { Text } from '@/components/atoms/Text'
 import { HabitCard } from '@/components/molecules/HabitCard'
 import { NewHabitModal } from '@/components/molecules/NewHabitModal'
 import habits from '@/data/habits.json'
+import { deleteHabitById, getAllHabits, saveHabitToDatabase } from '@/services/controllers/user'
 import { usePathname } from 'next/navigation'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import styles from './styles.module.scss'
 
 export interface Habit {
@@ -24,6 +25,17 @@ export const HabitsWrapper = () => {
   const [isDesktopModalOpen, setDesktopModalOpen] = useState(false)
   const pathname = usePathname()
 
+  const isLocalStorageAvailable = typeof window !== 'undefined'
+
+  let token: string = ''
+
+  if (isLocalStorageAvailable) {
+    const retrievedToken = localStorage.getItem('token')
+    if (retrievedToken) {
+      token = retrievedToken
+    }
+  }
+
   const handleOpenMobileModal = () => {
     setMobileModalOpen(true)
   }
@@ -39,6 +51,51 @@ export const HabitsWrapper = () => {
   const handleCloseDesktopModal = () => {
     setDesktopModalOpen(false)
   }
+
+  const addNewHabit = async (newHabit: Habit) => {
+    try {
+      setUserHabits([...userHabits, newHabit])
+
+      if (token) {
+        await saveHabitToDatabase(newHabit, token)
+
+        const updatedUserHabits = await getAllHabits(token)
+        setUserHabits(updatedUserHabits)
+      }
+    } catch (error) {
+      console.error(
+        'Erro ao adotar o hábito ou obter hábitos atualizados',
+        error
+      )
+    }
+  }
+
+  const handleDeleteClick = async (habitId: string) => {
+    if (token) {
+      try {
+        const response = await deleteHabitById(habitId, token);
+        if (response.status === 204) {
+          console.log('Hábito excluído com sucesso');
+          const updatedUserHabits = await getAllHabits(token);
+          setUserHabits(updatedUserHabits);
+        } else {
+          console.error('Falha ao excluir hábito, status:', response.status);
+        }
+      } catch (error) {
+        console.error('Erro ao excluir hábito do banco de dados:', error);
+      }
+    }
+  };
+
+  useEffect(() => {
+    if (token) {
+      const fetchHabits = async () => {
+        const updatedUserHabits = await getAllHabits(token)
+        setUserHabits(updatedUserHabits)
+      }
+      fetchHabits()
+    }
+  }, [token])
 
   const isButton = pathname === '/' ? false : true
   const buttonLabel = pathname === '/' ? 'Meus hábitos' : 'Novo hábito'
@@ -63,7 +120,10 @@ export const HabitsWrapper = () => {
             href='/habits'
           />
           {isDesktopModalOpen && (
-            <NewHabitModal onClose={handleCloseDesktopModal} />
+            <NewHabitModal
+              onClose={handleCloseDesktopModal}
+              addHabit={addNewHabit}
+            />
           )}
         </div>
 
@@ -93,6 +153,7 @@ export const HabitsWrapper = () => {
                 description={item.description}
                 category={item.category}
                 habitId={item._id}
+                onDelete={handleDeleteClick}
               />
             ))}
           </div>
@@ -108,6 +169,7 @@ export const HabitsWrapper = () => {
                 description={item.description}
                 category={item.category}
                 habitId={item._id}
+                onDelete={handleDeleteClick}
               />
             ))}
           </div>
@@ -123,7 +185,10 @@ export const HabitsWrapper = () => {
         />
         {isMobileModalOpen && (
           <div className={styles.goals__modal}>
-            <NewHabitModal onClose={handleCloseMobileModal} />
+            <NewHabitModal
+              onClose={handleCloseMobileModal}
+              addHabit={addNewHabit}
+            />
           </div>
         )}
       </section>
@@ -146,6 +211,7 @@ export const HabitsWrapper = () => {
                 description={item.description}
                 category={item.category}
                 habitId={item.habitId}
+                onDelete={handleDeleteClick}
               />
             ))}
           </div>

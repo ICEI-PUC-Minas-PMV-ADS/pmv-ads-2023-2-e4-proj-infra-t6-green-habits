@@ -2,7 +2,6 @@
 
 import { Button } from '@/components/atoms/Button'
 import { Tag } from '@/components/atoms/Tag'
-import axios from 'axios'
 import { usePathname } from 'next/navigation'
 import { useState } from 'react'
 import { HabitModal } from '../HabitModal'
@@ -64,37 +63,6 @@ export const HabitCard = ({
     setEditModalVisible(true)
   }
 
-  const handleEditModalClose = async (updatedHabit: CardProps) => {
-    const updatedToken = ''
-
-    const habitIdAsString = typeof habitId === 'string' ? habitId : habitId.$oid
-
-    try {
-      const response = await updateHabitInDatabase(
-        updatedHabit,
-        habitIdAsString,
-        updatedToken
-      )
-
-      if (response.status === 200) {
-        if (onDelete) {
-          onDelete(habitIdAsString)
-        }
-      } else {
-        console.error('Erro ao atualizar hábito.')
-      }
-    } catch (error) {
-      console.error('Erro ao atualizar hábito: ', error)
-    }
-  }
-
-  const handleDeleteClick = () => {
-    const deleteToken = ''
-    const habitIdAsString = typeof habitId === 'string' ? habitId : habitId.$oid
-
-    deleteHabitFromDatabase(habitIdAsString, deleteToken)
-  }
-
   const renderTitle = () =>
     isHovered || isTabFocused ? null : (
       <>
@@ -145,7 +113,13 @@ export const HabitCard = ({
           level='tertiary'
           hasIcon
           icon='trash'
-          onClick={handleDeleteClick}
+          onClick={() => {
+            if (typeof habitId === 'string') {
+              onDelete && onDelete(habitId);
+            } else if (typeof habitId === 'object' && '$oid' in habitId) {
+              onDelete && onDelete(habitId.$oid);
+            }
+          }}
           className={styles.card__removeHabit}
         />
       </>
@@ -214,46 +188,12 @@ export const HabitCard = ({
             show={isEditModalVisible}
             onHide={() => setEditModalVisible(false)}
             habit={editedHabit}
-            onSave={handleEditModalClose}
+            onSave={function (editedHabit: CardProps): void {
+              throw new Error('Function not implemented.')
+            }}
           />
         )}
       </article>
     </>
   )
-}
-
-const updateHabitInDatabase = async (
-  updatedHabit: CardProps,
-  habitId: string,
-  token: string
-) => {
-  return await axios.patch(
-    `https://habit-tracker-api.fly.dev/habit/${habitId}`,
-    updatedHabit,
-    {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    }
-  )
-}
-
-const deleteHabitFromDatabase = async (habitId: string, token: string) => {
-  try {
-    const response = await axios.delete(
-      `https://habit-tracker-api.fly.dev/habit/${habitId}`,
-      {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      }
-    )
-
-    if (response.status === 200) {
-    } else {
-      console.error('Erro ao excluir hábito.')
-    }
-  } catch (error) {
-    console.error('Erro ao excluir hábito: ', error)
-  }
 }

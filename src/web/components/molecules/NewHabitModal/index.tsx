@@ -1,16 +1,26 @@
 'use client'
 
-import { Icon } from '@/components/atoms/Icon'
-import { Input } from '@/components/molecules/Input'
-import { useEffect } from 'react'
 import { Button } from '@/components/atoms/Button'
+import { Icon } from '@/components/atoms/Icon'
+import { Text } from '@/components/atoms/Text'
+import { Input } from '@/components/molecules/Input'
+import { Habit } from '@/components/organisms/HabitsWrapper'
+import { useEffect, useState } from 'react'
+import { v4 as uuidv4 } from 'uuid'
 import styles from './styles.module.scss'
 
 interface NewHabitModalProps {
   onClose: () => void
+  addHabit: (newHabit: Habit) => void
 }
 
-export const NewHabitModal = ({ onClose }: NewHabitModalProps) => {
+export const NewHabitModal = ({ onClose, addHabit }: NewHabitModalProps) => {
+  const [habitData, setHabitData] = useState({
+    title: '',
+    description: '',
+    category: '',
+  })
+
   useEffect(() => {
     const handleKeyPress = (event: KeyboardEvent) => {
       if (event.key === 'Escape') {
@@ -40,25 +50,77 @@ export const NewHabitModal = ({ onClose }: NewHabitModalProps) => {
     }
   }, [onClose])
 
+  const handleAdoptHabit = () => {
+    const newHabitData = {
+      habitId: uuidv4(),
+      title: habitData.title,
+      description: habitData.description,
+      category: habitData.category,
+    }
+
+    addHabit(newHabitData)
+
+    onClose()
+  }
+
+  const handleInputChange = (event: { target: { id: any; value: any } }) => {
+    const { id, value } = event.target
+    setHabitData({
+      ...habitData,
+      [id]: value,
+    })
+  }
+
   return (
     <div className={styles.modal}>
       <div className={styles.modal__closeButton} onClick={onClose}>
         <Icon icon='x' />
       </div>
 
+      <Text children='Qual hábito você quer adotar?' />
+
       <Input
-        label='Qual hábito você quer adotar?'
-        id='habit'
+        label='Título'
+        id='title'
         placeholder='Ir para o trabalho de bicicleta'
         type='text'
         icon='pencil'
         isTextarea
         backgroundColor='white'
         color='black'
+        onChange={handleInputChange}
+      />
+
+      <Input
+        label='Descrição'
+        id='description'
+        placeholder='Ir para o trabalho de bicicleta é bom'
+        type='text'
+        icon='pencil'
+        isTextarea
+        backgroundColor='white'
+        color='black'
+        onChange={handleInputChange}
+      />
+
+      <Input
+        label='Categoria'
+        id='category'
+        placeholder='Transporte'
+        type='text'
+        icon='pencil'
+        isTextarea
+        backgroundColor='white'
+        color='black'
+        onChange={handleInputChange}
       />
 
       <div className={styles.modal__interaction}>
-        <Button label='Adotar hábito' level='primary' />
+        <Button
+          label='Adotar hábito'
+          level='primary'
+          onClick={handleAdoptHabit}
+        />
         <Button label='Fechar' level='tertiary' onClick={onClose} />
       </div>
     </div>
