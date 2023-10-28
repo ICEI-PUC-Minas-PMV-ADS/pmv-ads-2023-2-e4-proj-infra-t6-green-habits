@@ -1,5 +1,6 @@
 import { Sprites } from '@/components/ions/Sprites'
 import { Footer } from '@/components/molecules/Footer'
+import { Auth } from '@/components/organisms/Auth'
 import { Header } from '@/components/organisms/Header'
 import '@/styles/main.scss'
 import type { Metadata } from 'next'
@@ -23,18 +24,21 @@ export const metadata: Metadata = {
 
 interface RootLayoutProps {
   children: React.ReactNode
+  userToken: string;
 }
 
-export default function RootLayout({ children }: RootLayoutProps) {
+export default function RootLayout({ children, userToken }: RootLayoutProps) {
   return (
     <html lang='pt'>
       <body className={poppins.className}>
-        <section className={styles.layout}>
-          <Header />
-        </section>
-        {children}
-        <Sprites />
-        <Footer />
+        <Auth token={userToken}>
+          <section className={styles.layout}>
+            <Header />
+          </section>
+          {children}
+          <Sprites />
+          <Footer />
+        </Auth>
       </body>
     </html>
   )
