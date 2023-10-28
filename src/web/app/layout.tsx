@@ -24,22 +24,22 @@ export const metadata: Metadata = {
 
 interface RootLayoutProps {
   children: React.ReactNode
-  userToken: string;
+  userToken: string
 }
 
 export default function RootLayout({ children, userToken }: RootLayoutProps) {
   return (
-    <html lang='pt'>
-      <body className={poppins.className}>
-        <Auth token={userToken}>
+    <Auth token={userToken}>
+      <html lang='pt'>
+        <body className={poppins.className}>
           <section className={styles.layout}>
             <Header />
           </section>
           {children}
           <Sprites />
           <Footer />
-        </Auth>
-      </body>
-    </html>
+        </body>
+      </html>
+    </Auth>
   )
 }
