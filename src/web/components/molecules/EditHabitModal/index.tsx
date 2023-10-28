@@ -8,25 +8,30 @@ import { updateHabitById } from '@/services/controllers/user'
 import { useState } from 'react'
 import styles from './styles.module.scss'
 
-interface HabitModalProps {
+interface EditHabitModalProps {
   show: boolean
   onHide: () => void
-  onSave: (editedHabit: CardProps) => void
+  onSave: (editedHabit: CardProps, token: string | undefined) => void
   habit: CardProps
+  habitId: string | { $oid: string }
+  token?: string | undefined
 }
 
-export const HabitModal = ({
+export const EditHabitModal = ({
   show,
   onHide,
   onSave,
   habit,
-}: HabitModalProps) => {
+  habitId,
+  token,
+}: EditHabitModalProps) => {
   const [updateHabit, setUpdatedHabit] = useState<CardProps>(habit)
 
-  const handleSave = async (habitId: string, token: string | undefined) => {
+  const handleSaveWrapper = async () => {
     try {
-      await updateHabitById(habitId, token)
-      onSave(updateHabit)
+      const habitIdString = typeof habitId === 'string' ? habitId : habitId.$oid
+      await updateHabitById(habitIdString, token)
+      onSave(updateHabit, token)
       onHide()
     } catch (error) {
       console.error('Erro ao atualizar hábito no banco de dados:', error)
@@ -72,7 +77,7 @@ export const HabitModal = ({
         <Button
           onClick={(e) => {
             e.preventDefault()
-            handleSave(habitId, token)
+            handleSaveWrapper()
           }}
           label='Salvar alterações'
           level='primary'

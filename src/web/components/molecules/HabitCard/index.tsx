@@ -2,9 +2,10 @@
 
 import { Button } from '@/components/atoms/Button'
 import { Tag } from '@/components/atoms/Tag'
+import { EditHabitModal } from '@/components/molecules/EditHabitModal'
+import { updateHabitById } from '@/services/controllers/user'
 import { usePathname } from 'next/navigation'
 import { useState } from 'react'
-import { HabitModal } from '../HabitModal'
 import styles from './styles.module.scss'
 
 export interface CardProps {
@@ -30,7 +31,6 @@ export const HabitCard = ({
   const [isHovered, setIsHovered] = useState(false)
   const [isTabFocused, setIsTabFocused] = useState(false)
   const [isEditModalVisible, setEditModalVisible] = useState(false)
-  const [isOpen, setIsOpen] = useState(false)
   const [editedHabit, setEditedHabit] = useState<CardProps>({
     image,
     title,
@@ -59,7 +59,7 @@ export const HabitCard = ({
     }
   }
 
-  const handleEditClick = () => {
+  const handleEditClick = async () => {
     setEditModalVisible(true)
   }
 
@@ -115,9 +115,9 @@ export const HabitCard = ({
           icon='trash'
           onClick={() => {
             if (typeof habitId === 'string') {
-              onDelete && onDelete(habitId);
+              onDelete && onDelete(habitId)
             } else if (typeof habitId === 'object' && '$oid' in habitId) {
-              onDelete && onDelete(habitId.$oid);
+              onDelete && onDelete(habitId.$oid)
             }
           }}
           className={styles.card__removeHabit}
@@ -184,13 +184,25 @@ export const HabitCard = ({
         {renderContent()}
 
         {isEditModalVisible && (
-          <HabitModal
+          <EditHabitModal
             show={isEditModalVisible}
             onHide={() => setEditModalVisible(false)}
             habit={editedHabit}
-            onSave={function (editedHabit: CardProps): void {
-              throw new Error('Function not implemented.')
+            onSave={async (editedHabit, token) => {
+              try {
+                const habitIdString =
+                  typeof habitId === 'string' ? habitId : habitId.$oid
+                await updateHabitById(habitIdString, token)
+                setEditModalVisible(false)
+              } catch (error) {
+                console.error(
+                  'Erro ao atualizar hábito no banco de dados:',
+                  error
+                )
+              }
             }}
+            habitId={habitId}
+            token={token}
           />
         )}
       </article>
