@@ -1,5 +1,9 @@
 .modal {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 2rem;
+  border-radius: 0.8rem;
+  padding: 4rem;
+  border: 0.3rem solid $dark-green;
 }

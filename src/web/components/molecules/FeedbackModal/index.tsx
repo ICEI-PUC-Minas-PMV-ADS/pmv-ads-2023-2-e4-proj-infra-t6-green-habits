@@ -13,11 +13,14 @@ interface FeedBackModalProps {
 export const FeedBackModal = ({ success, error, text }: FeedBackModalProps) => {
   const successText = 'Operação realizada com sucesso!'
   const errorText = 'Ocorreu um erro durante a operação.'
+  const iconType = success ? 'check-01' : error ? 'recycle' : undefined
+
   return (
     <div className={styles.modal}>
-      <Icon icon='tulip' fill='#398278' />
-      {success && <Text>{text || successText}</Text>}
-      {error && <Text>{text || errorText}</Text>}
+      {iconType && (
+        <Icon icon={iconType} fill={success ? '#6BBD99' : '#914423'} />
+      )}
+      <Text>{text || (success ? successText : errorText)}</Text>
     </div>
   )
 }
