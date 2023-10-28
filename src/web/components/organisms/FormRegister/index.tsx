@@ -16,15 +16,15 @@ export const FormRegister = () => {
 
   const handleSaveClick = async () => {
     try {
-      setRegisterSuccess(true)
-      router.push('/')
+      setRegisterSuccess(true);
+      router.push('/');
     } catch (error) {
-      setRegisterError(true)
+      setRegisterError(true);
     } finally {
-      setIsModalOpen(true)
+      setIsModalOpen(true);
     }
   }
-
+ 
   return (
     <form className={styles.formRegister}>
       {formRegister.map((item, index) => (

@@ -1,18 +1,19 @@
 'use client'
 
+import { Button } from '@/components/atoms/Button'
+import { Text } from '@/components/atoms/Text'
+import { FeedBackModal } from '@/components/molecules/FeedbackModal'
+import { Input } from '@/components/molecules/Input'
+import formLogin from '@/data/formLogin.json'
 import {
   ApiResponse,
   LoginUserPayload,
   loginUser as loginUserApi,
-} from '@/app/services/controllers/user'
-import { Button } from '@/components/atoms/Button'
-import { FeedBackModal } from '@/components/molecules/FeedbackModal'
-import { Input } from '@/components/molecules/Input'
-import formLogin from '@/data/formLogin.json'
-import { useState } from 'react'
-import { useRouter } from 'next/navigation'
-import styles from './styles.module.scss'
+} from '@/services/controllers/user'
 import { AxiosError } from 'axios'
+import { useRouter } from 'next/navigation'
+import { useState } from 'react'
+import styles from './styles.module.scss'
 
 export const FormLogin = () => {
   let [email, setEmail] = useState<string>('')
@@ -23,15 +24,15 @@ export const FormLogin = () => {
   const router = useRouter()
 
   const handleLoginSubmit = async (email: string, password: string) => {
-    const payload: LoginUserPayload = { email, password };
+    const payload: LoginUserPayload = { email, password }
     try {
       await loginUserApi(payload)
       setLoginSuccess(true)
       router.push('/')
     } catch (error) {
-      const err = error as AxiosError;
-      const res = err.response?.data as ApiResponse;
-      const errorMessage = `Ocorreu um erro durante o login: ${res.data}`;
+      const err = error as AxiosError
+      const res = err.response?.data as ApiResponse
+      const errorMessage = `Ocorreu um erro durante o login: ${res.data}`
       setLoginError(errorMessage)
       console.log(res)
     } finally {
@@ -79,13 +80,20 @@ export const FormLogin = () => {
           />
         )}
         {isModalOpen && loginError && (
-          <FeedBackModal
-            error={true}
-            text={loginError}
-            success={false}
-          />
+          <FeedBackModal error={true} text={loginError} success={false} />
         )}
         <Button isButton label='Esqueci a senha' level='tertiary' />
+        <Text
+          align='center'
+          children='Ainda não faz parte do Green Habits? Cadastre-se agora'
+          color='black'
+        />
+        <Button
+          href='/register'
+          isButton={false}
+          label='Iniciar cadastro'
+          level='primary'
+        />
       </div>
     </form>
   )

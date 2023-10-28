@@ -5,7 +5,26 @@ import { Banner } from '@/components/organisms/Banner'
 import { FormLogin } from '@/components/organisms/FormLogin'
 import styles from './styles.module.scss'
 
+import { useRouter } from 'next/navigation'
+import { useEffect } from 'react'
+
+const checkAuthentication = () => {
+  const authToken = localStorage.getItem('authToken')
+
+  return !!authToken
+}
+
 export default function Login() {
+  const router = useRouter()
+
+  useEffect(() => {
+    const isAuthenticated = checkAuthentication()
+
+    if (isAuthenticated) {
+      router.push('/')
+    }
+  }, [])
+
   return (
     <main className={styles.login}>
       <section className={styles.login__header}>
