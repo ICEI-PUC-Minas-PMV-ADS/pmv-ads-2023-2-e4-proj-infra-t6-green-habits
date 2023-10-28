@@ -23,7 +23,6 @@ export const HabitsWrapper = () => {
   const [isMobileModalOpen, setMobileModalOpen] = useState(false)
   const [isDesktopModalOpen, setDesktopModalOpen] = useState(false)
   const pathname = usePathname()
-  const isButton = pathname === '/' ? false : true
 
   const handleOpenMobileModal = () => {
     setMobileModalOpen(true)
@@ -41,6 +40,9 @@ export const HabitsWrapper = () => {
     setDesktopModalOpen(false)
   }
 
+  const isButton = pathname === '/' ? false : true
+  const buttonLabel = pathname === '/' ? 'Meus hábitos' : 'Novo hábito'
+
   return (
     <>
       <section className={styles.wrapper} id='habitsWrapper'>
@@ -54,7 +56,7 @@ export const HabitsWrapper = () => {
 
           <Button
             className={styles.wrapper__buttonDesktop}
-            label={pathname === '/' ? 'Meus hábitos' : 'Novo hábito'}
+            label={buttonLabel}
             level='primary'
             isButton={isButton}
             onClick={isButton ? handleOpenDesktopModal : undefined}
@@ -113,10 +115,11 @@ export const HabitsWrapper = () => {
 
         <Button
           className={styles.wrapper__buttonMobile}
-          label={pathname === '/' ? 'Meus hábitos' : 'Novo hábito'}
+          label={buttonLabel}
           level='primary'
           isButton={isButton}
           onClick={isButton ? handleOpenMobileModal : undefined}
+          href='/habits'
         />
         {isMobileModalOpen && (
           <div className={styles.goals__modal}>

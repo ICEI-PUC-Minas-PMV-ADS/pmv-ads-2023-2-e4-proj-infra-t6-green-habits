@@ -83,7 +83,7 @@
     }
 
     @include screen-size('desktop') {
-      display: none;
+      display: none !important;
     }
   }
 
