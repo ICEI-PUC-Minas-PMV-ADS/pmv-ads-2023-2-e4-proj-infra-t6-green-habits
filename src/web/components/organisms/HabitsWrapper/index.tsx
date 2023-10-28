@@ -10,7 +10,7 @@ import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import styles from './styles.module.scss'
 import habits from '@/data/habits.json'
-import { getAllHabits } from '@/app/services/controllers/user'
+import { getAllHabits } from '@/services/controllers/user'
 
 export interface Habit {
   habitId: string
