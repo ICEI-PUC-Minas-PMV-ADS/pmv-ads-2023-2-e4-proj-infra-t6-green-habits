@@ -26,3 +26,26 @@
 
 ### Caso de teste: hábito não encontrado
 ![image](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e4-proj-infra-t6-green-habits/assets/103083123/963ca931-f417-430b-80c0-36196550dde5)
+
+## Caso de teste: Lighthouse:
+
+### Registro
+![Registro](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e4-proj-infra-t6-green-habits/blob/main/docs/img/Tela%20Registro.png)
+
+### Login
+![Login](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e4-proj-infra-t6-green-habits/blob/main/docs/img/Tela%20Login.png)
+
+### Página Inicial
+![Página Inicial](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e4-proj-infra-t6-green-habits/blob/main/docs/img/Tela%20Inicial.png)
+
+### Hábitos
+![Hábitos](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e4-proj-infra-t6-green-habits/blob/main/docs/img/Tela%20H%C3%A1bitos.png)
+
+### Metas
+![Metas](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e4-proj-infra-t6-green-habits/blob/main/docs/img/Tela%20Meta.png)
+
+### Perfil
+![Perfil](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e4-proj-infra-t6-green-habits/blob/main/docs/img/Tela%20Perfil.png)
+
+### Contato
+![Contato](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e4-proj-infra-t6-green-habits/blob/main/docs/img/Tela%20Contato.png)
