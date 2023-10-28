@@ -10,8 +10,13 @@ const nextConfig = {
     domains: ['images.ctfassets.net'],
   },
   env: {
-    NEXT_PUBLIC_API_HOST: process.env.NEXT_PUBLIC_API_HOST
-  }
+    NEXT_PUBLIC_API_HOST: process.env.NEXT_PUBLIC_API_HOST,
+  },
+  exportPathMap: function () {
+    return {
+      '/': { page: '/login' },
+    }
+  },
 }
 
 module.exports = nextConfig
