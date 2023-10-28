@@ -31,7 +31,7 @@ export const FormLogin = () => {
       router.push('/')
     } catch (error) {
       const err = error as AxiosError
-      const res = err.response?.data as ApiResponse
+      const res = err.response?.data as ApiResponse<string>
       const errorMessage = `Ocorreu um erro durante o login: ${res.data}`
       setLoginError(errorMessage)
       console.log(res)

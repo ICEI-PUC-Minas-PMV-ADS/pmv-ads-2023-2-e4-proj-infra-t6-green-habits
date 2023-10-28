@@ -11,12 +11,12 @@ interface RequestOptions {
   };
 }
 
-export interface ApiResponse {
+export interface ApiResponse<T> {
   status: number;
-  data: string;
+  data: T;
 }
 
-interface CreateUserPayload {
+export interface RegisterUserPayload {
   name: string;
   email: string;
   password: string;
@@ -27,12 +27,24 @@ interface LoginUserPayload {
   password: string;
 }
 
+interface CreateUserResponse {
+  user: {
+    name: string,
+    email: string,
+    password: string,
+    habits: [],
+    "_id": string,
+    "__v": number
+  },
+  token: string
+}
+
 const formatHeader = (token?: string): RequestOptions => {
   let auth = token ? `Bearer ${token}` : undefined;
   return { headers: { Authorization: auth } }
 }
 
-const getAllHabits = async (token?: string) => {
+export const getAllHabits = async (token?: string) => {
   try {
     let options = formatHeader(token);
     const { data } = await instance.get(`/habit/`, options);
@@ -52,7 +64,7 @@ const deleteHabitById = async (habitId: string, token?: string) => {
   }
 }
 
-async function loginUser(payload: LoginUserPayload) {
+export async function loginUser(payload: LoginUserPayload) {
   try {
     const { data: { token } } = await instance.post<{ token: string }>("/login", payload);
     localStorage.setItem("token", token);
@@ -61,5 +73,13 @@ async function loginUser(payload: LoginUserPayload) {
   }
 }
 
-export { getAllHabits, loginUser };
+export async function registerUser(payload: RegisterUserPayload) {
+  try {
+    const { data: { token } } = await instance.post<CreateUserResponse>("/user/", payload);
+    localStorage.setItem("token", token);
+  } catch (error) {
+    throw error
+  }
+}
+
 export type { LoginUserPayload };
