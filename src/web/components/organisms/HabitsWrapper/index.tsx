@@ -5,12 +5,10 @@ import { Heading } from '@/components/atoms/Heading'
 import { Text } from '@/components/atoms/Text'
 import { HabitCard } from '@/components/molecules/HabitCard'
 import { NewHabitModal } from '@/components/molecules/NewHabitModal'
-import axios from 'axios'
-import { usePathname } from 'next/navigation'
-import { useEffect, useState } from 'react'
-import styles from './styles.module.scss'
 import habits from '@/data/habits.json'
-import { getAllHabits } from '@/services/controllers/user'
+import { usePathname } from 'next/navigation'
+import { useState } from 'react'
+import styles from './styles.module.scss'
 
 export interface Habit {
   habitId: string
@@ -20,8 +18,7 @@ export interface Habit {
   category?: string
 }
 
-export const HabitsWrapper = ({ token }: { token: string }) => {
-  console.log("habit wrapper", token)
+export const HabitsWrapper = () => {
   const [userHabits, setUserHabits] = useState<Habit[]>([])
   const [isMobileModalOpen, setMobileModalOpen] = useState(false)
   const [isDesktopModalOpen, setDesktopModalOpen] = useState(false)
@@ -43,19 +40,6 @@ export const HabitsWrapper = ({ token }: { token: string }) => {
   const handleCloseDesktopModal = () => {
     setDesktopModalOpen(false)
   }
-
-  useEffect(() => {
-    async function fetchUserHabits() {
-      try {
-        const habits = await getAllHabits(token);
-        console.log(habits)
-      } catch (error) {
-        console.log('Erro ao buscar hábitos: ', error)
-      }
-    }
-
-    fetchUserHabits()
-  }, [])
 
   return (
     <>
