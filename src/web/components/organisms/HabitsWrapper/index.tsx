@@ -6,7 +6,11 @@ import { Text } from '@/components/atoms/Text'
 import { HabitCard } from '@/components/molecules/HabitCard'
 import { NewHabitModal } from '@/components/molecules/NewHabitModal'
 import habits from '@/data/habits.json'
-import { CreateHabitPayload, getAllHabits, saveHabitToDatabase } from '@/services/controllers/user'
+import {
+  CreateHabitPayload,
+  getAllHabits,
+  saveHabitToDatabase,
+} from '@/services/controllers/user'
 import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import styles from './styles.module.scss'
@@ -146,15 +150,17 @@ export const HabitsWrapper = () => {
 
         {pathname !== '/' && (
           <div
-            className={`${styles.wrapper__initialItems} ${isDesktopModalOpen ? styles.wrapper__initialItemsOpen : styles.wrapper__initialItemsClosed
-              }`}
+            className={`${styles.wrapper__initialItems} ${
+              isDesktopModalOpen
+                ? styles.wrapper__initialItemsOpen
+                : styles.wrapper__initialItemsClosed
+            }`}
           >
             {habits
               .slice(0, initialItemsSlice)
               .filter(
-                (item) => {
+                (item) =>
                   !selectedCategory || item.category === selectedCategory
-                }
               )
               .map((item, index) => (
                 <HabitCard
@@ -170,6 +176,7 @@ export const HabitsWrapper = () => {
                   isSuggestedHabit={true}
                 />
               ))}
+
             {isDesktopModalOpen && (
               <NewHabitModal
                 onClose={handleCloseDesktopModal}
@@ -257,7 +264,7 @@ export const HabitsWrapper = () => {
                   habitId={habit._id}
                   setUserHabits={setUserHabits}
                   token={token}
-                  filterByCategory={filterByCategory || (() => { })}
+                  filterByCategory={filterByCategory || (() => {})}
                   isSuggestedHabit={false}
                 />
               ))}
