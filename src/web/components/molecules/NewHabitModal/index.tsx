@@ -94,7 +94,7 @@ export const NewHabitModal = ({ onClose, addHabit }: NewHabitModalProps) => {
       <Input
         label='Descrição'
         id='description'
-        placeholder='Ir para o trabalho de bicicleta é bom'
+        placeholder='Pedalar para o trabalho é uma maneira excelente de incorporar atividade física à rotina.'
         type='text'
         icon='pencil'
         isTextarea
