@@ -4,7 +4,7 @@ import { Button } from '@/components/atoms/Button'
 import { Dispatch, SetStateAction, useEffect, useState } from 'react'
 import styles from './styles.module.scss'
 import { Goal as GoalType } from '@/components/organisms/GoalsWrapper'
-import { deleteGoalById, updateGoalById } from '@/services/controllers/user'
+import { deleteGoalById, getAllGoals, updateGoalById } from '@/services/controllers/user'
 
 interface GoalProps {
   title: string
@@ -28,6 +28,9 @@ export const Goal = ({
     try {
       const updatePayload = { title: goalTitle };
       await updateGoalById(id, token, updatePayload)
+      const updatedGoals = await getAllGoals(token)
+
+      setUserGoals(updatedGoals)
     } catch (error) {
       console.error('Erro ao atualizar meta no banco de dados:', error)
     }
@@ -37,6 +40,9 @@ export const Goal = ({
     try {
       const updatePayload = { completed: true };
       await updateGoalById(id, token, updatePayload)
+      const updatedGoals = await getAllGoals(token)
+
+      setUserGoals(updatedGoals)
     } catch (error) {
       console.error('Erro ao atualizar meta no banco de dados:', error)
     }
@@ -45,6 +51,9 @@ export const Goal = ({
   const handleDeleteGoal = async () => {
     try {
       await deleteGoalById(id, token)
+      const updatedGoals = await getAllGoals(token)
+
+      setUserGoals(updatedGoals)
     } catch (error) {
       console.error('Erro ao deletar meta no banco de dados:', error)
     }
@@ -59,7 +68,7 @@ export const Goal = ({
       <input
         type='checkbox'
         className={styles.goal__input}
-        onClick={async () => await handleCompleteGoal()}
+        onChange={async () => await handleCompleteGoal()}
         checked={isCompleted}
         id={id}
       />
