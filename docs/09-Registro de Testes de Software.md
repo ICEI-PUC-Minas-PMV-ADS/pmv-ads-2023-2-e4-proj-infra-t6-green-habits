@@ -96,9 +96,9 @@ Ao clicar em "Consumo Sustentável", por exemplo, apenas os hábitos desta categ
 | Clique em 'Consumo Sustentável" | Renderização de hábitos da categoria clicada |
 
 
-- O sistema deve exibir um ranking de categorias de hábitos sustentáveis com base no número de hábitos concluídos pelos usuários.
-- Os usuários devem acessar um ranking pessoal que mostre suas categorias de hábitos mais e menos ativas.
-- Com base no ranking pessoal, o sistema deve sugerir o foco em categorias menos exploradas para incentivar a diversificação dos hábitos sustentáveis dos usuários.
+- O sistema deve exibir um ranking de categorias de hábitos sustentáveis com base no número de hábitos adicionados pelos usuários.
+- Os usuários devem acessar um ranking pessoal que mostre suas categorias de hábitos mais e menos adicionadas.
+- Com base no ranking pessoal, o sistema deve sugerir o foco em categorias menos adicionadas para incentivar a diversificação dos hábitos sustentáveis dos usuários.
 
 Nas imagens a seguir, é possível visualizar o funcionamento do ranking. 
 
