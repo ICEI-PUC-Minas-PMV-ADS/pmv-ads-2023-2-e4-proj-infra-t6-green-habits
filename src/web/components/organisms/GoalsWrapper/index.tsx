@@ -10,10 +10,8 @@ import { v4 as uuidv4 } from 'uuid'
 import styles from './styles.module.scss'
 
 import {
-  deleteGoalById,
   getAllGoals,
   saveGoalToDatabase,
-  updateGoalById,
 } from '@/services/controllers/user'
 
 export interface Goal {
@@ -85,6 +83,10 @@ export const GoalsWrapper: React.FC = () => {
     },
   ]
 
+  function generateGoalId(title: string) {
+    return `goal_${title.replace(/\s+/g, '_')}`;
+  }
+
   const handleOpenModal = () => {
     setModalOpen(true)
   }
@@ -131,7 +133,7 @@ export const GoalsWrapper: React.FC = () => {
                 key={goal.title}
                 title={goal.title}
                 isCompleted={goal.isChecked}
-                id={goal._id}
+                id={generateGoalId(goal.title)}
                 token={token!}
                 setUserGoals={setUserGoals}
               />

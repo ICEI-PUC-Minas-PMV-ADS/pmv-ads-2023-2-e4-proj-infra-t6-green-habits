@@ -1,10 +1,14 @@
 'use client'
 
 import { Button } from '@/components/atoms/Button'
-import { Dispatch, SetStateAction, useEffect, useState } from 'react'
-import styles from './styles.module.scss'
 import { Goal as GoalType } from '@/components/organisms/GoalsWrapper'
-import { deleteGoalById, getAllGoals, updateGoalById } from '@/services/controllers/user'
+import {
+  deleteGoalById,
+  getAllGoals,
+  updateGoalById,
+} from '@/services/controllers/user'
+import { Dispatch, SetStateAction, useState } from 'react'
+import styles from './styles.module.scss'
 
 interface GoalProps {
   title: string
@@ -19,14 +23,14 @@ export const Goal = ({
   isCompleted,
   id,
   token,
-  setUserGoals
+  setUserGoals,
 }: GoalProps) => {
   const [isEditing, setIsEditing] = useState(false)
   const [goalTitle, setUpdatedGoalTitle] = useState(title)
 
   const handleSaveEdit = async () => {
     try {
-      const updatePayload = { title: goalTitle };
+      const updatePayload = { title: goalTitle }
       await updateGoalById(id, token, updatePayload)
       const updatedGoals = await getAllGoals(token)
 
@@ -38,7 +42,7 @@ export const Goal = ({
 
   const handleCompleteGoal = async () => {
     try {
-      const updatePayload = { completed: true };
+      const updatePayload = { completed: true }
       await updateGoalById(id, token, updatePayload)
       const updatedGoals = await getAllGoals(token)
 
@@ -64,13 +68,13 @@ export const Goal = ({
   }
 
   return (
-    <label className={styles.goal} htmlFor={title}>
+    <label className={styles.goal} htmlFor={`goal_${id}`}>
       <input
         type='checkbox'
         className={styles.goal__input}
         onChange={async () => await handleCompleteGoal()}
         checked={isCompleted}
-        id={id}
+        id={`goal_${id}`}
       />
       {isEditing ? (
         <input
@@ -102,7 +106,9 @@ export const Goal = ({
           icon={isCompleted ? 'trash' : 'pencil'}
           size='small'
           className={styles.goal__button}
-          onClick={isCompleted ? async () => await handleDeleteGoal() : handleEditClick}
+          onClick={
+            isCompleted ? async () => await handleDeleteGoal() : handleEditClick
+          }
           aria={isCompleted ? ' Apagar meta' : 'Editar meta'}
         />
       )}
