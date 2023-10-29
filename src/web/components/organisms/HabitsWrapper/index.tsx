@@ -10,7 +10,6 @@ import { getAllHabits, saveHabitToDatabase } from '@/services/controllers/user'
 import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import styles from './styles.module.scss'
-
 export interface Habit {
   _id: string
   title: string

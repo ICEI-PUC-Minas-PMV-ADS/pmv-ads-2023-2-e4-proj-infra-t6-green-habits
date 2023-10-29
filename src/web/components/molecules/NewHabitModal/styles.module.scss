@@ -12,9 +12,6 @@
     width: 72rem;
   }
 
-  @include screen-size('desktop') {
-  }
-
   &__closeButton {
     display: flex;
     justify-content: flex-end;
@@ -36,5 +33,13 @@
       flex-direction: row;
       gap: 2rem;
     }
+  }
+
+  &__select {
+    @include text();
+    margin-top: 2rem;
+    border: 0.2rem solid $dark-green;
+    border-radius: 0.8rem;
+    padding: 1rem;
   }
 }

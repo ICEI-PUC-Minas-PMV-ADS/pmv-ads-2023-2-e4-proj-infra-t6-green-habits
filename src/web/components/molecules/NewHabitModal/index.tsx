@@ -103,17 +103,23 @@ export const NewHabitModal = ({ onClose, addHabit }: NewHabitModalProps) => {
         onChange={handleInputChange}
       />
 
-      <Input
-        label='Categoria'
+      <Text align='left' children='Categoria' color='black' />
+
+      <select
         id='category'
-        placeholder='Transporte'
-        type='text'
-        icon='pencil'
-        isTextarea
-        backgroundColor='white'
-        color='black'
+        className={styles.modal__select}
         onChange={handleInputChange}
-      />
+      >
+        <option value=''>Selecione uma categoria</option>
+        <option value='Consumo Sustentável'>Consumo Sustentável</option>
+        <option value='Energia'>Energia</option>
+        <option value='Reciclagem'>Reciclagem</option>
+        <option value='Aguá'>Água</option>
+        <option value='Transporte'>Transporte</option>
+        <option value='Alimentação'>Alimentação</option>
+        <option value='Conservação'>Conservação</option>
+        <option value='Conscientização'>Conscientização</option>
+      </select>
 
       <div className={styles.modal__interaction}>
         <Button

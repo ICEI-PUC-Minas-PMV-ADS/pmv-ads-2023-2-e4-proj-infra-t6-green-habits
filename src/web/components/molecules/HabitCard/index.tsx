@@ -9,6 +9,8 @@ import { usePathname } from 'next/navigation'
 import { Dispatch, SetStateAction, useState } from 'react'
 import styles from './styles.module.scss'
 
+import {removeAccentsAndSpaces } from "@/utils/removeAccentsAndSpaces"
+
 export interface CardProps {
   image?: string
   title: string
@@ -135,17 +137,6 @@ export const HabitCard = ({
         />
       </>
     ) : null
-  }
-
-  function removeAccentsAndSpaces(text: string | undefined) {
-    if (!text) {
-      return ''
-    }
-    return text
-      .toLowerCase()
-      .normalize('NFD')
-      .replace(/[\u0300-\u036f]/g, '')
-      .replace(/\s/g, '')
   }
 
   function getImageForCategory(category: string | undefined): string {
