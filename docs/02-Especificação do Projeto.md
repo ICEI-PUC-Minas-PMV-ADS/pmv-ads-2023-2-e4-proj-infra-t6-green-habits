@@ -180,9 +180,9 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 |RF-006| Os hábitos sustentáveis devem ser categorizados com base em atributos como nome, descrição e categoria   | MÉDIA |
 |RF-007| Os usuários devem poder filtrar os hábitos por categorias específicas  | MÉDIA |
 |RF-008| Os usuários devem poder alterar os hábitos existentes, mudando atributos como categoria, descrição e título | MÉDIA |
-|RF-09| O sistema deve exibir um ranking de categorias de hábitos sustentáveis com base no número de hábitos concluídos pelos usuários | BAIXA |
-|RF-010| Os usuários devem acessar um ranking pessoal que mostre suas categorias de hábitos mais e menos ativas | BAIXA |
-|RF-011| Com base no ranking pessoal, o sistema deve sugerir o foco em categorias menos exploradas para incentivar a diversificação dos hábitos sustentáveis dos usuários | BAIXA |
+|RF-09| O sistema deve exibir um ranking de categorias de hábitos sustentáveis com base no número de hábitos adicionados pelos usuários | BAIXA |
+|RF-010| Os usuários devem acessar um ranking pessoal que mostre suas categorias de hábitos mais e menos adicionadas | BAIXA |
+|RF-011| Com base no ranking pessoal, o sistema deve sugerir o foco em categorias menos adicionadas para incentivar a diversificação dos hábitos sustentáveis dos usuários | BAIXA |
 
 
 ### Requisitos não Funcionais
