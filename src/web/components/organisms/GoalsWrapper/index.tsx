@@ -9,10 +9,21 @@ import React, { useEffect, useState } from 'react'
 import { v4 as uuidv4 } from 'uuid'
 import styles from './styles.module.scss'
 
+import {
+  deleteGoalById,
+  getAllGoals,
+  saveGoalToDatabase,
+  updateGoalById,
+} from '@/services/controllers/user'
+
 interface Goal {
   id: string
-  goal: string
   isChecked: boolean
+  title: string
+}
+
+interface ResponseType {
+  id: string
 }
 
 export const GoalsWrapper: React.FC = () => {
@@ -20,6 +31,12 @@ export const GoalsWrapper: React.FC = () => {
   const [isModalOpen, setModalOpen] = useState(false)
   const [newGoalText, setNewGoalText] = useState('')
   const [goals, setGoals] = useState<Goal[]>([])
+
+  let token: string | null = null
+
+  if (isLocalStorageAvailable) {
+    token = localStorage.getItem('token')
+  }
 
   useEffect(() => {
     if (isLocalStorageAvailable) {
@@ -37,27 +54,27 @@ export const GoalsWrapper: React.FC = () => {
       const initialGoals = [
         {
           id: uuidv4(),
-          goal: 'Reduzir o desperdício de alimentos',
+          title: 'Reduzir o desperdício de alimentos',
           isChecked: false,
         },
         {
           id: uuidv4(),
-          goal: 'Diminuir o uso de plásticos descartáveis',
+          title: 'Diminuir o uso de plásticos descartáveis',
           isChecked: false,
         },
         {
           id: uuidv4(),
-          goal: 'Economizar energia',
+          title: 'Economizar energia',
           isChecked: false,
         },
         {
           id: uuidv4(),
-          goal: 'Priorizar o transporte sustentável',
+          title: 'Priorizar o transporte sustentável',
           isChecked: false,
         },
         {
           id: uuidv4(),
-          goal: 'Apoiar produtos sustentáveis e locais',
+          title: 'Apoiar produtos sustentáveis e locais',
           isChecked: false,
         },
       ]
@@ -75,79 +92,136 @@ export const GoalsWrapper: React.FC = () => {
   }
 
   const toggleGoal = (goalId: string) => {
-    setGoals((prevGoals) => {
-      return prevGoals.map((goal) => {
-        if (goal.id === goalId) {
-          return { ...goal, isChecked: !goal.isChecked }
-        }
-        return goal
-      })
-    })
+    setGoals((prevGoals) =>
+      prevGoals.map((goal) =>
+        goal.id === goalId ? { ...goal, isChecked: !goal.isChecked } : goal
+      )
+    )
   }
 
-  const handleUpdateGoal = (goalId: string, newGoal: string) => {
+  const getGoalsFromDatabase = async (token: string | undefined) => {
     try {
-      if (typeof newGoal === 'string') {
-        const storedGoals = localStorage.getItem('editedGoal')
-        if (storedGoals) {
-          const parsedGoals = JSON.parse(storedGoals)
+      const databaseGoals = await getAllGoals(token)
 
-          const updatedGoals = parsedGoals.map((g: { id: string }) => {
-            if (g.id === goalId) {
-              return { ...g, goal: newGoal }
-            }
-            return g
+      const filteredGoals = databaseGoals.filter((goal: { id: string }) => {
+        return !goals.some((localGoal) => localGoal.id === goal.id)
+      })
+
+      return filteredGoals
+    } catch (error) {
+      console.error('Erro ao buscar as metas do banco de dados', error)
+      throw error
+    }
+  }
+
+  const loadDatabaseGoals = async () => {
+    const databaseGoals = await getGoalsFromDatabase(token || undefined)
+    setGoals((prevGoals) => [...prevGoals, ...databaseGoals])
+  }
+
+  useEffect(() => {
+    loadDatabaseGoals();
+  }, []);
+
+  const handleUpdateGoal = async (goalId: string, newTitle: string) => {
+    if (token) {
+      try {
+        if (typeof newTitle === 'string') {
+          await updateGoalById(goalId, token, {
+            title: newTitle,
+            completed: false,
           })
 
-          localStorage.setItem('editedGoal', JSON.stringify(updatedGoals))
+          setGoals((prevGoals) => {
+            return prevGoals.map((goal) => {
+              if (goal.id === goalId) {
+                return { ...goal, title: newTitle }
+              }
+              return goal
+            })
+          })
+
+          const storedGoals = localStorage.getItem('editedGoal')
+          if (storedGoals) {
+            const parsedGoals = JSON.parse(storedGoals)
+
+            const updatedGoals = parsedGoals.map((g: { id: string }) => {
+              if (g.id === goalId) {
+                return { ...g, title: newTitle }
+              }
+              return g
+            })
+
+            localStorage.setItem('editedGoal', JSON.stringify(updatedGoals))
+          }
+        } else {
+          console.error('Formato de objetivo inválido')
         }
-      } else {
-        console.error('Invalid goal format')
+      } catch (error) {
+        console.error('Erro ao atualizar objetivo no banco de dados:', error)
       }
-    } catch (error) {
-      console.error('Error updating goals in localStorage:', error)
+    } else {
+      console.error('Token não está definido.')
     }
   }
 
-  const handleDeleteGoal = (goalId: any) => {
-    if (window.confirm('Tem certeza de que deseja excluir esta meta?')) {
+  const addNewGoal = async (newGoal: Goal) => {
+    if (token) {
       try {
+        const response: ResponseType = await saveGoalToDatabase(token, newGoal)
+
+        setGoals((prevGoals) => [...prevGoals, response as unknown as Goal])
+
         const storedGoals = localStorage.getItem('editedGoal')
+        let updatedGoals: Record<string, ResponseType> = {}
+
         if (storedGoals) {
-          const parsedGoals = JSON.parse(storedGoals)
+          try {
+            updatedGoals = JSON.parse(storedGoals)
+          } catch (error) {
+            console.error('Erro ao analisar as metas armazenadas:', error)
+          }
 
-          const updatedGoals = parsedGoals.filter(
-            (goal: { id: any }) => goal.id !== goalId
-          )
-
+          updatedGoals[response.id] = response
           localStorage.setItem('editedGoal', JSON.stringify(updatedGoals))
-
-          setGoals(updatedGoals)
         }
       } catch (error) {
-        console.error(
-          'Erro ao atualizar as metas no armazenamento local:',
-          error
-        )
+        console.error('Erro ao adicionar nova meta no banco de dados:', error)
       }
+    } else {
+      console.error('Token não está definido.')
     }
   }
 
-  const addNewGoal = (newGoal: Goal) => {
-    setGoals((prevGoals) => [...prevGoals, newGoal])
-    const storedGoals = localStorage.getItem('editedGoal')
-    let updatedGoals: { [key: string]: Goal } = {} 
+  const handleDeleteGoal = async (goalId: any) => {
+    if (token) {
+      if (window.confirm('Tem certeza de que deseja excluir esta meta?')) {
+        try {
+          await deleteGoalById(goalId, token)
 
-    if (storedGoals) {
-      try {
-        updatedGoals = JSON.parse(storedGoals)
-      } catch (error) {
-        console.error('Error parsing stored goals:', error)
+          const updatedGoals = goals.filter((goal) => goal.id !== goalId)
+          setGoals(updatedGoals)
+
+          const storedGoals = localStorage.getItem('editedGoal')
+          if (storedGoals) {
+            const parsedGoals = JSON.parse(storedGoals)
+
+            const updatedGoalsLocalStorage = parsedGoals.filter(
+              (goal: { id: any }) => goal.id !== goalId
+            )
+
+            localStorage.setItem(
+              'editedGoal',
+              JSON.stringify(updatedGoalsLocalStorage)
+            )
+          }
+        } catch (error) {
+          console.error('Erro ao excluir meta do banco de dados:', error)
+        }
       }
+    } else {
+      console.error('Token não está definido.')
     }
-
-    updatedGoals[newGoal.id] = newGoal
-    localStorage.setItem('editedGoal', JSON.stringify(updatedGoals))
   }
 
   return (
@@ -177,11 +251,13 @@ export const GoalsWrapper: React.FC = () => {
 
         <div className={styles.goals__container}>
           {goals
-            .filter((goal) => !goal.isChecked)
+            .filter(
+              (goal) => !goal.isChecked && !goal.title.startsWith('Predefinida')
+            )
             .map((goal) => (
               <Goal
-                key={goal.id}
-                goal={goal.goal}
+                key={goal.title}
+                goal={goal.title}
                 onToggle={() => toggleGoal(goal.id)}
                 isChecked={goal.isChecked}
                 onUpdateGoal={handleUpdateGoal}
@@ -209,8 +285,8 @@ export const GoalsWrapper: React.FC = () => {
             .filter((goal) => goal.isChecked)
             .map((goal) => (
               <Goal
-                key={goal.id}
-                goal={goal.goal}
+                key={goal.title}
+                goal={goal.title}
                 onToggle={() => toggleGoal(goal.id)}
                 isChecked={goal.isChecked}
                 onUpdateGoal={handleUpdateGoal}

@@ -22,7 +22,7 @@ export const Goal = ({
   id,
 }: GoalProps) => {
   const [isEditing, setIsEditing] = useState(false)
-  const [editedGoal, setEditedGoal] = useState(goal)
+  const [editedGoal, setEditedGoal] = useState(goal || '')
 
   useEffect(() => {
     if (isEditing) {

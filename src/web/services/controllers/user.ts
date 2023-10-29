@@ -40,6 +40,15 @@ interface CreateUserResponse {
   token: string
 }
 
+interface AddGoalPayload {
+  title: string
+}
+
+interface UpdateGoalPayload {
+  title: string;
+  completed: boolean;
+}
+
 const formatHeader = (token?: string): RequestOptions => {
   let auth = token ? `Bearer ${token}` : undefined
   return { headers: { Authorization: auth } }
@@ -86,6 +95,51 @@ export const updateHabitById = async (habitId: string, token?: string) => {
   } catch (error) {
     console.log('Erro ao atualizar hábito do banco de dados:', error)
     throw error
+  }
+}
+
+export const getAllGoals = async (token?: string) => {
+  try {
+    let options = formatHeader(token)
+    const { data } = await instance.get(`/goal/`, options)
+    return data
+  } catch (error) {
+    console.error('Erro ao buscar as metas do banco de dados', error)
+    throw error
+  }
+}
+
+export const saveGoalToDatabase = async (token: string | undefined, payload: AddGoalPayload) => {
+  try {
+    let options = formatHeader(token)
+    const { data } = await instance.post(`/goal/`, payload, options)
+    return data
+  } catch (error) {
+    console.error('Erro ao salvar a meta no banco de dados', error)
+    throw error
+  }
+}
+
+export const deleteGoalById = async (id?: string, token?: string) => {
+  try {
+    let options = formatHeader(token)
+    const response = await instance.delete(`/goal/${id}`, options)
+    console.log(response)
+    return response
+  } catch (error) {
+    console.error('Erro ao excluir meta do banco de dados:', error)
+    throw error
+  }
+}
+
+export const updateGoalById = async (id: string | undefined, token: string | undefined, payload: UpdateGoalPayload) => {
+  try {
+    let options = formatHeader(token);
+    const response = await instance.patch(`/goal/${id}`, payload, options);
+    console.log(response);
+  } catch (error) {
+    console.log('Erro ao atualizar meta no banco de dados:', error);
+    throw error;
   }
 }
 

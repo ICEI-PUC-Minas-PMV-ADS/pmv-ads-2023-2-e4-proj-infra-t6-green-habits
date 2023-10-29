@@ -9,13 +9,13 @@ import styles from './styles.module.scss'
 
 interface Goal {
   id: string
-  goal: string
+  title: string
   isChecked: boolean
 }
 
 interface GoalModalProps {
   onClose: () => void
-  addNewGoal: (newGoal: Goal) => void
+  addNewGoal: (newGoal: Goal) => Promise<void>
 }
 
 export const GoalModal = ({ onClose, addNewGoal }: GoalModalProps) => {
@@ -57,7 +57,7 @@ export const GoalModal = ({ onClose, addNewGoal }: GoalModalProps) => {
     if (newGoalText.trim() !== '') {
       const newGoal = {
         id: generateUniqueId(),
-        goal: newGoalText,
+        title: newGoalText, // Alterado de 'goal' para 'title'
         isChecked: false,
       }
       addNewGoal(newGoal)
