@@ -28,6 +28,11 @@ interface LoginUserPayload {
   password: string
 }
 
+interface UpdateHabitPayload {
+  title: string
+  description: string
+}
+
 interface CreateUserResponse {
   user: {
     name: string
@@ -48,6 +53,7 @@ interface UpdateGoalPayload {
   title: string;
   completed: boolean;
 }
+
 
 const formatHeader = (token?: string): RequestOptions => {
   let auth = token ? `Bearer ${token}` : undefined
@@ -78,19 +84,17 @@ export const saveHabitToDatabase = async (newHabit: Habit, token?: string) => {
 export const deleteHabitById = async (habitId: string, token?: string) => {
   try {
     let options = formatHeader(token)
-    const response = await instance.delete(`/habit/${habitId}`, options)
-    console.log(response)
-    return response
+    await instance.delete(`/habit/${habitId}`, options)
   } catch (error) {
     console.error('Erro ao excluir hábito do banco de dados:', error)
     throw error
   }
 }
 
-export const updateHabitById = async (habitId: string, token?: string) => {
+export const updateHabitById = async (habitId: string, updatePayload: UpdateHabitPayload, token?: string) => {
   try {
-    let options = formatHeader(token)
-    const response = await instance.patch(`/habit/${habitId}`, options)
+    let header = formatHeader(token)
+    const response = await instance.patch(`/habit/${habitId}`, updatePayload, header)
     console.log(response)
   } catch (error) {
     console.log('Erro ao atualizar hábito do banco de dados:', error)

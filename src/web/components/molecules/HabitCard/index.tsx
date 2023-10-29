@@ -3,41 +3,47 @@
 import { Button } from '@/components/atoms/Button'
 import { Tag } from '@/components/atoms/Tag'
 import { EditHabitModal } from '@/components/molecules/EditHabitModal'
-import { updateHabitById } from '@/services/controllers/user'
+import { deleteHabitById, getAllHabits, updateHabitById } from '@/services/controllers/user'
 import { usePathname } from 'next/navigation'
-import { useState } from 'react'
+import { Dispatch, SetStateAction, useState } from 'react'
 import styles from './styles.module.scss'
+import { Habit } from '@/components/organisms/HabitsWrapper'
 
 export interface CardProps {
   image?: string
-  title?: string
-  description?: string
+  title: string
+  description: string
   category?: string
-  habitId: string | { $oid: string }
+  habitId: string
   onDelete?: (habitId: string) => void
-  token?: string | undefined
+  token: string
+  setUserHabits: Dispatch<SetStateAction<Habit[]>>
 }
 
 export const HabitCard = ({
-  image,
   title,
   description,
   category,
   habitId,
-  onDelete,
   token,
+  setUserHabits
 }: CardProps) => {
   const pathname = usePathname()
   const [isHovered, setIsHovered] = useState(false)
   const [isTabFocused, setIsTabFocused] = useState(false)
   const [isEditModalVisible, setEditModalVisible] = useState(false)
-  const [editedHabit, setEditedHabit] = useState<CardProps>({
-    image,
-    title,
-    description,
-    category,
-    habitId,
-  })
+
+  const handleDeleteClick = async (habitId: string) => {
+    if (token) {
+      try {
+        await deleteHabitById(habitId, token);
+        const updatedUserHabits = await getAllHabits(token);
+        setUserHabits(updatedUserHabits);
+      } catch (error) {
+        console.error('Erro ao excluir hábito do banco de dados:', error);
+      }
+    }
+  };
 
   const handleKeyDown = (event: React.KeyboardEvent) => {
     if (event.key === 'Tab') {
@@ -69,7 +75,7 @@ export const HabitCard = ({
         <div className={styles.card__content}>
           <Tag category={category} backgroundColor='dark-green' />
         </div>
-        <p className={styles.card__title}>{editedHabit.title}</p>
+        <p className={styles.card__title}>{title}</p>
       </>
     )
 
@@ -100,7 +106,7 @@ export const HabitCard = ({
           />
         </div>
 
-        <p className={styles.card__text}>{editedHabit.description}</p>
+        <p className={styles.card__text}>{description}</p>
 
         <Button
           label='Adicionar hábito'
@@ -113,13 +119,7 @@ export const HabitCard = ({
           level='tertiary'
           hasIcon
           icon='trash'
-          onClick={() => {
-            if (typeof habitId === 'string') {
-              onDelete && onDelete(habitId)
-            } else if (typeof habitId === 'object' && '$oid' in habitId) {
-              onDelete && onDelete(habitId.$oid)
-            }
-          }}
+          onClick={async () => await handleDeleteClick(habitId)}
           className={styles.card__removeHabit}
         />
       </>
@@ -187,20 +187,7 @@ export const HabitCard = ({
           <EditHabitModal
             show={isEditModalVisible}
             onHide={() => setEditModalVisible(false)}
-            habit={editedHabit}
-            onSave={async (editedHabit, token) => {
-              try {
-                const habitIdString =
-                  typeof habitId === 'string' ? habitId : habitId.$oid
-                await updateHabitById(habitIdString, token)
-                setEditModalVisible(false)
-              } catch (error) {
-                console.error(
-                  'Erro ao atualizar hábito no banco de dados:',
-                  error
-                )
-              }
-            }}
+            habit={{title, description}}
             habitId={habitId}
             token={token}
           />
