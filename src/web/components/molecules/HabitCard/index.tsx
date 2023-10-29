@@ -3,11 +3,11 @@
 import { Button } from '@/components/atoms/Button'
 import { Tag } from '@/components/atoms/Tag'
 import { EditHabitModal } from '@/components/molecules/EditHabitModal'
-import { deleteHabitById, getAllHabits, updateHabitById } from '@/services/controllers/user'
+import { Habit } from '@/components/organisms/HabitsWrapper'
+import { deleteHabitById, getAllHabits } from '@/services/controllers/user'
 import { usePathname } from 'next/navigation'
 import { Dispatch, SetStateAction, useState } from 'react'
 import styles from './styles.module.scss'
-import { Habit } from '@/components/organisms/HabitsWrapper'
 
 export interface CardProps {
   image?: string
@@ -18,6 +18,7 @@ export interface CardProps {
   onDelete?: (habitId: string) => void
   token: string
   setUserHabits: Dispatch<SetStateAction<Habit[]>>
+  filterByCategory?: (category: string) => void
 }
 
 export const HabitCard = ({
@@ -26,7 +27,8 @@ export const HabitCard = ({
   category,
   habitId,
   token,
-  setUserHabits
+  setUserHabits,
+  filterByCategory,
 }: CardProps) => {
   const pathname = usePathname()
   const [isHovered, setIsHovered] = useState(false)
@@ -36,14 +38,14 @@ export const HabitCard = ({
   const handleDeleteClick = async (habitId: string) => {
     if (token) {
       try {
-        await deleteHabitById(habitId, token);
-        const updatedUserHabits = await getAllHabits(token);
-        setUserHabits(updatedUserHabits);
+        await deleteHabitById(habitId, token)
+        const updatedUserHabits = await getAllHabits(token)
+        setUserHabits(updatedUserHabits)
       } catch (error) {
-        console.error('Erro ao excluir hábito do banco de dados:', error);
+        console.error('Erro ao excluir hábito do banco de dados:', error)
       }
     }
-  };
+  }
 
   const handleKeyDown = (event: React.KeyboardEvent) => {
     if (event.key === 'Tab') {
@@ -95,7 +97,16 @@ export const HabitCard = ({
 
     return isHovered || isTabFocused ? (
       <>
-        <div className={styles.card__button}>
+        <div className={styles.card__buttons}>
+          <button
+            className={styles.card__button}
+            onClick={() => {
+              console.log('Botão Clicado!')
+              filterByCategory && category && filterByCategory(category)
+            }}
+          >
+            <Tag category={category} backgroundColor='dark-green' />
+          </button>
           <Button
             hasIcon={true}
             icon='pencil'
@@ -187,7 +198,7 @@ export const HabitCard = ({
           <EditHabitModal
             show={isEditModalVisible}
             onHide={() => setEditModalVisible(false)}
-            habit={{title, description}}
+            habit={{ title, description }}
             habitId={habitId}
             token={token}
           />

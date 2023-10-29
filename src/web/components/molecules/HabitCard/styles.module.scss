@@ -9,10 +9,19 @@
   transition: all 0.7s ease-in-out;
   overflow: hidden;
 
-  &__content,
-  &__button {
+  &__content {
     display: flex;
     justify-content: flex-end;
+  }
+
+  &__buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+
+  &__button {
+    cursor: pointer;
   }
 
   &__title {

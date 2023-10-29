@@ -54,6 +54,16 @@
     }
   }
 
+  &__initialItemsOpen {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  &__initialItemsClosed {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
   &__additionalItems {
     display: flex;
     flex-direction: column;
@@ -76,7 +86,6 @@
 
   &__buttonMobile {
     max-width: 34rem;
-    margin-bottom: 4rem;
 
     @include screen-size('tablet') {
       max-width: 72rem;

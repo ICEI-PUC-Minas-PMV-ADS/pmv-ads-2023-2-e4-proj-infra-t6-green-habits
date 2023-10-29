@@ -6,7 +6,7 @@ import { Text } from '@/components/atoms/Text'
 import { HabitCard } from '@/components/molecules/HabitCard'
 import { NewHabitModal } from '@/components/molecules/NewHabitModal'
 import habits from '@/data/habits.json'
-import { deleteHabitById, getAllHabits, saveHabitToDatabase } from '@/services/controllers/user'
+import { getAllHabits, saveHabitToDatabase } from '@/services/controllers/user'
 import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import styles from './styles.module.scss'
@@ -22,6 +22,8 @@ export const HabitsWrapper = () => {
   const [userHabits, setUserHabits] = useState<Habit[]>([])
   const [isMobileModalOpen, setMobileModalOpen] = useState(false)
   const [isDesktopModalOpen, setDesktopModalOpen] = useState(false)
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(null)
+
   const pathname = usePathname()
 
   const isLocalStorageAvailable = typeof window !== 'undefined'
@@ -79,8 +81,17 @@ export const HabitsWrapper = () => {
     }
   }, [])
 
+  const filterByCategory = (category: string) => {
+    setSelectedCategory(category)
+  }
+
+  const clearCategoryFilter = () => {
+    setSelectedCategory(null)
+  }
+
   const isButton = pathname === '/' ? false : true
   const buttonLabel = pathname === '/' ? 'Meus hábitos' : 'Novo hábito'
+  const initialItemsSlice = isDesktopModalOpen ? 0 : 2
 
   return (
     <>
@@ -101,10 +112,14 @@ export const HabitsWrapper = () => {
             onClick={isButton ? handleOpenDesktopModal : undefined}
             href='/habits'
           />
-          {isDesktopModalOpen && (
-            <NewHabitModal
-              onClose={handleCloseDesktopModal}
-              addHabit={addNewHabit}
+
+          {pathname !== '/' && (
+            <Button
+              label='Limpar filtro'
+              level='secondary'
+              isButton={true}
+              onClick={() => clearCategoryFilter()}
+              className={styles.wrapper__buttonDesktop}
             />
           )}
         </div>
@@ -129,37 +144,62 @@ export const HabitsWrapper = () => {
             />
           </div>
         )}
+
         {pathname !== '/' && (
-          <div className={styles.wrapper__initialItems}>
-            {habits.slice(0, 2).map((item, index) => (
-              <HabitCard
-                key={index}
-                image='/card.png'
-                title={item.title}
-                description={item.description}
-                category={item.category}
-                habitId={item._id.$oid}
-                setUserHabits={setUserHabits}
-                token={token}
+          <div
+            className={`${styles.wrapper__initialItems} ${
+              isDesktopModalOpen ? styles.wrapper__initialItemsOpen : styles.wrapper__initialItemsClosed
+            }`}
+          >
+            {habits
+              .slice(0, initialItemsSlice)
+              .filter(
+                (item) =>
+                  !selectedCategory || item.category === selectedCategory
+              )
+              .map((item, index) => (
+                <HabitCard
+                  key={index}
+                  image='/card.png'
+                  title={item.title}
+                  description={item.description}
+                  category={item.category}
+                  habitId={item._id.$oid}
+                  setUserHabits={setUserHabits}
+                  token={token}
+                  filterByCategory={filterByCategory}
+                />
+              ))}
+            {isDesktopModalOpen && (
+              <NewHabitModal
+                onClose={handleCloseDesktopModal}
+                addHabit={addNewHabit}
               />
-            ))}
+            )}
           </div>
         )}
 
         {pathname !== '/' && (
           <div className={styles.wrapper__additionalItems}>
-            {habits.slice(2, 11).map((item, index) => (
-              <HabitCard
-                key={index}
-                image='/card.png'
-                title={item.title}
-                description={item.description}
-                category={item.category}
-                habitId={item._id.$oid}
-                setUserHabits={setUserHabits}
-                token={token}
-              />
-            ))}
+            {habits
+              .slice(2, 11)
+              .filter(
+                (item) =>
+                  !selectedCategory || item.category === selectedCategory
+              )
+              .map((item, index) => (
+                <HabitCard
+                  key={index}
+                  image='/card.png'
+                  title={item.title}
+                  description={item.description}
+                  category={item.category}
+                  habitId={item._id.$oid}
+                  setUserHabits={setUserHabits}
+                  token={token}
+                  filterByCategory={filterByCategory}
+                />
+              ))}
           </div>
         )}
 
@@ -179,6 +219,16 @@ export const HabitsWrapper = () => {
             />
           </div>
         )}
+
+        {pathname !== '/' && (
+          <Button
+            label='Limpar filtro'
+            level='secondary'
+            isButton={true}
+            onClick={() => clearCategoryFilter()}
+            className={styles.wrapper__buttonMobile}
+          />
+        )}
       </section>
 
       {pathname !== '/' && userHabits.length !== 0 && (
@@ -191,18 +241,24 @@ export const HabitsWrapper = () => {
           />
 
           <div className={styles.myHabits__container}>
-            {userHabits.map((item, index) => (
-              <HabitCard
-                key={index}
-                image='/card.png'
-                title={item.title}
-                description={item.description}
-                category={item.category}
-                habitId={item._id}
-                setUserHabits={setUserHabits}
-                token={token}
-              />
-            ))}
+            {userHabits
+              .filter(
+                (habit) =>
+                  !selectedCategory || habit.category === selectedCategory
+              )
+              .map((habit, index) => (
+                <HabitCard
+                  key={index}
+                  image='/card.png'
+                  title={habit.title}
+                  description={habit.description}
+                  category={habit.category}
+                  habitId={habit._id}
+                  setUserHabits={setUserHabits}
+                  token={token}
+                  filterByCategory={filterByCategory || (() => {})}
+                />
+              ))}
           </div>
         </section>
       )}
