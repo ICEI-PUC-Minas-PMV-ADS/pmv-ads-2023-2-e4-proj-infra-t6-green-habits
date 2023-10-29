@@ -29,7 +29,6 @@ export const EditHabitModal = ({
   habitId,
   token,
 }: EditHabitModalProps) => {
-  const [updateHabit, setUpdatedHabit] = useState<EditableHabit>(habit)
   const [title, setTitle] = useState<string>(habit.title);
   const [description, setDescription] = useState<string>(habit.description);
 
@@ -60,7 +59,7 @@ export const EditHabitModal = ({
             placeholder=''
             placeholderColor='white'
             type='text'
-            value={updateHabit.title || ''}
+            value={title || ''}
             onChange={(e) => {
               let currentValue = e.target.value
               setTitle(currentValue)
@@ -73,7 +72,7 @@ export const EditHabitModal = ({
             placeholder=''
             placeholderColor='white'
             type='text'
-            value={updateHabit.description || ''}
+            value={description || ''}
             onChange={(e) => {
               let currentValue = e.target.value
               setDescription(currentValue)
