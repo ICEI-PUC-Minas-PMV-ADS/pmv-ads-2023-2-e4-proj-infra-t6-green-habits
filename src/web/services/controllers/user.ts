@@ -69,9 +69,7 @@ export const saveHabitToDatabase = async (newHabit: Habit, token?: string) => {
 export const deleteHabitById = async (habitId: string, token?: string) => {
   try {
     let options = formatHeader(token)
-    const response = await instance.delete(`/habit/${habitId}`, options)
-    console.log(response)
-    return response
+    await instance.delete(`/habit/${habitId}`, options)
   } catch (error) {
     console.error('Erro ao excluir hábito do banco de dados:', error)
     throw error

@@ -3,19 +3,21 @@
 import { Button } from '@/components/atoms/Button'
 import { Tag } from '@/components/atoms/Tag'
 import { EditHabitModal } from '@/components/molecules/EditHabitModal'
-import { updateHabitById } from '@/services/controllers/user'
+import { deleteHabitById, getAllHabits, updateHabitById } from '@/services/controllers/user'
 import { usePathname } from 'next/navigation'
-import { useState } from 'react'
+import { Dispatch, SetStateAction, useState } from 'react'
 import styles from './styles.module.scss'
+import { Habit } from '@/components/organisms/HabitsWrapper'
 
 export interface CardProps {
   image?: string
   title?: string
   description?: string
   category?: string
-  habitId: string | { $oid: string }
+  habitId: string
   onDelete?: (habitId: string) => void
   token?: string | undefined
+  setUserHabits: Dispatch<SetStateAction<Habit[]>>
 }
 
 export const HabitCard = ({
@@ -24,8 +26,8 @@ export const HabitCard = ({
   description,
   category,
   habitId,
-  onDelete,
   token,
+  setUserHabits
 }: CardProps) => {
   const pathname = usePathname()
   const [isHovered, setIsHovered] = useState(false)
@@ -37,7 +39,20 @@ export const HabitCard = ({
     description,
     category,
     habitId,
+    setUserHabits
   })
+
+  const handleDeleteClick = async (habitId: string) => {
+    if (token) {
+      try {
+        await deleteHabitById(habitId, token);
+        const updatedUserHabits = await getAllHabits(token);
+        setUserHabits(updatedUserHabits);
+      } catch (error) {
+        console.error('Erro ao excluir hábito do banco de dados:', error);
+      }
+    }
+  };
 
   const handleKeyDown = (event: React.KeyboardEvent) => {
     if (event.key === 'Tab') {
@@ -113,13 +128,7 @@ export const HabitCard = ({
           level='tertiary'
           hasIcon
           icon='trash'
-          onClick={() => {
-            if (typeof habitId === 'string') {
-              onDelete && onDelete(habitId)
-            } else if (typeof habitId === 'object' && '$oid' in habitId) {
-              onDelete && onDelete(habitId.$oid)
-            }
-          }}
+          onClick={async () => await handleDeleteClick(habitId)}
           className={styles.card__removeHabit}
         />
       </>
@@ -189,17 +198,17 @@ export const HabitCard = ({
             onHide={() => setEditModalVisible(false)}
             habit={editedHabit}
             onSave={async (editedHabit, token) => {
-              try {
-                const habitIdString =
-                  typeof habitId === 'string' ? habitId : habitId.$oid
-                await updateHabitById(habitIdString, token)
-                setEditModalVisible(false)
-              } catch (error) {
-                console.error(
-                  'Erro ao atualizar hábito no banco de dados:',
-                  error
-                )
-              }
+              // try {
+              //   const habitIdString =
+              //     typeof habitId === 'string' ? habitId : habitId.$oid
+              //   await updateHabitById(habitIdString, token)
+              //   setEditModalVisible(false)
+              // } catch (error) {
+              //   console.error(
+              //     'Erro ao atualizar hábito no banco de dados:',
+              //     error
+              //   )
+              // }
             }}
             habitId={habitId}
             token={token}

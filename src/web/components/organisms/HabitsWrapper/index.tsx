@@ -69,23 +69,6 @@ export const HabitsWrapper = () => {
     }
   }
 
-  const handleDeleteClick = async (habitId: string) => {
-    if (token) {
-      try {
-        const response = await deleteHabitById(habitId, token);
-        if (response.status === 204) {
-          console.log('Hábito excluído com sucesso');
-          const updatedUserHabits = await getAllHabits(token);
-          setUserHabits(updatedUserHabits);
-        } else {
-          console.error('Falha ao excluir hábito, status:', response.status);
-        }
-      } catch (error) {
-        console.error('Erro ao excluir hábito do banco de dados:', error);
-      }
-    }
-  };
-
   useEffect(() => {
     if (token) {
       const fetchHabits = async () => {
@@ -133,12 +116,14 @@ export const HabitsWrapper = () => {
               title='Usar bicicleta para ir ao trabalho'
               description='Optar por usar a bicicleta ajuda a reduzir a emissão de poluentes e o tráfego nas ruas'
               category='Transporte'
+              setUserHabits={setUserHabits}
             />
             <HabitCard
               habitId=''
               title='Reduzir o desperdício de água em casa'
               description='Não esquecer de fechar a torneira durante o escovar dos dentes'
               category='Consumo sustentável'
+              setUserHabits={setUserHabits}
             />
           </div>
         )}
@@ -151,8 +136,8 @@ export const HabitsWrapper = () => {
                 title={item.title}
                 description={item.description}
                 category={item.category}
-                habitId={item._id}
-                onDelete={handleDeleteClick}
+                habitId={item._id.$oid}
+                setUserHabits={setUserHabits}
               />
             ))}
           </div>
@@ -167,8 +152,8 @@ export const HabitsWrapper = () => {
                 title={item.title}
                 description={item.description}
                 category={item.category}
-                habitId={item._id}
-                onDelete={handleDeleteClick}
+                habitId={item._id.$oid}
+                setUserHabits={setUserHabits}
               />
             ))}
           </div>
@@ -210,7 +195,8 @@ export const HabitsWrapper = () => {
                 description={item.description}
                 category={item.category}
                 habitId={item._id}
-                onDelete={handleDeleteClick}
+                setUserHabits={setUserHabits}
+                token={token}
               />
             ))}
           </div>
