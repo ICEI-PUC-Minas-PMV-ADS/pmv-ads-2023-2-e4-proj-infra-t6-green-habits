@@ -2,12 +2,10 @@
 
 import { Button } from '@/components/atoms/Button'
 import { Icon } from '@/components/atoms/Icon'
-import { CardProps } from '@/components/molecules/HabitCard'
 import { Input } from '@/components/molecules/Input'
 import { updateHabitById } from '@/services/controllers/user'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import styles from './styles.module.scss'
-import { Habit } from '@/components/organisms/HabitsWrapper'
 
 interface EditHabitModalProps {
   show: boolean
@@ -29,17 +27,34 @@ export const EditHabitModal = ({
   habitId,
   token,
 }: EditHabitModalProps) => {
-  const [title, setTitle] = useState<string>(habit.title);
-  const [description, setDescription] = useState<string>(habit.description);
+  const [title, setTitle] = useState<string>(habit.title)
+  const [description, setDescription] = useState<string>(habit.description)
+
+  useEffect(() => {
+    setTitle(title)
+    setDescription(description)
+  }, [title, description])
 
   const handleSaveWrapper = async () => {
     try {
-      const updateHabitPayload = { title, description };
+      const updateHabitPayload = { title, description }
       await updateHabitById(habitId, updateHabitPayload, token)
       onHide()
+
+      window.location.reload();
     } catch (error) {
       console.error('Erro ao atualizar hábito no banco de dados:', error)
     }
+  }
+
+  const handleTitleChange = (e: { target: { value: any } }) => {
+    const currentValue = e.target.value
+    setTitle(currentValue)
+  }
+
+  const handleDescriptionChange = (e: { target: { value: any } }) => {
+    const currentValue = e.target.value
+    setDescription(currentValue)
   }
 
   return (
@@ -60,10 +75,7 @@ export const EditHabitModal = ({
             placeholderColor='white'
             type='text'
             value={title || ''}
-            onChange={(e) => {
-              let currentValue = e.target.value
-              setTitle(currentValue)
-            }}
+            onChange={handleTitleChange}
             icon='pencil'
           />
           <Input
@@ -73,10 +85,7 @@ export const EditHabitModal = ({
             placeholderColor='white'
             type='text'
             value={description || ''}
-            onChange={(e) => {
-              let currentValue = e.target.value
-              setDescription(currentValue)
-            }}
+            onChange={handleDescriptionChange}
             icon='pencil'
           />
         </form>
