@@ -40,9 +40,9 @@ export const Goal = ({
     }
   }
 
-  const handleCompleteGoal = async () => {
+  const handleChangeCompletedStatus = async (status: boolean) => {
     try {
-      const updatePayload = { completed: true }
+      const updatePayload = { completed: status };
       await updateGoalById(id, token, updatePayload)
       const updatedGoals = await getAllGoals(token)
 
@@ -72,7 +72,7 @@ export const Goal = ({
       <input
         type='checkbox'
         className={styles.goal__input}
-        onChange={async () => await handleCompleteGoal()}
+        onChange={async () => await handleChangeCompletedStatus(!isCompleted)}
         checked={isCompleted}
         id={`goal_${id}`}
       />
