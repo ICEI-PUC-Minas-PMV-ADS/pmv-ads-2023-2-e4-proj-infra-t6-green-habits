@@ -117,6 +117,7 @@ export const HabitsWrapper = () => {
               description='Optar por usar a bicicleta ajuda a reduzir a emissão de poluentes e o tráfego nas ruas'
               category='Transporte'
               setUserHabits={setUserHabits}
+              token=''
             />
             <HabitCard
               habitId=''
@@ -124,6 +125,7 @@ export const HabitsWrapper = () => {
               description='Não esquecer de fechar a torneira durante o escovar dos dentes'
               category='Consumo sustentável'
               setUserHabits={setUserHabits}
+              token=''
             />
           </div>
         )}
@@ -138,6 +140,7 @@ export const HabitsWrapper = () => {
                 category={item.category}
                 habitId={item._id.$oid}
                 setUserHabits={setUserHabits}
+                token={token}
               />
             ))}
           </div>
@@ -154,6 +157,7 @@ export const HabitsWrapper = () => {
                 category={item.category}
                 habitId={item._id.$oid}
                 setUserHabits={setUserHabits}
+                token={token}
               />
             ))}
           </div>

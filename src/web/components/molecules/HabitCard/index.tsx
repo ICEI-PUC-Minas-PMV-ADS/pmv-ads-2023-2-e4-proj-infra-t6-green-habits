@@ -11,17 +11,16 @@ import { Habit } from '@/components/organisms/HabitsWrapper'
 
 export interface CardProps {
   image?: string
-  title?: string
-  description?: string
+  title: string
+  description: string
   category?: string
   habitId: string
   onDelete?: (habitId: string) => void
-  token?: string | undefined
+  token: string
   setUserHabits: Dispatch<SetStateAction<Habit[]>>
 }
 
 export const HabitCard = ({
-  image,
   title,
   description,
   category,
@@ -33,14 +32,6 @@ export const HabitCard = ({
   const [isHovered, setIsHovered] = useState(false)
   const [isTabFocused, setIsTabFocused] = useState(false)
   const [isEditModalVisible, setEditModalVisible] = useState(false)
-  const [editedHabit, setEditedHabit] = useState<CardProps>({
-    image,
-    title,
-    description,
-    category,
-    habitId,
-    setUserHabits
-  })
 
   const handleDeleteClick = async (habitId: string) => {
     if (token) {
@@ -84,7 +75,7 @@ export const HabitCard = ({
         <div className={styles.card__content}>
           <Tag category={category} backgroundColor='dark-green' />
         </div>
-        <p className={styles.card__title}>{editedHabit.title}</p>
+        <p className={styles.card__title}>{title}</p>
       </>
     )
 
@@ -115,7 +106,7 @@ export const HabitCard = ({
           />
         </div>
 
-        <p className={styles.card__text}>{editedHabit.description}</p>
+        <p className={styles.card__text}>{description}</p>
 
         <Button
           label='Adicionar hábito'
@@ -196,20 +187,7 @@ export const HabitCard = ({
           <EditHabitModal
             show={isEditModalVisible}
             onHide={() => setEditModalVisible(false)}
-            habit={editedHabit}
-            onSave={async (editedHabit, token) => {
-              // try {
-              //   const habitIdString =
-              //     typeof habitId === 'string' ? habitId : habitId.$oid
-              //   await updateHabitById(habitIdString, token)
-              //   setEditModalVisible(false)
-              // } catch (error) {
-              //   console.error(
-              //     'Erro ao atualizar hábito no banco de dados:',
-              //     error
-              //   )
-              // }
-            }}
+            habit={{title, description}}
             habitId={habitId}
             token={token}
           />

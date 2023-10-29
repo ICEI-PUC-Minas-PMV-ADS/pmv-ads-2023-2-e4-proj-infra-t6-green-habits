@@ -28,6 +28,11 @@ interface LoginUserPayload {
   password: string
 }
 
+interface UpdateHabitPayload {
+  title: string
+  description: string
+}
+
 interface CreateUserResponse {
   user: {
     name: string
@@ -39,6 +44,7 @@ interface CreateUserResponse {
   }
   token: string
 }
+
 
 const formatHeader = (token?: string): RequestOptions => {
   let auth = token ? `Bearer ${token}` : undefined
@@ -76,10 +82,10 @@ export const deleteHabitById = async (habitId: string, token?: string) => {
   }
 }
 
-export const updateHabitById = async (habitId: string, token?: string) => {
+export const updateHabitById = async (habitId: string, updatePayload: UpdateHabitPayload, token?: string) => {
   try {
-    let options = formatHeader(token)
-    const response = await instance.patch(`/habit/${habitId}`, options)
+    let header = formatHeader(token)
+    const response = await instance.patch(`/habit/${habitId}`, updatePayload, header)
     console.log(response)
   } catch (error) {
     console.log('Erro ao atualizar hábito do banco de dados:', error)
