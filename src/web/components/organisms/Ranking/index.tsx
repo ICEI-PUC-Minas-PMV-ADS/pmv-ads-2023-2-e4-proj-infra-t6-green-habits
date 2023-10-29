@@ -70,8 +70,22 @@ export const Ranking = () => {
     (a, b) => categoryCounts[b] - categoryCounts[a]
   )
 
-  const mostPopularCategory = sortedPopularCategories[0]
-  const sortedLeastPopularCategories = sortedPopularCategories.slice(1)
+  const mostPopularCategories = sortedPopularCategories.slice(0, 2);
+
+  const filteredHabits = userHabits.filter(
+    (habit) => !mostPopularCategories.includes(habit.category)
+  );
+
+  
+  const uniqueCategories = Array.from(new Set(filteredHabits.map(habit => habit.category)));
+
+  const sortedLeastPopularCategories = uniqueCategories.sort((a, b) => {
+    const countA = categoryCounts[a] || 0;
+    const countB = categoryCounts[b] || 0;
+    return countA - countB;
+  });
+  
+  console.table(userHabits)
 
   return (
     <section className={styles.ranking}>
@@ -96,9 +110,8 @@ export const Ranking = () => {
 
         <div className={styles.ranking__cardsContainer}>
           {userHabits
-            .filter(
-              (habit: { category: string }) =>
-                habit.category === mostPopularCategory
+            .filter((habit: { category: string }) =>
+              mostPopularCategories.includes(habit.category)
             )
             .slice(0, 2)
             .map((habit: Habit) => (
@@ -110,6 +123,7 @@ export const Ranking = () => {
                 category={habit.category}
                 setUserHabits={setUserHabits}
                 token={userToken || ''}
+                isSuggestedHabit={false}
               />
             ))}
         </div>
@@ -148,6 +162,7 @@ export const Ranking = () => {
                 category={habit.category}
                 setUserHabits={setUserHabits}
                 token={userToken || ''}
+                isSuggestedHabit={false}
               />
             ))}
         </div>
