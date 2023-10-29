@@ -148,7 +148,7 @@ export const HabitsWrapper = () => {
 
         {pathname !== '/' && (
           <div className={styles.wrapper__additionalItems}>
-            {habits.slice(2).map((item, index) => (
+            {habits.slice(2, 11).map((item, index) => (
               <HabitCard
                 key={index}
                 image='/card.png'
