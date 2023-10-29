@@ -12,11 +12,10 @@ import { useEffect, useState } from 'react'
 import styles from './styles.module.scss'
 
 export interface Habit {
-  habitId: string
-  image?: string
-  title?: string
-  description?: string
-  category?: string
+  _id: string
+  title: string
+  description: string
+  category: string
 }
 
 export const HabitsWrapper = () => {
@@ -95,7 +94,7 @@ export const HabitsWrapper = () => {
       }
       fetchHabits()
     }
-  }, [token])
+  }, [])
 
   const isButton = pathname === '/' ? false : true
   const buttonLabel = pathname === '/' ? 'Meus hábitos' : 'Novo hábito'
@@ -193,7 +192,7 @@ export const HabitsWrapper = () => {
         )}
       </section>
 
-      {pathname !== '/' && (
+      {pathname !== '/' && userHabits.length !== 0 && (
         <section className={styles.myHabits}>
           <Heading
             align='center'
@@ -210,7 +209,7 @@ export const HabitsWrapper = () => {
                 title={item.title}
                 description={item.description}
                 category={item.category}
-                habitId={item.habitId}
+                habitId={item._id}
                 onDelete={handleDeleteClick}
               />
             ))}
