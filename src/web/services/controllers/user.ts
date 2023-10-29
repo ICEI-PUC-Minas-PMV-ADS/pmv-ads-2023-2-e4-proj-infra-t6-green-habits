@@ -1,4 +1,3 @@
-import { Habit } from '@/components/organisms/HabitsWrapper'
 import axios from 'axios'
 axios.defaults.timeout = 30000
 
@@ -36,7 +35,7 @@ interface UpdateHabitPayload {
 export interface CreateHabitPayload {
   title: string
   description: string
-  category: string
+  category?: string
 }
 
 export interface ApiHabit {

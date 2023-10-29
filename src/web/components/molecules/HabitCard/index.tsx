@@ -4,12 +4,12 @@ import { Button } from '@/components/atoms/Button'
 import { Tag } from '@/components/atoms/Tag'
 import { EditHabitModal } from '@/components/molecules/EditHabitModal'
 import { Habit } from '@/components/organisms/HabitsWrapper'
-import { deleteHabitById, getAllHabits } from '@/services/controllers/user'
+import { deleteHabitById, getAllHabits, saveHabitToDatabase } from '@/services/controllers/user'
 import { usePathname } from 'next/navigation'
 import { Dispatch, SetStateAction, useState } from 'react'
 import styles from './styles.module.scss'
 
-import {removeAccentsAndSpaces } from "@/utils/removeAccentsAndSpaces"
+import { removeAccentsAndSpaces } from "@/utils/removeAccentsAndSpaces"
 
 export interface CardProps {
   image?: string
@@ -21,6 +21,7 @@ export interface CardProps {
   token: string
   setUserHabits: Dispatch<SetStateAction<Habit[]>>
   filterByCategory?: (category: string) => void
+  isSuggestedHabit: boolean
 }
 
 export const HabitCard = ({
@@ -31,11 +32,29 @@ export const HabitCard = ({
   token,
   setUserHabits,
   filterByCategory,
+  isSuggestedHabit
 }: CardProps) => {
   const pathname = usePathname()
   const [isHovered, setIsHovered] = useState(false)
   const [isTabFocused, setIsTabFocused] = useState(false)
   const [isEditModalVisible, setEditModalVisible] = useState(false)
+
+  const handleAddSuggestedHabit = async () => {
+    try {
+      if (token) {
+        const newHabit = { title, description, category }
+        await saveHabitToDatabase(newHabit, token)
+
+        const updatedUserHabits = await getAllHabits(token)
+        setUserHabits(updatedUserHabits)
+      }
+    } catch (error) {
+      console.error(
+        'Erro ao adotar o hábito ou obter hábitos atualizados',
+        error
+      )
+    }
+  }
 
   const handleDeleteClick = async (habitId: string) => {
     if (token) {
@@ -109,32 +128,35 @@ export const HabitCard = ({
           >
             <Tag category={category} backgroundColor='dark-green' />
           </button>
-          <Button
+          {isSuggestedHabit ? <></> : <Button
             hasIcon={true}
             icon='pencil'
             level='primary'
             size='small'
             aria='Editar hábito'
             onClick={handleEditClick}
-          />
+          />}
+
         </div>
 
         <p className={styles.card__text}>{description}</p>
 
-        <Button
+        {isSuggestedHabit ? <Button
           label='Adicionar hábito'
           level='primary'
           hasIcon
           icon='check-01'
-        />
-        <Button
+          onClick={async () => await handleAddSuggestedHabit()}
+        /> : <Button
           label='Remover hábito'
           level='tertiary'
           hasIcon
           icon='trash'
           onClick={async () => await handleDeleteClick(habitId)}
           className={styles.card__removeHabit}
-        />
+        />}
+
+
       </>
     ) : null
   }
@@ -171,9 +193,8 @@ export const HabitCard = ({
   return (
     <>
       <article
-        className={`${styles.card} ${
-          isHovered || isTabFocused ? styles.hovered : ''
-        }`}
+        className={`${styles.card} ${isHovered || isTabFocused ? styles.hovered : ''
+          }`}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
         onKeyDown={handleKeyDown}

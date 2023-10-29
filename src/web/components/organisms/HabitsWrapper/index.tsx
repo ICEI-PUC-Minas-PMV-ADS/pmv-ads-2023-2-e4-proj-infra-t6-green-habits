@@ -130,6 +130,7 @@ export const HabitsWrapper = () => {
               category='Transporte'
               setUserHabits={setUserHabits}
               token=''
+              isSuggestedHabit={true}
             />
             <HabitCard
               habitId=''
@@ -138,21 +139,22 @@ export const HabitsWrapper = () => {
               category='Consumo sustentável'
               setUserHabits={setUserHabits}
               token=''
+              isSuggestedHabit={true}
             />
           </div>
         )}
 
         {pathname !== '/' && (
           <div
-            className={`${styles.wrapper__initialItems} ${
-              isDesktopModalOpen ? styles.wrapper__initialItemsOpen : styles.wrapper__initialItemsClosed
-            }`}
+            className={`${styles.wrapper__initialItems} ${isDesktopModalOpen ? styles.wrapper__initialItemsOpen : styles.wrapper__initialItemsClosed
+              }`}
           >
             {habits
               .slice(0, initialItemsSlice)
               .filter(
-                (item) =>
+                (item) => {
                   !selectedCategory || item.category === selectedCategory
+                }
               )
               .map((item, index) => (
                 <HabitCard
@@ -165,6 +167,7 @@ export const HabitsWrapper = () => {
                   setUserHabits={setUserHabits}
                   token={token}
                   filterByCategory={filterByCategory}
+                  isSuggestedHabit={true}
                 />
               ))}
             {isDesktopModalOpen && (
@@ -195,6 +198,7 @@ export const HabitsWrapper = () => {
                   setUserHabits={setUserHabits}
                   token={token}
                   filterByCategory={filterByCategory}
+                  isSuggestedHabit={true}
                 />
               ))}
           </div>
@@ -253,7 +257,8 @@ export const HabitsWrapper = () => {
                   habitId={habit._id}
                   setUserHabits={setUserHabits}
                   token={token}
-                  filterByCategory={filterByCategory || (() => {})}
+                  filterByCategory={filterByCategory || (() => { })}
+                  isSuggestedHabit={false}
                 />
               ))}
           </div>
