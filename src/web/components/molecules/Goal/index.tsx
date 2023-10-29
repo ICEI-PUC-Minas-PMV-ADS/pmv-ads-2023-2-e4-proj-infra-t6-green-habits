@@ -104,7 +104,7 @@ export const Goal = ({
           icon={isChecked ? 'trash' : 'pencil'}
           size='small'
           className={styles.goal__button}
-          onClick={isChecked ? onDeleteGoal : handleEditClick} // Altere aqui para chamar onDeleteGoal
+          onClick={isChecked ? onDeleteGoal : handleEditClick}
           aria={isChecked ? ' Apagar meta' : 'Editar meta'}
         />
       )}

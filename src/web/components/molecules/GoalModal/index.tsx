@@ -57,7 +57,7 @@ export const GoalModal = ({ onClose, addNewGoal }: GoalModalProps) => {
     if (newGoalText.trim() !== '') {
       const newGoal = {
         id: generateUniqueId(),
-        title: newGoalText, // Alterado de 'goal' para 'title'
+        title: newGoalText,
         isChecked: false,
       }
       addNewGoal(newGoal)
