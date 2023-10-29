@@ -78,7 +78,7 @@ Cabe ressaltar que o vídeo cobre os CRUDs da aplicação, de acordo com os segu
 - O sistema deve permitir que os usuários se registrem com um nome de usuário e senha.
 - Os usuários autenticados devem poder gerenciar seus hábitos sustentáveis, o que inclui a criação de novos hábitos, a visualização e edição de hábitos existentes, bem como a exclusão de hábitos indesejados.
 - O sistema deve exibir uma lista de hábitos sustentáveis existentes para os usuários.
-- Os usuários devem poder definir metas pessoais.
+- Os usuários autenticados devem poder gerenciar metas para atingir seus hábitos sustentáveis, o que inclui a criação de novas metas, a visualização e a edição de metas existentes, bem como a exclusão de metas indesejadas.
 - Os usuários devem poder visualizar o progresso alcançado em cada meta definida.
 - Os hábitos sustentáveis devem ser categorizados com base em atributos como nome, descrição e categoria.
 - Os usuários devem poder alterar os hábitos existentes, mudando atributos como categoria, descrição e título.
