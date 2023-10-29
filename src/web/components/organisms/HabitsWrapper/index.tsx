@@ -6,7 +6,7 @@ import { Text } from '@/components/atoms/Text'
 import { HabitCard } from '@/components/molecules/HabitCard'
 import { NewHabitModal } from '@/components/molecules/NewHabitModal'
 import habits from '@/data/habits.json'
-import { getAllHabits, saveHabitToDatabase } from '@/services/controllers/user'
+import { CreateHabitPayload, getAllHabits, saveHabitToDatabase } from '@/services/controllers/user'
 import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import styles from './styles.module.scss'
@@ -52,10 +52,8 @@ export const HabitsWrapper = () => {
     setDesktopModalOpen(false)
   }
 
-  const addNewHabit = async (newHabit: Habit) => {
+  const addNewHabit = async (newHabit: CreateHabitPayload) => {
     try {
-      setUserHabits([...userHabits, newHabit])
-
       if (token) {
         await saveHabitToDatabase(newHabit, token)
 

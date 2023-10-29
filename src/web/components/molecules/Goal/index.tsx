@@ -1,92 +1,81 @@
 'use client'
 
 import { Button } from '@/components/atoms/Button'
-import { useEffect, useState } from 'react'
+import { Dispatch, SetStateAction, useEffect, useState } from 'react'
 import styles from './styles.module.scss'
+import { Goal as GoalType } from '@/components/organisms/GoalsWrapper'
+import { deleteGoalById, updateGoalById } from '@/services/controllers/user'
 
 interface GoalProps {
-  goal: string
-  onToggle: () => void
-  isChecked: boolean
-  onUpdateGoal: (goalId: string, newGoal: string) => void
-  onDeleteGoal: () => void
+  title: string
+  isCompleted: boolean
   id: string
+  token: string
+  setUserGoals: Dispatch<SetStateAction<GoalType[]>>
 }
 
 export const Goal = ({
-  goal,
-  onToggle,
-  isChecked,
-  onUpdateGoal,
-  onDeleteGoal,
+  title,
+  isCompleted,
   id,
+  token,
+  setUserGoals
 }: GoalProps) => {
   const [isEditing, setIsEditing] = useState(false)
-  const [editedGoal, setEditedGoal] = useState(goal || '')
+  const [goalTitle, setUpdatedGoalTitle] = useState(title)
 
-  useEffect(() => {
-    if (isEditing) {
-      const storedEditedGoal = localStorage.getItem('editedGoal')
-      if (storedEditedGoal) {
-        const parsedGoals = JSON.parse(storedEditedGoal)
-        const editedGoal = parsedGoals.find((g: { id: string }) => g.id === id)
-        if (editedGoal) {
-          setEditedGoal(editedGoal.goal)
-        }
-      }
+  const handleSaveEdit = async () => {
+    try {
+      const updatePayload = { title: goalTitle };
+      await updateGoalById(id, token, updatePayload)
+    } catch (error) {
+      console.error('Erro ao atualizar meta no banco de dados:', error)
     }
-  }, [isEditing])
+  }
+
+  const handleCompleteGoal = async () => {
+    try {
+      const updatePayload = { completed: true };
+      await updateGoalById(id, token, updatePayload)
+    } catch (error) {
+      console.error('Erro ao atualizar meta no banco de dados:', error)
+    }
+  }
+
+  const handleDeleteGoal = async () => {
+    try {
+      await deleteGoalById(id, token)
+    } catch (error) {
+      console.error('Erro ao deletar meta no banco de dados:', error)
+    }
+  }
 
   const handleEditClick = () => {
     setIsEditing(true)
   }
 
-  const handleSaveClick = () => {
-    setTimeout(() => {
-      setIsEditing(false)
-
-      try {
-        const storedEditedGoal = localStorage.getItem('editedGoal')
-        const parsedGoals = storedEditedGoal ? JSON.parse(storedEditedGoal) : []
-
-        const updatedGoals = parsedGoals.map((g: { id: string }) => {
-          if (g.id === id) {
-            return { ...g, goal: editedGoal }
-          }
-          return g
-        })
-
-        localStorage.setItem('editedGoal', JSON.stringify(updatedGoals))
-        onUpdateGoal(id, editedGoal)
-      } catch (error) {
-        console.error('Error updating goals in localStorage:', error)
-      }
-    }, 1000)
-  }
-
-  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setEditedGoal(event.target.value)
-  }
-
   return (
-    <label className={styles.goal} htmlFor={goal}>
+    <label className={styles.goal} htmlFor={title}>
       <input
         type='checkbox'
         className={styles.goal__input}
-        onChange={onToggle}
-        checked={isChecked}
-        id={goal}
+        onClick={async () => await handleCompleteGoal()}
+        checked={isCompleted}
+        id={id}
       />
       {isEditing ? (
         <input
           type='text'
-          value={editedGoal}
-          onChange={handleInputChange}
+          value={goalTitle}
+          onChange={(e) => {
+            let currentValue = e.target.value
+            setUpdatedGoalTitle(currentValue)
+          }}
           className={styles.goal__editing}
         />
       ) : (
         <p className={styles.goal__container}>
-          <span className={styles.goal__text}>{editedGoal}</span>
+          <span className={styles.goal__text}>{goalTitle}</span>
         </p>
       )}
       {isEditing ? (
@@ -95,17 +84,17 @@ export const Goal = ({
           icon='check-01'
           size='small'
           className={styles.goal__button}
-          onClick={handleSaveClick}
+          onClick={handleSaveEdit}
           aria='Salvar meta'
         />
       ) : (
         <Button
           hasIcon={true}
-          icon={isChecked ? 'trash' : 'pencil'}
+          icon={isCompleted ? 'trash' : 'pencil'}
           size='small'
           className={styles.goal__button}
-          onClick={isChecked ? onDeleteGoal : handleEditClick}
-          aria={isChecked ? ' Apagar meta' : 'Editar meta'}
+          onClick={isCompleted ? async () => await handleDeleteGoal() : handleEditClick}
+          aria={isCompleted ? ' Apagar meta' : 'Editar meta'}
         />
       )}
     </label>

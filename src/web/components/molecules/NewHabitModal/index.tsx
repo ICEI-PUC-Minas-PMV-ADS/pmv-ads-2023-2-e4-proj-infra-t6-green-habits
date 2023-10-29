@@ -4,14 +4,13 @@ import { Button } from '@/components/atoms/Button'
 import { Icon } from '@/components/atoms/Icon'
 import { Text } from '@/components/atoms/Text'
 import { Input } from '@/components/molecules/Input'
-import { Habit } from '@/components/organisms/HabitsWrapper'
 import { useEffect, useState } from 'react'
-import { v4 as uuidv4 } from 'uuid'
 import styles from './styles.module.scss'
+import { CreateHabitPayload } from '@/services/controllers/user'
 
 interface NewHabitModalProps {
   onClose: () => void
-  addHabit: (newHabit: Habit) => void
+  addHabit: (newHabit: CreateHabitPayload) => void
 }
 
 export const NewHabitModal = ({ onClose, addHabit }: NewHabitModalProps) => {
@@ -52,7 +51,6 @@ export const NewHabitModal = ({ onClose, addHabit }: NewHabitModalProps) => {
 
   const handleAdoptHabit = () => {
     const newHabitData = {
-      habitId: uuidv4(),
       title: habitData.title,
       description: habitData.description,
       category: habitData.category,

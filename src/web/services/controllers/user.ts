@@ -33,6 +33,19 @@ interface UpdateHabitPayload {
   description: string
 }
 
+export interface CreateHabitPayload {
+  title: string
+  description: string
+  category: string
+}
+
+export interface ApiHabit {
+  title: string
+  description: string
+  category: string
+  _id: string
+}
+
 interface CreateUserResponse {
   user: {
     name: string
@@ -50,8 +63,8 @@ interface AddGoalPayload {
 }
 
 interface UpdateGoalPayload {
-  title: string;
-  completed: boolean;
+  title?: string;
+  completed?: boolean;
 }
 
 
@@ -70,10 +83,10 @@ export const getAllHabits = async (token?: string) => {
   }
 }
 
-export const saveHabitToDatabase = async (newHabit: Habit, token?: string) => {
+export const saveHabitToDatabase = async (newHabit: CreateHabitPayload, token?: string) => {
   try {
     let options = formatHeader(token)
-    const { data } = await instance.post(`/habit/`, newHabit, options)
+    const { data } = await instance.post<ApiHabit>(`/habit/`, newHabit, options)
     return data
   } catch (error) {
     console.error('Erro ao salvar o hábito no banco de dados', error)
