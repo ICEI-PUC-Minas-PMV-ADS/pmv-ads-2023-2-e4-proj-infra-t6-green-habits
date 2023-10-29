@@ -3,9 +3,10 @@
 import { Button } from '@/components/atoms/Button'
 import { Icon } from '@/components/atoms/Icon'
 import { Input } from '@/components/molecules/Input'
-import { updateHabitById } from '@/services/controllers/user'
-import { useEffect, useState } from 'react'
+import { getAllHabits, updateHabitById } from '@/services/controllers/user'
+import { Dispatch, SetStateAction, useEffect, useState } from 'react'
 import styles from './styles.module.scss'
+import { Habit } from '@/components/organisms/HabitsWrapper'
 
 interface EditHabitModalProps {
   show: boolean
@@ -13,6 +14,9 @@ interface EditHabitModalProps {
   habit: EditableHabit
   habitId: string
   token: string
+  setUserHabits: Dispatch<SetStateAction<Habit[]>>
+  setIsHovered: Dispatch<SetStateAction<boolean>>
+  setIsTabFocused: Dispatch<SetStateAction<boolean>>
 }
 
 export interface EditableHabit {
@@ -26,6 +30,9 @@ export const EditHabitModal = ({
   habit,
   habitId,
   token,
+  setUserHabits,
+  setIsHovered,
+  setIsTabFocused
 }: EditHabitModalProps) => {
   const [title, setTitle] = useState<string>(habit.title)
   const [description, setDescription] = useState<string>(habit.description)
@@ -40,8 +47,12 @@ export const EditHabitModal = ({
       const updateHabitPayload = { title, description }
       await updateHabitById(habitId, updateHabitPayload, token)
       onHide()
-
-      window.location.reload();
+      setIsHovered(false)
+      setIsTabFocused(false)
+      
+      const updatedUserHabits = await getAllHabits(token)
+      setUserHabits(updatedUserHabits)
+      onHide()
     } catch (error) {
       console.error('Erro ao atualizar hábito no banco de dados:', error)
     }

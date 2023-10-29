@@ -192,6 +192,9 @@ export const HabitCard = ({
             habit={{ title, description }}
             habitId={habitId}
             token={token}
+            setUserHabits={setUserHabits}
+            setIsHovered={setIsHovered}
+            setIsTabFocused={setIsTabFocused}
           />
         )}
       </article>
