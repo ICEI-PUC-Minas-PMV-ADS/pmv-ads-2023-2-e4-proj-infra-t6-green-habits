@@ -175,7 +175,7 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 |RF-001| O sistema deve permitir que os usuários se registrem com um nome de usuário e senha | ALTA | 
 |RF-002 | Os usuários autenticados devem poder gerenciar seus hábitos sustentáveis, o que inclui a criação de novos hábitos, a visualização e edição de hábitos existentes, bem como a exclusão de hábitos indesejados | ALTA |
 |RF-003| O sistema deve exibir uma lista de hábitos sustentáveis existentes para os usuários | ALTA |
-|RF-004| Os usuários devem poder definir metas pessoais para a quantidade de hábitos sustentáveis que desejam completar | ALTA |
+|RF-004| Os usuários devem poder definir metas pessoais | ALTA |
 |RF-005| Os usuários devem poder visualizar o progresso alcançado em cada meta definida | ALTA |
 |RF-006| Os hábitos sustentáveis devem ser categorizados com base em atributos como nome, descrição e categoria   | MÉDIA |
 |RF-007| Os usuários devem poder filtrar os hábitos por categorias específicas  | MÉDIA |
