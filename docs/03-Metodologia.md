@@ -8,7 +8,7 @@
 | Ambiente                 | Plataforma         | Link de Acesso |
 |--------------------------|--------------------|----------------|
 | Desenvolvimento          | VS Code            | - |
-| Design                   | Figma              | [Figma - Design System do 'Green Habits'](https://www.figma.com/file/M9NmHqHqGw7PyFxhW7LnOh/Green-Habits-(public)?type=design&node-id=0-1&mode=design)|
+| Design                   | Figma              | |
 | Gerenciamento de Fluxo   | Kanban no GitHub   |  [Kanban](https://github.com/orgs/ICEI-PUC-Minas-PMV-ADS/projects/524)  |
 
 
