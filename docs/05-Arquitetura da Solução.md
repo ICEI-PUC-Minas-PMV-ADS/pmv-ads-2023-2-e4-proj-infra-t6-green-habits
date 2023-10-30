@@ -5,63 +5,22 @@ A arquitetura da aplicação consistirá em duas plataformas distintas: uma inte
 Esta API será implementada de modo a permitir que os usuários criem, leiam, excluam e editem seus hábitos pessoais. Tanto o backend quanto o front-end serão hospedados na plataforma Fly.io, garantindo escalabilidade e alta disponibilidade para a aplicação, além de simplificar o processo de implantação e manutenção da infraestrutura. Essa arquitetura modular e escalável permitirá que os usuários acessem a aplicação de forma eficiente tanto na web quanto em dispositivos móveis, mantendo uma experiência de usuário consistente em ambas as plataformas.
 
 A API terá como principais rotas:
-- `POST /user/`
+- `POST /users/`
   - Rota que cria novos usuários a partir de email, nome e senha
-    
-    Exemplo de corpo da request:
-```json
-{
-    "name": "joao",
-    "email": "joao@123test.com",
-    "password": "teste"
-}
-```
-
-- `POST /login`
-  - Rota que loga usuarios a partir de login e senha, retornando um JWT
-    
-    Exemplo de corpo da request:
-```json
-{
-      "email": "joao@123test.com",
-      "password": "teste"
-}
-  ```
   
-- `POST /habit/`
+- `POST /users/{id}/habits`
   - Rota que adiciona um hábito a lista de hábitos do usuário
-    
-    Exemplo de corpo da request:
-```json
-{
-    "title": "titulo 123 teste",
-    "description": "descricao3456"
-}
-```
 
-- `DELETE /habit/{id}`
+- `DELETE /users/{id}/habits/{id}`
   - Rota que deleta um hábito do usuário
 
-- `GET /habit/`
+- `GET /users/{id}/habits/`
   - Rota que lista os hábitos do usuário
 
-
-- `PATCH /habit/{id}`
+- `UPDATE /users/{id}/habits/{id}`
   - Rota que atualiza informações de um hábito do usuário
-  - 
-    Exemplo de corpo da request:
-```json
-{
-    "title": "titulo 123 teste",
-    "description": "descricao3456"
-}
-```
+ 
 
-| Arquitetura Distribuída |
-|:---:|
-| <video src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e4-proj-infra-t6-green-habits/assets/81396458/d833a314-d0c9-40e0-bb77-675012530827">   |
-
-  
 ## Diagrama de Classes
 
 ![image](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e4-proj-infra-t6-green-habits/assets/103083123/d0b56bd1-d83e-4a2a-90a7-0d16f63fcc57)
@@ -152,23 +111,6 @@ export const HabitModel = mongoose.model<Habit>('Habit', HabitSchema);
 - Frontend (mobile): React Native
 
 O backend armazenará os dados em um banco NoSQL (MongoDB) baseado em nuvem (Atlas). As principais entidades da aplicação serão os usuários e hábitos, que serão estruturados da seguinte forma:
-
-### Banco de Dados
-
-O Banco de Dados MongoDB foi criado através da plataforma "MongoDB Atlas", que é um serviço de banco de dados gerenciado oferecido pela MongoDB, Inc. É uma plataforma de banco de dados como serviço (DBaaS) baseada na nuvem que facilita a criação, implantação e gerenciamento de bancos de dados MongoDB sem a necessidade de configurar e manter a infraestrutura de servidor subjacente. Para a aplicação do Green Habits, a infraestrutura do cluster utiliza a nuvem da AWS, contando com 3 nós de replicação na região de Virgínia:
-
-![Banco de Dados](img/bd.png)
-
-Inicialmente, foram criadas as collections de users e habits. A collection de habits foi populada com um conjunto de dados amostrais de 50 documentos do tipo JSON. Os hábitos adicionados pertencem às seguintes categorias:
-
-- Consumo Sustentável
-- Energia
-- Reciclagem
-- Água
-- Transporte
-- Alimentação
-- Conservação
-- Conscientização
 
 ### Estrutura da base de dados
 Por utilizarmos o MongoDB para a base de dados, o esquema dos dados não utiliza de artefatos como chaves primárias e estrangeiras, fazendo com que a aplicação seja flexível ao salvar dados de maneira não-relacional.
