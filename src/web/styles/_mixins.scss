@@ -1,0 +1,226 @@
+@mixin text() {
+  font-size: 1.6rem;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 160%;
+
+  @include screen-size('tablet') {
+    font-size: 2rem;
+    line-height: 170%;
+  }
+
+  @include screen-size('desktop') {
+    font-size: 2.4rem;
+    line-height: 180%;
+  }
+}
+
+@mixin largeText() {
+  font-size: 2rem;
+  font-weight: 300;
+  line-height: 120%;
+  font-style: normal;
+  color: $gray;
+
+  @include screen-size('tablet') {
+    font-size: 2.8rem;
+    line-height: 155%;
+  }
+
+  @include screen-size('desktop') {
+    line-height: 190%;
+    font-size: 3.6rem;
+  }
+}
+
+@mixin cardTitle() {
+  font-size: 2.4rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  color: $white;
+
+  @include screen-size('desktop') {
+    font-size: 3.2rem;
+  }
+}
+
+@mixin cardText() {
+  font-size: 1.2rem;
+  color: $white;
+  @include screen-size('desktop') {
+    font-size: 1.8rem;
+  }
+}
+
+@mixin colors() {
+  &--black {
+    color: $black;
+  }
+
+  &--white {
+    color: $white;
+  }
+
+  &--gray {
+    color: $gray;
+  }
+
+  &--dark-green {
+    color: $dark-green;
+  }
+
+  &--green {
+    color: $green;
+  }
+
+  &--lime-green {
+    color: $lime-green;
+  }
+
+  &--light-green {
+    color: $light-green;
+  }
+
+  &--orange {
+    color: $orange;
+  }
+}
+
+@mixin align() {
+  &--left {
+    text-align: left;
+  }
+
+  &--right {
+    text-align: right;
+  }
+
+  &--center {
+    text-align: center;
+  }
+}
+
+@mixin weight() {
+  &--300 {
+    font-weight: 275;
+  }
+
+  &--400 {
+    font-weight: 400;
+  }
+
+  &--500 {
+    font-weight: 500;
+  }
+
+  &--600 {
+    font-weight: 600;
+  }
+
+  &--700 {
+    font-weight: 700;
+  }
+}
+
+@mixin button() {
+  width: -webkit-fill-available;
+  height: 5rem;
+  color: $white;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: normal;
+  transition: all 0.3s ease;
+}
+
+@mixin fill() {
+  &--black {
+    fill: $black;
+  }
+
+  &--white {
+    fill: $white;
+  }
+
+  &--gray {
+    fill: $gray;
+  }
+
+  &--dark-green {
+    fill: $dark-green;
+  }
+
+  &--green {
+    fill: $green;
+  }
+
+  &--lime-green {
+    fill: $lime-green;
+  }
+
+  &--light-green {
+    fill: $light-green;
+  }
+
+  &--orange {
+    fill: $orange;
+  }
+}
+
+@mixin backgroundColor() {
+  &--dark-green {
+    background-color: $dark-green;
+
+    input:-webkit-autofill,
+    textarea:-webkit-autofill,
+    select:-webkit-autofill {
+      -webkit-box-shadow: 0 0 0 1000px $dark-green inset !important;
+      -webkit-text-fill-color: $white !important;
+    }
+  }
+
+  &--green {
+    background-color: $green;
+
+    input:-webkit-autofill,
+    textarea:-webkit-autofill,
+    select:-webkit-autofill {
+      -webkit-box-shadow: 0 0 0 1000px $green inset !important;
+      -webkit-text-fill-color: $white !important;
+    }
+  }
+
+  &--white {
+    background-color: $white;
+
+    input:-webkit-autofill,
+    textarea:-webkit-autofill,
+    select:-webkit-autofill {
+      -webkit-box-shadow: 0 0 0 1000px $white inset !important;
+      -webkit-text-fill-color: $dark-green !important;
+    }
+  }
+
+  &--gray {
+    background-color: $gray;
+
+    input:-webkit-autofill,
+    textarea:-webkit-autofill,
+    select:-webkit-autofill {
+      -webkit-box-shadow: 0 0 0 1000px $gray inset !important;
+      -webkit-text-fill-color: $white !important;
+    }
+  }
+}
+
+@mixin layout() {
+  display: grid;
+  padding: 4rem 1.8rem 0;
+  gap: 4rem;
+
+  @include screen-size('desktop') {
+    margin: 0 auto;
+    max-width: 144rem;
+    padding: 4rem 10.9rem;
+  }
+}

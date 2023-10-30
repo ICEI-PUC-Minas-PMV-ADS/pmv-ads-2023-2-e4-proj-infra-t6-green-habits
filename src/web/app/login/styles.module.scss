@@ -1,0 +1,11 @@
+.login {
+  &__header {
+    @include layout();
+    padding-top: 0 !important;
+    gap: 0 !important;
+  }
+
+  &__banner {
+    margin-top: 4rem;
+  }
+}

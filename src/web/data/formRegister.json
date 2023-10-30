@@ -1,0 +1,35 @@
+[
+  {
+    "id": "name",
+    "label": "Nome",
+    "placeholder": "Daisy Jones",
+    "type": "text",
+    "icon": "heart",
+    "isTextarea": false,
+    "validation": {
+      "required": "Você se esqueceu de preencher o seu nome, mas este é um campo obrigatório."
+    }
+  },
+  {
+    "id": "email",
+    "label": "Email",
+    "placeholder": "daisy.jones@mail.com",
+    "type": "email",
+    "icon": "tulip",
+    "isTextarea": false,
+    "validation": {
+      "required": "Você se esqueceu de preencher o seu email ou inseriu uma conta inválida."
+    }
+  },
+  {
+    "id": "password",
+    "label": "Senha",
+    "placeholder": "********",
+    "type": "password",
+    "icon": "pencil",
+    "isTextarea": false,
+    "validation": {
+      "required": "Você se esqueceu de criar uma senha."
+    }
+  }
+]

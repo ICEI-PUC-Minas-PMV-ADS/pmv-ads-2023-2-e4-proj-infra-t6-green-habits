@@ -1,0 +1,72 @@
+.goal {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  min-height: 10rem;
+  padding: 2rem;
+  gap: 2rem;
+  border-radius: 0.8rem;
+  background-color: $gray;
+  cursor: pointer;
+
+  @include screen-size('desktop') {
+    min-height: 20rem;
+  }
+
+  &__input {
+    position: absolute;
+    height: 0;
+    width: 0;
+
+    & + p::before {
+      content: '';
+      position: absolute;
+      width: 2rem;
+      height: 2rem;
+      border: 0.3rem solid $dark-green;
+      border-radius: 50%;
+      background-color: transparent;
+      opacity: 1;
+      margin: 0.4rem 2rem 0 0;
+    }
+
+    &:checked + p::before {
+      background-color: $green;
+      border: 0.3rem solid $green;
+    }
+  }
+
+  &__container {
+    color: $white;
+  }
+
+  &__text {
+    margin-left: 6rem;
+    line-height: 200%;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.4rem;
+
+    @include screen-size('tablet') {
+      font-size: 1.6rem;
+    }
+
+    @include screen-size('desktop') {
+      font-size: 1.8rem;
+    }
+  }
+
+  &__input:checked + &__container .goal__text {
+    text-decoration: line-through;
+  }
+
+  &__button {
+    width: 3rem !important;
+    height: 3rem !important;
+  }
+
+  &__editing {
+    @extend .goal__container, .goal__text;
+    width: -webkit-fill-available;
+  }
+}

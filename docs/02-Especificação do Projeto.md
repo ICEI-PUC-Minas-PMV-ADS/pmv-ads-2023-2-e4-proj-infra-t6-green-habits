@@ -26,30 +26,132 @@ Com base na análise das personas forma identificadas as seguintes histórias de
 | Eu, Lucas, desejando impactar a comunidade	| quero verificar o progresso das metas e desafios	| para manter-me responsável pelo meu próprio comprometimento |
 | Eu, Ana, como mãe de dois filhos | quero criar desafios sustentáveis envolvendo toda a família	| para fomentar hábitos sustentáveis desde cedo e manter o engajamento |
 | Eu, Ana, buscando ambiente saudável	| preciso estabelecer metas mensuráveis e práticas	| para ensinar responsabilidade ambiental aos filhos de forma eficaz |
-| Eu, Bruno, como desenvolvedor	| quero criar desafios que incentivem meu estilo de vida sustentáve	| para encontrar maneiras criativas de manter o compromisso com a sustentabilidade |
+| Eu, Bruno, como desenvolvedor	| quero criar desafios que incentivem meu estilo de vida sustentável	| para encontrar maneiras criativas de manter o compromisso com a sustentabilidade |
 
 
 ## Modelagem do Processo de Negócio 
 
 ### Análise da Situação Atual
 
-Apresente aqui os problemas existentes que viabilizam sua proposta. Apresente o modelo do sistema como ele funciona hoje. Caso sua proposta seja inovadora e não existam processos claramente definidos, apresente como as tarefas que o seu sistema pretende implementar são executadas atualmente, mesmo que não se utilize tecnologia computacional. 
+Analisando o cenário atual, identificamos alguns problemas pelos quais nossos futuros usuários passam e que justificariam a construção do nosso sistema. São eles:
+
+- Sobrecarga de Informação: há uma clara saturação de informações, tornando difícil para os usuários identificar e absorver detalhes relevantes sobre práticas sustentáveis. A falta de direcionamento para informações baseadas em evidências é uma barreira significativa para a adoção de práticas sustentáveis eficazes;
+
+- Inconsistência e Falta de Motivação: mesmo com intenções positivas, a manutenção da consistência e a motivação para adotar hábitos sustentáveis pode ser um desafio devido à ausência de incentivos e planos adaptáveis;
+
+- Dificuldade de Personalização: existe uma necessidade não atendida por soluções que permitam a personalização de desafios e metas para refletir aspirações individuais;
+
+- Falta de Acompanhamento: a ausência de ferramentas para rastrear e monitorar o progresso em direção a objetivos sustentáveis pode reduzir o comprometimento e a sensação de realização dos usuários;
+
+- Indefinição de Metas Mensuráveis: sem objetivos claros e quantificáveis, torna-se desafiador para os usuários avaliar a eficácia de suas ações e o progresso em direção a um estilo de vida sustentável;
+
+- Desconexão entre Reconhecimento e Ação: embora a sustentabilidade seja reconhecida como essencial, há um notável descompasso entre esse reconhecimento e a adoção de ações práticas sustentáveis.
+
+Dado este contexto, a aplicação “Green Habits” torna-se necessária ao incluir hábitos sustentáveis na rotina dos usuários, permitindo o acompanhamento e engajamento coletivo e individual na adoção de práticas ecológicas, contribuindo para um estilo de vida mais responsável ambientalmente.
+
 
 ### Descrição Geral da Proposta
 
-Apresente aqui uma descrição da sua proposta abordando seus limites e suas ligações com as estratégias e objetivos do negócio. Apresente aqui as oportunidades de melhorias.
+#### Visão Geral: 
 
-### Processo 1 – NOME DO PROCESSO
+A aplicação "Green Habits" surge como uma solução integrada para os desafios enfrentados por aqueles que buscam adotar práticas sustentáveis. Ao abordar o problema da sobrecarga de informação, o sistema destila conteúdo vasto e complexo, oferecendo aos usuários apenas aquilo que é mais relevante para eles. Esse refinamento ajuda não apenas a evitar o excesso de dados, mas também a garantir que a informação chegue de forma eficaz ao usuário.
 
-Apresente aqui o nome e as oportunidades de melhorias para o processo 1. Em seguida, apresente o modelo do processo 1, descrito no padrão BPMN. 
+Uma das grandes barreiras ao adotar práticas sustentáveis é a inconsistência e a falta de motivação ao longo do tempo. A "Green Habits" procura contornar esse obstáculo ao introduzir mecanismos que incentivem a continuidade e o engajamento, tornando a jornada de adoção desses hábitos mais motivadora e menos desafiadora. Essa abordagem é complementada pela capacidade do sistema de personalizar a experiência do usuário, o que significa que desafios e metas podem ser adaptados para atender às aspirações e necessidades individuais. O acompanhamento consistente é vital para manter o compromisso com os objetivos, e com o nosso sistema, o rastreamento e o monitoramento do progresso tornam-se mais acessíveis. Isso não só reforça o compromisso do usuário, mas também proporciona uma sensação de realização. 
 
-![Processo 1](img/02-bpmn-proc1.png)
+A indefinição de metas mensuráveis muitas vezes desanima os usuários, pois eles não conseguem visualizar o impacto real de suas ações. A "Green Habits" aborda essa questão, facilitando a definição de objetivos claros e quantificáveis. Ao fazer isso, ele não apenas conecta o reconhecimento da importância da sustentabilidade com ações práticas, mas também fornece uma orientação bem fundamentada, garantindo que os usuários estejam bem informados e capacitados em sua jornada para um estilo de vida mais sustentável. Em sua essência, o "Green Habits" promove uma mudança real, preenchendo as lacunas existentes no caminho para um futuro mais verde e sustentável.
 
-### Processo 2 – NOME DO PROCESSO
+#### Limites do Sistema:
 
-Apresente aqui o nome e as oportunidades de melhorias para o processo 2. Em seguida, apresente o modelo do processo 2, descrito no padrão BPMN.
+O sistema se concentra em práticas sustentáveis individuais e coletivas, não atendendo demandas de grandes corporações ou governamentais.
+A plataforma não substitui a consultoria especializada em sustentabilidade, mas sim complementa com informações e ferramentas práticas.
 
-![Processo 2](img/02-bpmn-proc2.png)
+#### Ligação com as Estratégias e Objetivos do Negócio:
+
+Informações Filtradas e Relevantes: Abordando a necessidade de acesso a informações concisas, o sistema oferecerá conteúdo atualizado e curado para os usuários, evitando sobrecarga informativa e favorecendo decisões eficazes.
+
+Plano de Ação Personalizado: Reconhecendo a dificuldade que alguns indivíduos têm de encontrar tempo e motivação, a plataforma permitirá a criação de planos adaptáveis, alinhados com a realidade e objetivos do usuário.
+
+O sistema possibilitará aos usuários estabelecer, rastrear e ajustar desafios e metas, incentivando um compromisso contínuo com a sustentabilidade.
+
+#### Monetização:
+
+Uma estratégia de monetização deve estar alinhada com os valores e objetivos da aplicação, além de oferecer valor real aos usuários. É importante manter um equilíbrio entre a geração de receita e a experiência positiva do usuário. Podemos considerar as seguintes estratégias:
+
+- Publicidade Sustentável: exibir anúncios de empresas ou produtos ecologicamente corretos no aplicativo, garantindo que esses anúncios estejam alinhados com a missão de sustentabilidade do aplicativo;
+  
+- Parcerias com Empresas Sustentáveis: construir parcerias com as empresas que compartilham os valores de sustentabilidade  para promover seus produtos ou serviços entre os usuários em troca de comissões ou taxas de parceria;
+
+- Programa de Recompensas por Metas Alcançadas: empresas parceiros patrocinadoras podem oferecer recompensas ou descontos aos usuários que atingirem metas ecológicas específicas dentro da aplicação.
+
+
+### Processo 1 – Registro e Autenticação
+
+Evento de Início: Um novo usuário deseja acessar o sistema.
+Tarefa (RF-001): O usuário se registra com um nome de usuário e senha.
+Evento de Fim: O usuário agora pode acessar o sistema usando suas credenciais.
+
+![Processo 1](img/p1.png)
+
+### Processo 2 –  Personalização e Educação Sustentável:
+
+Evento de Início: Um usuário deseja aprender sobre práticas sustentáveis.
+Tarefa: Filtragem de informações.
+Decisão/Gateway Exclusivo: O usuário deseja um plano adaptável?
+  Se sim, leva a Tarefa: Criação de plano de ação personalizado.
+  Se não, avança para a próxima etapa.
+Tarefa: Fornecimento de materiais educacionais e diretrizes.
+Evento de Fim.
+
+![Processo 2](img/p2.png)
+
+### Processo 3 –  Engajamento e Monitoramento:
+
+Evento de Início: Usuário deseja criar ou acompanhar desafios sustentáveis.
+Tarefa: Criação de desafios.
+Tarefa: Monitoramento de progresso.
+Decisão/Gateway Exclusivo: O usuário completou um desafio?
+  Se sim, leva a Tarefa: Feedback e Reconhecimento.
+  Se não, retorna para a tarefa de Monitoramento de progresso.
+Evento de Fim.
+
+![Processo 3](img/p3.png)
+
+### Processo 4 –  Gerenciamento de Hábitos Sustentáveis:
+
+Evento de Início: Usuário autenticado deseja gerenciar seus hábitos sustentáveis.
+Tarefa (RF-003): Visualização de lista de hábitos sustentáveis existentes.
+Tarefa (RF-002): Criação de novos hábitos.
+Tarefa (RF-007): Filtrar os hábitos por categorias específicas.
+Tarefa (RF-008): Alteração de atributos dos hábitos existentes.
+Tarefa (RF-002): Exclusão de hábitos indesejados.
+Evento de Fim: Hábitos sustentáveis atualizados com sucesso.
+
+![Processo 4](img/p4.png)
+
+### Processo 5 –  Definição, Monitoramento e Ajuste de Metas Pessoais:
+
+Evento de Início: Usuário autenticado deseja definir ou monitorar metas.
+Tarefa (RF-004): Definição de metas pessoais com relação à quantidade de hábitos sustentáveis.
+Tarefa (RF-010): Pareamento entre metas definidas e hábitos sustentáveis existentes.
+Decisão/Gateway Exclusivo: A meta foi alcançada?
+Tarefa (RF-009): Verificação diária das metas.
+  Se sim, Tarefa (RF-005): Visualização do progresso alcançado em cada meta.
+  Se não, retorna à tarefa de definição ou ajuste de metas.
+Evento de Fim: Progresso das metas visualizado e/ou metas ajustadas com sucesso.
+
+![Processo 5](img/p5.png)
+
+### Processo 6 –  Engajamento através de Rankings e Sugestões:
+
+Evento de Início: Usuário autenticado deseja verificar seu desempenho ou receber sugestões.
+Tarefa (RF-011): Visualização do ranking de categorias de hábitos sustentáveis baseado no número de hábitos concluídos por todos os usuários.
+Tarefa (RF-012): Acesso ao ranking pessoal mostrando categorias de hábitos mais e menos ativas.
+Decisão/Gateway Exclusivo: O usuário tem categorias menos exploradas?
+Se sim, Tarefa (RF-013): Sistema sugere focar em categorias menos exploradas.
+Evento de Fim: Usuário engajado através de insights do ranking e sugestões.
+
+![Processo 6](img/p6.png)
+
 
 ## Indicadores de Desempenho
 
@@ -71,18 +173,16 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 |ID    | Descrição do Requisito  | Prioridade |
 |------|-----------------------------------------|----|
 |RF-001| O sistema deve permitir que os usuários se registrem com um nome de usuário e senha | ALTA | 
-|RF-002 | Os usuários autenticados devem poder gerenciar seus hábitos sustentáveis, o que inclui a criação de novos hábitos, a visualização e edição de hábitos existentes, bem como a exclusão de hábitos indesejados | ALTA |
+|RF-002 | Os usuários autenticados devem poder gerenciar seus hábitos sustentáveis, o que inclui a criação de novos hábitos, a visualização e a edição de hábitos existentes, bem como a exclusão de hábitos indesejados | ALTA |
 |RF-003| O sistema deve exibir uma lista de hábitos sustentáveis existentes para os usuários | ALTA |
-|RF-004| Os usuários devem poder definir metas pessoais para a quantidade de hábitos sustentáveis que desejam completar em um período específico | ALTA |
+|RF-004| Os usuários autenticados devem poder gerenciar metas para atingir seus hábitos sustentáveis, o que inclui a criação de novas metas, a visualização e a edição de metas existentes, bem como a exclusão de metas indesejadas. | ALTA |
 |RF-005| Os usuários devem poder visualizar o progresso alcançado em cada meta definida | ALTA |
 |RF-006| Os hábitos sustentáveis devem ser categorizados com base em atributos como nome, descrição e categoria   | MÉDIA |
 |RF-007| Os usuários devem poder filtrar os hábitos por categorias específicas  | MÉDIA |
 |RF-008| Os usuários devem poder alterar os hábitos existentes, mudando atributos como categoria, descrição e título | MÉDIA |
-|RF-009| O sistema deve realizar uma verificação diária para determinar se uma meta já foi alcançada  | MÉDIA |
-|RF-010| O sistema deve realizar o pareamento entre metas e hábitos, tornando cada meta relacionada a pelo menos um hábito | MÉDIA |
-|RF-011| O sistema deve exibir um ranking de categorias de hábitos sustentáveis com base no número de hábitos concluídos pelos usuários | BAIXA |
-|RF-012| Os usuários devem acessar um ranking pessoal que mostre suas categorias de hábitos mais e menos ativas | BAIXA |
-|RF-013| Com base no ranking pessoal, o sistema deve sugerir o foco em categorias menos exploradas para incentivar a diversificação dos hábitos sustentáveis dos usuários | BAIXA |
+|RF-09| O sistema deve exibir um ranking de categorias de hábitos sustentáveis com base no número de hábitos adicionados pelos usuários | BAIXA |
+|RF-010| Os usuários devem acessar um ranking pessoal que mostre suas categorias de hábitos mais e menos adicionadas | BAIXA |
+|RF-011| Com base no ranking pessoal, o sistema deve sugerir o foco em categorias menos adicionadas para incentivar a diversificação dos hábitos sustentáveis dos usuários | BAIXA |
 
 
 ### Requisitos não Funcionais
@@ -110,14 +210,8 @@ O projeto está restrito pelos itens apresentados na tabela a seguir.
 
 ## Diagrama de Casos de Uso
 
-(img/Casos-de-Uso.jpg)
+![Casos de Uso](img/Diagrama-de-Uso.jpg)
 
-> **Links Úteis**:
-> - [Criando Casos de Uso](https://www.ibm.com/docs/pt-br/elm/6.0?topic=requirements-creating-use-cases)
-> - [Como Criar Diagrama de Caso de Uso: Tutorial Passo a Passo](https://gitmind.com/pt/fazer-diagrama-de-caso-uso.html/)
-> - [Lucidchart](https://www.lucidchart.com/)
-> - [Astah](https://astah.net/)
-> - [Diagrams](https://app.diagrams.net/)
 
 # Matriz de Rastreabilidade
 

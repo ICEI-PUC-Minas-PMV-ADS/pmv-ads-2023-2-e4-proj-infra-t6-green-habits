@@ -1,0 +1,43 @@
+[
+    {
+      "category": "Clima",
+      "text": "A atividade humana, incluindo a queima de combustíveis fósseis e desmatamento, é a principal causa do aumento das concentrações de dióxido de carbono na atmosfera, levando ao aquecimento global e mudanças climáticas."
+    },
+    {
+      "category": "Biodiversidade",
+      "text": "Estamos vivenciando uma taxa de extinção de espécies muito mais alta do que a taxa natural, devido principalmente à degradação do habitat, poluição e mudanças climáticas. A biodiversidade é crucial para a saúde e estabilidade dos ecossistemas."
+    },
+    {
+      "category": "Resíduos",
+      "text": "O adequado gerenciamento de resíduos, incluindo a reciclagem, é fundamental para reduzir a quantidade de resíduos enviados para aterros sanitários e minimizar a poluição ambiental."
+    },
+    {
+      "category": "Água",
+      "text": "O uso insustentável da água está levando à escassez em muitas regiões do mundo. É essencial promover a conservação da água e práticas de gestão sustentável."
+    },
+    {
+      "category": "Energia",
+      "text": "Investir e migrar para fontes de energia renovável, como solar, eólica e hidrelétrica, é vital para reduzir a dependência de combustíveis fósseis e mitigar as mudanças climáticas."
+    },
+    {
+      "category": "Agricultura",
+      "text": "Práticas agrícolas sustentáveis, como agricultura de conservação e cultivo de alimentos orgânicos, podem melhorar a saúde do solo, reduzir a erosão e minimizar o uso de produtos químicos nocivos."
+    },
+    {
+      "category": "Eficiência",
+      "text": "Aumentar a eficiência energética em edifícios, transporte e indústrias pode reduzir significativamente o consumo de energia e as emissões de gases de efeito estufa."
+    },
+    {
+      "category": "Mobilidade",
+      "text": "Promover o uso de transporte público, bicicletas e veículos elétricos contribui para a redução das emissões de carbono e a melhoria da qualidade do ar."
+    },
+    {
+      "category": "Educação",
+      "text": "A educação e a conscientização pública sobre questões ambientais são fundamentais para promover a sustentabilidade e adotar comportamentos mais responsáveis."
+    },
+    {
+      "category": "Economia",
+      "text": "A transição para uma economia circular, onde os recursos são reutilizados, reciclados e minimizados, é essencial para reduzir o desperdício e promover a sustentabilidade a longo prazo."
+    }
+  ]
+  

@@ -1,0 +1,624 @@
+[{
+  "_id": {
+    "$oid": "6519c8e9f3ef7e1ed60809f4"
+  },
+  "title": "Usar eletrodomésticos eficientes em termos de energia",
+  "description": "Escolher aparelhos com baixo consumo de energia",
+  "category": "Energia",
+  "created_at": "2023-10-21",
+  "deleted_at": null,
+  "target_streak": 3,
+  "days_checked": null
+},
+{
+  "_id": {
+    "$oid": "6519c8e9f3ef7e1ed60809fd"
+  },
+  "title": "Reduzir o desperdício de alimentos",
+  "description": "Planejar refeições para evitar o desperdício de alimentos",
+  "category": "Alimentação",
+  "created_at": "2023-10-30",
+  "deleted_at": null,
+  "target_streak": 5,
+  "days_checked": null
+},
+{
+  "_id": {
+    "$oid": "6519c8e9f3ef7e1ed60809e4"
+  },
+  "title": "Evitar o uso excessivo de ar condicionado",
+  "description": "Economize energia e reduza as emissões de CO2",
+  "category": "Energia",
+  "created_at": "2023-10-05",
+  "deleted_at": null,
+  "target_streak": 2,
+  "days_checked": null
+},
+{
+  "_id": {
+    "$oid": "6519c8e9f3ef7e1ed60809e1"
+  },
+  "title": "Consumir menos produtos de moda de rápida rotação",
+  "description": "Opte por roupas de qualidade e duradouras",
+  "category": "Consumo Sustentável",
+  "created_at": "2023-10-02",
+  "deleted_at": null,
+  "target_streak": 2,
+  "days_checked": null
+},
+{
+  "_id": {
+    "$oid": "6519c8e9f3ef7e1ed60809f9"
+  },
+  "title": "Apagar luzes ao sair de um cômodo",
+  "description": "Economizar energia ao apagar luzes desnecessárias",
+  "category": "Energia",
+  "created_at": "2023-10-26",
+  "deleted_at": null,
+  "target_streak": 1,
+  "days_checked": null
+},
+{
+  "_id": {
+    "$oid": "6519c8e9f3ef7e1ed6080a02"
+  },
+  "title": "Fazer reparos em vez de substituir",
+  "description": "Consertar itens quebrados em vez de descartá-los",
+  "category": "Consumo Sustentável",
+  "created_at": "2023-11-04",
+  "deleted_at": null,
+  "target_streak": 4,
+  "days_checked": null
+},
+{
+  "_id": {
+    "$oid": "6519c8e9f3ef7e1ed6080a0a"
+  },
+  "title": "Trocar os filtros de ar regularmente",
+  "description": "Manter a eficiência energética no sistema de aquecimento e ar condicionado",
+  "category": "Energia",
+  "created_at": "2023-11-12",
+  "deleted_at": null,
+  "target_streak": 1,
+  "days_checked": null
+},
+{
+  "_id": {
+    "$oid": "6519c8e9f3ef7e1ed6080a13"
+  },
+  "title": "Educar-se sobre as questões ambientais e apoiar políticas sustentáveis",
+  "description": "Mantenha-se informado e envolvido em questões ambientais",
+  "category": "Conscientização",
+  "created_at": "2023-11-21",
+  "deleted_at": null,
+  "target_streak": 3,
+  "days_checked": null
+},
+{
+  "_id": {
+    "$oid": "6519c8e9f3ef7e1ed60809f5"
+  },
+  "title": "Comprar produtos de empresas sustentáveis",
+  "description": "Escolher produtos de empresas comprometidas com a sustentabilidade",
+  "category": "Consumo Sustentável",
+  "created_at": "2023-10-22",
+  "deleted_at": null,
+  "target_streak": 4,
+  "days_checked": null
+},
+{
+  "_id": {
+    "$oid": "6519c8e9f3ef7e1ed60809f8"
+  },
+  "title": "Usar roupas de segunda mão",
+  "description": "Comprar roupas de segunda mão para reduzir o desperdício",
+  "category": "Consumo Sustentável",
+  "created_at": "2023-10-25",
+  "deleted_at": null,
+  "target_streak": 2,
+  "days_checked": null
+},
+{
+  "_id": {
+    "$oid": "6519c8e9f3ef7e1ed6080a0b"
+  },
+  "title": "Plantar árvores no quintal",
+  "description": "Contribuir para a biodiversidade e o sequestro de carbono",
+  "category": "Conservação",
+  "created_at": "2023-11-13",
+  "deleted_at": null,
+  "target_streak": 2,
+  "days_checked": null
+},
+{
+  "_id": {
+    "$oid": "6519c8e9f3ef7e1ed60809e3"
+  },
+  "title": "Utilizar um filtro de água em vez de água engarrafada",
+  "description": "Reduza o consumo de plástico descartável",
+  "category": "Consumo Sustentável",
+  "created_at": "2023-10-04",
+  "deleted_at": null,
+  "target_streak": 1,
+  "days_checked": null
+},
+{
+  "_id": {
+    "$oid": "6519c8e9f3ef7e1ed60809e5"
+  },
+  "title": "Desligar as luzes ao sair de um cômodo",
+  "description": "Reduza o consumo de energia elétrica",
+  "category": "Energia",
+  "created_at": "2023-10-06",
+  "deleted_at": null,
+  "target_streak": 3,
+  "days_checked": null
+},
+{
+  "_id": {
+    "$oid": "6519c8e9f3ef7e1ed60809e6"
+  },
+  "title": "Usar transporte compartilhado, como carros compartilhados",
+  "description": "Reduza o número de veículos nas ruas",
+  "category": "Transporte",
+  "created_at": "2023-10-07",
+  "deleted_at": null,
+  "target_streak": 4,
+  "days_checked": null
+},
+{
+  "_id": {
+    "$oid": "6519c8e9f3ef7e1ed60809e7"
+  },
+  "title": "Reduzir o consumo de plástico descartável",
+  "description": "Evite produtos de plástico de uso único",
+  "category": "Consumo Sustentável",
+  "created_at": "2023-10-08",
+  "deleted_at": null,
+  "target_streak": 5,
+  "days_checked": null
+},
+{
+  "_id": {
+    "$oid": "6519c8e9f3ef7e1ed6080a00"
+  },
+  "title": "Comprar móveis de segunda mão",
+  "description": "Adquirir móveis usados para reduzir o desperdício",
+  "category": "Consumo Sustentável",
+  "created_at": "2023-11-02",
+  "deleted_at": null,
+  "target_streak": 2,
+  "days_checked": null
+},
+{
+  "_id": {
+    "$oid": "6519c8e9f3ef7e1ed6080a08"
+  },
+  "title": "Economizar água ao tomar banhos mais curtos",
+  "description": "Reduzir o consumo de água no banho",
+  "category": "Água",
+  "created_at": "2023-11-10",
+  "deleted_at": null,
+  "target_streak": 5,
+  "days_checked": null
+},
+{
+  "_id": {
+    "$oid": "6519c8e9f3ef7e1ed6080a06"
+  },
+  "title": "Plantar um jardim ou horta em casa",
+  "description": "Cultivar alimentos em casa para reduzir pegada de transporte",
+  "category": "Alimentação",
+  "created_at": "2023-11-08",
+  "deleted_at": null,
+  "target_streak": 3,
+  "days_checked": null
+},
+{
+  "_id": {
+    "$oid": "6519c8e9f3ef7e1ed60809ec"
+  },
+  "title": "Diminuir o consumo de produtos de limpeza químicos",
+  "description": "Usar produtos de limpeza naturais e caseiros",
+  "category": "Consumo Sustentável",
+  "created_at": "2023-10-13",
+  "deleted_at": null,
+  "target_streak": 5,
+  "days_checked": null
+},
+{
+  "_id": {
+    "$oid": "6519c8e9f3ef7e1ed60809e9"
+  },
+  "title": "Participar de campanhas de limpeza ambiental",
+  "description": "Ajude a manter o meio ambiente limpo",
+  "category": "Conservação",
+  "created_at": "2023-10-10",
+  "deleted_at": null,
+  "target_streak": 2,
+  "days_checked": null
+},
+{
+  "_id": {
+    "$oid": "6519c8e9f3ef7e1ed60809ea"
+  },
+  "title": "Reduzir o uso de produtos de beleza com microplásticos",
+  "description": "Escolher produtos de beleza sem microplásticos",
+  "category": "Consumo Sustentável",
+  "created_at": "2023-10-11",
+  "deleted_at": null,
+  "target_streak": 3,
+  "days_checked": null
+},
+{
+  "_id": {
+    "$oid": "6519c8e9f3ef7e1ed60809f3"
+  },
+  "title": "Reduzir o desperdício de papel",
+  "description": "Optar por soluções digitais e reciclagem de papel",
+  "category": "Reciclagem",
+  "created_at": "2023-10-20",
+  "deleted_at": null,
+  "target_streak": 2,
+  "days_checked": null
+},
+{
+  "_id": {
+    "$oid": "6519c8e9f3ef7e1ed60809f7"
+  },
+  "title": "Educar-se sobre as questões ambientais e apoiar políticas sustentáveis",
+  "description": "Mantenha-se informado e envolvido em questões ambientais",
+  "category": "Conscientização",
+  "created_at": "2023-10-24",
+  "deleted_at": null,
+  "target_streak": 1,
+  "days_checked": null
+},
+{
+  "_id": {
+    "$oid": "6519c8e9f3ef7e1ed60809fe"
+  },
+  "title": "Instalar painéis solares",
+  "description": "Usar energia solar em casa",
+  "category": "Energia",
+  "created_at": "2023-10-31",
+  "deleted_at": null,
+  "target_streak": 4,
+  "days_checked": null
+},
+{
+  "_id": {
+    "$oid": "6519c8e9f3ef7e1ed6080a0c"
+  },
+  "title": "Reduzir o consumo de produtos de beleza com microplásticos",
+  "description": "Escolher produtos de beleza sem microplásticos",
+  "category": "Consumo Sustentável",
+  "created_at": "2023-11-14",
+  "deleted_at": null,
+  "target_streak": 4,
+  "days_checked": null
+},
+{
+  "_id": {
+    "$oid": "6519c8e9f3ef7e1ed60809eb"
+  },
+  "title": "Comprar produtos eletrônicos usados ou recondicionados",
+  "description": "Optar por produtos eletrônicos de segunda mão",
+  "category": "Consumo Sustentável",
+  "created_at": "2023-10-12",
+  "deleted_at": null,
+  "target_streak": 4,
+  "days_checked": null
+},
+{
+  "_id": {
+    "$oid": "6519c8e9f3ef7e1ed60809f1"
+  },
+  "title": "Reciclar pilhas e baterias corretamente",
+  "description": "Descartar pilhas e baterias de forma responsável",
+  "category": "Reciclagem",
+  "created_at": "2023-10-18",
+  "deleted_at": null,
+  "target_streak": 5,
+  "days_checked": null
+},
+{
+  "_id": {
+    "$oid": "6519c8e9f3ef7e1ed6080a10"
+  },
+  "title": "Usar eletrodomésticos eficientes em termos de energia",
+  "description": "Optar por aparelhos com classificação energética alta",
+  "category": "Energia",
+  "created_at": "2023-11-18",
+  "deleted_at": null,
+  "target_streak": 1,
+  "days_checked": null
+},
+{
+  "_id": {
+    "$oid": "6519c8e9f3ef7e1ed60809ed"
+  },
+  "title": "Fazer um planejamento energético em casa",
+  "description": "Monitorar e otimizar o consumo de energia em casa",
+  "category": "Energia",
+  "created_at": "2023-10-14",
+  "deleted_at": null,
+  "target_streak": 1,
+  "days_checked": null
+},
+{
+  "_id": {
+    "$oid": "6519c8e9f3ef7e1ed60809fc"
+  },
+  "title": "Utilizar transporte compartilhado",
+  "description": "Optar por caronas e compartilhamento de veículos",
+  "category": "Transporte",
+  "created_at": "2023-10-29",
+  "deleted_at": null,
+  "target_streak": 2,
+  "days_checked": null
+},
+{
+  "_id": {
+    "$oid": "6519c8e9f3ef7e1ed6080a11"
+  },
+  "title": "Comprar produtos de empresas sustentáveis",
+  "description": "Escolher produtos de empresas comprometidas com a sustentabilidade",
+  "category": "Consumo Sustentável",
+  "created_at": "2023-11-19",
+  "deleted_at": null,
+  "target_streak": 4,
+  "days_checked": null
+},
+{
+  "_id": {
+    "$oid": "6519c8e9f3ef7e1ed60809e2"
+  },
+  "title": "Comprar roupas de segunda mão",
+  "description": "Contribua para a reutilização de roupas",
+  "category": "Consumo Sustentável",
+  "created_at": "2023-10-03",
+  "deleted_at": null,
+  "target_streak": 4,
+  "days_checked": null
+},
+{
+  "_id": {
+    "$oid": "6519c8e9f3ef7e1ed60809ff"
+  },
+  "title": "Utilizar produtos de limpeza eco-friendly",
+  "description": "Usar produtos de limpeza ecológicos",
+  "category": "Consumo Sustentável",
+  "created_at": "2023-11-01",
+  "deleted_at": null,
+  "target_streak": 1,
+  "days_checked": null
+},
+{
+  "_id": {
+    "$oid": "6519c8e9f3ef7e1ed6080a03"
+  },
+  "title": "Economizar energia no aquecimento",
+  "description": "Isolar a casa e ajustar o termostato",
+  "category": "Energia",
+  "created_at": "2023-11-05",
+  "deleted_at": null,
+  "target_streak": 5,
+  "days_checked": null
+},
+{
+  "_id": {
+    "$oid": "6519c8e9f3ef7e1ed60809fb"
+  },
+  "title": "Economizar água ao escovar os dentes",
+  "description": "Fechar a torneira enquanto escova os dentes",
+  "category": "Água",
+  "created_at": "2023-10-28",
+  "deleted_at": null,
+  "target_streak": 3,
+  "days_checked": null
+},
+{
+  "_id": {
+    "$oid": "6519c8e9f3ef7e1ed60809e0"
+  },
+  "title": "Lar a casa para reduzir o consumo de energia",
+  "description": "Adote práticas para economizar energia em casa",
+  "category": "Energia",
+  "created_at": "2023-10-01",
+  "deleted_at": null,
+  "target_streak": 3,
+  "days_checked": null
+},
+{
+  "_id": {
+    "$oid": "6519c8e9f3ef7e1ed60809ee"
+  },
+  "title": "Utilizar cortinas ou persianas para controlar a temperatura",
+  "description": "Isolar a casa e reduzir o uso de aquecimento e ar condicionado",
+  "category": "Energia",
+  "created_at": "2023-10-15",
+  "deleted_at": null,
+  "target_streak": 2,
+  "days_checked": null
+},
+{
+  "_id": {
+    "$oid": "6519c8e9f3ef7e1ed60809ef"
+  },
+  "title": "Trocar os filtros de ar regularmente",
+  "description": "Manter a eficiência energética no sistema de aquecimento e ar condicionado",
+  "category": "Energia",
+  "created_at": "2023-10-16",
+  "deleted_at": null,
+  "target_streak": 3,
+  "days_checked": null
+},
+{
+  "_id": {
+    "$oid": "6519c8e9f3ef7e1ed60809e8"
+  },
+  "title": "Reutilizar embalagens e recipientes",
+  "description": "Reutilize embalagens em vez de descartá-las",
+  "category": "Reciclagem",
+  "created_at": "2023-10-09",
+  "deleted_at": null,
+  "target_streak": 1,
+  "days_checked": null
+},
+{
+  "_id": {
+    "$oid": "6519c8e9f3ef7e1ed60809f0"
+  },
+  "title": "Plantar um jardim ou horta em casa",
+  "description": "Cultivar alimentos em casa para reduzir pegada de transporte",
+  "category": "Alimentação",
+  "created_at": "2023-10-17",
+  "deleted_at": null,
+  "target_streak": 4,
+  "days_checked": null
+},
+{
+  "_id": {
+    "$oid": "6519c8e9f3ef7e1ed6080a01"
+  },
+  "title": "Reutilizar embalagens e recipientes",
+  "description": "Reutilizar embalagens em vez de descartá-las",
+  "category": "Reciclagem",
+  "created_at": "2023-11-03",
+  "deleted_at": null,
+  "target_streak": 3,
+  "days_checked": null
+},
+{
+  "_id": {
+    "$oid": "6519c8e9f3ef7e1ed6080a0e"
+  },
+  "title": "Diminuir o consumo de produtos de limpeza químicos",
+  "description": "Usar produtos de limpeza naturais e caseiros",
+  "category": "Consumo Sustentável",
+  "created_at": "2023-11-16",
+  "deleted_at": null,
+  "target_streak": 3,
+  "days_checked": null
+},
+{
+  "_id": {
+    "$oid": "6519c8e9f3ef7e1ed6080a0d"
+  },
+  "title": "Comprar produtos eletrônicos usados ou recondicionados",
+  "description": "Optar por produtos eletrônicos de segunda mão",
+  "category": "Consumo Sustentável",
+  "created_at": "2023-11-15",
+  "deleted_at": null,
+  "target_streak": 5,
+  "days_checked": null
+},
+{
+  "_id": {
+    "$oid": "6519c8e9f3ef7e1ed60809f2"
+  },
+  "title": "Evitar comprar produtos excessivamente embalados",
+  "description": "Reduzir o desperdício de embalagens",
+  "category": "Consumo Sustentável",
+  "created_at": "2023-10-19",
+  "deleted_at": null,
+  "target_streak": 1,
+  "days_checked": null
+},
+{
+  "_id": {
+    "$oid": "6519c8e9f3ef7e1ed6080a0f"
+  },
+  "title": "Fazer um planejamento energético em casa",
+  "description": "Monitorar e otimizar o consumo de energia em casa",
+  "category": "Energia",
+  "created_at": "2023-11-17",
+  "deleted_at": null,
+  "target_streak": 2,
+  "days_checked": null
+},
+{
+  "_id": {
+    "$oid": "6519c8e9f3ef7e1ed6080a07"
+  },
+  "title": "Reciclar eletrônicos e baterias",
+  "description": "Descartar eletrônicos e baterias de forma responsável",
+  "category": "Reciclagem",
+  "created_at": "2023-11-09",
+  "deleted_at": null,
+  "target_streak": 4,
+  "days_checked": null
+},
+{
+  "_id": {
+    "$oid": "6519c8e9f3ef7e1ed6080a09"
+  },
+  "title": "Utilizar cortinas ou persianas para controlar a temperatura",
+  "description": "Isolar a casa e reduzir o uso de aquecimento e ar condicionado",
+  "category": "Energia",
+  "created_at": "2023-11-11",
+  "deleted_at": null,
+  "target_streak": 3,
+  "days_checked": null
+},
+{
+  "_id": {
+    "$oid": "6519c8e9f3ef7e1ed6080a12"
+  },
+  "title": "Reduzir o consumo de produtos de beleza testados em animais",
+  "description": "Optar por produtos de beleza que não fazem testes em animais",
+  "category": "Consumo Sustentável",
+  "created_at": "2023-11-20",
+  "deleted_at": null,
+  "target_streak": 5,
+  "days_checked": null
+},
+{
+  "_id": {
+    "$oid": "6519c8e9f3ef7e1ed60809f6"
+  },
+  "title": "Reduzir o consumo de produtos de beleza testados em animais",
+  "description": "Optar por produtos de beleza que não fazem testes em animais",
+  "category": "Consumo Sustentável",
+  "created_at": "2023-10-23",
+  "deleted_at": null,
+  "target_streak": 5,
+  "days_checked": null
+},
+{
+  "_id": {
+    "$oid": "6519c8e9f3ef7e1ed6080a05"
+  },
+  "title": "Reduzir o consumo de plástico descartável",
+  "description": "Evitar produtos de plástico de uso único",
+  "category": "Consumo Sustentável",
+  "created_at": "2023-11-07",
+  "deleted_at": null,
+  "target_streak": 2,
+  "days_checked": null
+},
+{
+  "_id": {
+    "$oid": "6519c8e9f3ef7e1ed60809fa"
+  },
+  "title": "Reciclar pilhas e baterias",
+  "description": "Descartar pilhas e baterias de forma responsável",
+  "category": "Reciclagem",
+  "created_at": "2023-10-27",
+  "deleted_at": null,
+  "target_streak": 4,
+  "days_checked": null
+},
+{
+  "_id": {
+    "$oid": "6519c8e9f3ef7e1ed6080a04"
+  },
+  "title": "Reduzir o uso de produtos de moda de rápida rotação",
+  "description": "Comprar roupas de qualidade e duradouras",
+  "category": "Consumo Sustentável",
+  "created_at": "2023-11-06",
+  "deleted_at": null,
+  "target_streak": 1,
+  "days_checked": null
+}]

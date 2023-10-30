@@ -1,0 +1,60 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 2rem 1.8rem 0 0;
+  width: 34rem;
+  height: 47.6rem;
+  background: center/cover no-repeat;
+  transition: all 0.7s ease-in-out;
+  overflow: hidden;
+
+  &__content {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  &__buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+
+  &__button {
+    cursor: pointer;
+  }
+
+  &__title {
+    @include cardTitle();
+    background: linear-gradient(
+      180deg,
+      rgba(101, 101, 101, 0) 0%,
+      rgba(0, 0, 0, 0.95) 100%
+    );
+    width: inherit;
+    padding: 0 1.8rem 4rem;
+  }
+
+  &__text {
+    @include cardText();
+  }
+
+  &__hoverButton {
+    margin-top: 20rem;
+  }
+
+  &__addHabit{
+    margin-bottom: 2rem;
+  }
+
+  &__removeHabit {
+    margin-bottom: 4rem;
+  }
+}
+
+.hovered {
+  display: flex;
+  flex-direction: column;
+  background-color: $gray;
+  padding-left: 1.8rem;
+}

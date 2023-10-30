@@ -1,0 +1,13 @@
+.tag {
+  width: fit-content;
+  color: $white;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  font-size: 2rem;
+  text-align: center;
+  padding: 1rem 2rem;
+  border-radius: 0.8rem;
+
+  @include backgroundColor();
+}

@@ -1,0 +1,141 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4rem;
+  max-width: 144rem;
+  margin: 0 auto;
+
+  @include screen-size('tablet') {
+    align-items: flex-start;
+    align-content: center;
+    flex-wrap: wrap;
+  }
+
+  @include screen-size('desktop') {
+    display: grid;
+    align-items: center;
+    gap: 4rem;
+  }
+
+  @include screen-size('desktop-lg') {
+    gap: 4rem;
+  }
+
+  &__heading {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    width: 34rem;
+
+    @include screen-size('desktop') {
+      grid-area: 1 / 1 / 2 / 2;
+    }
+  }
+
+  &__initialItems {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+
+    @include screen-size('tablet') {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include screen-size('desktop') {
+      grid-area: 1 / 2 / 2 / 3;
+    }
+
+    @include screen-size('desktop-lg') {
+      gap: 4rem;
+    }
+  }
+
+  &__initialItemsOpen {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  &__initialItemsClosed {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+
+    @include screen-size('tablet') {
+      grid-template-columns: repeat(2, 2fr);
+    }
+  }
+
+  &__additionalItems {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    @include screen-size('tablet') {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include screen-size('desktop') {
+      grid-template-columns: repeat(3, 1fr);
+      grid-area: 2 / 1 / 3 / 3;
+    }
+
+    @include screen-size('desktop-lg') {
+      gap: 4rem;
+    }
+  }
+
+  &__buttonMobile {
+    max-width: 34rem;
+
+    @include screen-size('tablet') {
+      max-width: 72rem;
+    }
+
+    @include screen-size('desktop') {
+      display: none !important;
+    }
+  }
+
+  &__buttonDesktop {
+    display: none;
+    @include screen-size('desktop') {
+      display: flex;
+      max-width: 34rem;
+    }
+  }
+}
+
+.myHabits {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4rem;
+  max-width: 144rem;
+  margin: 4rem auto 0;
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4rem;
+    margin-bottom: 4rem;
+
+    @include screen-size('tablet') {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+    }
+
+    @include screen-size('desktop') {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      align-items: center;
+      gap: 4rem;
+    }
+  }
+}

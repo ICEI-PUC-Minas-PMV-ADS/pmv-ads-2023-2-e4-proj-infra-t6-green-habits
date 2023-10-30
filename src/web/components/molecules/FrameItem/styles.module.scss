@@ -1,0 +1,11 @@
+.frame {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+  &__container {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+  }
+}
