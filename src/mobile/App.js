@@ -1,7 +1,8 @@
-import { Poppins_400Regular, useFonts } from '@expo-google-fonts/poppins'
+import { Poppins_300Light, useFonts } from '@expo-google-fonts/poppins'
 import { NavigationContainer } from '@react-navigation/native'
 import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
+import { GText } from 'src/components/atoms/GText'
 import { Title } from 'src/components/atoms/Title'
 import { FormContactUs } from 'src/components/organisms/FormContactUs'
 
@@ -22,7 +23,7 @@ function CustomView({ children }) {
 
 export default function App() {
   const [fontsLoaded] = useFonts({
-    PoppinsRegular: Poppins_400Regular,
+    PoppinsRegular: Poppins_300Light,
   })
 
   if (!fontsLoaded) {
@@ -33,7 +34,6 @@ export default function App() {
     <CustomView>
       <NavigationContainer>
         {/* <MainNavigation /> */}
-        <FormContactUs/>
       </NavigationContainer>
     </CustomView>
   )

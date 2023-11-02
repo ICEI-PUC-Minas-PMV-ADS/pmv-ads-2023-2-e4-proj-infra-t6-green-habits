@@ -1,6 +1,8 @@
 import { Controller, useForm } from 'react-hook-form'
-import { Button, Text, View } from 'react-native'
+import { View } from 'react-native'
 import { TextInput } from 'react-native-paper'
+import { GText } from 'src/components/atoms/GText/index.js'
+import { Button } from '~/components/atoms/Button/index.js'
 import { Title } from '~/components/atoms/Title'
 import styles from './styles.js'
 
@@ -10,17 +12,18 @@ export const FormContactUs = () => {
     handleSubmit,
     formState: { errors },
   } = useForm({
-    defaultValues: {},
+    defaultValues: { firstName: '', email: '', subject: '', message: '' },
   })
   const onSubmit = (data) => console.log(data)
 
   return (
     <View style={styles.input__form}>
-      <Title title='Fale conosco' />
-      <Text style={styles.input__text}>
-        Dúvidas? Sugestões? Reclamações? Preencha o formulário e aguarde nosso
-        retorno
-      </Text>
+      <Title title='Fale conosco' color='black' />
+
+      <GText
+        text='Dúvidas? Sugestões? Reclamações? Preencha o formulário e aguarde nosso
+        retorno'
+      />
 
       <View style={styles.input__container}>
         <Controller
@@ -118,15 +121,12 @@ export const FormContactUs = () => {
           name='message'
         />
         {errors.message && <Text>Campo obrigatório</Text>}
+        <Button
+          onClick={handleSubmit(onSubmit)}
+          level='primary'
+          label='Enviar'
+        />
       </View>
-
-      <Button
-        title='Enviar'
-        onPress={handleSubmit(onSubmit)}
-        accessibilityLabel='Enviar formulário'
-        color="#398278"
-        style={styles.input__button}
-      />
     </View>
   )
 }

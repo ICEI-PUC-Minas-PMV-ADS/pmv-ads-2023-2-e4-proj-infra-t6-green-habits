@@ -1,6 +1,6 @@
 import { View } from 'react-native'
 
-export const HabitsWrapper = () => {
+export const Navigation = () => {
     return (
         <View>
             

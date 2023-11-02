@@ -15,11 +15,6 @@ const styles = StyleSheet.create({
     borderColor: '#6BBD99',
     borderStyle: 'solid',
   },
-  input__button: {
-    borderRadius: 4,
-    textTransform: 'none',
-    fontWeight: '700'
-  }
 })
 
 export default styles

@@ -1,11 +1,11 @@
 import { StyleSheet } from 'react-native'
 
 const styles = StyleSheet.create({
-  title: {
-    fontSize: 24,
+  text: {
+    fontSize: 20,
     fontStyle: 'normal',
-    fontWeight: '500',
-    marginBottom: 8,
+    fontWeight: '300',
+    marginBottom: 8
   },
   darkGreen: {
     color: '#398278',
