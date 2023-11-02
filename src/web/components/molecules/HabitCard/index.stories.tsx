@@ -17,7 +17,10 @@ const card = {
     image: '/cards/default.png',
     habitId: '',
     onDelete: () => {},
-    token: ''
+    token: '',
+    setUserHabits: () => {},
+    filterByCategory: () => {},
+    isSuggestedHabit: false,
   },
   argTypes: {
     image: {
