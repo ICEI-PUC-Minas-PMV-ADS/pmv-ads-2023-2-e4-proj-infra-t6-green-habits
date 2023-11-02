@@ -4,7 +4,8 @@ import { styles } from "./styles";
 export const ContactPage = () => {
   return (
     <ScrollView>
-      <View></View>
+      <View>
+      </View>
     </ScrollView>
   )
 }

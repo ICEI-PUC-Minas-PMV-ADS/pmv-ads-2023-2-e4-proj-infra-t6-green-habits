@@ -11,7 +11,8 @@ import { RegisterPage } from '~screens/Register'
 
 export const MainNavigation = () => {
   return (
-    <Stack.Navigator initialRouteName='Login'>
+    <Stack.Navigator>
+    {/* <Stack.Navigator initialRouteName='Login'> */}
       <Stack.Screen
         name='Login'
         component={LoginPage}
