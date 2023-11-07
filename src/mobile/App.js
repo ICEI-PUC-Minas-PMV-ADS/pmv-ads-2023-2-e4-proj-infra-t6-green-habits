@@ -1,41 +1,15 @@
-import { Poppins_300Light, useFonts } from '@expo-google-fonts/poppins'
 import { NavigationContainer } from '@react-navigation/native'
 import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
-import { GText } from 'src/components/atoms/GText'
-import { Title } from 'src/components/atoms/Title'
-import { FormContactUs } from 'src/components/organisms/FormContactUs'
-
-function CustomView({ children }) {
-  return (
-    <View style={styles.container}>
-      {React.Children.map(children, (child) => {
-        if (React.isValidElement(child) && child.type === Text) {
-          return React.cloneElement(child, {
-            style: [{ fontFamily: 'PoppinsRegular' }, child.props.style],
-          })
-        }
-        return child
-      })}
-    </View>
-  )
-}
+import { StyleSheet, View } from 'react-native'
+import { MainNavigation } from './src/routes/mainNavigation'
 
 export default function App() {
-  const [fontsLoaded] = useFonts({
-    PoppinsRegular: Poppins_300Light,
-  })
-
-  if (!fontsLoaded) {
-    return null
-  }
-
   return (
-    <CustomView>
-      <NavigationContainer>
-        {/* <MainNavigation /> */}
+    <View style={styles.container}>
+      <NavigationContainer >
+        <MainNavigation />
       </NavigationContainer>
-    </CustomView>
+    </View>
   )
 }
 
@@ -43,7 +17,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#FDFFFF',
-    alignItems: 'center',
     justifyContent: 'center',
+    padding: 4,
+    margin: 20,
   },
 })
