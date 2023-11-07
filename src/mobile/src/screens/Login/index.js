@@ -1,12 +1,11 @@
-import { ScrollView, View } from 'react-native'
-import { FormContactUs } from 'src/components/organisms/FormContactUs'
+import { ScrollView } from 'react-native'
+import { FormLogin } from '../../components/organisms/FormLogin'
+import { styles } from './styles'
 
 export const LoginPage = () => {
   return (
-    <ScrollView>
-      <View>
-        <FormContactUs />
-      </View>
+    <ScrollView style={styles.container}>
+      <FormLogin />
     </ScrollView>
   )
 }

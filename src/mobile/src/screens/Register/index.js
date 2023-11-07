@@ -1,10 +1,10 @@
-import { View, ScrollView } from "react-native";
-import { styles } from "./styles";
+import { ScrollView } from 'react-native'
+import { FormRegister } from '../../components/organisms/FormRegister'
 
 export const RegisterPage = () => {
   return (
-    <ScrollView>
-      <View></View>
+    <ScrollView style={{ backgroundColor: '#FDFFFF', paddingTop: 40 }}>
+      <FormRegister />
     </ScrollView>
   )
 }

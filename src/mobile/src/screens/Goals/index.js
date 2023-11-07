@@ -1,10 +1,13 @@
-import { View, ScrollView } from "react-native";
-import { styles } from "./styles";
+import { ScrollView } from 'react-native'
+import { GoalsWrapper } from '../../components/organisms/GoalsWrapper'
+import { Ranking } from '../../components/organisms/Ranking'
+import { styles } from './styles'
 
 export const GoalsPage = () => {
   return (
-    <ScrollView>
-      <View></View>
+    <ScrollView style={styles.container}>
+      <GoalsWrapper />
+      <Ranking />
     </ScrollView>
   )
 }

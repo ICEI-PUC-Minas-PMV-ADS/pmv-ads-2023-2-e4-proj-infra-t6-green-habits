@@ -1,10 +1,10 @@
-import { View, ScrollView } from "react-native";
-import { styles } from "./styles";
+import { ScrollView } from 'react-native'
+import { FormProfile } from '../../components/organisms/FormProfile'
 
 export const ProfilePage = () => {
   return (
-    <ScrollView>
-      <View></View>
+    <ScrollView style={styles.container}>
+      <FormProfile />
     </ScrollView>
   )
 }
