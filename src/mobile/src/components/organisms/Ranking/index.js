@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
-const Ranking = () => {
+export const Ranking = () => {
   const [userHabits, setUserHabits] = useState([]);
   const [isLoading, setLoading] = useState(true);
 
@@ -120,6 +120,7 @@ const Ranking = () => {
   );
 };
 
+
 const styles = StyleSheet.create({
   ranking: {
     flex: 1,
@@ -158,4 +159,3 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Ranking;

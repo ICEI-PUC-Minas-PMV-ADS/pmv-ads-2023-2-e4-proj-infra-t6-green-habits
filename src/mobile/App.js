@@ -1,13 +1,13 @@
 import { NavigationContainer } from '@react-navigation/native'
 import React from 'react'
 import { StyleSheet, View } from 'react-native'
-import { MainNavigation } from './src/routes/mainNavigation'
+import { HabitsWrapper } from './src/components/organisms/HabitsWrapper'
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <NavigationContainer >
-        <MainNavigation />
+      <NavigationContainer>
+        <HabitsWrapper />
       </NavigationContainer>
     </View>
   )
@@ -19,6 +19,5 @@ const styles = StyleSheet.create({
     backgroundColor: '#FDFFFF',
     justifyContent: 'center',
     padding: 4,
-    margin: 20,
   },
 })

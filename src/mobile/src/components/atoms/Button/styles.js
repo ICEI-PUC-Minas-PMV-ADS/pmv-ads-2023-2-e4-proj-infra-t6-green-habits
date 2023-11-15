@@ -18,6 +18,14 @@ const styles = StyleSheet.create({
   tertiary: {
     backgroundColor: '#914423',
   },
+  small: {
+    borderRadius: 8,
+    borderColor: '#FDFFFF',
+    borderWidth: 1,
+    alignSelf: 'flex-end',
+    margin: 8,
+    padding: 12
+  }
 })
 
 export default styles
