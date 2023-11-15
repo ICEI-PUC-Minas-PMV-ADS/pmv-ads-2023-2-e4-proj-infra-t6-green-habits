@@ -42,13 +42,13 @@ export const GoalsWrapper = () => {
 
       <View style={styles.goals__myGoals}>
         <Title title='Minha metas' />
-        <Goal title='sdfkdsfjdf' />
+        <Goal title='' />
       </View>
 
       <View style={styles.goals__completed}>
         <Title title='Metas concluídas' />
         <GText text='Nossas conquistas sustentáveis: metas alcançadas' />
-        <Goal title='sdfkdsfjdf' />
+        <Goal title='' />
       </View>
 
     </ScrollView>

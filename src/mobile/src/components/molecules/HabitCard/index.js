@@ -9,9 +9,9 @@ function getImageForCategory(category) {
   if (category) {
     const normalizedCategory = removeAccentsAndSpaces(category)
     const categoryImages = {
-      consumosustentavel: require('../../../../assets/cards/consumosustentavel.png'),
-      energia: require('../../../../assets/cards/energia.png'),
-      reciclagem: require('../../../../assets/cards/reciclagem.png'),
+      consumosustentavel: require('assets/cards/consumosustentavel.png'),
+      energia: require('assets/cards/energia.png'),
+      reciclagem: require('assets/cards/reciclagem.png'),
       agua: require('assets/cards/agua.png'),
       transporte: require('assets/cards/transporte.png'),
       alimentacao: require('assets/cards/alimentacao.png'),
@@ -24,7 +24,7 @@ function getImageForCategory(category) {
     }
   }
 
-  return require('../../../../assets/cards/default.png')
+  return require('assets/cards/default.png')
 }
 
 export const HabitCard = ({ title, description, category }) => {

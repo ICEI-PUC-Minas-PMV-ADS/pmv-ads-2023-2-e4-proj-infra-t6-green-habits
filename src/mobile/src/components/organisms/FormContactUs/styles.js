@@ -3,6 +3,7 @@ import { StyleSheet } from 'react-native'
 const styles = StyleSheet.create({
   input__form: {
     gap: 16,
+    marginBottom: 12
   },
   input__container: {
     flex: 1,

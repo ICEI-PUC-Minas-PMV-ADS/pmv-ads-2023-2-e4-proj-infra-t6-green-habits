@@ -1,8 +1,10 @@
 import { StyleSheet } from 'react-native'
 
 export const styles = StyleSheet.create({
-  container: {
+  home: {
     backgroundColor: '#FDFFFF',
-    paddingTop: 40,
+  },
+  home__cardsContainer: {
+    gap: 12,
   },
 })
