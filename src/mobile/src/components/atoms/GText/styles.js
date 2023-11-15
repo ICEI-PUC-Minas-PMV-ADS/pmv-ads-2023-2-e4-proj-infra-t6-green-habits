@@ -19,6 +19,9 @@ const styles = StyleSheet.create({
   gray: {
     color: '#242525',
   },
+  white: {
+    color: '#FDFFFF'
+  }
 })
 
 export default styles
