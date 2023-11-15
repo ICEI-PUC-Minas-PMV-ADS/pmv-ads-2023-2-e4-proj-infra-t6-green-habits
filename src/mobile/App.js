@@ -1,13 +1,13 @@
 import { NavigationContainer } from '@react-navigation/native'
 import React from 'react'
 import { StyleSheet, View } from 'react-native'
-import { HabitsWrapper } from './src/components/organisms/HabitsWrapper'
+import { Navigation } from './src/components/molecules/Navigation'
 
 export default function App() {
   return (
     <View style={styles.container}>
       <NavigationContainer>
-        <HabitsWrapper />
+        <Navigation />
       </NavigationContainer>
     </View>
   )
