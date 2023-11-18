@@ -2,14 +2,14 @@ import { NavigationContainer } from '@react-navigation/native'
 import React from 'react'
 import { StyleSheet, View } from 'react-native'
 import { Logo } from './src/components/atoms/Logo'
-import { Navigation } from './src/components/molecules/Navigation'
+import { MainNavigation } from './src/routes/mainNavigation'
 
 export default function App() {
   return (
     <View style={styles.container}>
       <Logo />
       <NavigationContainer>
-        <Navigation />
+        <MainNavigation />
       </NavigationContainer>
     </View>
   )

@@ -2,7 +2,7 @@ import axios from 'axios'
 axios.defaults.timeout = 30000
 
 const instance = axios.create({
-  baseURL: process.env.NEXT_PUBLIC_API_HOST,
+  baseURL: process.env.EXPO_PUBLIC_API_HOST || 'https://habit-tracker-api.fly.dev/',
 })
 
 interface RequestOptions {
@@ -164,7 +164,7 @@ export async function loginUser(payload: LoginUserPayload) {
     const {
       data: { token },
     } = await instance.post<{ token: string }>('/login', payload)
-    localStorage.setItem('token', token)
+    return token
   } catch (error) {
     throw error
   }

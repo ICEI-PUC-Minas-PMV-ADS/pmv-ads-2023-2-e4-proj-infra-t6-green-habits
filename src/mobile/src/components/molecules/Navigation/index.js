@@ -11,7 +11,7 @@ import { ProfilePage } from '../../../screens/Profile'
 
 const Tab = createBottomTabNavigator()
 
-export const Navigation = () => {
+export const ProtectedNavigation = () => {
   return (
     <Tab.Navigator
       screenOptions={{
@@ -63,7 +63,7 @@ export const Navigation = () => {
       )}
     >
       <Tab.Screen
-        name='Início'
+        name='Home'
         component={HomePage}
         options={{
           tabBarLabel: 'Início',

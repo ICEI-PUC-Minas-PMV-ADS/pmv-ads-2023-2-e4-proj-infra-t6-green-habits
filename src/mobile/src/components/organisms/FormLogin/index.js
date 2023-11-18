@@ -4,12 +4,13 @@ import { View } from 'react-native'
 import { Text, TextInput } from 'react-native-paper'
 import { Button } from 'src/components/atoms/Button'
 import { GText } from 'src/components/atoms/GText'
+import { loginUser } from '../../../services/controllers/user'
 
 import styles from './styles.js'
+import AsyncStorage from '@react-native-async-storage/async-storage'
 
 export const FormLogin = () => {
   const navigation = useNavigation()
-
   const {
     control,
     handleSubmit,
@@ -19,15 +20,13 @@ export const FormLogin = () => {
   })
 
   const onSubmit = async (data) => {
-    const { email, password } = data
     try {
-      const payload = {
-        email,
-        password,
-      }
-
-      const response = await loginUserApi(payload)
-    } catch (error) {}
+      const token = await loginUser(data);
+      await AsyncStorage.setItem("token", token);
+      navigation.navigate('Tabs', { screen: 'Home' })
+    } catch (error) {
+      alert("Email ou senha incorretos.")
+    }
   }
 
   return (
