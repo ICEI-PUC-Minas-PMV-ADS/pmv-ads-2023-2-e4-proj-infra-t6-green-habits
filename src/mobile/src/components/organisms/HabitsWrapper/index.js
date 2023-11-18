@@ -15,6 +15,7 @@ export const HabitsWrapper = () => {
   const navigation = useNavigation()
   const [modalVisible, setModalVisible] = useState(false)
   const [userHabits, setUserHabits] = useState([])
+  const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
     const getHabits = async () => {
@@ -24,13 +25,13 @@ export const HabitsWrapper = () => {
       }
       const updatedUserHabits = await getAllHabits(token)
       setUserHabits(updatedUserHabits)
+      setIsLoading(false)
       console.log(updatedUserHabits)
     }
     getHabits()
   }, [])
 
-  userHabits.map((habit, index) => console.log(habit))
-  return (
+  return !isLoading && (
     <ScrollView style={styles.cards}>
       <View style={styles.cards__title}>
         <Title title='Hábitos' />
@@ -85,7 +86,7 @@ export const HabitsWrapper = () => {
       </Modal>
 
       <View style={styles.cards__habits}>
-        {userHabits.length > 1111 ?
+        {userHabits.length > 0 ?
           <>
             <Title title='Meus Hábitos' />
             {userHabits.map((habit, index) => (
