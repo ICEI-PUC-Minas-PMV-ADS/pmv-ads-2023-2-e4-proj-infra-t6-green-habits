@@ -36,6 +36,12 @@ const styles = StyleSheet.create({
     borderColor: '#6BBD99',
     borderStyle: 'solid',
   },
+  spinner: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    margin: '0 auto'
+  }
 })
 
 export default styles

@@ -73,7 +73,7 @@ export const ProtectedNavigation = () => {
         }}
       />
       <Tab.Screen
-        name='Hábitos'
+        name='Habits'
         component={HabitsPage}
         options={{
           tabBarLabel: 'Hábitos',
@@ -83,7 +83,7 @@ export const ProtectedNavigation = () => {
         }}
       />
       <Tab.Screen
-        name='Metas'
+        name='Goals'
         component={GoalsPage}
         options={{
           tabBarLabel: 'Metas',
@@ -93,7 +93,7 @@ export const ProtectedNavigation = () => {
         }}
       />
       <Tab.Screen
-        name='Contato'
+        name='Contact'
         component={ContactPage}
         options={{
           tabBarLabel: 'Contato',
@@ -103,7 +103,7 @@ export const ProtectedNavigation = () => {
         }}
       />
       <Tab.Screen
-        name='Perfil'
+        name='Profile'
         component={ProfilePage}
         options={{
           tabBarLabel: 'Perfil',

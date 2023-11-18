@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { ImageBackground, Text, TouchableOpacity, View } from 'react-native'
 import { removeAccentsAndSpaces } from '../../../utils/removeAccentsAndSpaces'
+import { deleteHabitById, getAllHabits } from '../../../services/controllers/user'
 import { Button } from '../../atoms/Button'
 import { Tag } from '../../atoms/Tag'
 import styles from './styles.js'
@@ -27,9 +28,21 @@ function getImageForCategory(category) {
   return require('assets/cards/default.png')
 }
 
-export const HabitCard = ({ title, description, category, isSuggestedHabit }) => {
+export const HabitCard = ({ title, description, category, isSuggestedHabit, habitId, token, setUserHabits }) => {
   const backgroundImage = getImageForCategory(category)
   const [expanded, setExpanded] = useState(false)
+
+  const handleDeleteClick = async (habitId) => {
+    if (token) {
+      try {
+        await deleteHabitById(habitId, token)
+        const updatedUserHabits = await getAllHabits(token)
+        setUserHabits(updatedUserHabits)
+      } catch (error) {
+        console.error('Erro ao excluir hábito do banco de dados:', error)
+      }
+    }
+  }
 
   const toggleExpansion = () => {
     setExpanded(!expanded)
@@ -54,7 +67,7 @@ export const HabitCard = ({ title, description, category, isSuggestedHabit }) =>
               {isSuggestedHabit ? 
                 <Button level='primary' label='Adicionar hábito' />
                 : 
-                <Button level='tertiary' label='Remover hábito' />}
+                <Button level='tertiary' label='Remover hábito' onClick={async () => await handleDeleteClick(habitId)} />}
             </View>
           )}
 

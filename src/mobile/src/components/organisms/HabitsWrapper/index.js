@@ -10,12 +10,14 @@ import styles from './styles.js'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import { useNavigation } from '@react-navigation/native'
 import { getAllHabits } from '../../../services/controllers/user'
+import { RotatingLines } from 'react-loader-spinner'
 
 export const HabitsWrapper = () => {
   const navigation = useNavigation()
   const [modalVisible, setModalVisible] = useState(false)
   const [userHabits, setUserHabits] = useState([])
   const [isLoading, setIsLoading] = useState(true)
+  const [userToken, setUserToken] = useState()
 
   useEffect(() => {
     const getHabits = async () => {
@@ -23,6 +25,7 @@ export const HabitsWrapper = () => {
       if (!token) {
         navigation.navigate('Login')
       }
+      setUserToken(token)
       const updatedUserHabits = await getAllHabits(token)
       setUserHabits(updatedUserHabits)
       setIsLoading(false)
@@ -31,7 +34,7 @@ export const HabitsWrapper = () => {
     getHabits()
   }, [])
 
-  return !isLoading && (
+  return !isLoading ? (
     <ScrollView style={styles.cards}>
       <View style={styles.cards__title}>
         <Title title='Hábitos' />
@@ -96,6 +99,9 @@ export const HabitsWrapper = () => {
                 description={habit.description}
                 category={habit.category}
                 isSuggestedHabit={false}
+                habitId={habit._id}
+                token={userToken}
+                setUserHabits={setUserHabits}
               />
             ))}
           </>
@@ -115,5 +121,11 @@ export const HabitsWrapper = () => {
         }
       </View>
     </ScrollView>
-  )
+  ) : <RotatingLines
+    strokeColor="grey"
+    strokeWidth="5"
+    animationDuration="0.75"
+    visible={true}
+    style={styles.spinner}
+  />
 }
