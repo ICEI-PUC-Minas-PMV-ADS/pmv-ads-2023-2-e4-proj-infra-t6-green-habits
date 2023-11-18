@@ -1,15 +1,35 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Alert, Modal, ScrollView, Text, View } from 'react-native'
 import { TextInput } from 'react-native-paper'
-import habits from '../../../data/habits.json'
+import suggestedHabits from '../../../data/habits.json'
 import { Button } from '../../atoms/Button'
 import { GText } from '../../atoms/GText'
 import { Title } from '../../atoms/Title'
 import { HabitCard } from '../../molecules/HabitCard'
 import styles from './styles.js'
+import AsyncStorage from '@react-native-async-storage/async-storage'
+import { useNavigation } from '@react-navigation/native'
+import { getAllHabits } from '../../../services/controllers/user'
 
 export const HabitsWrapper = () => {
+  const navigation = useNavigation()
   const [modalVisible, setModalVisible] = useState(false)
+  const [userHabits, setUserHabits] = useState([])
+
+  useEffect(() => {
+    const getHabits = async () => {
+      const token = await AsyncStorage.getItem('token');
+      if (!token) {
+        navigation.navigate('Login')
+      }
+      const updatedUserHabits = await getAllHabits(token)
+      setUserHabits(updatedUserHabits)
+      console.log(updatedUserHabits)
+    }
+    getHabits()
+  }, [])
+
+  userHabits.map((habit, index) => console.log(habit))
   return (
     <ScrollView style={styles.cards}>
       <View style={styles.cards__title}>
@@ -65,19 +85,33 @@ export const HabitsWrapper = () => {
       </Modal>
 
       <View style={styles.cards__habits}>
-        {habits.slice(0, 10).map((habit, index) => (
-          <HabitCard
-            key={index}
-            title={habit.title}
-            description={habit.description}
-            category={habit.category}
-          />
-        ))}
-      </View>
-      <View style={styles.cards__myHabits}>
-        <Title title='Meus Hábitos' />
-
-        <View style={styles.cards__myAddedHabits}></View>
+        {userHabits.length > 1111 ?
+          <>
+            <Title title='Meus Hábitos' />
+            {userHabits.map((habit, index) => (
+              <HabitCard
+                key={index}
+                title={habit.title}
+                description={habit.description}
+                category={habit.category}
+                isSuggestedHabit={false}
+              />
+            ))}
+          </>
+          :
+          <>
+            <Title title='Hábitos sugeridos' />
+            {suggestedHabits.slice(0, 3).map((habit, index) => (
+              <HabitCard
+                key={index}
+                title={habit.title}
+                description={habit.description}
+                category={habit.category}
+                isSuggestedHabit={true}
+              />
+            ))}
+          </>
+        }
       </View>
     </ScrollView>
   )
