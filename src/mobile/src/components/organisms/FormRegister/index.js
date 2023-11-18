@@ -4,6 +4,8 @@ import { View } from 'react-native'
 import { Text, TextInput } from 'react-native-paper'
 import { Button } from 'src/components/atoms/Button'
 import { GText } from 'src/components/atoms/GText/index.js'
+import { registerUser } from '../../../services/controllers/user'
+import AsyncStorage from '@react-native-async-storage/async-storage'
 import styles from './styles.js'
 
 export const FormRegister = () => {
@@ -16,7 +18,16 @@ export const FormRegister = () => {
   } = useForm({
     defaultValues: { name: '', email: '', password: '' },
   })
-  const onSubmit = (data) => console.log(data)
+  const onSubmit = async (data) => {
+    try {
+      const token = await registerUser(data)
+      await AsyncStorage.setItem("token", token);
+      navigation.navigate('Tabs', { screen: 'Home' })
+    } catch (error) {
+      console.log(error)
+      alert("Informações inválidas. Confira os dados enviados.")
+    }
+  }
 
   return (
     <View style={styles.formRegister}>

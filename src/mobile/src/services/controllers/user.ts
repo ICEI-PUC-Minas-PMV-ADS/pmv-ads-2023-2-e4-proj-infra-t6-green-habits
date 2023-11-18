@@ -175,7 +175,7 @@ export async function registerUser(payload: RegisterUserPayload) {
     const {
       data: { token },
     } = await instance.post<CreateUserResponse>('/user/', payload)
-    localStorage.setItem('token', token)
+    return token
   } catch (error) {
     throw error
   }

@@ -1,6 +1,7 @@
 import { ScrollView } from 'react-native'
 import { FormRegister } from '../../components/organisms/FormRegister'
 import { useNavigation } from '@react-navigation/native'
+import AsyncStorage from '@react-native-async-storage/async-storage'
 import { useEffect } from 'react'
 
 export const RegisterPage = () => {
