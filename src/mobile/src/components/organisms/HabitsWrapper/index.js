@@ -9,8 +9,9 @@ import { HabitCard } from '../../molecules/HabitCard'
 import styles from './styles.js'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import { useNavigation } from '@react-navigation/native'
-import { getAllHabits } from '../../../services/controllers/user'
+import { getAllHabits, saveHabitToDatabase } from '../../../services/controllers/user'
 import { RotatingLines } from 'react-loader-spinner'
+import { Picker } from '@react-native-picker/picker';
 
 export const HabitsWrapper = () => {
   const navigation = useNavigation()
@@ -18,6 +19,27 @@ export const HabitsWrapper = () => {
   const [userHabits, setUserHabits] = useState([])
   const [isLoading, setIsLoading] = useState(true)
   const [userToken, setUserToken] = useState()
+  const [newHabit, setNewHabit] = useState({
+    title: '',
+    description: '',
+    category: ''
+  })
+
+  const addNewHabit = async (newHabit) => {
+    try {
+      if (userToken) {
+        await saveHabitToDatabase(newHabit, userToken)
+
+        const updatedUserHabits = await getAllHabits(userToken)
+        setUserHabits(updatedUserHabits)
+      }
+    } catch (error) {
+      console.error(
+        'Erro ao adotar o hábito ou obter hábitos atualizados',
+        error
+      )
+    }
+  }
 
   useEffect(() => {
     const getHabits = async () => {
@@ -29,7 +51,6 @@ export const HabitsWrapper = () => {
       const updatedUserHabits = await getAllHabits(token)
       setUserHabits(updatedUserHabits)
       setIsLoading(false)
-      console.log(updatedUserHabits)
     }
     getHabits()
   }, [])
@@ -67,6 +88,12 @@ export const HabitsWrapper = () => {
               activeOutlineColor='#6BBD99'
               placeholderTextColor='#FDFFFF'
               style={styles.modal__input}
+              onChangeText={(text) => {
+                setNewHabit({
+                  ...newHabit,
+                  title: text
+                })
+              }}
             />
             <Text style={styles.modalText}>Descrição</Text>
             <TextInput
@@ -78,11 +105,38 @@ export const HabitsWrapper = () => {
               activeOutlineColor='#6BBD99'
               placeholderTextColor='#FDFFFF'
               style={styles.modal__input}
+              onChangeText={(text) => {
+                setNewHabit({
+                  ...newHabit,
+                  description: text
+                })
+              }}
             />
+            <Picker
+              onValueChange={(value) => {
+                setNewHabit({
+                  ...newHabit,
+                  category: value
+                })
+              }}
+            >
+              <Picker.Item label="Selecione uma categoria" value="" />
+              <Picker.Item label="Consumo Sustentável" value="Consumo Sustentável" />
+              <Picker.Item label="Energia" value="Energia" />
+              <Picker.Item label="Reciclagem" value="Reciclagem" />
+              <Picker.Item label="Água" value="Água" />
+              <Picker.Item label="Transporte" value="Transporte" />
+              <Picker.Item label="Alimentação" value="Alimentação" />
+              <Picker.Item label="Conservação" value="Conservação" />
+              <Picker.Item label="Conscientização" value="Conscientização" />
+            </Picker>
             <Button
               level='primary'
               label='Salvar alterações'
-              onClick={() => setModalVisible(!modalVisible)}
+              onClick={() => {
+                addNewHabit(newHabit)
+                setModalVisible(!modalVisible)
+              }}
             />
           </View>
         </View>
