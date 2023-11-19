@@ -6,7 +6,7 @@ import { Button } from '../../atoms/Button'
 import { GText } from '../../atoms/GText'
 import styles from './styles.js'
 
-export const Goal = ({ title }) => {
+export const Goal = ({ title, goalId, token }) => {
   const [checked, setChecked] = useState(false)
 
   return (

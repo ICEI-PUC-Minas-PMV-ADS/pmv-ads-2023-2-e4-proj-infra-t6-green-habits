@@ -5,10 +5,10 @@ import { Goal } from '../../molecules/Goal'
 import { Alert, Modal, ScrollView, Text, View } from 'react-native'
 import { TextInput } from 'react-native-paper'
 import { useEffect, useState } from 'react'
-import { RotatingLines } from 'react-loader-spinner'
 import styles from './styles.js'
 import { getAllGoals } from '../../../services/controllers/user'
 import AsyncStorage from '@react-native-async-storage/async-storage'
+import { useNavigation } from '@react-navigation/native'
 
 const initialGoals = [
   {
@@ -27,6 +27,7 @@ export const GoalsWrapper = () => {
   const [isLoading, setIsLoading] = useState(true)
   const [userGoals, setUserGoals] = useState([])
   const [userToken, setUserToken] = useState()
+  const navigation = useNavigation()
 
   useEffect(() => {
     const getGoals = async () => {
@@ -86,23 +87,21 @@ export const GoalsWrapper = () => {
         </Modal>
 
         <View style={styles.goals__myGoals}>
-          {userGoals.length > 0
-            ?
+          {userGoals.length > 0 ?
             <>
-              <View style={styles.goals__myGoals}>
-                <Title title='Minha metas' />
-                <Goal title='' />
-              </View>
-              <View style={styles.goals__completed}>
-                <Title title='Metas concluídas' />
-                <GText text='Nossas conquistas sustentáveis: metas alcançadas' />
-                <Goal title='' />
-              </View>
+              <Title title='Minha metas' />
+              {userGoals.filter((goal) => !goal.completed).map((goal, index) => (
+                <Goal key={index} title={goal.title} />
+              ))}
+              <Title title='Metas concluídas' />
+              <GText text='Nossas conquistas sustentáveis: metas alcançadas' />
+              {userGoals.filter((goal) => goal.completed).map((goal, index) => (
+                <Goal key={index} title={goal.title} />
+              ))}
             </>
             :
             <>
               <Title title='Metas sugeridas' />
-
               {initialGoals.map((goal) => (
                 <Goal key={goal.title} title={goal.title} />
               ))}

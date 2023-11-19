@@ -10,7 +10,6 @@ import styles from './styles.js'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import { useNavigation } from '@react-navigation/native'
 import { getAllHabits, saveHabitToDatabase } from '../../../services/controllers/user'
-import { RotatingLines } from 'react-loader-spinner'
 import { Picker } from '@react-native-picker/picker';
 
 export const HabitsWrapper = () => {
