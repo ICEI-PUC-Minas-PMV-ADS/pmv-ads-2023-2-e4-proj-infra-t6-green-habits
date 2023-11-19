@@ -6,13 +6,13 @@ import { Button } from '../../atoms/Button'
 import { GText } from '../../atoms/GText'
 import styles from './styles.js'
 
-export const Goal = ({ title, goalId, token }) => {
+export const Goal = ({ title, isCompleted, goalId, token, setUserGoals }) => {
   const [checked, setChecked] = useState(false)
 
   return (
     <View style={styles.goal}>
       <Checkbox
-        status={checked ? 'checked' : 'unchecked'}
+        status={isCompleted ? 'checked' : 'unchecked'}
         onPress={() => {
           setChecked(!checked)
         }}
