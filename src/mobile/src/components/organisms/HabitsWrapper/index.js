@@ -55,131 +55,128 @@ export const HabitsWrapper = () => {
     getHabits()
   }, [])
 
-  return isLoading ? <RotatingLines
-    strokeColor="grey"
-    strokeWidth="5"
-    animationDuration="0.75"
-    visible={true}
-    style={styles.spinner}
-  /> : (
-    <ScrollView style={styles.cards}>
-      <View style={styles.cards__title}>
-        <Title title='Hábitos' />
-        <GText text='Confira nossa seleção de hábitos para o seu dia a dia' />
-        <Button
-          level='primary'
-          label='Adicionar hábito'
-          onClick={() => setModalVisible(true)}
-        />
-      </View>
-
-      <Modal
-        animationType='slide'
-        transparent={true}
-        visible={modalVisible}
-        onRequestClose={() => {
-          Alert.alert('Modal fechado')
-          setModalVisible(!modalVisible)
-        }}
-      >
-        <View style={styles.centeredView}>
-          <View style={styles.modalView}>
-            <Text style={styles.modalText}>Hábito</Text>
-            <TextInput
-              placeholder='Plantar árvores no quintal'
-              left={<TextInput.Icon icon='pencil' color='#FDFFFF' />}
-              mode='outlined'
-              textColor='#FDFFFF'
-              outlineColor='#6BBD99'
-              activeOutlineColor='#6BBD99'
-              placeholderTextColor='#FDFFFF'
-              style={styles.modal__input}
-              onChangeText={(text) => {
-                setNewHabit({
-                  ...newHabit,
-                  title: text
-                })
-              }}
-            />
-            <Text style={styles.modalText}>Descrição</Text>
-            <TextInput
-              placeholder='Contribuir para a biodiversidade'
-              left={<TextInput.Icon icon='pencil' color='#FDFFFF' />}
-              mode='outlined'
-              textColor='#FDFFFF'
-              outlineColor='#6BBD99'
-              activeOutlineColor='#6BBD99'
-              placeholderTextColor='#FDFFFF'
-              style={styles.modal__input}
-              onChangeText={(text) => {
-                setNewHabit({
-                  ...newHabit,
-                  description: text
-                })
-              }}
-            />
-            <Picker
-              onValueChange={(value) => {
-                setNewHabit({
-                  ...newHabit,
-                  category: value
-                })
-              }}
-            >
-              <Picker.Item label="Selecione uma categoria" value="" />
-              <Picker.Item label="Consumo Sustentável" value="Consumo Sustentável" />
-              <Picker.Item label="Energia" value="Energia" />
-              <Picker.Item label="Reciclagem" value="Reciclagem" />
-              <Picker.Item label="Água" value="Água" />
-              <Picker.Item label="Transporte" value="Transporte" />
-              <Picker.Item label="Alimentação" value="Alimentação" />
-              <Picker.Item label="Conservação" value="Conservação" />
-              <Picker.Item label="Conscientização" value="Conscientização" />
-            </Picker>
-            <Button
-              level='primary'
-              label='Salvar alterações'
-              onClick={() => {
-                addNewHabit(newHabit)
-                setModalVisible(!modalVisible)
-              }}
-            />
-          </View>
+  return isLoading ?
+    <View style={styles.loadingMessage}>
+      <Text style={{ textAlign: 'center' }}>Carregando...</Text>
+    </View> : (
+      <ScrollView style={styles.cards}>
+        <View style={styles.cards__title}>
+          <Title title='Hábitos' />
+          <GText text='Confira nossa seleção de hábitos para o seu dia a dia' />
+          <Button
+            level='primary'
+            label='Adicionar hábito'
+            onClick={() => setModalVisible(true)}
+          />
         </View>
-      </Modal>
 
-      <View style={styles.cards__habits}>
-        {userHabits.length > 0 ?
-          <>
-            <Title title='Meus Hábitos' />
-            {userHabits.map((habit, index) => (
-              <HabitCard
-                key={index}
-                title={habit.title}
-                description={habit.description}
-                category={habit.category}
-                isSuggestedHabit={false}
-                habitId={habit._id}
-                token={userToken}
-                setUserHabits={setUserHabits}
+        <Modal
+          animationType='slide'
+          transparent={true}
+          visible={modalVisible}
+          onRequestClose={() => {
+            Alert.alert('Modal fechado')
+            setModalVisible(!modalVisible)
+          }}
+        >
+          <View style={styles.centeredView}>
+            <View style={styles.modalView}>
+              <Text style={styles.modalText}>Hábito</Text>
+              <TextInput
+                placeholder='Plantar árvores no quintal'
+                left={<TextInput.Icon icon='pencil' color='#FDFFFF' />}
+                mode='outlined'
+                textColor='#FDFFFF'
+                outlineColor='#6BBD99'
+                activeOutlineColor='#6BBD99'
+                placeholderTextColor='#FDFFFF'
+                style={styles.modal__input}
+                onChangeText={(text) => {
+                  setNewHabit({
+                    ...newHabit,
+                    title: text
+                  })
+                }}
               />
-            ))}
-          </>
-          :
-          <>
-            <Title title='Hábitos sugeridos' />
-            {suggestedHabits.slice(0, 3).map((habit, index) => (
-              <HabitCard
-                key={index}
-                title={habit.title}
-                description={habit.description}
-                category={habit.category}
-                isSuggestedHabit={true}
+              <Text style={styles.modalText}>Descrição</Text>
+              <TextInput
+                placeholder='Contribuir para a biodiversidade'
+                left={<TextInput.Icon icon='pencil' color='#FDFFFF' />}
+                mode='outlined'
+                textColor='#FDFFFF'
+                outlineColor='#6BBD99'
+                activeOutlineColor='#6BBD99'
+                placeholderTextColor='#FDFFFF'
+                style={styles.modal__input}
+                onChangeText={(text) => {
+                  setNewHabit({
+                    ...newHabit,
+                    description: text
+                  })
+                }}
               />
-            ))}
-          </>
-        }
-      </View>
-    </ScrollView>
-  )
+              <Picker
+                onValueChange={(value) => {
+                  setNewHabit({
+                    ...newHabit,
+                    category: value
+                  })
+                }}
+              >
+                <Picker.Item label="Selecione uma categoria" value="" />
+                <Picker.Item label="Consumo Sustentável" value="Consumo Sustentável" />
+                <Picker.Item label="Energia" value="Energia" />
+                <Picker.Item label="Reciclagem" value="Reciclagem" />
+                <Picker.Item label="Água" value="Água" />
+                <Picker.Item label="Transporte" value="Transporte" />
+                <Picker.Item label="Alimentação" value="Alimentação" />
+                <Picker.Item label="Conservação" value="Conservação" />
+                <Picker.Item label="Conscientização" value="Conscientização" />
+              </Picker>
+              <Button
+                level='primary'
+                label='Salvar alterações'
+                onClick={() => {
+                  addNewHabit(newHabit)
+                  setModalVisible(!modalVisible)
+                }}
+              />
+            </View>
+          </View>
+        </Modal>
+
+        <View style={styles.cards__habits}>
+          {userHabits.length > 0 ?
+            <>
+              <Title title='Meus Hábitos' />
+              {userHabits.map((habit, index) => (
+                <HabitCard
+                  key={index}
+                  title={habit.title}
+                  description={habit.description}
+                  category={habit.category}
+                  isSuggestedHabit={false}
+                  habitId={habit._id}
+                  token={userToken}
+                  setUserHabits={setUserHabits}
+                />
+              ))}
+            </>
+            :
+            <>
+              <Title title='Hábitos sugeridos' />
+              {suggestedHabits.slice(0, 3).map((habit, index) => (
+                <HabitCard
+                  key={index}
+                  title={habit.title}
+                  description={habit.description}
+                  category={habit.category}
+                  isSuggestedHabit={true}
+                />
+              ))}
+            </>
+          }
+        </View>
+      </ScrollView>
+    )
 }

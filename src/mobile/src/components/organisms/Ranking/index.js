@@ -6,23 +6,23 @@ export const Ranking = () => {
   const [isLoading, setLoading] = useState(true);
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const fetchedUserHabits = await getHabitsFromDatabase(userToken || '');
+    // const fetchData = async () => {
+    //   try {
+    //     const fetchedUserHabits = await getHabitsFromDatabase(userToken || '');
 
-        if (!fetchedUserHabits) {
-          setLoading(false);
-          return;
-        }
+    //     if (!fetchedUserHabits) {
+    //       setLoading(false);
+    //       return;
+    //     }
 
-        setUserHabits(fetchedUserHabits);
-        setLoading(false);
-      } catch (error) {
-        console.error('Erro ao renderizar ranking', error);
-        setLoading(false);
-      }
-    };
-    fetchData();
+    //     setUserHabits(fetchedUserHabits);
+    //     setLoading(false);
+    //   } catch (error) {
+    //     console.error('Erro ao renderizar ranking', error);
+    //     setLoading(false);
+    //   }
+    // };
+    // fetchData();
   }, []);
 
   if (isLoading) {
