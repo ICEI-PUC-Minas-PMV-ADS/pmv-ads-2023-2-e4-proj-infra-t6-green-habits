@@ -55,7 +55,13 @@ export const HabitsWrapper = () => {
     getHabits()
   }, [])
 
-  return !isLoading ? (
+  return isLoading ? <RotatingLines
+    strokeColor="grey"
+    strokeWidth="5"
+    animationDuration="0.75"
+    visible={true}
+    style={styles.spinner}
+  /> : (
     <ScrollView style={styles.cards}>
       <View style={styles.cards__title}>
         <Title title='Hábitos' />
@@ -175,11 +181,5 @@ export const HabitsWrapper = () => {
         }
       </View>
     </ScrollView>
-  ) : <RotatingLines
-    strokeColor="grey"
-    strokeWidth="5"
-    animationDuration="0.75"
-    visible={true}
-    style={styles.spinner}
-  />
+  )
 }

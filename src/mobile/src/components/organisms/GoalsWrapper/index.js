@@ -5,6 +5,7 @@ import { Goal } from '../../molecules/Goal'
 import { Alert, Modal, ScrollView, Text, View } from 'react-native'
 import { TextInput } from 'react-native-paper'
 import { useState } from 'react'
+import { RotatingLines } from 'react-loader-spinner'
 import styles from './styles.js'
 
 const initialGoals = [
@@ -17,23 +18,25 @@ const initialGoals = [
   {
     title: 'Economizar energia',
   },
-  {
-    title: 'Priorizar o transporte sustentável',
-  },
-  {
-    title: 'Apoiar produtos sustentáveis e locais',
-  },
 ]
 
 export const GoalsWrapper = () => {
   const [modalVisible, setModalVisible] = useState(false)
+  const [userToken, setUserToken] = useState()
+  const [isLoading, setIsLoading] = useState(true)
 
-  return (
+  return isLoading ? <RotatingLines
+    strokeColor="grey"
+    strokeWidth="5"
+    animationDuration="0.75"
+    visible={true}
+    style={styles.spinner}
+  /> : (
     <ScrollView style={styles.goals}>
       <View style={styles.goals__title}>
         <Title title='Metas' />
         <GText text='Nossa rota para a sustentabilidade: suas metas no Green Habits' />
-        <Button level='primary' label='Criar meta' onClick={() => setModalVisible(true)}/>
+        <Button level='primary' label='Criar meta' onClick={() => setModalVisible(true)} />
       </View>
 
       <Modal
@@ -58,7 +61,7 @@ export const GoalsWrapper = () => {
               placeholderTextColor='#242525'
               style={styles.modal__input}
             />
-            <Button level='primary' label='Adicionar meta'/>
+            <Button level='primary' label='Adicionar meta' />
             <Button
               level='tertiary'
               label='Fechar'
