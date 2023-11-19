@@ -117,12 +117,25 @@ export const GoalsWrapper = () => {
             <>
               <Title title='Minha metas' />
               {userGoals.filter((goal) => !goal.completed).map((goal, index) => (
-                <Goal key={index} title={goal.title} goalId={goal._id} />
+                <Goal
+                  key={index}
+                  title={goal.title}
+                  goalId={goal._id}
+                  token={userToken}
+                  setUserGoals={setUserGoals}
+                />
               ))}
               <Title title='Metas concluídas' />
               <GText text='Nossas conquistas sustentáveis: metas alcançadas' />
               {userGoals.filter((goal) => goal.completed).map((goal, index) => (
-                <Goal key={index} title={goal.title} isCompleted={true} goalId={goal._id}/>
+                <Goal 
+                  key={index} 
+                  title={goal.title}
+                  isCompleted={true}
+                  goalId={goal._id}
+                  token={userToken}
+                  setUserGoals={setUserGoals}
+                />
               ))}
             </>
             :

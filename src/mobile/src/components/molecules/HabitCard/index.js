@@ -67,7 +67,9 @@ export const HabitCard = ({ title, description, category, isSuggestedHabit, habi
               {isSuggestedHabit ? 
                 <Button level='primary' label='Adicionar hábito' />
                 : 
-                <Button level='tertiary' label='Remover hábito' onClick={async () => await handleDeleteClick(habitId)} />}
+                <Button level='tertiary' label='Remover hábito' 
+                  onClick={async () => await handleDeleteClick(habitId)} 
+                />}
             </View>
           )}
 
