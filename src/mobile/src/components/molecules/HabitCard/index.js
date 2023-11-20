@@ -28,7 +28,7 @@ function getImageForCategory(category) {
   return require('assets/cards/default.png')
 }
 
-export const HabitCard = ({ title, description, category, isSuggestedHabit, habitId, token, setUserHabits }) => {
+export const HabitCard = ({ title, description, category, isSuggestedHabit, habitId, token, setUserHabits, addNewHabit }) => {
   const backgroundImage = getImageForCategory(category)
   const [expanded, setExpanded] = useState(false)
 
@@ -65,7 +65,9 @@ export const HabitCard = ({ title, description, category, isSuggestedHabit, habi
           {expanded && (
             <View style={styles.card__buttons}>
               {isSuggestedHabit ? 
-                <Button level='primary' label='Adicionar hábito' />
+                <Button level='primary' label='Adicionar hábito'
+                  onClick={async () => await addNewHabit({ title, description, category })}
+                />
                 : 
                 <Button level='tertiary' label='Remover hábito' 
                   onClick={async () => await handleDeleteClick(habitId)} 

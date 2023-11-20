@@ -28,7 +28,7 @@ export const Ranking = () => {
   if (isLoading) {
     return (
       <View style={styles.loadingMessage}>
-        <Text style={{ textAlign: 'center' }}>Carregando...</Text>
+        {/* <Text style={{ textAlign: 'center' }}>Carregando...</Text> */}
       </View>
     );
   }
