@@ -227,3 +227,11 @@ Experiência do Usuário (UX): O Lighthouse também avalia a experiência do usu
 Após a análise, o Lighthouse gera um relatório com pontuações e sugestões específicas para melhorar o site com base nos critérios mencionados. As pontuações são normalmente divididas em categorias, permitindo que os desenvolvedores identifiquem áreas que precisam de atenção e melhoria.
 
 Em resumo, o Lighthouse é uma ferramenta abrangente que fornece uma visão detalhada do desempenho e da qualidade de um site da web, com o objetivo de ajudar os desenvolvedores e profissionais de marketing a otimizá-lo para proporcionar a melhor experiência possível aos usuários e melhorar seu posicionamento nos mecanismos de busca.
+
+# Plano de Testes de Software Mobile
+
+A estrutura do plano permanece bastante similar, mas alguns ajustes são necessários para considerar especificidades do ambiente mobile.
+
+Para aplicativos mobile, existem ferramentas semelhantes ao Lighthouse que podem fornecer análises sobre desempenho, acessibilidade, boas práticas, SEO e experiência do usuário.
+
+
