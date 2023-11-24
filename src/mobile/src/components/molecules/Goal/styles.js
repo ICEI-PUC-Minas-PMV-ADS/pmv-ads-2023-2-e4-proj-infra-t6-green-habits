@@ -2,7 +2,7 @@ import { StyleSheet } from 'react-native'
 
 const styles = StyleSheet.create({
   goal: {
-    width: 340,
+    width: '100%',
     minHeightheight: 200,
     backgroundColor: '#242525',
     borderCurve: 'circular',
@@ -11,6 +11,10 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     flexDirection: 'column',
   },
+  modalInput: {
+    backgroundColor: 'white',
+    border: 'none'
+  }
 })
 
 export default styles

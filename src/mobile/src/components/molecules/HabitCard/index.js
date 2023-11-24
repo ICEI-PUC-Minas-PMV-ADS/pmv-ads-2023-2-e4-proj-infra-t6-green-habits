@@ -1,7 +1,17 @@
 import { useState } from 'react'
-import { ImageBackground, Text, TouchableOpacity, View } from 'react-native'
+import {
+  ImageBackground,
+  Modal,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+} from 'react-native'
+import {
+  deleteHabitById,
+  getAllHabits,
+} from '../../../services/controllers/user'
 import { removeAccentsAndSpaces } from '../../../utils/removeAccentsAndSpaces'
-import { deleteHabitById, getAllHabits } from '../../../services/controllers/user'
 import { Button } from '../../atoms/Button'
 import { Tag } from '../../atoms/Tag'
 import styles from './styles.js'
@@ -28,9 +38,20 @@ function getImageForCategory(category) {
   return require('assets/cards/default.png')
 }
 
-export const HabitCard = ({ title, description, category, isSuggestedHabit, habitId, token, setUserHabits, addNewHabit }) => {
+export const HabitCard = ({
+  title,
+  description,
+  category,
+  isSuggestedHabit,
+  habitId,
+  token,
+  setUserHabits,
+  addNewHabit,
+}) => {
   const backgroundImage = getImageForCategory(category)
   const [expanded, setExpanded] = useState(false)
+  const [editModalVisible, setEditModalVisible] = useState(false)
+  const [editedTitle, setEditedTitle] = useState(title)
 
   const handleDeleteClick = async (habitId) => {
     if (token) {
@@ -48,15 +69,80 @@ export const HabitCard = ({ title, description, category, isSuggestedHabit, habi
     setExpanded(!expanded)
   }
 
+  const openEditModal = () => {
+    setEditedTitle(title)
+    setEditModalVisible(true)
+  }
+
+  const closeEditModal = () => {
+    setEditModalVisible(false)
+    setEditedTitle(title)
+  }
+
+  const saveEditedTitle = async () => {
+    try {
+      await updateHabitById(habitId, token, { title: editedTitle })
+      const updatedUserHabits = await getAllHabits(token)
+      setUserHabits(updatedUserHabits)
+      closeEditModal()
+    } catch (error) {
+      console.error('Erro ao atualizar hábito no banco de dados:', error)
+    }
+  }
+
   return (
     <TouchableOpacity onPress={toggleExpansion}>
       <ImageBackground source={backgroundImage} style={styles.card}>
         {!expanded && <Tag category={category} />}
 
-        {expanded && <Button level='primary' size='small' />}
+        {expanded && (
+          <>
+            <Button
+              level='primary'
+              size='small'
+              label='Editar hábito'
+              onClick={openEditModal}
+            />
+          </>
+        )}
+
+        <Modal
+          animationType='slide'
+          transparent={true}
+          visible={editModalVisible}
+          onRequestClose={closeEditModal}
+          style={styles.card__modal}
+        >
+          <View style={styles.centeredView}>
+            <View style={styles.modalView}>
+              <Text style={styles.modalText}>Editar hábito</Text>
+              <TextInput
+                value={editedTitle}
+                onChangeText={(text) => setEditedTitle(text)}
+                placeholder='Novo hábito'
+                style={styles.modalInput}
+              />
+              <Button
+                level='primary'
+                label='Salvar'
+                onClick={saveEditedTitle}
+              />
+              <View style={{ marginBottom: 12 }} />
+              <Button
+                level='tertiary'
+                label='Cancelar'
+                onClick={closeEditModal}
+              />
+            </View>
+          </View>
+        </Modal>
 
         <View style={styles.card__container}>
-          {!expanded && <Text style={styles.card__title}>{title}</Text>}
+          {!expanded && (
+            <TouchableOpacity onPress={openEditModal}>
+              <Text style={styles.card__title}>{title}</Text>
+            </TouchableOpacity>
+          )}
 
           {expanded && (
             <Text style={styles.card__description}>{description}</Text>
@@ -64,14 +150,21 @@ export const HabitCard = ({ title, description, category, isSuggestedHabit, habi
 
           {expanded && (
             <View style={styles.card__buttons}>
-              {isSuggestedHabit ? 
-                <Button level='primary' label='Adicionar hábito'
-                  onClick={async () => await addNewHabit({ title, description, category })}
+              {isSuggestedHabit ? (
+                <Button
+                  level='primary'
+                  label='Adicionar hábito'
+                  onClick={async () =>
+                    await addNewHabit({ title, description, category })
+                  }
                 />
-                : 
-                <Button level='tertiary' label='Remover hábito' 
-                  onClick={async () => await handleDeleteClick(habitId)} 
-                />}
+              ) : (
+                <Button
+                  level='tertiary'
+                  label='Remover hábito'
+                  onClick={async () => await handleDeleteClick(habitId)}
+                />
+              )}
             </View>
           )}
 
