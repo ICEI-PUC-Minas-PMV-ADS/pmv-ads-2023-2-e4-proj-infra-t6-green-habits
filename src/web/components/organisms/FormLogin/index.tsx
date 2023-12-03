@@ -14,6 +14,7 @@ import { AxiosError } from 'axios'
 import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 import styles from './styles.module.scss'
+import { ForgotPassword } from '@/components/organisms/ForgotPassword'
 
 export const FormLogin = () => {
   let [email, setEmail] = useState<string>('')
@@ -21,6 +22,8 @@ export const FormLogin = () => {
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [loginSuccess, setLoginSuccess] = useState(false)
   const [loginError, setLoginError] = useState<string | null>(null)
+  const [isForgotPasswordOpen, setIsForgotPasswordOpen] = useState(false)
+
   const router = useRouter()
 
   const handleLoginSubmit = async (email: string, password: string) => {
@@ -82,7 +85,14 @@ export const FormLogin = () => {
         {isModalOpen && loginError && (
           <FeedBackModal error={true} text={loginError} success={false} />
         )}
-        <Button isButton label='Esqueci a senha' level='tertiary' />
+        <Button
+          isButton
+          label='Esqueci a senha'
+          level='tertiary'
+          onClick={() => setIsForgotPasswordOpen(true)}
+        />
+        {isForgotPasswordOpen && <ForgotPassword />}
+
         <Text
           align='center'
           children='Ainda não faz parte do Green Habits? Cadastre-se agora'
