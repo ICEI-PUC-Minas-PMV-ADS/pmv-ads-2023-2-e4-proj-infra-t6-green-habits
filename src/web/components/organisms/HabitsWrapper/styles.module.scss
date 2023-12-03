@@ -107,6 +107,14 @@
       max-width: 34rem;
     }
   }
+
+  &__pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem;
+    gap: 4rem;
+  }
 }
 
 .myHabits {

@@ -26,6 +26,10 @@ export const HabitsWrapper = () => {
   const [isMobileModalOpen, setMobileModalOpen] = useState(false)
   const [isDesktopModalOpen, setDesktopModalOpen] = useState(false)
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null)
+  const [currentPage, setCurrentPage] = useState(1)
+  const itemsPerPage = 9
+  const startIndex = (currentPage - 1) * itemsPerPage
+  const endIndex = startIndex + itemsPerPage
 
   const pathname = usePathname()
 
@@ -37,6 +41,20 @@ export const HabitsWrapper = () => {
     const retrievedToken = localStorage.getItem('token')
     if (retrievedToken) {
       token = retrievedToken
+    }
+  }
+
+  const totalPages = Math.ceil(habits.length / itemsPerPage)
+
+  const handleNextPage = () => {
+    if (currentPage < totalPages) {
+      setCurrentPage(currentPage + 1)
+    }
+  }
+
+  const handlePrevPage = () => {
+    if (currentPage > 1) {
+      setCurrentPage(currentPage - 1)
     }
   }
 
@@ -189,7 +207,7 @@ export const HabitsWrapper = () => {
         {pathname !== '/' && (
           <div className={styles.wrapper__additionalItems}>
             {habits
-              .slice(2, 11)
+              .slice(startIndex, endIndex)
               .filter(
                 (item) =>
                   !selectedCategory || item.category === selectedCategory
@@ -238,6 +256,27 @@ export const HabitsWrapper = () => {
           />
         )}
       </section>
+
+      <div className={styles.wrapper__pagination}>
+        <Button
+          aria-label='Página Anterior'
+          onClick={handlePrevPage}
+          disabled={currentPage === 1}
+          size='small'
+          hasIcon={true}
+          icon='arrow-left'
+        />
+
+        <Text>{`Página ${currentPage} de ${totalPages}`}</Text>
+        <Button
+          aria-label='Próxima Página'
+          onClick={handleNextPage}
+          disabled={currentPage === totalPages}
+          size='small'
+          hasIcon={true}
+          icon='arrow-right'
+        />
+      </div>
 
       {pathname !== '/' && userHabits.length !== 0 && (
         <section className={styles.myHabits}>

@@ -18,6 +18,7 @@ interface ButtonProps {
   role?: string
   children?: React.ReactNode;
   tabIndex?: number
+  disabled?: boolean
 }
 
 export const Button = ({
@@ -33,7 +34,8 @@ export const Button = ({
   size,
   aria,
   role,
-  tabIndex
+  tabIndex,
+  disabled
 }: ButtonProps) => {
   const classList = [
     styles.button,
