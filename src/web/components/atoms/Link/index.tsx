@@ -1,6 +1,7 @@
 import { Icon } from '@/components/atoms/Icon'
 import Link from 'next/link'
 import styles from './styles.module.scss'
+import { CSSProperties } from 'react'
 
 interface LinkItemProps {
   href: string
@@ -11,7 +12,9 @@ interface LinkItemProps {
   color?: string
   fill?: string
   weight?: string
+  onClick?: () => void
   onCloseMenu?: () => void
+  style?: CSSProperties
 }
 export const LinkItem = ({
   href,
@@ -23,6 +26,7 @@ export const LinkItem = ({
   fill,
   weight,
   onCloseMenu,
+  
 }: LinkItemProps) => {
   const classList = [
     styles.link,

@@ -16,6 +16,14 @@ export const Navigation = () => {
     setIsMenuOpen(!isMenuOpen)
   }
 
+  const handleItemClick = (item: string) => {
+    setActiveItem((prevItem) => {
+      console.log('Active Item:', item);
+      return item;
+    });
+    setIsMenuOpen(false);
+  };
+
   useEffect(() => {
     const handleResize = () => {
       setIsDesktop(window.innerWidth >= 1280)
@@ -63,8 +71,9 @@ export const Navigation = () => {
             children={item.children}
             hasIcon={item.hasIcon}
             color={item.color}
-            weight={activeItem ? '600' : '300'}
             onCloseMenu={() => setIsMenuOpen(false)}
+            onClick={() => handleItemClick(item.children)}
+            style={{ fontWeight: activeItem === item.children ? 600 : 300 }}
           />
         ))}
         <li className={styles.navigation__button}>
