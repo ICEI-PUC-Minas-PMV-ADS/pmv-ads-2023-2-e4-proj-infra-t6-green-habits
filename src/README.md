@@ -8,6 +8,7 @@ Para configurar o backend, siga as instruções abaixo:
 
 1. Navegue até o diretório `api`.
 2. Execute o comando `npm install` para instalar as dependências.
+3. Execute o comando `npm run start`
 
 ## Mobile
 
