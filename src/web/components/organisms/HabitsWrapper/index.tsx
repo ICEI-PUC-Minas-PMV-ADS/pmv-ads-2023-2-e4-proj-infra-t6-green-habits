@@ -257,27 +257,29 @@ export const HabitsWrapper = () => {
         )}
       </section>
 
-      <div className={styles.wrapper__pagination}>
-        <Button
-          aria-label='Página Anterior'
-          onClick={handlePrevPage}
-          disabled={currentPage === 1}
-          size='small'
-          hasIcon={true}
-          icon='arrow-left'
-        />
+      {pathname !== '/' && (
+        <div className={styles.wrapper__pagination}>
+          <Button
+            aria-label='Página Anterior'
+            onClick={handlePrevPage}
+            disabled={currentPage === 1}
+            size='small'
+            hasIcon={true}
+            icon='arrow-left'
+          />
 
-        <Text>{`Página ${currentPage} de ${totalPages}`}</Text>
-        <Button
-          aria-label='Próxima Página'
-          onClick={handleNextPage}
-          disabled={currentPage === totalPages}
-          size='small'
-          hasIcon={true}
-          icon='arrow-right'
-        />
-      </div>
-
+          <Text>{`Página ${currentPage} de ${totalPages}`}</Text>
+          <Button
+            aria-label='Próxima Página'
+            onClick={handleNextPage}
+            disabled={currentPage === totalPages}
+            size='small'
+            hasIcon={true}
+            icon='arrow-right'
+          />
+        </div>
+      )}
+      
       {pathname !== '/' && userHabits.length !== 0 && (
         <section className={styles.myHabits}>
           <Heading
