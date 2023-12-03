@@ -4,11 +4,15 @@ import { Button } from '@/components/atoms/Button'
 import { FeedBackModal } from '@/components/molecules/FeedbackModal'
 import { Input } from '@/components/molecules/Input'
 import formRegister from '@/data/formRegister.json'
+import {
+  ApiResponse,
+  RegisterUserPayload,
+  registerUser,
+} from '@/services/controllers/user'
+import { AxiosError } from 'axios'
 import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 import styles from './styles.module.scss'
-import { ApiResponse, RegisterUserPayload, registerUser } from '@/services/controllers/user'
-import { AxiosError } from 'axios'
 
 export const FormRegister = () => {
   let [email, setEmail] = useState<string>('')
@@ -19,7 +23,11 @@ export const FormRegister = () => {
   const [registerError, setRegisterError] = useState<string | null>(null)
   const router = useRouter()
 
-  const handleRegisterSubmit = async (name: string, email: string, password: string) => {
+  const handleRegisterSubmit = async (
+    name: string,
+    email: string,
+    password: string
+  ) => {
     const payload: RegisterUserPayload = { name, email, password }
     try {
       await registerUser(payload)
@@ -34,6 +42,10 @@ export const FormRegister = () => {
     } finally {
       setIsModalOpen(true)
     }
+  }
+
+  const handleCancelClick = () => {
+    router.push('/login')
   }
 
   return (
@@ -70,12 +82,23 @@ export const FormRegister = () => {
           level='primary'
           hasIcon
           icon='check-01'
-          onClick={async () => await handleRegisterSubmit(name, email, password)}
+          onClick={async () =>
+            await handleRegisterSubmit(name, email, password)
+          }
         />
-        <Button isButton label='Cancelar' level='tertiary' />
+        <Button
+          isButton
+          label='Cancelar'
+          level='tertiary'
+          onClick={handleCancelClick}
+        />
       </div>
       {isModalOpen && registerSuccess && (
-        <FeedBackModal success={true} error={false} text='Damos as boas-vindas ao Green Habits' />
+        <FeedBackModal
+          success={true}
+          error={false}
+          text='Damos as boas-vindas ao Green Habits'
+        />
       )}
       {isModalOpen && registerError && (
         <FeedBackModal success={false} error={true} text={registerError} />
