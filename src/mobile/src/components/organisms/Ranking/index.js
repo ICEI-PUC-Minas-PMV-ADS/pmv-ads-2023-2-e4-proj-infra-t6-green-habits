@@ -1,35 +1,31 @@
 import React, { useEffect, useState } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
+import { getAllHabits } from '../../../services/controllers/user'
+import AsyncStorage from '@react-native-async-storage/async-storage'
+import { HabitCard } from '../../molecules/HabitCard';
 
 export const Ranking = () => {
-  const [userHabits, setUserHabits] = useState([]);
-  const [isLoading, setLoading] = useState(true);
+  const [userHabits, setUserHabits] = useState([])
+  const [isLoading, setIsLoading] = useState(true)
+  const [userToken, setUserToken] = useState()
 
   useEffect(() => {
-    // const fetchData = async () => {
-    //   try {
-    //     const fetchedUserHabits = await getHabitsFromDatabase(userToken || '');
-
-    //     if (!fetchedUserHabits) {
-    //       setLoading(false);
-    //       return;
-    //     }
-
-    //     setUserHabits(fetchedUserHabits);
-    //     setLoading(false);
-    //   } catch (error) {
-    //     console.error('Erro ao renderizar ranking', error);
-    //     setLoading(false);
-    //   }
-    // };
-    // fetchData();
-  }, []);
+    const getHabits = async () => {
+      const token = await AsyncStorage.getItem('token');
+      if (!token) {
+        navigation.navigate('Login')
+      }
+      setUserToken(token)
+      const updatedUserHabits = await getAllHabits(token)
+      setUserHabits(updatedUserHabits)
+      setIsLoading(false)
+    }
+    getHabits()
+  }, [])
 
   if (isLoading) {
     return (
-      <View style={styles.loadingMessage}>
-        {/* <Text style={{ textAlign: 'center' }}>Carregando...</Text> */}
-      </View>
+      <></>
     );
   }
 
