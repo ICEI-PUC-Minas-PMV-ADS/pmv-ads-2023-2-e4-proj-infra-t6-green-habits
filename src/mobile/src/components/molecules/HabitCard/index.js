@@ -47,6 +47,7 @@ export const HabitCard = ({
   token,
   setUserHabits,
   addNewHabit,
+  filterByCategory
 }) => {
   const backgroundImage = getImageForCategory(category)
   const [expanded, setExpanded] = useState(false)
@@ -93,7 +94,7 @@ export const HabitCard = ({
   return (
     <TouchableOpacity onPress={toggleExpansion}>
       <ImageBackground source={backgroundImage} style={styles.card}>
-        {!expanded && <Tag category={category} />}
+        {!expanded && <Tag category={category} onClick={() => filterByCategory && category && filterByCategory(category)} />}
 
         {expanded && (
           <>

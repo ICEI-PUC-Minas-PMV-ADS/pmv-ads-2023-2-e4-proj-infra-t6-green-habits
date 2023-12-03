@@ -18,11 +18,16 @@ export const HabitsWrapper = () => {
   const [userHabits, setUserHabits] = useState([])
   const [isLoading, setIsLoading] = useState(true)
   const [userToken, setUserToken] = useState()
+  const [selectedCategory, setSelectedCategory] = useState()
   const [newHabit, setNewHabit] = useState({
     title: '',
     description: '',
     category: ''
   })
+
+  const filterByCategory = (category) => {
+    setSelectedCategory(category)
+  }
 
   const addNewHabit = async (newHabit) => {
     try {
@@ -148,18 +153,24 @@ export const HabitsWrapper = () => {
           {userHabits.length > 0 ?
             <>
               <Title title='Meus Hábitos' />
-              {userHabits.map((habit, index) => (
-                <HabitCard
-                  key={index}
-                  title={habit.title}
-                  description={habit.description}
-                  category={habit.category}
-                  isSuggestedHabit={false}
-                  habitId={habit._id}
-                  token={userToken}
-                  setUserHabits={setUserHabits}
-                />
-              ))}
+              {userHabits
+                .filter(
+                  (item) =>
+                    !selectedCategory || item.category === selectedCategory
+                )
+                .map((habit, index) => (
+                  <HabitCard
+                    key={index}
+                    title={habit.title}
+                    description={habit.description}
+                    category={habit.category}
+                    isSuggestedHabit={false}
+                    habitId={habit._id}
+                    token={userToken}
+                    setUserHabits={setUserHabits}
+                    filterByCategory={filterByCategory}
+                  />
+                ))}
             </>
             :
             <>
@@ -171,6 +182,7 @@ export const HabitsWrapper = () => {
                   description={habit.description}
                   category={habit.category}
                   isSuggestedHabit={true}
+                  filterByCategory={filterByCategory}
                 />
               ))}
             </>
