@@ -86,7 +86,7 @@ export const Input = forwardRef(
     const inputFieldClassList = [
       styles.input__field,
       styles[`input__field--${color}`],
-      styles[`input__field--${placeholderColor}`]
+      styles[`input__field--${placeholderColor}`],
     ].join(' ')
 
     return (

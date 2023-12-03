@@ -2,13 +2,13 @@
 
 import { Button } from '@/components/atoms/Button'
 import { Heading } from '@/components/atoms/Heading'
-
 import { Text } from '@/components/atoms/Text'
+import { FeedBackModal } from '@/components/molecules/FeedbackModal'
 import { Input } from '@/components/molecules/Input'
 import formContact from '@/data/formContact.json'
-// import { useForm as useFormFormspree } from '@formspree/react'
-import { FeedBackModal } from '@/components/molecules/FeedbackModal'
+import { useForm as useFormFormspree } from '@formspree/react'
 import { useEffect, useState } from 'react'
+import { useRouter } from 'next/navigation'
 import { useForm } from 'react-hook-form'
 import styles from './styles.module.scss'
 
@@ -20,11 +20,13 @@ export const FormContactUs = () => {
     reset: resetReactHookForm,
   } = useForm()
 
-  // const [state, handleSubmitFormspree] = useFormFormspree(
-  //   process.env.NEXT_PUBLIC_FORMSPREE_ID
-  // )
+  const [state, handleSubmitFormspree] = useFormFormspree(
+    process.env.NEXT_PUBLIC_FORMSPREE_ID || ''
+  )
 
   const [isModalVisible, setModalVisible] = useState(false)
+
+  const router = useRouter()
 
   useEffect(() => {
     registerReactHookForm('email', {
@@ -38,13 +40,20 @@ export const FormContactUs = () => {
 
   const handleModalOpen = () => {
     setModalVisible(true)
-    // resetReactHookForm()
   }
 
   const handleModalClose = () => {
     setModalVisible(false)
-    // resetReactHookForm()
+    router.push('/')
+    resetReactHookForm()
   }
+
+  const handleFormSubmit = async (data) => {
+    await handleSubmitReactHookForm(data)
+    await handleSubmitFormspree(data)
+    handleModalOpen()
+  }
+
   return (
     <section className={styles.contact}>
       <Heading align='center' children='Fale conosco' color='black' level='2' />
@@ -56,10 +65,7 @@ export const FormContactUs = () => {
 
       <form
         className={styles.contact__form}
-        onSubmit={(event) => {
-          handleSubmitReactHookForm((data) => {})(event)
-          // handleSubmitFormspree(event)
-        }}
+        onSubmit={handleSubmitReactHookForm(handleFormSubmit)}
       >
         {formContact.map((item, index) => (
           <div key={index}>
@@ -71,11 +77,12 @@ export const FormContactUs = () => {
               placeholder={item.placeholder}
               type={item.type}
               error={
-                errorsReactHookForm[item.id]?.message ||
-                (item.id === 'email' &&
-                errorsReactHookForm['email']?.type === 'pattern'
-                  ? 'Invalid email address'
-                  : undefined)
+                item.id === 'email'
+                  ? errorsReactHookForm[item.id]?.message ||
+                    (errorsReactHookForm['email']?.type === 'pattern'
+                      ? 'Invalid email address'
+                      : undefined)
+                  : errorsReactHookForm[item.id]?.message || undefined
               }
               validation={item.validation}
               onKeyDown={() => {}}
@@ -93,15 +100,26 @@ export const FormContactUs = () => {
           level='primary'
           onClick={handleModalOpen}
         />
-      </form>
-      {isModalVisible && (
-        <FeedBackModal
-          success={true}
-          error={false}
-          text='Formulário enviado com sucesso.'
-        />
+      {isModalVisible && state.succeeded && (
+        <div className={styles.contact__container}>
+          <FeedBackModal
+            success={
+              state.succeeded && Object.keys(errorsReactHookForm).length === 0
+            }
+            error={
+              state.errors !== undefined ||
+              Object.keys(errorsReactHookForm).length > 0
+            }
+            text={
+              state.succeeded && Object.keys(errorsReactHookForm).length === 0
+                ? 'Formulário enviado com sucesso.'
+                : 'Ocorreu um erro durante a operação.'
+            }
+          />
+          <Button level='secondary' label='Finalizar o contato' onClick={handleModalClose} />
+        </div>
       )}
-      {/* {state.succeeded && <FeedBackModal success={true} error={false} text='Formulário enviado com sucesso.'/> */}
+      </form>
     </section>
   )
 }
