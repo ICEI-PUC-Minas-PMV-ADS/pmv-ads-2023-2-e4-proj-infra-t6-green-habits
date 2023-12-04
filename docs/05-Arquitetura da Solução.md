@@ -110,10 +110,12 @@ A API terá como principais rotas:
 
 ## Modelo Físico
 Como o projeto usará um banco não relacional, mostraremos os models (definições dos documentos no MongoDB):
+
 `user.ts`
 ```ts
 import mongoose, { Document, Schema } from 'mongoose';
 import { Habit, HabitSchema } from './habit';
+import { Goal, GoalSchema } from './goal';
 
 interface User extends Document {
     id: string;
@@ -121,19 +123,21 @@ interface User extends Document {
     email: string;
     password: string;
     habits: Habit[];
+    goals: Goal[]
 }
 
 const UserSchema = new Schema<User>({
-    id: { type: String, required: true, unique: true },
     name: { type: String, required: true },
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
     habits: [HabitSchema],
+    goals: [GoalSchema]
 });
 
 const UserModel = mongoose.model<User>('User', UserSchema);
 
 export default UserModel;
+
 
 ```
 
@@ -141,37 +145,40 @@ export default UserModel;
 ```ts
 import mongoose, { Document } from 'mongoose';
 
-export enum Category {
-    AMBIENTAL = "Meio ambiente",
-    HEALTH = "Saúde",
-    SOCIAL = "Social",
-    FINANCE = "Financeiro"
-}
-
 export interface Habit extends Document {
   id: string;
   title: string;
   description: string;
-  category: Category;
-  created_at: Date;
-  deleted_at?: Date;
-  target_streak?: number;
-  days_checked?: Date[];
+  category: string;
+  createdAt: Date;
 }
 
 export const HabitSchema = new mongoose.Schema<Habit>({
-  id: { type: String, required: true, unique: true },
   title: { type: String, required: true },
   description: { type: String, required: true },
   category: { type: String, required: true },
-  created_at: { type: Date, required: true },
-  deleted_at: { type: Date },
-  target_streak: { type: Number },
-  days_checked: [{ type: Date }],
+  createdAt: { type: Date, required: true },
 });
 
 export const HabitModel = mongoose.model<Habit>('Habit', HabitSchema);
+```
 
+`goal.ts`
+```ts
+import mongoose, { Document } from 'mongoose';
+
+export interface Goal extends Document {
+    id: string;
+    title: string;
+    completed: boolean
+}
+
+export const GoalSchema = new mongoose.Schema<Goal>({
+    title: { type: String, required: true },
+    completed: { type: Boolean, default: false}
+})
+
+export const GoalModel = mongoose.model<Goal>('Goal', GoalSchema);
 ```
 
 ## Tecnologias Utilizadas
