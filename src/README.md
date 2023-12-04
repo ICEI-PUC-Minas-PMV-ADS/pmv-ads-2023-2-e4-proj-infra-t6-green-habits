@@ -1,4 +1,8 @@
 # Green Habits
+O projeto é composto por três aplicações em Javascript/Typescript: uma API, um app mobile e um front-end.
+As instruções abaixo detalham o processo de rodar as aplicações localmente. Adicionalmente, o front-end e o back-end estão hospedados na nuvem em:
+- https://habit-tracker-api.fly.dev/ (back-end)
+- https://green-habits-puc.vercel.app/ (front-end) 
 
 ## API
 
