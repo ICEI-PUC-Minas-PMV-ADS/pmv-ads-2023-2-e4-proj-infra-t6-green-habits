@@ -16,7 +16,7 @@ const createUser = async (request: Request, response: Response, next: NextFuncti
     throw new AppError(ErrorReason.BAD_REQUEST, ErrorStatusCodes.BAD_REQUEST);
   }
   try {
-    const user = new UserModel({ name, email, password, habits: [] });
+    const user = new UserModel({ name, email, password, habits: [], goals: [] });
     let newUser = await user.save();
     const token = signJWT({ userId: newUser.id });
 

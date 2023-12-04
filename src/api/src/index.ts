@@ -9,6 +9,7 @@ import { MONGODB_URI } from './config/envs';
 import { createUser } from './controllers/user';
 import { authMiddleware } from './middlewares/auth';
 import { errorMiddleware } from './middlewares/error';
+import goalRoutes from './routers/goal';
 
 const app = express();
 
@@ -28,6 +29,7 @@ app.post('/user', createUser);
 app.post('/login', loginUser);
 app.use(authMiddleware);
 app.use('/habit', habitRoutes());
+app.use('/goal', goalRoutes())
 app.use(errorMiddleware);
 
 

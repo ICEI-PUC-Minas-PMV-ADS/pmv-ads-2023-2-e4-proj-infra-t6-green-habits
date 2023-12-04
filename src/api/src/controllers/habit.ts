@@ -1,5 +1,5 @@
 import { AppError } from '../error';
-import { Category, HabitModel } from '../models/habit';
+import { HabitModel } from '../models/habit';
 import UserModel from '../models/user';
 import { Request, Response, NextFunction } from 'express';
 import { ErrorReason, ErrorStatusCodes } from '../types/error';
@@ -7,21 +7,21 @@ import { ErrorReason, ErrorStatusCodes } from '../types/error';
 interface NewHabitRequest {
     title: string;
     description: string;
-    category: Category;
+    category: string;
     targetStreak?: number;
 }
 
 interface UpdateHabitRequest {
     title?: string;
     description?: string;
-    category?: Category;
+    category?: string;
     targetStreak?: number;
 }
 
 const createHabit = async (request: Request, response: Response, next: NextFunction) => {
     try {
         const { id } = response.locals.user;
-        
+
         const { title, description, targetStreak } = request.body as NewHabitRequest;
         if (!title || !description) {
             throw new AppError(ErrorReason.BAD_REQUEST, ErrorStatusCodes.BAD_REQUEST)
@@ -34,7 +34,7 @@ const createHabit = async (request: Request, response: Response, next: NextFunct
         }
 
         let createdAt = new Date();
-        let category = request.body.category || Category.NO_CATEGORY;
+        let category = request.body.category || "Sem categoria";
         const newHabit = new HabitModel({ title, description, category, targetStreak, createdAt })
 
         user.habits.push(newHabit);
@@ -134,14 +134,15 @@ const updateHabit = async (request: Request, response: Response, next: NextFunct
         if (title) habit.title = title;
         if (description) habit.description = description;
         if (category) habit.category = category;
-        if (targetStreak) habit.targetStreak = targetStreak;
 
         const updatedHabit = await HabitModel.findByIdAndUpdate(
-            habitId,
+            habit._id,
             { $set: habit },
             { new: true }
         );
-
+    
+        user.save()
+        
         return response.status(200).json(updatedHabit);
     }
     catch (error) {

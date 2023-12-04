@@ -4,6 +4,7 @@ export enum ErrorReason {
     LOGIN_FAILED = "Email ou senha incorretos",
     NONEXISTENT_USER = "Usuário não encontrado",
     NONEXISTENT_HABIT = "Hábito não encontrado",
+    NONEXISTENT_GOAL = "Meta não encontrada",
     BAD_REQUEST = "Dados inválidos. Verifique os campos enviados",
     DUPLICATE_EMAIL = "Este email já foi cadastrado por outro usuário."
 }

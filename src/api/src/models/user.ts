@@ -1,5 +1,6 @@
 import mongoose, { Document, Schema } from 'mongoose';
 import { Habit, HabitSchema } from './habit';
+import { Goal, GoalSchema } from './goal';
 
 interface User extends Document {
     id: string;
@@ -7,6 +8,7 @@ interface User extends Document {
     email: string;
     password: string;
     habits: Habit[];
+    goals: Goal[]
 }
 
 const UserSchema = new Schema<User>({
@@ -14,6 +16,7 @@ const UserSchema = new Schema<User>({
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
     habits: [HabitSchema],
+    goals: [GoalSchema]
 });
 
 const UserModel = mongoose.model<User>('User', UserSchema);
