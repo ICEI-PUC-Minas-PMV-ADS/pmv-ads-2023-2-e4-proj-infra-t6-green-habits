@@ -21,8 +21,11 @@
 * Pedro Felipe Alves de Oliveira
 
 ## Instruções de utilização
-A versão web pode ser acessada através do link [green-habits-puc.vercel.app.](https://green-habits-puc.vercel.app/)
-Para rodar as aplicações localmente, existem métodos diferentes:
+O projeto é composto por três aplicações em Javascript/Typescript: uma API, um app mobile e um front-end.
+As instruções abaixo detalham o processo de rodar as aplicações localmente. Adicionalmente, o front-end e o back-end estão hospedados na nuvem e podem ser acessados em:
+- https://habit-tracker-api.fly.dev/ (back-end)
+- https://green-habits-puc.vercel.app/ (front-end) 
+
 ## API
 
 ### Configuração do Backend
