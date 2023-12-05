@@ -7,10 +7,12 @@ Conjunto de slides em um arquivo PowerPoint ou PDF com a apresentação do proje
 
 ## Conjunto de Slides
 
+- [Slides](https://www.canva.com/design/DAFu8JjxtDk/27LBlQTK4d194u2ieGr6lQ/view) utilizados nas apresentações das três primeiras entregas.
+
 
 ## Vídeos produzidos ao longo do semestre
 
-- [Vídeo](https://youtu.be/FYxm795AmrE) de demonstração das funcionalidades atendidas
+- [Vídeo](https://youtu.be/FYxm795AmrE) de demonstração das funcionalidades atendidas.
 
 ### Considerações finais
 
