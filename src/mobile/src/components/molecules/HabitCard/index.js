@@ -10,6 +10,7 @@ import {
 import {
   deleteHabitById,
   getAllHabits,
+  updateHabitById
 } from '../../../services/controllers/user'
 import { removeAccentsAndSpaces } from '../../../utils/removeAccentsAndSpaces'
 import { Button } from '../../atoms/Button'
@@ -82,7 +83,7 @@ export const HabitCard = ({
 
   const saveEditedTitle = async () => {
     try {
-      await updateHabitById(habitId, token, { title: editedTitle })
+      await updateHabitById(habitId, { title: editedTitle }, token)
       const updatedUserHabits = await getAllHabits(token)
       setUserHabits(updatedUserHabits)
       closeEditModal()
