@@ -83,16 +83,18 @@ export const Goal = ({ title, isCompleted, goalId, token, setUserGoals }) => {
                   placeholder='Nova meta'
                   style={styles.modalInput}
                 />
-                <Button
-                  level='primary'
-                  label='Salvar'
-                  onClick={saveEditedGoal}
-                />
-                <Button
-                  level='tertiary'
-                  label='Cancelar'
-                  onClick={closeEditModal}
-                />
+                <View style={styles.goal__buttons}>
+                  <Button
+                    level='primary'
+                    label='Salvar'
+                    onClick={saveEditedGoal}
+                  />
+                  <Button
+                    level='tertiary'
+                    label='Cancelar'
+                    onClick={closeEditModal}
+                  />
+                </View>
               </View>
             </View>
           </Modal>

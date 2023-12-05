@@ -1,13 +1,13 @@
 import { useNavigation } from '@react-navigation/native'
 import { Controller, useForm } from 'react-hook-form'
-import { View } from 'react-native'
+import { ScrollView, View } from 'react-native'
 import { Text, TextInput } from 'react-native-paper'
 import { Button } from 'src/components/atoms/Button'
 import { GText } from 'src/components/atoms/GText'
 import { loginUser } from '../../../services/controllers/user'
 
-import styles from './styles.js'
 import AsyncStorage from '@react-native-async-storage/async-storage'
+import styles from './styles.js'
 
 export const FormLogin = () => {
   const navigation = useNavigation()
@@ -21,16 +21,16 @@ export const FormLogin = () => {
 
   const onSubmit = async (data) => {
     try {
-      const token = await loginUser(data);
-      await AsyncStorage.setItem("token", token);
+      const token = await loginUser(data)
+      await AsyncStorage.setItem('token', token)
       navigation.navigate('Tabs', { screen: 'Home' })
     } catch (error) {
-      alert("Email ou senha incorretos.")
+      alert('Email ou senha incorretos.')
     }
   }
 
   return (
-    <View style={styles.login}>
+    <ScrollView style={styles.login}>
       <Text style={styles.login__title}>
         Adote o <Text style={styles.login__titleEmphasis}>Green Habits</Text> em
         sua vida
@@ -86,22 +86,27 @@ export const FormLogin = () => {
         name='password'
       />
       {errors.password && <Text>Campo obrigatório</Text>}
+      <View style={styles.login__buttons}>
+        <Button
+          onClick={handleSubmit(onSubmit)}
+          level='primary'
+          label='Entrar'
+        />
 
-      <Button onClick={handleSubmit(onSubmit)} level='primary' label='Entrar' />
+        <Button
+          onClick={handleSubmit(onSubmit)}
+          level='tertiary'
+          label='Esqueci a senha'
+        />
 
-      <Button
-        onClick={handleSubmit(onSubmit)}
-        level='tertiary'
-        label='Esqueci a senha'
-      />
+        <GText text='Ainda não faz parte do Green Habits?' />
 
-      <GText text='Ainda não faz parte do Green Habits?' />
-
-      <Button
-        onClick={() => navigation.navigate('Register')}
-        level='primary'
-        label='Registre-se agora'
-      />
-    </View>
+        <Button
+          onClick={() => navigation.navigate('Register')}
+          level='primary'
+          label='Registre-se agora'
+        />
+      </View>
+    </ScrollView>
   )
 }

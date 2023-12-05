@@ -11,6 +11,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: '#6BBD99',
     borderStyle: 'solid',
+    marginBottom: 8
   },
   login__title: {
     fontSize: 24,
@@ -21,6 +22,11 @@ const styles = StyleSheet.create({
   login__titleEmphasis: {
     color: '#398278',
   },
+  login__buttons: {
+    flex: 1,
+    gap: 16,
+    marginBottom: 8
+  }
 })
 
 export default styles
