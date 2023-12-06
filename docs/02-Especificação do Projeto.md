@@ -217,8 +217,7 @@ O projeto está restrito pelos itens apresentados na tabela a seguir.
 
 Conforme os requisitos levantados, foi rastreado o peso que cada um deles possui sobre os demais. Desta forma, pode-se visualizar o que cada requisito está influenciando sobre as funcionalidades que serão desenvolvidas. Assim, podemos entender o impacto de qualquer mudança nos requisitos do sistema.
 
-![image](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e4-proj-infra-t6-green-habits/assets/80483432/f7b08625-5c69-4c26-bcf3-8561ae69798c)
-
+![Matriz de Rastreabilidade](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e4-proj-infra-t6-green-habits/blob/main/docs/img/matriz-rastreabilidade.png)
 
 
 # Gerenciamento de Projeto
@@ -232,8 +231,12 @@ Conforme os requisitos levantados, foi rastreado o peso que cada um deles possui
 
 Utilizando o Project do GitHub, junta-se o cronograma e a divisão de tarefas da equipe.
 
-https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e4-proj-infra-t6-green-habits/assets/103225086/1d7a11f6-eeab-4cfc-ae8b-dda277e895f2
+No final do semestre, o grupo foi capaz de realizar todas as tarefas listadas nas issues, como é perceptível na imagem a seguir.
 
+![kanban](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e4-proj-infra-t6-green-habits/assets/81396458/42d025bb-c9a6-4f94-ad23-e31d0a91f0d6)
+
+
+https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e4-proj-infra-t6-green-habits/assets/103225086/1d7a11f6-eeab-4cfc-ae8b-dda277e895f2
 
 
 ## Gerenciamento de Equipe
