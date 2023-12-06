@@ -227,7 +227,7 @@ Conforme os requisitos levantados, foi rastreado o peso que cada um deles possui
 
 ![Cronograma 1](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e4-proj-infra-t6-green-habits/assets/103225086/55555bae-98d1-4559-a75a-ac2b4e92f9a1)
 ![Cronograma 2](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e4-proj-infra-t6-green-habits/assets/103225086/d67c33d0-4fe6-4fd4-82e6-2286c879991c)
-![Cronograma 3](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e4-proj-infra-t6-green-habits/assets/103225086/3962588c-65a6-4e91-a6c3-1564551b6175)
+![Captura de Tela 2023-12-05 às 22 02 46](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e4-proj-infra-t6-green-habits/assets/103225086/433962f0-fda0-4134-b4c9-c95d8344aa4b)
 
 Utilizando o Project do GitHub, junta-se o cronograma e a divisão de tarefas da equipe.
 
@@ -241,7 +241,8 @@ O gerenciamento da equipe é realizado pelo Kanban dentro do próprio GitHub, ut
 
 https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e4-proj-infra-t6-green-habits/assets/103225086/74832524-a58c-4bb5-bc94-3acccf9d8989
 
-![Gráfico Evolução](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e4-proj-infra-t6-green-habits/assets/103225086/92f1eb03-69fb-415b-a874-56aec131017f)
+![Captura de Tela 2023-12-05 às 22 07 06](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e4-proj-infra-t6-green-habits/assets/103225086/8ac6920e-e775-4933-a9ce-d5f597afbcc5)
+
 
 ## Gerenciamento de Custos
 
