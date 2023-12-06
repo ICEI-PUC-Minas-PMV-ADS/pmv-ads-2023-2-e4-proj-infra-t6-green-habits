@@ -52,12 +52,14 @@ Usuários testados:
 |Excluir meta|1|1|Baixa|Solucionado|
 
 ## Execução das Tarefas Propostas
+<br><br>
 
 **Tarefa 1:**
 - Encontrar página de cadastro;
 - Inserir nos locais corretos as informações necessárias para cadastro de conta;
 
 <li>Resultado: Todos os usuários realizaram as tarefas de maneira intuitiva e sem dificuldade </li>
+<br><br>
 
 **Tarefa 2:**
 - Encontrar página de login;
@@ -65,12 +67,14 @@ Usuários testados:
 - Conseguir realizar login no sistema;
 
 <li>Resultado: Todos os usuários realizaram as tarefas de maneira intuitiva e sem dificuldade </li>
+<br><br>
 
 **Tarefa 3:**
 - Buscar hábitos saudáveis pré-cadastradados no banco de dados;
 - Utilização de filtro;
 
 <li>Resultado: 2 usuários tiveram dificuldade em compreender a página, não distinguindo os hábitos sugeridos com os hábitos próprios. Após correções da versão, todos os usuários realizaram as tarefas de maneira intuitiva e sem dificuldade. </li>
+<br><br>
 
 **Tarefa 4:**
 - Incorporar o hábito da tarefa anterior em sua lista de rotina;
