@@ -8,7 +8,7 @@ Conjunto de slides em um arquivo PowerPoint ou PDF com a apresentação do proje
 ## Conjunto de Slides
 
 - [Slides](https://www.canva.com/design/DAFu8JjxtDk/27LBlQTK4d194u2ieGr6lQ/view) utilizados nas apresentações das três primeiras entregas.
-- [Slides da apresentação final](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e4-proj-infra-t6-green-habits/files/13575408/Green.Habits.-.Slides.pdf).
+- [Slides](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e4-proj-infra-t6-green-habits/files/13575408/Green.Habits.-.Slides.pdf) da apresentação final.
 
 
 ## Vídeos produzidos ao longo do semestre
