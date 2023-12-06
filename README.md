@@ -30,7 +30,7 @@ As instruções abaixo detalham o processo de rodar as aplicações localmente. 
 
 ### Configuração do Backend
 
-Para configurar o backend, siga as instruções abaixo:
+Para configurar o backend, após instalar a versão `20.5.1` do node, siga as instruções abaixo:
 
 1. Navegue até o diretório `api`.
 2. Execute o comando `npm install` para instalar as dependências.
@@ -40,7 +40,7 @@ Para configurar o backend, siga as instruções abaixo:
 
 ### Configuração do Frontend Mobile
 
-Para configurar o frontend mobile, siga as instruções abaixo:
+Para configurar o frontend mobile, após instalar a versão `18.16.0` do node, siga as instruções abaixo:
 
 1. Navegue até o diretório `mobile`.
 2. Execute o comando `npm install` para instalar as dependências.
@@ -52,7 +52,7 @@ Para configurar o frontend mobile, siga as instruções abaixo:
 
 ### Configuração do Frontend Web
 
-Para configurar o frontend web, siga as instruções abaixo:
+Para configurar o frontend web, após instalar a versão `18.16.0` do node, siga as instruções abaixo:
 
 1. Navegue até o diretório `web`.
 2. Execute o comando `npm install` para instalar as dependências.
