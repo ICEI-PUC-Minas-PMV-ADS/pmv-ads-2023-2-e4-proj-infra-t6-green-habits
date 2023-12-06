@@ -52,8 +52,6 @@ Usuários testados:
 |Excluir meta|1|1|Baixa|Solucionado|
 
 ## Execução das Tarefas Propostas
-<br><br>
-
 **Tarefa 1:**
 - Encontrar página de cadastro;
 - Inserir nos locais corretos as informações necessárias para cadastro de conta;
@@ -73,10 +71,21 @@ Usuários testados:
 - Buscar hábitos saudáveis pré-cadastradados no banco de dados;
 - Utilização de filtro;
 
-<li>Resultado: 2 usuários tiveram dificuldade em compreender a página, não distinguindo os hábitos sugeridos com os hábitos próprios. Após correções da versão, todos os usuários realizaram as tarefas de maneira intuitiva e sem dificuldade. </li>
+<li>Resultado: 2 usuários tiveram dificuldade em compreender a página, não distinguindo os hábitos sugeridos com os hábitos próprios. Após correções da versão, o que incluiu título de identificação da seção logo abaixo da tela de seleção de escolha de itens sugeridos, todos os usuários realizaram as tarefas de maneira intuitiva e sem dificuldade. </li>
+
+![Captura de Tela 2023-12-05 às 22 12 58](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e4-proj-infra-t6-green-habits/assets/103225086/4833a393-6c20-452a-8d18-0f306f391139)
+
 <br><br>
 
 **Tarefa 4:**
 - Incorporar o hábito da tarefa anterior em sua lista de rotina;
 
 <li>Resultado: A incorporação de hábitos e de metas, após as correções realizadas devido à tarefa 3, foram satisfatórias. Porém, a exclusão desses hábitos e metas não foram intuitivas para 4 dos 5 participantes. Observou-se dificuldade de encontrar o botão para concluir a tarefa. Tal fato foi corrigido na terceira versão, e, após isso, todos os usuários realizaram as tarefas de maneira intuitiva e sem dificuldades. </li>
+<br>
+Campo de preenchimento pelo usuário para novos Hábitos:
+
+![Captura de Tela 2023-12-05 às 22 13 41](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e4-proj-infra-t6-green-habits/assets/103225086/a7cd63db-0762-497a-b845-4a06ea59c3fa)
+<br>
+Campo de preenchimento pelo usuário para novas Metas:
+
+![Captura de Tela 2023-12-05 às 22 14 05](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e4-proj-infra-t6-green-habits/assets/103225086/2ec7777c-f9e3-4bd3-a11e-286b02d2613d)
