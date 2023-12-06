@@ -13,6 +13,7 @@ Conjunto de slides em um arquivo PowerPoint ou PDF com a apresentação do proje
 ## Vídeos produzidos ao longo do semestre
 
 - [Vídeo](https://youtu.be/FYxm795AmrE) de demonstração das funcionalidades atendidas.
+- [Vídeo](https://youtu.be/0yVUtkvIooE) da apresentação final.
 
 ### Considerações finais
 
